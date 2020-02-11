@@ -1,0 +1,8 @@
+
+class CfgFunctions {
+  #include "functions.hpp"
+};
+
+#include "defines.hpp" // Vanilla arma 3 exports
+#include "GUI\a3adefines.hpp" // Antistasi specific defines and snippets
+#include "GUI\dialogs.hpp" // Includes for all the dialogs
