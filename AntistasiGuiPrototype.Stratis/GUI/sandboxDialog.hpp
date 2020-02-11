@@ -106,6 +106,42 @@ class A3A_SandboxDialog
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
+
+        class TestButtonSmall : A3A_ShortcutButton
+        {
+          text = "Small Button 1 Line";
+          size = GUI_TEXT_SIZE_SMALL;
+          x = 20 * GRID_W;
+          y = 50 * GRID_H;
+          w = 30 * GRID_W;
+          h = 5 * GRID_H;
+
+          class textPos
+          {
+            left = 1 * GRID_W;
+            right = 1 * GRID_H;
+            top = 1 * GRID_W;
+            bottom = 1* GRID_H;
+          };
+        };
+
+        class TestButtonSmall2 : A3A_ShortcutButton
+        {
+          text = "Small Button 2 Line";
+          size = GUI_TEXT_SIZE_SMALL;
+          x = 54 * GRID_W;
+          y = 50 * GRID_H;
+          w = 16 * GRID_W;
+          h = 8 * GRID_H;
+
+          class textPos
+          {
+            left = 1 * GRID_W;
+            right = 1 * GRID_H;
+            top = 1 * GRID_W;
+            bottom = 1* GRID_H;
+          };
+        };
       };
     };
   };

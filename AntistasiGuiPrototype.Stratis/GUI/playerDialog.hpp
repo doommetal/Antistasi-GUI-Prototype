@@ -97,8 +97,6 @@ class A3A_PlayerDialog
           action = "closeDialog 2";
           show = false;
           size = GUI_TEXT_SIZE_LARGE;
-          // sizeEx = GUI_TEXT_SIZE_LARGE;
-          // sizeExSecondary = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
@@ -190,8 +188,6 @@ class A3A_PlayerDialog
           action = "closeDialog 2";
           show = false;
           size = GUI_TEXT_SIZE_LARGE;
-          // sizeEx = GUI_TEXT_SIZE_LARGE;
-          // sizeExSecondary = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;
@@ -219,7 +215,7 @@ class A3A_PlayerDialog
           h = 3 * GRID_H;
         };
 
-        class MoneySectionLabel : SectionLabelRight
+        class MoneySectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
           text = "Donate money";
@@ -243,7 +239,7 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_MONEYEDITBOX;
           style = ST_RIGHT;
-          text = 0;
+          text = "0";
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 136 * GRID_W;
           y = 23 * GRID_H;
@@ -288,7 +284,7 @@ class A3A_PlayerDialog
           };
         };
 
-        class VehicleSectionLabel : SectionLabelRight
+        class VehicleSectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
           text = "Vehicles";
@@ -310,7 +306,7 @@ class A3A_PlayerDialog
 
         class GarageVehicleButton : A3A_ShortcutButton
         {
-          idc = A3A_IDC_DONATEFACTIONBUTTON;
+          idc = A3A_IDC_GARAGEVEHICLEBUTTON;
           text = "Garage Vehicle";
           x = 108 * GRID_W;
           y = 70 * GRID_H;
@@ -328,7 +324,7 @@ class A3A_PlayerDialog
 
         class UnlockVehicleButton : A3A_ShortcutButton
         {
-          idc = A3A_IDC_DONATEPLAYERBUTTON;
+          idc = A3A_IDC_UNLOCKVEHICLEBUTTON;
           text = "Unlock Vehicle";
           x = 132 * GRID_W;
           y = 70 * GRID_H;

@@ -132,7 +132,7 @@ class A3A_ShortcutButton : RscShortcutButton
   class Attributes
   {
     align = "left";
-    color = "#E5E5E5";
+    color = "#E5E5E5"; // TODO: Replace
     font = "PuristaLight";
     shadow = "false";
   };
@@ -161,7 +161,8 @@ class A3A_TabButton : A3A_ShortcutButton
 
 // Section labels
 
-class SectionLabelLeft : RscText {
+class A3A_SectionLabelLeft : RscText
+{
   style = ST_RIGHT;
   colorBackground[] = {0,0,0,1};
   colorShadow[] = {0,0,0,0.5};
@@ -169,7 +170,8 @@ class SectionLabelLeft : RscText {
   sizeEx = GUI_TEXT_SIZE_MEDIUM;
 };
 
-class SectionLabelRight : RscText {
+class A3A_SectionLabelRight : RscText
+{
   style = ST_LEFT;
   colorBackground[] = {0,0,0,1};
   colorShadow[] = {0,0,0,0.5};

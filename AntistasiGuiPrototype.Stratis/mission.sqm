@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4087.5222,231.95094,4579.0205};
-		dir[]={0.2421622,-0.34630939,0.90646172};
-		up[]={0.08939065,0.93809617,0.334611};
-		aside[]={0.96622163,9.8650344e-007,-0.25813946};
+		pos[]={4082.0742,238.72324,4571.4224};
+		dir[]={0.19758303,-0.49944985,0.84365666};
+		up[]={0.11388982,0.86632556,0.48629984};
+		aside[]={0.97375512,2.9916773e-006,-0.22806367};
 	};
 };
 binarizationWanted=0;
@@ -1336,7 +1336,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{this addAction[""HQ Management"", ""[] call A3A_fnc_openHQDialog""];}";
+						init="call{this addAction[""HQ Management"", """"];}";
 						name="petros";
 					};
 					id=5;
@@ -2862,7 +2862,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this addAction[""Buy Vehicle"", ""[] call A3A_fnc_openBuyVehicleDialog""];}";
+				init="call{this addAction[""Buy Vehicle"", """"];}";
 				name="vehicleBox";
 			};
 			id=13;
