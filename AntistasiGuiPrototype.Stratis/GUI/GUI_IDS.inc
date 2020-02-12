@@ -26,6 +26,10 @@
 #define A3A_IDC_GARAGEVEHICLEBUTTON     5020
 #define A3A_IDC_UNLOCKVEHICLEBUTTON     5021
 
+// Construct Dialog
+#define A3A_IDD_CONSTRUCTDIALOG         5100
+#define A3A_IDC_CONSTRUCTGROUP          5101
+
 // Commander Dialog
 #define A3A_IDD_COMMANDERDIALOG         5100
 
@@ -39,6 +43,10 @@
 #define A3A_IDC_AILIMITERSLIDER         5206
 #define A3A_IDC_AILIMITEREDITBOX        5207
 #define A3A_IDC_COMMITAIBUTTON          5208
+
+// Buy Vehicle Dialog
+#define A3A_IDD_BUYVEHICLEDIALOG        5900
+#define A3A_IDC_VEHICLESGROUP           5901
 
 // Sandbox Dialog
 #define A3A_IDD_SANDBOXDIALOG           6000

@@ -137,12 +137,12 @@ class A3A_ShortcutButton : RscShortcutButton
     shadow = "false";
   };
 
-  class TextPos
+  class TextPos // Defaults for GUI_TEXT_SIZE_MEDIUM
   {
-    left = 0;
-    right = 0;
-    top = 0;
-    bottom = 0;
+    left = 2 * GRID_W;
+    right = 2 * GRID_W;
+    top = 1 * GRID_H;
+    bottom = 1 * GRID_W;
   };
 };
 
@@ -227,5 +227,69 @@ class A3A_Tabs : RscControlsGroupNoScrollbars
       w = 32 * GRID_W;
       h = 4 * GRID_H;
     };
+  };
+};
+
+class A3A_InfoText : RscText
+{
+  sizeEx = GUI_TEXT_SIZE_SMALL;
+  shadow = 2;
+
+};
+
+class A3A_InfoTextRight : A3A_InfoText
+{
+  style = ST_RIGHT; // Can't set styles from scrips so we do it here
+};
+
+class A3A_BuildButtonTemplate : RscControlsGroupNoScrollbars
+{
+  idc = -1;
+  x = 8 * GRID_W;
+  y = 8 * GRID_H;
+  w = 44 * GRID_W;
+  h = 37 * GRID_H;
+
+  class controls
+  {
+    class Preview : RscPicture
+    {
+      idc = -1;
+      colorBackground[] = {0,0,0,0};
+      text = "\A3\EditorPreviews_F_Argo\Data\CfgVehicles\Land_Barricade_01_4m_F.jpg";
+      x = 0;
+      y = 0;
+      w = 44 * GRID_W;
+      h = 25 * GRID_H;
+    };
+
+    class CButton : A3A_ShortcutButton
+    {
+      idc = -1;
+      // style = "0x01 + 0x04 + 0xC0"; // Adjust down right + uppercase
+      text = "Barricade (4m) Long Name Is Long";
+      x = 0;
+      y = 25 * GRID_H;
+      w = 44 * GRID_W;
+      h = 12 * GRID_H;
+
+      class TextPos
+      {
+        left = 2 * GRID_W;
+        right = 2 * GRID_W;
+        top = 1 * GRID_H;
+        bottom = 1 * GRID_W;
+      };
+    };
+
+    class PriceTag : RscText
+    {
+      text = "50000 €";
+      // sizeEx = GUI_TEXT_SIZE_SMALL;
+      x = 1 * GRID_W;
+      y = 1 * GRID_H;
+      w = 20 * GRID_W;
+      h = 4 * GRID_H;
+    }
   };
 };
