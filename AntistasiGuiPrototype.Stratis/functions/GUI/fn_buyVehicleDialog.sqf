@@ -27,10 +27,11 @@ switch (_mode) do {
       _canGoUndercover = _x select 2;
       _crewCount = [_className] call A3A_fnc_getVehicleCrewCount;
       _driver = _crewCount select 0;
-      _commander = _crewCount select 1;
-      _gunners = _crewCount select 2;
-      _passengers = _crewCount select 3;
-      _passengersFFV = _crewCount select 4;
+      _coPilot = _crewCount select 1;
+      _commander = _crewCount select 2;
+      _gunners = _crewCount select 3;
+      _passengers = _crewCount select 4;
+      _passengersFFV = _crewCount select 5;
       _configClass = configFile >> "CfgVehicles" >> _className;
       _displayName = getText (_configClass >> "displayName");
       _editorPreview = getText (_configClass >> "editorPreview");
@@ -77,7 +78,8 @@ switch (_mode) do {
       _crewControlsGroup ctrlCommit 0;
 
       _crewInfoAdded = 0;
-      if (_driver > 0) then {
+      if (_driver > 0) then
+      {
         _driverIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
         _driverIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
         _driverIcon ctrlSetText "GUI\textures\icon_driver.paa";
@@ -88,10 +90,20 @@ switch (_mode) do {
         _driverText ctrlSetPosition [2 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
         _driverText ctrlSetText str _driver;
         _driverText ctrlCommit 0; */
+
+        if (_coPilot > 0) then
+        {
+          _coPilotIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
+          _coPilotIcon ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+          _coPilotIcon ctrlSetText "GUI\textures\icon_driver.paa";
+          _coPilotIcon ctrlSetFade 0.3;
+          _coPilotIcon ctrlCommit 0;
+        };
         _crewInfoAdded = _crewInfoAdded + 1;
       };
 
-      if (_commander > 0) then {
+      if (_commander > 0) then
+      {
         _commanderIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
         _commanderIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
         _commanderIcon ctrlSetText "GUI\textures\icon_commander.paa";
@@ -105,13 +117,15 @@ switch (_mode) do {
         _crewInfoAdded = _crewInfoAdded + 1;
       };
 
-      if (_gunners > 0) then {
+      if (_gunners > 0) then
+      {
         _gunnerIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
         _gunnerIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
         _gunnerIcon ctrlSetText "GUI\textures\icon_gunner.paa";
         _gunnerIcon ctrlCommit 0;
 
-        if (_gunners > 1) then {
+        if (_gunners > 1) then
+        {
           _gunnersText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
           _gunnersText ctrlSetPosition [2 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
           _gunnersText ctrlSetText str _gunners;
@@ -120,27 +134,31 @@ switch (_mode) do {
         _crewInfoAdded = _crewInfoAdded + 1;
       };
 
-      if (_passengers > 0) then {
+      if (_passengers > 0) then
+      {
         _passengerIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
         _passengerIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
         _passengerIcon ctrlSetText "GUI\textures\icon_cargo.paa";
         _passengerIcon ctrlCommit 0;
 
-        if (_passengers > 1) then {
+        if (_passengers > 1) then
+        {
           _passengersText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
           _passengersText ctrlSetPosition [2 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
           _passengersText ctrlSetText str _passengers;
           _passengersText ctrlCommit 0;
         };
 
-        if (_passengersFFV > 0) then {
+        if (_passengersFFV > 0) then
+        {
           _ffvIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
           _ffvIcon ctrlSetPosition [6 * GRID_W, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
           _ffvIcon ctrlSetText "GUI\textures\icon_ffv.paa";
           _ffvIcon ctrlSetFade 0.3;
           _ffvIcon ctrlCommit 0;
 
-          if (_passengersFFV > 1) then {
+          if (_passengersFFV > 1) then
+          {
             _ffvText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
             _ffvText ctrlSetPosition [8 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
             _ffvText ctrlSetText str _passengersFFV;
