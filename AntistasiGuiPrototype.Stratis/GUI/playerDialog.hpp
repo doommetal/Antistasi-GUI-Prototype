@@ -308,6 +308,7 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_GARAGEVEHICLEBUTTON;
           text = "Garage Vehicle";
+          action = "[] spawn A3A_fnc_garageDialog";
           x = 108 * GRID_W;
           y = 70 * GRID_H;
           w = 16 * GRID_H;

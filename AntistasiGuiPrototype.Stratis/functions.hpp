@@ -15,5 +15,6 @@ class A3A
     class playerManagementDialog{};
     class buyVehicleDialog {};
     class hqDialog {};
+    class garageDialog {};
   };
 };

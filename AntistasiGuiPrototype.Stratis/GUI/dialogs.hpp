@@ -9,3 +9,4 @@ This file contains all dialogs used in Antistasi
 #include "buyVehicleDialog.hpp"
 #include "sandboxDialog.hpp"
 #include "constructDialog.hpp"
+#include "garageDialog.hpp"
