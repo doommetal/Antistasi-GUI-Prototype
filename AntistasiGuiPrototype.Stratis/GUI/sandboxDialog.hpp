@@ -186,6 +186,6 @@ class A3A_SandboxDialog
       y = CENTER_Y(DIALOG_H);
       w = PX_W(DIALOG_W);
       h = PX_H(DIALOG_H);
-    }
+    };
   };
 };

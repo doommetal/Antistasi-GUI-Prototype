@@ -367,6 +367,6 @@ class A3A_PlayerDialog
       y = CENTER_Y(DIALOG_H);
       w = PX_W(DIALOG_W);
       h = PX_H(DIALOG_H);
-    }
+    };
   };
 };

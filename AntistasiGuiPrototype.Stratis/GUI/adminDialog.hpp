@@ -195,23 +195,18 @@ class A3A_AdminDialog
           onKeyDown = "[""aiLimiterEditBoxChanged""] spawn A3A_fnc_adminDialog";
         };
 
-        class AiSectionWarning : A3A_ShortcutButton
+        class AiSectionWarning : RscTextMulti
         {
           idc = -1;
-          text = "Be careful when editing these settings. Setting them too high *will* break the game.";
-          size = GUI_TEXT_SIZE_SMALL;
-          x = 74 * GRID_W;
-          y = 36 * GRID_H;
-          w = 54 * GRID_W;
-          h = 12 * GRID_H;
-
-          class textPos
-          {
-            left = 1 * GRID_W;
-            right = 1 * GRID_H;
-            top = 1 * GRID_W;
-            bottom = 1 * GRID_H;
-          };
+          style = "0x02 + 0x10 + 0x0200"; // ST_CENTER + ST_MULTI
+          text = "BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.";
+          sizeEx = GUI_TEXT_SIZE_SMALL;
+          font = "PuristaLight";
+          shadow = 2;
+          x = 75 * GRID_W;
+          y = 37 * GRID_H;
+          w = 52 * GRID_W;
+          h = 10 * GRID_H;
         };
 
         class CommitAiButton : A3A_ShortcutButton
@@ -377,6 +372,15 @@ class A3A_AdminDialog
       y = CENTER_Y(DIALOG_H);
       w = PX_W(DIALOG_W);
       h = PX_H(DIALOG_H);
-    }
+    };
+
+    class AiSectionWarningBackground : A3A_MainBackground
+    {
+      colorBackground[] = {0,0,0,0.5};
+      x = CENTER_X(DIALOG_W) + 74 * GRID_W;
+      y = CENTER_Y(DIALOG_H) + 36 * GRID_H;
+      w = 54 * GRID_W;
+      h = 12 * GRID_H;
+    };
   };
 };

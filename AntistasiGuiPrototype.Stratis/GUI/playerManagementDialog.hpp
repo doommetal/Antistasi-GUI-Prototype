@@ -36,7 +36,7 @@ class A3A_PlayerManagementDialog
       {
         // Start of controls
 
-        class MemberList : RscListBox
+        class MemberList : ctrlListbox
         {
           idc = A3A_IDC_PLAYERLIST;
           x = 8 * GRID_W;
@@ -46,6 +46,7 @@ class A3A_PlayerManagementDialog
           onLBSelChanged = "[""listBoxSelectionChanged""] spawn A3A_fnc_playerManagementDialog";
 
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          rowHeight = 4 * GRID_H;
         };
 
         class AddMemberButton : A3A_ShortcutButton
@@ -318,6 +319,6 @@ class A3A_PlayerManagementDialog
       y = CENTER_Y(DIALOG_H);
       w = PX_W(DIALOG_W);
       h = PX_H(DIALOG_H);
-    }
+    };
   };
 };
