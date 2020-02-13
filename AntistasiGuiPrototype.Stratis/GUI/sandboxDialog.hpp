@@ -9,7 +9,7 @@ class A3A_SandboxDialog
     class TitleText : A3A_TitleText
     {
       idc = -1;
-      text = "ADMIN OPTIONS > PLAYER MANAGEMENT";
+      text = "SANDBOX";
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
       w = PX_W(DIALOG_W);
@@ -36,17 +36,13 @@ class A3A_SandboxDialog
       {
         // Start of controls
 
-        
-
-
-
         class SizeTestGroup : RscControlsGroupNoScrollbars
         {
           x = 0;
           y = 0;
           w = PX_W(DIALOG_W);
           h = PX_H(DIALOG_H);
-          show = false;
+          show = true;
 
           class controls
           {
