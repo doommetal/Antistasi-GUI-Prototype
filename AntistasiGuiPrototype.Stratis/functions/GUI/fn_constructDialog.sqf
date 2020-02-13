@@ -10,7 +10,6 @@ switch (_mode) do {
     waitUntil {dialog}; // Wait until the dialog is actually created
 
     _display = findDisplay A3A_IDD_CONSTRUCTDIALOG;
-    systemChat str _display;
 
     // Pixel grid
     // TODO: MOVE THIS
@@ -20,6 +19,11 @@ switch (_mode) do {
 
     // Add the stuff to the construct list
     _constructControlsGroup = _display displayCtrl A3A_IDC_CONSTRUCTGROUP;
+
+    // Hide the group initially to let things get into place
+    _constructControlsGroup ctrlSetFade 1;
+    _constructControlsGroup ctrlCommit 0;
+
     _added = 0;
     {
       _className = _x select 0;
@@ -49,7 +53,6 @@ switch (_mode) do {
       _priceText ctrlSetText format ["%1 €",_price];
       _priceText ctrlCommit 0;
 
-      systemChat _className;
       _added = _added + 1;
     } forEach constructionsList;
 
@@ -60,5 +63,9 @@ switch (_mode) do {
     _paddingBottom ctrlSetPosition [0, (floor (_added / 3)) * (44 * GRID_H) + _fullRow * (44 * GRID_H), 1 * GRID_W, 7 * GRID_H];
     _paddingBottom ctrlSetText "";
     _paddingBottom ctrlCommit 0; */
+
+    // Show group again
+    _constructControlsGroup ctrlSetFade 0;
+    _constructControlsGroup ctrlCommit 0.1;
   };
 };

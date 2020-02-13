@@ -48,7 +48,7 @@ private _fnc_turrets =
 _cfg call _fnc_turrets;
 
 _gunners = _turrets - _commander - _coPilot;
-_passengers = _allTurrets + _transportSoldier - _commander - _gunners;
+_passengers = _allTurrets + _transportSoldier - _commander - _gunners - _coPilot;
 _passengersFFV = _passengers - _transportSoldier;
 
-[_driver, _copilot, _commander, _gunners, _passengers, _passengersFFV];
+[_driver, _coPilot, _commander, _gunners, _passengers, _passengersFFV];

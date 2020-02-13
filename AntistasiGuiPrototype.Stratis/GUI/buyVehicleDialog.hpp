@@ -30,9 +30,9 @@ class A3A_BuyVehicleDialog
         {
           idc = A3A_IDC_VEHICLESGROUP;
           x = 0;
-          y = 2 * GRID_H;
+          y = 4 * GRID_H;
           w = PX_W(DIALOG_W);
-          h = PX_H(DIALOG_H) - 4 * GRID_H;
+          h = PX_H(DIALOG_H) - 8 * GRID_H;
         };
       };
     };

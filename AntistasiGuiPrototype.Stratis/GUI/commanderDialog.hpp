@@ -34,15 +34,14 @@ class A3A_CommanderDialog
 
       class controls
       {
-        class TestButton : A3A_ShortcutButton
+        class HcButton1 : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Placeholder";
-          default = 1;
-          x = 3 * GRID_W;
-          y = 3 * GRID_H;
-          w = 64 * GRID_W;
-          h = 4 * GRID_H;
+          text = "HC 1";
+          x = 8 * GRID_W;
+          y = 84 * GRID_H;
+          w = 20 * GRID_W;
+          h = 6 * GRID_H;
         };
       };
     };

@@ -10,7 +10,6 @@ switch (_mode) do {
     waitUntil {dialog}; // Wait until the dialog is actually created
 
     _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
-    systemChat str _display;
 
     // Pixel grid
     // TODO: MOVE THIS
@@ -20,6 +19,9 @@ switch (_mode) do {
 
     // Add the stuff to the construct list
     _vehiclesControlsGroup = _display displayCtrl A3A_IDC_VEHICLESGROUP;
+    // Hide group initially to let all the things get to the right place
+    _vehiclesControlsGroup ctrlSetFade 1;
+    _vehiclesControlsGroup ctrlCommit 0;
     _added = 0;
     {
       _className = _x select 0;
@@ -170,8 +172,6 @@ switch (_mode) do {
         _crewInfoAdded = _crewInfoAdded + 1;
       };
 
-      systemChat _className;
-      systemChat str _crewCount;
       _added = _added + 1;
     } forEach buyableVehiclesList;
 
@@ -182,5 +182,9 @@ switch (_mode) do {
     _paddingBottom ctrlSetPosition [0, (floor (_added / 3)) * (44 * GRID_H) + _fullRow * (44 * GRID_H), 1 * GRID_W, 7 * GRID_H];
     _paddingBottom ctrlSetText "";
     _paddingBottom ctrlCommit 0; */
+
+    // Show list
+    _vehiclesControlsGroup ctrlSetFade 0;
+    _vehiclesControlsGroup ctrlCommit 0.1;
   };
 };

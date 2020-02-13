@@ -9,7 +9,7 @@ class A3A_ConstructDialog
     class TitleText : A3A_TitleText
     {
       idc = -1;
-      text = "TEMPLATE";
+      text = "PLAYER OPTIONS > CONSTRUCT";
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
       w = PX_W(DIALOG_W);
@@ -38,9 +38,9 @@ class A3A_ConstructDialog
         {
           idc = A3A_IDC_CONSTRUCTGROUP;
           x = 0;
-          y = 2 * GRID_H;
+          y = 4 * GRID_H;
           w = PX_W(DIALOG_W);
-          h = PX_H(DIALOG_H) - 4 * GRID_H;
+          h = PX_H(DIALOG_H) - 8 * GRID_H;
         };
       };
     };
