@@ -44,10 +44,11 @@ class A3A_AdminDialog
           h = 48 * GRID_H;
         };
 
-        class MemberManagementButton : A3A_ShortcutButton
+        class PlayerManagementButton : A3A_ShortcutButton
         {
-          idc = A3A_IDC_MEMBERMANAGEMENTBUTTON;
-          text = "Member Management";
+          idc = A3A_IDC_PLAYERMANAGEMENTBUTTON;
+          text = "Player Management";
+          action = "[] spawn A3A_fnc_playerManagementDialog";
           x = 8 * GRID_W;
           y = 64 * GRID_H;
           w = 48 * GRID_W;

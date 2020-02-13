@@ -11,5 +11,4 @@ switch (_mode) do {
 
     _display = findDisplay A3A_IDD_SANDBOXDIALOG;
     systemChat str _display;
-  };
 };

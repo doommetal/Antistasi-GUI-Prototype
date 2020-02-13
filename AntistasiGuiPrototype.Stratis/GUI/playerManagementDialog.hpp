@@ -1,6 +1,6 @@
-class A3A_SandboxDialog
+class A3A_PlayerManagementDialog
 {
-  idd = A3A_IDD_SANDBOXDIALOG;
+  idd = A3A_IDD_PLAYERMANAGEMENTDIALOG;
 
   #define DIALOG_W 160
   #define DIALOG_H 100
@@ -36,7 +36,135 @@ class A3A_SandboxDialog
       {
         // Start of controls
 
-        
+        class MemberList : RscListBox
+        {
+          idc = A3A_IDC_PLAYERLIST;
+          x = 8 * GRID_W;
+          y = 8 * GRID_W;
+          w = 78 * GRID_W;
+          h = 86 * GRID_H;
+          onLBSelChanged = "[""listBoxSelectionChanged""] spawn A3A_fnc_playerManagementDialog";
+
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+        };
+
+        class AddMemberButton : A3A_ShortcutButton
+        {
+          idc = A3A_IDC_ADDMEMBERBUTTON;
+          text = "Add Member";
+          action = "[""addMember""] spawn A3A_fnc_playerManagementDialog";
+          size = GUI_TEXT_SIZE_LARGE;
+          show = false;
+          x = 92 * GRID_W;
+          y = 8 * GRID_W;
+          w = 60 * GRID_W;
+          h = 12 * GRID_H;
+
+          class TextPos
+          {
+            left = 2 * GRID_W;
+            right = 2 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
+          };
+        };
+
+        class RemoveMemberButton : A3A_ShortcutButton
+        {
+          idc = A3A_IDC_REMOVEMEMBERBUTTON;
+          text = "Remove Member";
+          action = "[""removeMember""] spawn A3A_fnc_playerManagementDialog";
+          size = GUI_TEXT_SIZE_LARGE;
+          show = false;
+          x = 92 * GRID_W;
+          y = 8 * GRID_W;
+          w = 60 * GRID_W;
+          h = 12 * GRID_H;
+
+          class TextPos
+          {
+            left = 2 * GRID_W;
+            right = 2 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
+          };
+        };
+
+        class TeleportToPlayerButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Teleport to Player";
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 92 * GRID_W;
+          y = 28 * GRID_W;
+          w = 60 * GRID_W;
+          h = 12 * GRID_H;
+
+          class TextPos
+          {
+            left = 2 * GRID_W;
+            right = 2 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
+          };
+        };
+
+        class TeleportPlayerButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Teleport Player to Me";
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 92 * GRID_W;
+          y = 48 * GRID_W;
+          w = 60 * GRID_W;
+          h = 12 * GRID_H;
+
+          class TextPos
+          {
+            left = 2 * GRID_W;
+            right = 2 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
+          };
+        };
+
+        class KickPlayerButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Kick Player";
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 92 * GRID_W;
+          y = 68 * GRID_W;
+          w = 60 * GRID_W;
+          h = 12 * GRID_H;
+
+          class TextPos
+          {
+            left = 2 * GRID_W;
+            right = 2 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
+          };
+        };
+
+        class BanPlayerButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Ban Player";
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 92 * GRID_W;
+          y = 88 * GRID_W;
+          w = 60 * GRID_W;
+          h = 12 * GRID_H;
+
+          class TextPos
+          {
+            left = 2 * GRID_W;
+            right = 2 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
+          };
+        };
 
 
 

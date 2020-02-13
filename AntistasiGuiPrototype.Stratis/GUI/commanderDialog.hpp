@@ -34,14 +34,74 @@ class A3A_CommanderDialog
 
       class controls
       {
+        class HcList : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Squad list placeholder";
+          x = 8 * GRID_W;
+          y = 8 * GRID_H;
+          w = 64 * GRID_W;
+          h = 54 * GRID_H;
+        };
+
         class HcButton1 : A3A_ShortcutButton
         {
           idc = -1;
-          text = "HC 1";
+          text = "SITREP";
           x = 8 * GRID_W;
-          y = 84 * GRID_H;
+          y = 66 * GRID_H;
           w = 20 * GRID_W;
-          h = 6 * GRID_H;
+          h = 12 * GRID_H;
+        };
+
+        class HcButton2 : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Recruit";
+          x = 30 * GRID_W;
+          y = 66 * GRID_H;
+          w = 20 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class HcButton3 : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Dismiss";
+          x = 52 * GRID_W;
+          y = 66 * GRID_H;
+          w = 20 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class HcButton4 : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Garrison";
+          x = 8 * GRID_W;
+          y = 80 * GRID_H;
+          w = 20 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class HcButton5 : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Add Vehicle";
+          x = 30 * GRID_W;
+          y = 80 * GRID_H;
+          w = 20 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class HcButton6 : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Mount / Dismount";
+          x = 52 * GRID_W;
+          y = 80 * GRID_H;
+          w = 20 * GRID_W;
+          h = 12 * GRID_H;
         };
       };
     };

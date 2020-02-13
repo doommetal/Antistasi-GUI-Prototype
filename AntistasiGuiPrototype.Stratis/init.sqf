@@ -77,3 +77,12 @@ buyableVehiclesList = [
   ["I_Static_AA_F", 200, false],
   ["I_G_Mortar_01_F", 300, false]
 ];
+
+// Fake "players" to use for memberlist stuff etc.
+fakePlayers = [p1, p2, p3, p4];
+
+// Set member status
+{
+  _x setVariable ["isMember", false];
+} forEach fakePlayers;
+p1 setVariable ["isMember", true]; // player starts as member

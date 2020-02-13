@@ -12,6 +12,7 @@ class A3A
     class constructDialog {};
     class commanderDialog {};
     class adminDialog {};
+    class playerManagementDialog{};
     class buyVehicleDialog {};
     class hqDialog {};
   };
