@@ -5,17 +5,21 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1666;
+	toggles=1538;
 	class ItemIDProvider
 	{
-		nextID=29;
+		nextID=35;
+	};
+	class MarkerIDProvider
+	{
+		nextID=2;
 	};
 	class Camera
 	{
-		pos[]={4079.9333,233.67111,4573.7422};
-		dir[]={0.43128407,-0.33458439,0.83797091};
-		up[]={0.15313114,0.94234771,0.29753107};
-		aside[]={0.88921034,-5.4971315e-007,-0.45766005};
+		pos[]={4092.9246,246.21677,4569.3198};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -26,13 +30,14 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Structures_F_Mil_Flags",
 	"A3_Structures_F_Civ_InfoBoards",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			className="A3_Weapons_F";
@@ -75,6 +80,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item6
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=6774331;
@@ -104,7 +116,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=11;
+		items=17;
 		class Item0
 		{
 			dataType="Object";
@@ -2430,6 +2442,69 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item11
+		{
+			dataType="Marker";
+			position[]={4091.7141,221.23,4596.2358};
+			name="marker_HQ";
+			text="HQ";
+			type="mil_flag";
+			colorName="ColorGUER";
+			id=29;
+		};
+		class Item12
+		{
+			dataType="Marker";
+			position[]={4356.4395,231.98193,3888.9429};
+			name="marker_outpost1";
+			text="FIA Outpost";
+			type="mil_flag";
+			colorName="ColorGUER";
+			id=30;
+			atlOffset=-2.2380676;
+		};
+		class Item13
+		{
+			dataType="Marker";
+			position[]={3351.4189,228.57608,2956.6697};
+			name="marker_outpost2";
+			text="FIA Outpost";
+			type="mil_flag";
+			colorName="ColorGUER";
+			id=31;
+		};
+		class Item14
+		{
+			dataType="Marker";
+			position[]={2980.27,171.39999,1871.579};
+			name="marker_outpost3";
+			text="FIA Outpost";
+			type="mil_flag";
+			colorName="ColorGUER";
+			id=32;
+		};
+		class Item15
+		{
+			dataType="Marker";
+			position[]={6369.603,8.0839996,5329.27};
+			name="marker_outpost5";
+			text="FIA Outpost";
+			type="mil_flag";
+			colorName="ColorGUER";
+			id=33;
+			atlOffset=0.00034999847;
+		};
+		class Item16
+		{
+			dataType="Marker";
+			position[]={5014.6992,208.537,5909.9609};
+			name="marker_outpost6";
+			text="FIA Outpost";
+			type="mil_flag";
+			colorName="ColorGUER";
+			id=34;
+			atlOffset=0.00019836426;
 		};
 	};
 };

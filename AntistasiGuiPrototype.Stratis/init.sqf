@@ -86,3 +86,11 @@ fakePlayers = [p1, p2, p3, p4];
   _x setVariable ["isMember", false];
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
+
+// Needed to get custom textures on map icons
+MISSION_ROOT = call {
+    private "_arr";
+    _arr = toArray __FILE__;
+    _arr resize (count _arr - 8);
+    toString _arr
+};

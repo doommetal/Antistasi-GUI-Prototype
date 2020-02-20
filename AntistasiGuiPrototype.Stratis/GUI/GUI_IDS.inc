@@ -56,6 +56,18 @@
 #define A3A_IDD_BUYVEHICLEDIALOG        5900
 #define A3A_IDC_VEHICLESGROUP           5901
 
+// Garrison Management Dialog
+#define A3A_IDD_GARRISONDIALOG          7000
+#define A3A_IDC_GARRISONTITLE           7001
+#define A3A_IDC_GARRISONMAP             7002
+#define A3A_IDC_RIFLEMANNUMBER          7003
+#define A3A_IDC_SQUADLEADERNUMBER       7004
+#define A3A_IDC_AUTORIFLEMANNUMBER      7005
+#define A3A_IDC_GRENADIERNUMBER         7006
+#define A3A_IDC_MEDICNUMBER             7007
+#define A3A_IDC_MORTARNUMBER            7008
+#define A3A_IDC_MARKSMANNUMBER          7009
+#define A3A_IDC_ATNUMBER                7010
 
 // Sandbox Dialog
 #define A3A_IDD_SANDBOXDIALOG           6000

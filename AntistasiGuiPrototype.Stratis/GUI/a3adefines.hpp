@@ -42,7 +42,7 @@ class A3A_MainBackground
   idc = -1;
   type = CT_STATIC;
   style = 0;
-  colorBackground[] = {0,0,0,0.7};
+  colorBackground[] = {0.1,0.1,0.1,0.7};
   colorShadow[] = {0,0,0,0.5};
   colorText[] = {1,1,1,1};
   shadow = 1;
