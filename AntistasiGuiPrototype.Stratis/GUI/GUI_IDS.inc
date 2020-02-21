@@ -69,5 +69,11 @@
 #define A3A_IDC_MARKSMANNUMBER          7009
 #define A3A_IDC_ATNUMBER                7010
 
+// HQ Management Dialog
+#define A3A_IDD_HQMANAGEMENTDIALOG      7011
+#define A3A_IDC_FACTIONMONEYSLIDER      7021
+#define A3A_IDC_FACTIONMONEYEDITBOX     7022
+#define A3A_IDC_FACTIONMONEYBUTTON      7023
+
 // Sandbox Dialog
 #define A3A_IDD_SANDBOXDIALOG           6000

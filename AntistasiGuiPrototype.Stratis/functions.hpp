@@ -16,5 +16,6 @@ class A3A
     class buyVehicleDialog {};
     class hqDialog {};
     class garageDialog {};
+    class garrisonDialog {};
   };
 };
