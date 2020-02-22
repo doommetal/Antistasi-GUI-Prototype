@@ -17,5 +17,8 @@ class A3A
     class hqDialog {};
     class garageDialog {};
     class garrisonDialog {};
+    class recruitDialog {};
+    class recruitSquadDialog {};
+    class requestMissionDialog {};
   };
 };

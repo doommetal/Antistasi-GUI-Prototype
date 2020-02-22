@@ -11,19 +11,10 @@ class A3A_GarrisonDialog
       idc = -1;
       text = "GARRISON MANAGEMENT";
       x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
-      w = PX_W(DIALOG_W);
-      h = 4 * GRID_H;
-    };
-
-    class Tabs : A3A_Tabs {
-      idc = -1;
-      x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
       w = PX_W(DIALOG_W);
       h = 4 * GRID_H;
     };
-
 
     // MapControl needs to be placed here to avoid problems
     // with map clicks when it's placed within a controlsGroup
@@ -602,14 +593,6 @@ class A3A_GarrisonDialog
   class controlsBackground
   {
     class TitleBackground : A3A_TitleBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
-      w = PX_W(DIALOG_W);
-      h = 4 * GRID_H;
-    };
-
-    class TabsBackground : A3A_TabsBackground
     {
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 4 * GRID_H;

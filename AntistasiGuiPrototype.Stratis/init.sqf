@@ -94,3 +94,16 @@ MISSION_ROOT = call {
     _arr resize (count _arr - 8);
     toString _arr
 };
+
+// Init addActions for HQ assets
+petros addAction["HQ Management","[] spawn A3A_fnc_hqDialog"];
+petros addAction["Request Mission","[] spawn A3A_fnc_requestMissionDialog"];
+flagX addAction["Recruit","[] spawn A3A_fnc_recruitDialog"];
+mapX addAction["Map Info","hint ""Imagine opening Map Info."""];
+boxX addAction["Arsenal","hint ""Imagine opening the Arsenal."""];
+vehicleBox addaction["Heal, Repair and Rearm","hint ""Imagine a healing light passing over you as Petros does his magic ;^)"""];
+vehicleBox addaction["Unload Vehicle Cargo to Ammobox","hint ""Imagine carrying all those heavy boxes."""];
+vehicleBox addaction["Buy Vehicle","[] spawn A3A_fnc_buyVehicleDialog"];
+vehicleBox addaction["Personal Garage","hint ""Imagine opening the garage."""];
+vehicleBox addaction["Faction Garage","hint ""Imagine opening the garage."""];
+fireX addaction["Save","hint ""Imagine saving."""];
