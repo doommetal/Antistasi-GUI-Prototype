@@ -3259,6 +3259,7 @@ class Mission
 			};
 			id=35;
 			type="C_SUV_01_F";
+			atlOffset=-7.6293945e-005;
 		};
 	};
 };

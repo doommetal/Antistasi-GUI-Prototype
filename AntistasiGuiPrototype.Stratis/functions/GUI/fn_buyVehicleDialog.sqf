@@ -62,8 +62,8 @@ switch (_mode) do {
       // Undercover icon
       if (_canGoUndercover) then {
         _undercoverIcon = _display ctrlCreate ["RscPicture", -1, _vehiclesControlsGroup];
-        _undercoverIcon ctrlSetPosition [_itemXpos + 1 * GRID_W, _itemYpos + 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
-        _undercoverIcon ctrlSetText "GUI\textures\icon_hide.paa";
+        _undercoverIcon ctrlSetPosition [_itemXpos + 1 * GRID_W, _itemYpos + 1 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+        _undercoverIcon ctrlSetText "GUI\textures\icon_hidevic.paa";
         _undercoverIcon ctrlCommit 0;
       };
 
@@ -71,7 +71,7 @@ switch (_mode) do {
       _hasGunners = if (_gunners > 0) then {1} else {0}; // Is there a better way to just return all positive numbers as 1?
       _hasPassengers = if (_passengers > 0) then {1} else {0}; // Too sleepy to think of one right now...
       _numberOfCrewTypes = (_driver + _commander + _hasGunners + _hasPassengers);
-      _crewCountHeight = _numberOfCrewTypes * 3 * GRID_H;
+      _crewCountHeight = _numberOfCrewTypes * 4.5 * GRID_H;
       _crewCountYpos = _itemYpos + 24 * GRID_H - _crewCountHeight;
 
       // Using an inner controlsGroup here so the coordinate calculations don't get completely unreadable
@@ -83,7 +83,7 @@ switch (_mode) do {
       if (_driver > 0) then
       {
         _driverIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
-        _driverIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+        _driverIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _driverIcon ctrlSetText "GUI\textures\icon_driver.paa";
         _driverIcon ctrlCommit 0;
 
@@ -96,9 +96,9 @@ switch (_mode) do {
         if (_coPilot > 0) then
         {
           _coPilotIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
-          _coPilotIcon ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+          _coPilotIcon ctrlSetPosition [5 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
           _coPilotIcon ctrlSetText "GUI\textures\icon_driver.paa";
-          _coPilotIcon ctrlSetFade 0.3;
+          _coPilotIcon ctrlSetTextColor [0.7,0.7,0.7,1];
           _coPilotIcon ctrlCommit 0;
         };
         _crewInfoAdded = _crewInfoAdded + 1;
@@ -107,7 +107,7 @@ switch (_mode) do {
       if (_commander > 0) then
       {
         _commanderIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
-        _commanderIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+        _commanderIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _commanderIcon ctrlSetText "GUI\textures\icon_commander.paa";
         _commanderIcon ctrlCommit 0;
 
@@ -122,14 +122,14 @@ switch (_mode) do {
       if (_gunners > 0) then
       {
         _gunnerIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
-        _gunnerIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+        _gunnerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _gunnerIcon ctrlSetText "GUI\textures\icon_gunner.paa";
         _gunnerIcon ctrlCommit 0;
 
         if (_gunners > 1) then
         {
           _gunnersText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
-          _gunnersText ctrlSetPosition [2 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
+          _gunnersText ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
           _gunnersText ctrlSetText str _gunners;
           _gunnersText ctrlCommit 0;
         };
@@ -139,14 +139,14 @@ switch (_mode) do {
       if (_passengers > 0) then
       {
         _passengerIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
-        _passengerIcon ctrlSetPosition [0, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+        _passengerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _passengerIcon ctrlSetText "GUI\textures\icon_cargo.paa";
         _passengerIcon ctrlCommit 0;
 
         if (_passengers > 1) then
         {
           _passengersText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
-          _passengersText ctrlSetPosition [2 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
+          _passengersText ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
           _passengersText ctrlSetText str _passengers;
           _passengersText ctrlCommit 0;
         };
@@ -154,17 +154,18 @@ switch (_mode) do {
         if (_passengersFFV > 0) then
         {
           _ffvIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
-          _ffvIcon ctrlSetPosition [6 * GRID_W, _crewInfoAdded * 3 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+          _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
           _ffvIcon ctrlSetText "GUI\textures\icon_ffv.paa";
-          _ffvIcon ctrlSetFade 0.3;
+          _ffvIcon ctrlSetTextColor [0.7,0.7,0.7,1];
+          /* _ffvIcon ctrlSetFade 0.3; */
           _ffvIcon ctrlCommit 0;
 
           if (_passengersFFV > 1) then
           {
             _ffvText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
-            _ffvText ctrlSetPosition [8 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
+            _ffvText ctrlSetPosition [10 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
             _ffvText ctrlSetText str _passengersFFV;
-            _ffvText ctrlSetFade 0.3;
+            _ffvText ctrlSetTextColor [0.7,0.7,0.7,1];
             _ffvText ctrlCommit 0;
           };
         };
