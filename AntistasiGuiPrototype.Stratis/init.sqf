@@ -1,3 +1,15 @@
+// Needed to get custom textures on map icons
+MISSION_ROOT = call {
+    private "_arr";
+    _arr = toArray __FILE__;
+    _arr resize (count _arr - 8);
+    toString _arr
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// EVERYTHING BELOW THIS POINT IS "FAKE" ANTISTASI FUNCTIONS TO TEST THE GUI //
+///////////////////////////////////////////////////////////////////////////////
+
 // Add event handler for keys
 waituntil {!isnull (finddisplay 46)};
 
@@ -86,14 +98,6 @@ fakePlayers = [p1, p2, p3, p4];
   _x setVariable ["isMember", false];
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
-
-// Needed to get custom textures on map icons
-MISSION_ROOT = call {
-    private "_arr";
-    _arr = toArray __FILE__;
-    _arr resize (count _arr - 8);
-    toString _arr
-};
 
 // Init addActions for HQ assets
 petros addAction["HQ Management","[] spawn A3A_fnc_hqDialog"];

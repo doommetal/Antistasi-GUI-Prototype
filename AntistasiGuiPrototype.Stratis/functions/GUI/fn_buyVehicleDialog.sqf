@@ -19,9 +19,7 @@ switch (_mode) do {
 
     // Add the stuff to the construct list
     _vehiclesControlsGroup = _display displayCtrl A3A_IDC_VEHICLESGROUP;
-    // Hide group initially to let all the things get to the right place
-    /* _vehiclesControlsGroup ctrlSetFade 1;
-    _vehiclesControlsGroup ctrlCommit 0; */
+
     _added = 0;
     {
       _className = _x select 0;
@@ -93,12 +91,6 @@ switch (_mode) do {
         _driverIcon ctrlSetText "GUI\textures\icon_driver.paa";
         _driverIcon ctrlCommit 0;
 
-        // Only one driver so we don't need the text for it
-        /* _driverText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
-        _driverText ctrlSetPosition [2 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
-        _driverText ctrlSetText str _driver;
-        _driverText ctrlCommit 0; */
-
         if (_coPilot > 0) then
         {
           _coPilotIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
@@ -117,11 +109,6 @@ switch (_mode) do {
         _commanderIcon ctrlSetText "GUI\textures\icon_commander.paa";
         _commanderIcon ctrlCommit 0;
 
-        // Same with commander
-        /* _commanderText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
-        _commanderText ctrlSetPosition [2 * GRID_W, _crewInfoAdded * 3 * GRID_H, 4 * GRID_W, 3 * GRID_H];
-        _commanderText ctrlSetText str _commander;
-        _commanderText ctrlCommit 0; */
         _crewInfoAdded = _crewInfoAdded + 1;
       };
 
@@ -163,7 +150,6 @@ switch (_mode) do {
           _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
           _ffvIcon ctrlSetText "GUI\textures\icon_ffv.paa";
           _ffvIcon ctrlSetTextColor [0.7,0.7,0.7,1];
-          /* _ffvIcon ctrlSetFade 0.3; */
           _ffvIcon ctrlCommit 0;
 
           if (_passengersFFV > 1) then
@@ -192,9 +178,5 @@ switch (_mode) do {
     _paddingBottom ctrlSetPosition [0, (floor (_added / 3)) * (44 * GRID_H) + _fullRow * (44 * GRID_H), 1 * GRID_W, 7 * GRID_H];
     _paddingBottom ctrlSetText "";
     _paddingBottom ctrlCommit 0; */
-
-    // Show list
-    /* _vehiclesControlsGroup ctrlSetFade 0;
-    _vehiclesControlsGroup ctrlCommit 0.1; */
   };
 };
