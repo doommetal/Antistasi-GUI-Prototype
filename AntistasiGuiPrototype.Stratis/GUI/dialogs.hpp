@@ -15,3 +15,4 @@ This file contains all dialogs used in Antistasi
 #include "recruitDialog.hpp"
 #include "recruitSquadDialog.hpp"
 #include "requestMissionDialog.hpp"
+#include "minefieldDialog.hpp"

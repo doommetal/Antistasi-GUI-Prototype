@@ -42,6 +42,7 @@ class A3A_HqDialog
         {
           idc = -1;
           text = "Minefield Management";
+          action = "[] spawn A3A_fnc_minefieldDialog";
           x = 8 * GRID_W;
           y = 24 * GRID_H;
           w = 36 * GRID_W;
