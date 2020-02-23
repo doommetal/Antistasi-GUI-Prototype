@@ -47,6 +47,8 @@ switch (_mode) do {
     _atNumber = _display displayCtrl A3A_IDC_ATNUMBER; */
     _map = _display displayCtrl A3A_IDC_GARRISONMAP;
 
+    systemChat format["Display:%1 MapControl: %2", str _display, str _map];
+
     // Update controls
     _garrisonTitle ctrlSetText _garrisonName;
     /* _riflemanNumber ctrlSetText str _rifleman;
@@ -81,7 +83,7 @@ switch (_mode) do {
       };
       _map setVariable["data", [_position, _radius, _dir]];
       _map drawIcon [
-         MISSION_ROOT + "GUI\textures\icon_driver.paa",
+         "\A3\ui_f\data\IGUI\Cfg\Cursors\selectOver_ca.paa",
         [1,1,1,1],
         _position,
         _radius,

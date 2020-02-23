@@ -45,14 +45,15 @@ class A3A_GarrisonDialog
       idc = -1;
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
+      // Width set to smaller than usual to avoid an issue where
+      // pressing anything other than the map would (invisibly) cover up the
+      // map control, making it not get click events
+      w = 68 * GRID_W;
       h = PX_H(DIALOG_H);
 
       class controls
       {
         // Start of controls
-
-
         class GarrisonTitle : RscText
         {
           text = "HQ";
