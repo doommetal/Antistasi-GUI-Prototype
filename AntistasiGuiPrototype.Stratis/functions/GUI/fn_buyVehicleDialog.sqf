@@ -20,8 +20,8 @@ switch (_mode) do {
     // Add the stuff to the construct list
     _vehiclesControlsGroup = _display displayCtrl A3A_IDC_VEHICLESGROUP;
     // Hide group initially to let all the things get to the right place
-    _vehiclesControlsGroup ctrlSetFade 1;
-    _vehiclesControlsGroup ctrlCommit 0;
+    /* _vehiclesControlsGroup ctrlSetFade 1;
+    _vehiclesControlsGroup ctrlCommit 0; */
     _added = 0;
     {
       _className = _x select 0;
@@ -44,25 +44,31 @@ switch (_mode) do {
       _itemXpos = 7 * GRID_W + ((7 * GRID_W + 44 * GRID_W) * (_added mod 3));
       _itemYpos = (floor (_added / 3)) * (44 * GRID_H) + _topPadding;
 
-      _previewPicture = _display ctrlCreate ["RscPicture", -1, _vehiclesControlsGroup];
-      _previewPicture ctrlSetPosition [_itemXpos, _itemYpos, 44 * GRID_W, 25 * GRID_H];
+      _itemControlsGroup = _display ctrlCreate ["RscControlsGroupNoScrollbars", -1, _vehiclesControlsGroup];
+      _itemControlsGroup ctrlSetPosition[_itemXpos, _itemYpos, 44 * GRID_W, 37 * GRID_H];
+      _itemControlsGroup ctrlSetFade 1;
+      _itemControlsGroup ctrlCommit 0;
+
+      _previewPicture = _display ctrlCreate ["RscPicture", -1, _itemControlsGroup];
+      _previewPicture ctrlSetPosition [0, 0, 44 * GRID_W, 25 * GRID_H];
       _previewPicture ctrlSetText _editorPreview;
       _previewPicture ctrlCommit 0;
 
-      _button = _display ctrlCreate ["A3A_ShortcutButton", -1, _vehiclesControlsGroup];
-      _button ctrlSetPosition [_itemXpos, _itemYpos + (25 * GRID_H), 44 * GRID_W, 12 * GRID_H];
+      _button = _display ctrlCreate ["A3A_ShortcutButton", -1, _itemControlsGroup];
+      _button ctrlSetPosition [0, 25 * GRID_H, 44 * GRID_W, 12 * GRID_H];
       _button ctrlSetText _displayName;
+      _button buttonSetAction "hint ""Imagine just buying stuff.""";
       _button ctrlCommit 0;
 
-      _priceText = _display ctrlCreate ["A3A_InfoTextRight", -1, _vehiclesControlsGroup];
-      _priceText ctrlSetPosition[_itemXpos + 23 * GRID_W, _itemYpos + 21 * GRID_H, 20 * GRID_W, 3 * GRID_H];
+      _priceText = _display ctrlCreate ["A3A_InfoTextRight", -1, _itemControlsGroup];
+      _priceText ctrlSetPosition[23 * GRID_W, 21 * GRID_H, 20 * GRID_W, 3 * GRID_H];
       _priceText ctrlSetText format ["%1 €",_price];
       _priceText ctrlCommit 0;
 
       // Undercover icon
       if (_canGoUndercover) then {
-        _undercoverIcon = _display ctrlCreate ["RscPicture", -1, _vehiclesControlsGroup];
-        _undercoverIcon ctrlSetPosition [_itemXpos + 1 * GRID_W, _itemYpos + 1 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+        _undercoverIcon = _display ctrlCreate ["RscPicture", -1, _itemControlsGroup];
+        _undercoverIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _undercoverIcon ctrlSetText "GUI\textures\icon_hidevic.paa";
         _undercoverIcon ctrlCommit 0;
       };
@@ -72,11 +78,11 @@ switch (_mode) do {
       _hasPassengers = if (_passengers > 0) then {1} else {0}; // Too sleepy to think of one right now...
       _numberOfCrewTypes = (_driver + _commander + _hasGunners + _hasPassengers);
       _crewCountHeight = _numberOfCrewTypes * 4.5 * GRID_H;
-      _crewCountYpos = _itemYpos + 24 * GRID_H - _crewCountHeight;
+      _crewCountYpos = 24 * GRID_H - _crewCountHeight;
 
       // Using an inner controlsGroup here so the coordinate calculations don't get completely unreadable
-      _crewControlsGroup = _display ctrlCreate ["RscControlsGroupNoScrollbars", -1, _vehiclesControlsGroup];
-      _crewControlsGroup ctrlSetPosition[_itemXpos + 1 * GRID_W, _crewCountYpos, 20 * GRID_W, _crewCountHeight];
+      _crewControlsGroup = _display ctrlCreate ["RscControlsGroupNoScrollbars", -1, _itemControlsGroup];
+      _crewControlsGroup ctrlSetPosition[1 * GRID_W, _crewCountYpos, 20 * GRID_W, _crewCountHeight];
       _crewControlsGroup ctrlCommit 0;
 
       _crewInfoAdded = 0;
@@ -172,6 +178,9 @@ switch (_mode) do {
 
         _crewInfoAdded = _crewInfoAdded + 1;
       };
+      // Show item
+      _itemControlsGroup ctrlSetFade 0;
+      _itemControlsGroup ctrlCommit 0.1;
 
       _added = _added + 1;
     } forEach buyableVehiclesList;
@@ -185,7 +194,7 @@ switch (_mode) do {
     _paddingBottom ctrlCommit 0; */
 
     // Show list
-    _vehiclesControlsGroup ctrlSetFade 0;
-    _vehiclesControlsGroup ctrlCommit 0.1;
+    /* _vehiclesControlsGroup ctrlSetFade 0;
+    _vehiclesControlsGroup ctrlCommit 0.1; */
   };
 };
