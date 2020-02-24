@@ -230,6 +230,23 @@ class A3A_Tabs : RscControlsGroupNoScrollbars
   };
 };
 
+class A3A_CloseButton : RscActivePicture
+{
+  idc = -1;
+  text = "\A3\ui_f\data\GUI\RscCommon\RscButtonSearch\search_end_ca.paa";
+  action = "closeDialog 2";
+  shadow = 0;
+  w = 4 * GRID_W;
+  h = 4 * GRID_H;
+};
+
+class A3A_BackButton : A3A_CloseButton
+{
+  idc = -1;
+  text = "\A3\ui_f\data\GUI\RscCommon\RscHTML\arrow_left_ca.paa";
+  action = ""; // Must be defined in the specific dialogs
+};
+
 class A3A_InfoText : RscText
 {
   sizeEx = GUI_TEXT_SIZE_SMALL;

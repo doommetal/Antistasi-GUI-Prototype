@@ -16,6 +16,21 @@ class A3A_MinefieldDialog
       h = 4 * GRID_H;
     };
 
+    class BackButton : A3A_BackButton
+    {
+      idc = -1;
+      action = "[] spawn A3A_fnc_hqDialog";
+      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 9 * GRID_W;
+      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
+    };
+
+    class CloseButton : A3A_CloseButton
+    {
+      idc = -1;
+      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
+      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
+    };
+
     // MapControl needs to be placed here to avoid problems
     // with map clicks when it's placed within a controlsGroup
     class GarrisonMap : RscMapControl
