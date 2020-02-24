@@ -50,18 +50,48 @@ class A3A_PlayerManagementDialog
       class controls
       {
         // Start of controls
+        class NameLabel : RscText
+        {
+          text = "Name";
+          x = 9 * GRID_W;
+          y = 8 * GRID_W;
+          w = 16 * GRID_W;
+          h = 4 * GRID_W;
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+        };
 
-        class MemberList : ctrlListbox
+        class DistanceLabel : RscText
+        {
+          text = "Distance";
+          x = 74 * GRID_W;
+          y = 8 * GRID_W;
+          w = 16 * GRID_W;
+          h = 4 * GRID_W;
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+        };
+
+        class UIDLabel : RscText
+        {
+          text = "PlayerUID";
+          x = 89 * GRID_W;
+          y = 8 * GRID_W;
+          w = 16 * GRID_W;
+          h = 4 * GRID_W;
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+        };
+
+        class PlayerList : ctrlListNbox
         {
           idc = A3A_IDC_PLAYERLIST;
           x = 8 * GRID_W;
-          y = 8 * GRID_W;
-          w = 78 * GRID_W;
-          h = 86 * GRID_H;
+          y = 12 * GRID_W;
+          w = 106 * GRID_W;
+          h = 82 * GRID_H;
           onLBSelChanged = "[""listBoxSelectionChanged""] spawn A3A_fnc_playerManagementDialog";
 
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           rowHeight = 4 * GRID_H;
+          columns[] = {0,0.615,0.755};
         };
 
         class AddMemberButton : A3A_ShortcutButton
@@ -69,20 +99,11 @@ class A3A_PlayerManagementDialog
           idc = A3A_IDC_ADDMEMBERBUTTON;
           text = "Add Member";
           action = "[""addMember""] spawn A3A_fnc_playerManagementDialog";
-          size = GUI_TEXT_SIZE_LARGE;
           show = false;
-          x = 92 * GRID_W;
+          x = 120 * GRID_W;
           y = 8 * GRID_W;
-          w = 60 * GRID_W;
+          w = 32 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
         class RemoveMemberButton : A3A_ShortcutButton
@@ -90,96 +111,51 @@ class A3A_PlayerManagementDialog
           idc = A3A_IDC_REMOVEMEMBERBUTTON;
           text = "Remove Member";
           action = "[""removeMember""] spawn A3A_fnc_playerManagementDialog";
-          size = GUI_TEXT_SIZE_LARGE;
           show = false;
-          x = 92 * GRID_W;
+          x = 120 * GRID_W;
           y = 8 * GRID_W;
-          w = 60 * GRID_W;
+          w = 32 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
         class TeleportToPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Teleport to Player";
-          size = GUI_TEXT_SIZE_LARGE;
-          x = 92 * GRID_W;
+          x = 120 * GRID_W;
           y = 28 * GRID_W;
-          w = 60 * GRID_W;
+          w = 32 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
         class TeleportPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Teleport Player to Me";
-          size = GUI_TEXT_SIZE_LARGE;
-          x = 92 * GRID_W;
+          x = 120 * GRID_W;
           y = 48 * GRID_W;
-          w = 60 * GRID_W;
+          w = 32 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
         class KickPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Kick Player";
-          size = GUI_TEXT_SIZE_LARGE;
-          x = 92 * GRID_W;
+          x = 120 * GRID_W;
           y = 68 * GRID_W;
-          w = 60 * GRID_W;
+          w = 32 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
         class BanPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Ban Player";
-          size = GUI_TEXT_SIZE_LARGE;
-          x = 92 * GRID_W;
+          x = 120 * GRID_W;
           y = 88 * GRID_W;
-          w = 60 * GRID_W;
+          w = 32 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
 
@@ -334,6 +310,15 @@ class A3A_PlayerManagementDialog
       y = CENTER_Y(DIALOG_H);
       w = PX_W(DIALOG_W);
       h = PX_H(DIALOG_H);
+    };
+
+    class PlayerListBackground : A3A_MainBackground
+    {
+      colorBackground[] = {0,0,0,0.5};
+      x = CENTER_X(DIALOG_W) +  8 * GRID_W;
+      y = CENTER_Y(DIALOG_H) +  12 * GRID_W;
+      w = 106 * GRID_W;
+      h = 82 * GRID_H;
     };
   };
 };

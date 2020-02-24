@@ -93,9 +93,10 @@ buyableVehiclesList = [
 // Fake "players" to use for memberlist stuff etc.
 fakePlayers = [p1, p2, p3, p4];
 
-// Set member status
+// Set fake player variables, to be replaced the real functions when merging
 {
   _x setVariable ["isMember", false];
+  _x setVariable ["fakePlayerUID", str floor random 99999 + str floor random 99999 + str floor random 99999];
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
 

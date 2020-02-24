@@ -15,23 +15,25 @@ switch (_mode) do {
     {
       _name = name _x;
       _isMember = _x getVariable "isMember";
+      _fakePlayerUID = _x getVariable "fakePlayerUID";
+      _distance = format["%1 m", floor (player distance _x)];
 
-      _index = _listBox lbAdd _name;
+      _index = _listBox lnbAddRow [_name, _distance, _fakePlayerUID];
       if (_isMember) then {
-        _listBox lbSetColor [_index, [0.2,0.6,0.2,1]];
+        _listBox lnbSetColor [[_index,0], [0.2,0.6,0.2,1]];
       } else {
-        _listBox lbSetColor [_index, [0.7,0.7,0.7,1]];
+        _listBox lnbSetColor [[_index,0], [0.7,0.7,0.7,1]];
       };
     } forEach fakePlayers;
 
-    _listBox lbSetCurSel 0;
+    _listBox lnbSetCurSelRow 0;
     ["listBoxSelectionChanged"] spawn A3A_fnc_playerManagementDialog;
   };
 
   case ("listBoxSelectionChanged"): {
     _display = findDisplay A3A_IDD_PLAYERMANAGEMENTDIALOG;
     _listBox = _display displayCtrl A3A_IDC_PLAYERLIST;
-    _index = lbCurSel _listBox;
+    _index = lnbCurSelRow _listBox;
     _addButton = _display displayCtrl A3A_IDC_ADDMEMBERBUTTON;
     _removeButton = _display displayCtrl A3A_IDC_REMOVEMEMBERBUTTON;
     _player = fakePlayers select _index;
@@ -49,7 +51,7 @@ switch (_mode) do {
     _display = findDisplay A3A_IDD_PLAYERMANAGEMENTDIALOG;
     _listBox = _display displayCtrl A3A_IDC_PLAYERLIST;
     _index = lbCurSel _listBox;
-    _listBox lbSetColor [_index, [0.2,0.6,0.2,1]];
+    _listBox lnbSetColor [[_index,0], [0.2,0.6,0.2,1]];
     fakePlayers select _index setVariable ["isMember", true];
     ["listBoxSelectionChanged"] spawn A3A_fnc_playerManagementDialog;
   };
@@ -58,7 +60,7 @@ switch (_mode) do {
     _display = findDisplay A3A_IDD_PLAYERMANAGEMENTDIALOG;
     _listBox = _display displayCtrl A3A_IDC_PLAYERLIST;
     _index = lbCurSel _listBox;
-    _listBox lbSetColor [_index, [0.7,0.7,0.7,1]];
+    _listBox lnbSetColor [[_index,0], [0.7,0.7,0.7,1]];
     fakePlayers select _index setVariable ["isMember", false];
     ["listBoxSelectionChanged"] spawn A3A_fnc_playerManagementDialog;
   };
