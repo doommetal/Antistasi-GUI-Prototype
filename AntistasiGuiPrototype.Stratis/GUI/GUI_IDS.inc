@@ -84,8 +84,12 @@
 // Request Mission Dialog
 #define A3A_IDD_REQUESTMISSONDIALOG     7026
 
+// Minefield Management Dialog
 #define A3A_IDD_MINEFIELDDIALOG         7027
 #define A3A_IDC_MINEFIELDMAP            7028
+
+// AI Management Dialog
+#define A3A_IDD_AIMANAGEMENTDIALOG      7029
 
 // Sandbox Dialog
 #define A3A_IDD_SANDBOXDIALOG           6000

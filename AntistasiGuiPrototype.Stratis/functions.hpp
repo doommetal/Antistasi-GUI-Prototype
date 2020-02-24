@@ -21,5 +21,6 @@ class A3A
     class recruitSquadDialog {};
     class requestMissionDialog {};
     class minefieldDialog {};
+    class aiManagementDialog {};
   };
 };

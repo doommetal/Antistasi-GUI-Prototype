@@ -16,3 +16,4 @@ This file contains all dialogs used in Antistasi
 #include "recruitSquadDialog.hpp"
 #include "requestMissionDialog.hpp"
 #include "minefieldDialog.hpp"
+#include "aiManagementDialog.hpp"

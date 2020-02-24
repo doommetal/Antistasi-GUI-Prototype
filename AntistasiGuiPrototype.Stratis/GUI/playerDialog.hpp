@@ -185,7 +185,7 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_AIMANAGEMENTBUTTON;
           text = "AI Management";
-          action = "closeDialog 2";
+          action = "[] spawn A3A_fnc_aiManagementDialog";
           show = false;
           size = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
