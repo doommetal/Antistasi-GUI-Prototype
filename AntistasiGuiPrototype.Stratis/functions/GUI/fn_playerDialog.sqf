@@ -72,7 +72,71 @@ switch (_mode) do {
     _moneySlider sliderSetSpeed [100, 100];
     _moneySlider sliderSetPosition 0;
 
-    // TODO: Vehicle section setup
+    // Vehicle section setup
+    _vehicleGroup = _display displayCtrl A3A_IDC_PLAYERVEHICLEGROUP;
+    _noVehicleGroup = _display displayCtrl A3A_IDC_NOVEHICLEGROUP;
+
+    // Vehicle section is only available to members
+    if (player getVariable "isMember") then {
+
+      // Attempt to get vehicle from cursortarget
+      _vehicle = cursorTarget;
+      // TODO: Add fallback to select the closest eligible vehicle in sight
+      // TODO: Add check for distance
+
+      if !(isNull _vehicle) then {
+        // Check if vehicle is eligible for garage / sell, not a dude or house etc.
+        if (_vehicle isKindOf "Air" or _vehicle isKindOf "LandVehicle") then {
+          _className = typeOf _vehicle;
+          _configClass = configFile >> "CfgVehicles" >> _className;
+          _displayName = getText (_configClass >> "displayName");
+          _editorPreview = getText (_configClass >> "editorPreview");
+
+          _vehicleNameLabel = _display displayCtrl A3A_IDC_VEHICLENAMELABEL;
+          _vehicleNameLabel ctrlSetText _displayName;
+          // For some reason the text control becomes active showing an ugly
+          // white border, we disable it here to avoid that
+          _vehicleNameLabel ctrlEnable false;
+
+          _vehiclePicture = _display displayCtrl A3A_IDC_VEHICLEPICTURE;
+          _vehiclePicture ctrlSetText _editorPreview;
+
+          if (playerIsCommander) then {
+            // Disable "add to air support" button if vehicle is not eligible
+            if !(_vehicle isKindOf "Air") then {
+              _addToAirSupportButton = _display displayCtrl A3A_IDC_ADDTOAIRSUPPORTBUTTON;
+              _addToAirSupportButton ctrlEnable false;
+              _addToAirSupportButton ctrlSetTooltip "Not eligible vehicle";
+            };
+          } else {
+            // Enable only "garage" and "lock/unlock" buttons to regular players
+            _sellVehicleButton = _display displayCtrl A3A_IDC_SELLVEHICLEBUTTON;
+            _sellVehicleButton ctrlEnable false;
+            _sellVehicleButton ctrlSetTooltip "Commander only";
+            _addToAirSupportButton = _display displayCtrl A3A_IDC_ADDTOAIRSUPPORTBUTTON;
+            _addToAirSupportButton ctrlEnable false;
+            _addToAirSupportButton ctrlSetTooltip "Commander only";
+          };
+          // Show vehicle group
+          _noVehicleGroup ctrlShow false;
+          _vehicleGroup ctrlShow true;
+        } else {
+          // Show no vehicle message
+          _vehicleGroup ctrlShow false;
+          _noVehicleGroup ctrlShow true;
+        };
+      } else {
+        // Show no vehicle message
+        _vehicleGroup ctrlShow false;
+        _noVehicleGroup ctrlShow true;
+      };
+    } else {
+      // Show not member message
+      _vehicleGroup ctrlShow false;
+      _noVehicleGroup ctrlShow true;
+      _noVehicleText = _display displayCtrl A3A_IDC_NOVEHICLETEXT;
+      _noVehicleText ctrlSetText "Members only function.";
+    };
   };
 
   case ("moneySliderChanged"): {

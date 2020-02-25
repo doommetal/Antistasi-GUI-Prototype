@@ -259,9 +259,9 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_DONATEFACTIONBUTTON;
           text = "Donate to faction";
-          x = 108 * GRID_W;
+          x = 106 * GRID_W;
           y = 31 * GRID_H;
-          w = 16 * GRID_H;
+          w = 22 * GRID_W;
           h = 12 * GRID_H;
 
           class TextPos
@@ -277,9 +277,9 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_DONATEPLAYERBUTTON;
           text = "Donate to player";
-          x = 132 * GRID_W;
+          x = 130 * GRID_W;
           y = 31 * GRID_H;
-          w = 16 * GRID_H;
+          w = 22 * GRID_W;
           h = 12 * GRID_H;
 
           class TextPos
@@ -301,50 +301,140 @@ class A3A_PlayerDialog
           h = 4 * GRID_H;
         };
 
-        class VehicleInfoPlaceholder : A3A_ShortcutButton
+        class NoVehicleGroup : RscControlsGroupNoScrollbars
         {
-          idc = -1;
-          text = "Vehicle Info Placeholder";
+          idc = A3A_IDC_NOVEHICLEGROUP;
           x = 74 * GRID_W;
           y = 64 * GRID_H;
-          w = 22 * GRID_H;
-          h = 22 * GRID_H;
-        };
+          w = 78 * GRID_W;
+          h = 36 * GRID_H;
 
-        class GarageVehicleButton : A3A_ShortcutButton
-        {
-          idc = A3A_IDC_GARAGEVEHICLEBUTTON;
-          text = "Garage Vehicle";
-          action = "[] spawn A3A_fnc_garageDialog";
-          x = 108 * GRID_W;
-          y = 70 * GRID_H;
-          w = 16 * GRID_H;
-          h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 1 * GRID_H;
-            bottom = 1 * GRID_W;
+          class controls {
+            class NoVehicleText : RscText
+            {
+              idc = A3A_IDC_NOVEHICLETEXT;
+              style = ST_CENTER;
+              text = "No vehicle";
+              colorText[] = {0.7,0.7,0.7,1};
+              colorBackground[] = {0,0,0,0.5};
+              shadow = 0;
+              x = 0;
+              y = 0;
+              w = 78 * GRID_W;
+              h = 26 * GRID_H;
+            };
           };
         };
 
-        class UnlockVehicleButton : A3A_ShortcutButton
+        class VehicleGroup : RscControlsGroupNoScrollbars
         {
-          idc = A3A_IDC_UNLOCKVEHICLEBUTTON;
-          text = "Unlock Vehicle";
-          x = 132 * GRID_W;
-          y = 70 * GRID_H;
-          w = 16 * GRID_H;
-          h = 12 * GRID_H;
+          idc = A3A_IDC_PLAYERVEHICLEGROUP;
+          x = 74 * GRID_W;
+          y = 64 * GRID_H;
+          w = 78 * GRID_W;
+          h = 36 * GRID_H;
+          show = false;
 
-          class TextPos
+          class controls
           {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 1 * GRID_H;
-            bottom = 1 * GRID_W;
+            class VehiclePicture : RscPicture
+            {
+              idc = A3A_IDC_VEHICLEPICTURE;
+              text = "";
+              colorBackground[] = {0,0,0,0};
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 30 * GRID_W;
+              h = 17 * GRID_H;
+            };
+
+            class VehicleNameLabel : RscTextMulti
+            {
+              idc = A3A_IDC_VEHICLENAMELABEL;
+              style = ST_MULTI + ST_CENTER;
+              enabled = false;
+              text = "Vehicle name goes here can be this long";
+              colorBackground[] = {0,0,0,0.5};
+              colorShadow[] = {0,0,0,0};
+              shadow = 0;
+              x = 0;
+              y = 17 * GRID_H;
+              w = 30 * GRID_W;
+              h = 9 * GRID_H;
+            };
+
+            class GarageVehicleButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_GARAGEVEHICLEBUTTON;
+              text = "Garage Vehicle";
+              action = "[] spawn A3A_fnc_garageDialog";
+              x = 32 * GRID_W;
+              y = 0 * GRID_H;
+              w = 22 * GRID_W;
+              h = 12 * GRID_H;
+
+              class TextPos
+              {
+                left = 2 * GRID_W;
+                right = 2 * GRID_W;
+                top = 1 * GRID_H;
+                bottom = 1 * GRID_H;
+              };
+            };
+
+            class UnlockVehicleButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_UNLOCKVEHICLEBUTTON;
+              text = "Unlock Vehicle";
+              x = 32 * GRID_W;
+              y = 14 * GRID_H;
+              w = 22 * GRID_W;
+              h = 12 * GRID_H;
+
+              class TextPos
+              {
+                left = 2 * GRID_W;
+                right = 2 * GRID_W;
+                top = 1 * GRID_H;
+                bottom = 1 * GRID_H;
+              };
+            };
+
+            class SellVehicleButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_SELLVEHICLEBUTTON;
+              text = "Sell Vehicle";
+              x = 56 * GRID_W;
+              y = 0 * GRID_H;
+              w = 22 * GRID_W;
+              h = 12 * GRID_H;
+
+              class TextPos
+              {
+                left = 2 * GRID_W;
+                right = 2 * GRID_W;
+                top = 1 * GRID_H;
+                bottom = 1 * GRID_H;
+              };
+            };
+
+            class AddToAirSuportButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_ADDTOAIRSUPPORTBUTTON;
+              text = "Add to Air Support";
+              x = 56 * GRID_W;
+              y = 14 * GRID_H;
+              w = 22 * GRID_W;
+              h = 12 * GRID_H;
+
+              class TextPos
+              {
+                left = 2 * GRID_W;
+                right = 2 * GRID_W;
+                top = 1 * GRID_H;
+                bottom = 1 * GRID_H;
+              };
+            };
           };
         };
       };
