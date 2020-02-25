@@ -101,6 +101,9 @@ switch (_mode) do {
           _vehiclePicture = _display displayCtrl A3A_IDC_VEHICLEPICTURE;
           _vehiclePicture ctrlSetText _editorPreview;
 
+          // TODO: Disable garage, sell and add to air support buttons
+          // if player is not in range of a friendly location
+
           if (playerIsCommander) then {
             // Disable "add to air support" button if vehicle is not eligible
             if !(_vehicle isKindOf "Air") then {

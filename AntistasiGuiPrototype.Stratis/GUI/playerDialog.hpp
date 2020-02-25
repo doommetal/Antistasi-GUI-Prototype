@@ -353,7 +353,7 @@ class A3A_PlayerDialog
               idc = A3A_IDC_VEHICLENAMELABEL;
               style = ST_MULTI + ST_CENTER;
               enabled = false;
-              text = "Vehicle name goes here can be this long";
+              text = "";
               colorBackground[] = {0,0,0,0.5};
               colorShadow[] = {0,0,0,0};
               shadow = 0;
