@@ -222,7 +222,7 @@ class A3A_AdminDialog
           text = "Commit Changes";
           x = 132 * GRID_W;
           y = 36 * GRID_H;
-          w = 16 * GRID_H;
+          w = 20 * GRID_W;
           h = 12 * GRID_H;
 
           class TextPos

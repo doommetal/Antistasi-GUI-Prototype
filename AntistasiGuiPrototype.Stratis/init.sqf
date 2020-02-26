@@ -34,6 +34,7 @@ canFastTravel = true;
 canConstruct = true;
 canManageAI = true;
 playerMoney = 1500;
+factionMoney = 10000;
 playerIsCommander = true;
 playerIsAdmin = true;
 
@@ -96,7 +97,7 @@ fakePlayers = [p1, p2, p3, p4];
 // Set fake player variables, to be replaced the real functions when merging
 {
   _x setVariable ["isMember", false];
-  _x setVariable ["fakePlayerUID", str floor random 99999 + str floor random 99999 + str floor random 99999];
+  _x setVariable ["fakePlayerUID", str floor random [10000,50000,99999] + str floor random [10000,50000,99999] + str floor random [10000,50000,99999] + str floor random [10,50,99]];
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
 
@@ -104,6 +105,7 @@ p1 setVariable ["isMember", true]; // player starts as member
 petros addAction["HQ Management","[] spawn A3A_fnc_hqDialog"];
 petros addAction["Request Mission","[] spawn A3A_fnc_requestMissionDialog"];
 flagX addAction["Recruit","[] spawn A3A_fnc_recruitDialog"];
+flagX addAction["Recruit Squads","[] spawn A3A_fnc_recruitSquadDialog"];
 mapX addAction["Map Info","hint ""Imagine opening Map Info."""];
 boxX addAction["Arsenal","hint ""Imagine opening the Arsenal."""];
 vehicleBox addaction["Heal, Repair and Rearm","hint ""Imagine a healing light passing over you as Petros does his magic ;^)"""];

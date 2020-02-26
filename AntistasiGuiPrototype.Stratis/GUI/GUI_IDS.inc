@@ -1,5 +1,5 @@
 // IDDs and IDCs
-// Current highest IDC:                 7036
+// Current highest IDC:                 7038
 
 // Tabs
 #define A3A_IDC_PLAYERTABBUTTON         5000
@@ -83,6 +83,8 @@
 #define A3A_IDC_FACTIONMONEYSLIDER      7021
 #define A3A_IDC_FACTIONMONEYEDITBOX     7022
 #define A3A_IDC_FACTIONMONEYBUTTON      7023
+#define A3A_IDC_RESTTEXT                7037
+#define A3A_IDC_RESTSLIDER              7038
 
 // Recruit Dialog
 #define A3A_IDD_RECRUITDIALOG           7024
