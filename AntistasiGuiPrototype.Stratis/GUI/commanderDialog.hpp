@@ -31,85 +31,121 @@ class A3A_CommanderDialog
       h = 4 * GRID_H;
     };
 
+    class CommanderMap : RscMapControl
+    {
+      idc = A3A_IDC_COMMANDERMAP;
+      onMouseButtonClick = "[""mapClicked"", _this] spawn A3A_fnc_commanderDialog";
+      x = CENTER_X(DIALOG_W) + 68 * GRID_W;
+      y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
+      w = 84 * GRID_W;
+      h = 84 * GRID_H;
+
+      // Fade satellite texture a bit
+      maxSatelliteAlpha = 0.75;
+      alphaFadeStartScale = 3.0;
+      alphaFadeEndScale = 3.0;
+
+      // Set zoom levels
+      scaleMin = 0.2; // Smallest scale showing the 100m lines
+      scaleDefault = 0.325; // Largest scale forests still are visible
+      scaleMax = 2;
+    };
+
     class MainContent : RscControlsGroupNoScrollbars
     {
       idc = -1;
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
+      w = 68 * GRID_W;
       h = PX_H(DIALOG_H);
 
       class controls
       {
-        class HcList : A3A_ShortcutButton
+        class SquadTitle : RscText
         {
           idc = -1;
-          text = "Squad list placeholder";
+          text = "Squad 1 - Alpha or whatever";
+          shadow = 2;
+          colorShadow[] = {0,0,0,1};
+          colorBackground[] = {0,0,0,0.5};
           x = 8 * GRID_W;
           y = 8 * GRID_H;
-          w = 64 * GRID_W;
-          h = 54 * GRID_H;
+          w = 54 * GRID_W;
+          h = 6 * GRID_H;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
         };
 
-        class HcButton1 : A3A_ShortcutButton
+        class SquadStuffPlaceholder : A3A_ShortcutButton
         {
           idc = -1;
-          text = "SITREP";
+          text = "Squad info placeholder (basically what used to be in SITREP)";
           x = 8 * GRID_W;
-          y = 66 * GRID_H;
-          w = 20 * GRID_W;
-          h = 12 * GRID_H;
+          y = 16 * GRID_H;
+          w = 50 * GRID_W;
+          h = 24 * GRID_H;
         };
 
-        class HcButton2 : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Recruit";
-          x = 30 * GRID_W;
-          y = 66 * GRID_H;
-          w = 20 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class HcButton3 : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Dismiss";
-          x = 52 * GRID_W;
-          y = 66 * GRID_H;
-          w = 20 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class HcButton4 : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Garrison";
-          x = 8 * GRID_W;
-          y = 80 * GRID_H;
-          w = 20 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class HcButton5 : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Add Vehicle";
-          x = 30 * GRID_W;
-          y = 80 * GRID_H;
-          w = 20 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class HcButton6 : A3A_ShortcutButton
+        class MountButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Mount / Dismount";
-          x = 52 * GRID_W;
-          y = 80 * GRID_H;
-          w = 20 * GRID_W;
+          x = 8 * GRID_W;
+          y = 44 * GRID_H;
+          w = 24 * GRID_W;
           h = 12 * GRID_H;
         };
+
+        class AddVehicleButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Add Vehicle";
+          x = 8 * GRID_W;
+          y = 58 * GRID_H;
+          w = 24 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class GarrisonButtom : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Garrison";
+          x = 34 * GRID_W;
+          y = 44 * GRID_H;
+          w = 24 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class DismissButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Dismiss";
+          x = 34 * GRID_W;
+          y = 58 * GRID_H;
+          w = 24 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class AirSupportButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Air Support";
+          x = 8 * GRID_W;
+          y = 80 * GRID_H;
+          w = 24 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class GarbageCleanButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Garbage Clean";
+          x = 34 * GRID_W;
+          y = 80 * GRID_H;
+          w = 24 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        // End of main controls
       };
     };
   };

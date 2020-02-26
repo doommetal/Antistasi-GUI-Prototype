@@ -191,7 +191,7 @@ class CustomAttributes
 													"SCALAR"
 												};
 											};
-											value=0;
+											value=500;
 										};
 									};
 								};
