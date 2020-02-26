@@ -248,6 +248,7 @@ class A3A_AdminDialog
         {
           idc = -1;
           text = "Petros";
+          action = "petros setPos getPos player;";
           x = 74 * GRID_W;
           y = 64 * GRID_H;
           w = 16 * GRID_H;
@@ -266,6 +267,7 @@ class A3A_AdminDialog
         {
           idc = -1;
           text = "Arsenal Box";
+          action = "boxX setPos getPos player;";
           x = 103 * GRID_W;
           y = 64 * GRID_H;
           w = 16 * GRID_H;
@@ -284,6 +286,7 @@ class A3A_AdminDialog
         {
           idc = -1;
           text = "Vehicle Box";
+          action = "vehicleBox setPos getPos player;";
           x = 132 * GRID_W;
           y = 64 * GRID_H;
           w = 16 * GRID_H;
@@ -302,6 +305,7 @@ class A3A_AdminDialog
         {
           idc = -1;
           text = "Flag";
+          action = "flagX setPos getPos player;";
           x = 74 * GRID_W;
           y = 80 * GRID_H;
           w = 16 * GRID_H;
@@ -320,6 +324,7 @@ class A3A_AdminDialog
         {
           idc = -1;
           text = "Tent";
+          action = "fireX setPos getPos player;";
           x = 103 * GRID_W;
           y = 80 * GRID_H;
           w = 16 * GRID_H;
@@ -338,6 +343,7 @@ class A3A_AdminDialog
         {
           idc = -1;
           text = "Map";
+          action = "mapX setPos getPos player;";
           x = 132 * GRID_W;
           y = 80 * GRID_H;
           w = 16 * GRID_H;
