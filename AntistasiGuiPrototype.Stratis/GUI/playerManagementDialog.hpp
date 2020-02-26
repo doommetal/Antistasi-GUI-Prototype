@@ -63,7 +63,7 @@ class A3A_PlayerManagementDialog
         class DistanceLabel : RscText
         {
           text = "Distance";
-          x = 74 * GRID_W;
+          x = 71 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
           h = 4 * GRID_W;
@@ -73,7 +73,7 @@ class A3A_PlayerManagementDialog
         class UIDLabel : RscText
         {
           text = "PlayerUID";
-          x = 89 * GRID_W;
+          x = 85 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
           h = 4 * GRID_W;
@@ -91,7 +91,7 @@ class A3A_PlayerManagementDialog
 
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           rowHeight = 4 * GRID_H;
-          columns[] = {0,0.615,0.755};
+          columns[] = {0,0.59,0.725};
         };
 
         class AddMemberButton : A3A_ShortcutButton
