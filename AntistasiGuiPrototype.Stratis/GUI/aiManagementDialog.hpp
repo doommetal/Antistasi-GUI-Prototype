@@ -50,6 +50,17 @@ class A3A_AiManagementDialog
       class controls
       {
         // Start of main group controls
+        class AiControlIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_none.paa";
+          x = 24 * GRID_W;
+          y = 24 * GRID_H;
+          w = 8 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
         class AiControlButton : A3A_ShortcutButton
         {
           idc = -1;
@@ -59,6 +70,17 @@ class A3A_AiManagementDialog
           y = 22 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
+        };
+
+        class AutoLootIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_none.paa";
+          x = 24 * GRID_W;
+          y = 46 * GRID_H;
+          w = 8 * GRID_W;
+          h = 8 * GRID_H;
         };
 
         class AutoLootButton : A3A_ShortcutButton
@@ -72,6 +94,17 @@ class A3A_AiManagementDialog
           h = 12 * GRID_H;
         };
 
+        class AutoHealIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_none.paa";
+          x = 24 * GRID_W;
+          y = 68 * GRID_H;
+          w = 8 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
         class AutoHealButton : A3A_ShortcutButton
         {
           idc = -1;
@@ -83,6 +116,17 @@ class A3A_AiManagementDialog
           h = 12 * GRID_H;
         };
 
+        class GarrisonIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_none.paa";
+          x = 128 * GRID_W;
+          y = 34 * GRID_H;
+          w = 8 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
         class GarrisonButton : A3A_ShortcutButton
         {
           idc = -1;
@@ -92,6 +136,17 @@ class A3A_AiManagementDialog
           y = 32 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
+        };
+
+        class DismissIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_none.paa";
+          x = 128 * GRID_W;
+          y = 60 * GRID_H;
+          w = 8 * GRID_W;
+          h = 8 * GRID_H;
         };
 
         class DismissButton : A3A_ShortcutButton
