@@ -1,5 +1,5 @@
 // IDDs and IDCs
-// Current highest ID:                  7050
+// Current highest ID:                  7052
 
 // Tabs
 #define A3A_IDC_PLAYERTABBUTTON         5000
@@ -43,6 +43,8 @@
 
 // Donate Dialog
 #define A3A_IDD_DONATEDIALOG            7040
+#define A3A_IDC_DONATEPLAYERLIST        7051
+#define A3A_IDC_DONATIONMONEYTEXT       7052
 #define A3A_IDC_MONEYSLIDER             5016
 #define A3A_IDC_MONEYEDITBOX            5017
 #define A3A_IDC_DONATEFACTIONBUTTON     5018

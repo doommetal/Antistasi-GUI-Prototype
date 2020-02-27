@@ -18,6 +18,25 @@ switch (_mode) do {
     _moneySlider sliderSetRange [0,_money];
     _moneySlider sliderSetSpeed [100, 100];
     _moneySlider sliderSetPosition 0;
+    _target = cursorTarget;
+
+    _moneyText = _display displayCtrl A3A_IDC_DONATIONMONEYTEXT;
+    _moneyText ctrlSetText format ["%1 €", _money];
+
+    _playerList = _display displayCtrl A3A_IDC_DONATEPLAYERLIST;
+    {
+      if !(_x == player) then
+      {
+        _playerList lbAdd name _x;
+        if !(_target == objNull) then
+        {
+          if (_target == _x) then
+          {
+            _playerList lbSetCurSel _forEachIndex;
+          };
+        };
+      };
+    } forEach fakePlayers;
   };
 
   case ("moneySliderChanged"): {

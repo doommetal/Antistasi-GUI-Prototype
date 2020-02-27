@@ -379,7 +379,7 @@ class A3A_PlayerDialog
         class MoneyText : RscTextMulti
         {
           idc = A3A_IDC_MONEYTEXT;
-          text = "Current money:\nALL THE MONEY";
+          text = "Current money:\n€ 0";
           // font = "PuristaLight";
           colorBackground[] = {0,0,0,0.5};
           sizeEx = GUI_TEXT_SIZE_MEDIUM;

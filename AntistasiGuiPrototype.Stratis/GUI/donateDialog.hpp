@@ -50,21 +50,44 @@ class A3A_DonateDialog
       class controls
       {
 
-        class MoneySectionLabel : A3A_SectionLabelRight
+        class PlayerList : ctrlListBox
+        {
+          idc = A3A_IDC_DONATEPLAYERLIST;
+          x = 8 * GRID_H;
+          y = 8 * GRID_H;
+          w = 54 * GRID_W;
+          h = 84 * GRID_H;
+        };
+
+        class MoneyLabel : RscText
         {
           idc = -1;
-          text = "Donate money";
-          x = 70 * GRID_W;
-          y = 11 * GRID_H;
-          w = 90 * GRID_W;
-          h = 4 * GRID_H;
+          style = ST_CENTER;
+          text = "Current money:";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 74 * GRID_W;
+          y = 27 * GRID_H;
+          w = 78 * GRID_W;
+          h = 6 * GRID_H;
+        };
+
+        class MoneyText : RscText
+        {
+          idc = A3A_IDC_DONATIONMONEYTEXT;
+          style = ST_CENTER;
+          text = "€ 0";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 74 * GRID_W;
+          y = 33 * GRID_H;
+          w = 78 * GRID_W;
+          h = 6 * GRID_H;
         };
 
         class MoneySlider : ctrlXSliderH
         {
           idc = A3A_IDC_MONEYSLIDER;
           x = 74 * GRID_W;
-          y = 23 * GRID_H;
+          y = 53 * GRID_H;
           w = 60 * GRID_W;
           h = 4 * GRID_H;
           onSliderPosChanged = "[""moneySliderChanged""] spawn A3A_fnc_donateDialog";
@@ -77,7 +100,7 @@ class A3A_DonateDialog
           text = "0";
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 136 * GRID_W;
-          y = 23 * GRID_H;
+          y = 53 * GRID_H;
           w = 16 * GRID_W;
           h = 4 * GRID_H;
           onKeyDown = "[""moneyEditBoxChanged""] spawn A3A_fnc_donateDialog";
@@ -86,9 +109,9 @@ class A3A_DonateDialog
         class DonateFactionButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_DONATEFACTIONBUTTON;
-          text = "Donate to faction";
+          text = "Donate to Faction";
           x = 106 * GRID_W;
-          y = 31 * GRID_H;
+          y = 61 * GRID_H;
           w = 22 * GRID_W;
           h = 12 * GRID_H;
 
@@ -104,9 +127,9 @@ class A3A_DonateDialog
         class DonatePlayerButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_DONATEPLAYERBUTTON;
-          text = "Donate to player";
+          text = "Donate to Player";
           x = 130 * GRID_W;
-          y = 31 * GRID_H;
+          y = 61 * GRID_H;
           w = 22 * GRID_W;
           h = 12 * GRID_H;
 
