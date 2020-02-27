@@ -5,7 +5,8 @@ class A3A_PlayerManagementDialog
   #define DIALOG_W 160
   #define DIALOG_H 100
 
-  class controls {
+  class controls
+  {
     class TitleText : A3A_TitleText
     {
       idc = -1;
@@ -31,7 +32,8 @@ class A3A_PlayerManagementDialog
       y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
     };
 
-    class Tabs : A3A_Tabs {
+    class Tabs : A3A_Tabs
+    {
       idc = -1;
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 4 * GRID_H;

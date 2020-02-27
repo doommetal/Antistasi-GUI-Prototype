@@ -33,7 +33,6 @@ canGoUndercover = false;
 canFastTravel = true;
 canConstruct = true;
 canManageAI = true;
-playerMoney = 1500;
 factionMoney = 10000;
 playerIsCommander = true;
 playerIsAdmin = true;
@@ -98,6 +97,10 @@ fakePlayers = [p1, p2, p3, p4];
 {
   _x setVariable ["isMember", false];
   _x setVariable ["fakePlayerUID", str floor random [10000,50000,99999] + str floor random [10000,50000,99999] + str floor random [10000,50000,99999] + str floor random [10,50,99]];
+  _x setVariable ["kills", 0];
+  _x setVariable ["missionsCompleted", 0];
+  _x setVariable ["eligibleCommander", true];
+  _x setVariable ["money", floor random 2000];
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
 

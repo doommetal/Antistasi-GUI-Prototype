@@ -5,7 +5,8 @@ class A3A_PlayerDialog
   #define DIALOG_W 160
   #define DIALOG_H 100
 
-  class controls {
+  class controls
+  {
     class TitleText : A3A_TitleText
     {
       idc = -1;
@@ -23,7 +24,8 @@ class A3A_PlayerDialog
       y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
     };
 
-    class Tabs : A3A_Tabs {
+    class Tabs : A3A_Tabs
+    {
       idc = -1;
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
@@ -224,8 +226,8 @@ class A3A_PlayerDialog
 
         class PlayerNameText : RscText
         {
-          idc = -1;
-          text = "Player McPlayerface";
+          idc = A3A_IDC_PLAYERNAMETEXT;
+          // text = "Player McPlayerface";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           colorBackground[] = {0,0,0,1};
           x = 70 * GRID_W;
@@ -236,8 +238,8 @@ class A3A_PlayerDialog
 
         class PlayerRankText : RscText
         {
-          idc = -1;
-          text = "Major";
+          idc = A3A_IDC_PLAYERRANKTEXT;
+          // text = "Major";
           colorText[] = {0.7,0.7,0.7};
           style = ST_RIGHT;
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
@@ -249,10 +251,10 @@ class A3A_PlayerDialog
 
         class PlayerRankPicture : RscPicture
         {
-          idc = -1;
+          idc = A3A_IDC_PLAYERRANKPICTURE;
           colorBackground[] = {0,0,0,0};
           colorText[] = {0.7,0.7,0.7};
-          text = "\A3\Ui_f\data\GUI\Cfg\Ranks\major_gs.paa";
+          // text = "\A3\Ui_f\data\GUI\Cfg\Ranks\major_gs.paa";
           x = 147 * GRID_W;
           y = 8 * GRID_H;
           w = 4 * GRID_W;
@@ -272,9 +274,9 @@ class A3A_PlayerDialog
 
         class AliveText : RscText
         {
-          idc = -1;
+          idc = A3A_IDC_ALIVETEXT;
           style = ST_RIGHT;
-          text = "30d 14h 15m 36s";
+          text = "";
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 130 * GRID_W;
           y = 17 * GRID_H;
@@ -285,7 +287,7 @@ class A3A_PlayerDialog
         class MissionsLabel : RscText
         {
           idc = -1;
-          text = "Missions completed:";
+          text = "Missions:";
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 98 * GRID_W;
           y = 22 * GRID_H;
@@ -295,9 +297,9 @@ class A3A_PlayerDialog
 
         class MissionsText : RscText
         {
-          idc = -1;
+          idc = A3A_IDC_MISSIONSTEXT;
           style = ST_RIGHT;
-          text = "123";
+          text = "";
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 130 * GRID_W;
           y = 22 * GRID_H;
@@ -318,9 +320,9 @@ class A3A_PlayerDialog
 
         class KillsText : RscText
         {
-          idc = -1;
+          idc = A3A_IDC_KILLSTEXT;
           style = ST_RIGHT;
-          text = "361685";
+          text = "";
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 130 * GRID_W;
           y = 27 * GRID_H;
@@ -330,9 +332,9 @@ class A3A_PlayerDialog
 
         class CommanderPicture : RscPicture
         {
-          idc = -1;
+          idc = A3A_IDC_COMMANDERPICTURE;
           colorBackground[] = {0,0,0,0};
-          colorText[] = {1,0.9,0.5,1};
+          colorText[] = {0,0,0,0};
           colorShadow[] = {0,0,0,1};
           shadow = 2;
           text = "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa";
@@ -344,7 +346,8 @@ class A3A_PlayerDialog
 
         class CommanderText : RscText
         {
-          text = "Commander";
+          // text = "Commander";
+          idc = A3A_IDC_COMMANDERTEXT;
           style = ST_CENTER;
           colorText[] = {1,0.9,0.5,1};
           colorShadow[] = {0,0,0,1};
@@ -357,7 +360,7 @@ class A3A_PlayerDialog
 
         class CommanderButton : A3A_ShortcutButton
         {
-          idc = -1;
+          idc = A3A_IDC_COMMANDERBUTTON;
           text = "Resign";
           x = 74 * GRID_W;
           y = 34 * GRID_H;
@@ -375,7 +378,7 @@ class A3A_PlayerDialog
 
         class MoneyText : RscTextMulti
         {
-          idc = -1;
+          idc = A3A_IDC_MONEYTEXT;
           text = "Current money:\nALL THE MONEY";
           // font = "PuristaLight";
           colorBackground[] = {0,0,0,0.5};

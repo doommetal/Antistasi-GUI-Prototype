@@ -13,8 +13,9 @@ switch (_mode) do {
     _display = findDisplay A3A_IDD_DONATEDIALOG;
 
     // Money section setup
+    _money = player getVariable "money";
     _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
-    _moneySlider sliderSetRange [0,playerMoney];
+    _moneySlider sliderSetRange [0,_money];
     _moneySlider sliderSetSpeed [100, 100];
     _moneySlider sliderSetPosition 0;
   };
@@ -28,12 +29,13 @@ switch (_mode) do {
   };
 
   case ("moneyEditBoxChanged"): {
+    _money = player getVariable "money";
     _display = findDisplay A3A_IDD_DONATEDIALOG;
     _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
     _moneySlider sliderSetPosition _moneyEditBoxValue;
     if (_moneyEditBoxValue < 0) then {_moneyEditBox ctrlSetText str 0};
-    if (_moneyEditBoxValue > playerMoney) then {_moneyEditBox ctrlSetText str playerMoney};
+    if (_moneyEditBoxValue > _money) then {_moneyEditBox ctrlSetText str _money};
   };
 };

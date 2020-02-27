@@ -1,5 +1,5 @@
 // IDDs and IDCs
-// Current highest IDC:                 7040
+// Current highest ID:                  7050
 
 // Tabs
 #define A3A_IDC_PLAYERTABBUTTON         5000
@@ -21,6 +21,16 @@
 #define A3A_IDC_AIMANAGEMENTBUTTON      5013
 #define A3A_IDC_AIMANAGEMENTICON        5014
 #define A3A_IDC_AIMANAGEMENTERROR       5015
+#define A3A_IDC_PLAYERNAMETEXT          7041
+#define A3A_IDC_PLAYERRANKTEXT          7042
+#define A3A_IDC_PLAYERRANKPICTURE       7043
+#define A3A_IDC_ALIVETEXT               7044
+#define A3A_IDC_MISSIONSTEXT            7045
+#define A3A_IDC_KILLSTEXT               7046
+#define A3A_IDC_COMMANDERPICTURE        7047
+#define A3A_IDC_COMMANDERTEXT           7048
+#define A3A_IDC_COMMANDERBUTTON         7049
+#define A3A_IDC_MONEYTEXT               7050
 #define A3A_IDC_PLAYERVEHICLEGROUP      7034
 #define A3A_IDC_VEHICLENAMELABEL        7030
 #define A3A_IDC_VEHICLEPICTURE          7031
