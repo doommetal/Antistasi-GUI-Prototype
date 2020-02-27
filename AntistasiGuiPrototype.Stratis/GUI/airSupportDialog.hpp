@@ -177,7 +177,7 @@ class A3A_AirSupportDialog
       colorBackground[] = {0,0,0,0.5};
       x = CENTER_X(DIALOG_W) + 38 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
-      w = 94 * GRID_W;
+      w = 86 * GRID_W;
       h = 34 * GRID_H;
     };
   };
