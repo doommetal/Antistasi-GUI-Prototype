@@ -1,5 +1,5 @@
 // IDDs and IDCs
-// Current highest IDC:                 7038
+// Current highest IDC:                 7039
 
 // Tabs
 #define A3A_IDC_PLAYERTABBUTTON         5000
@@ -101,6 +101,9 @@
 
 // AI Management Dialog
 #define A3A_IDD_AIMANAGEMENTDIALOG      7029
+
+// Air Support Dialog
+#define A3A_IDD_AIRSUPPORTDIALOG        7039
 
 // Sandbox Dialog
 #define A3A_IDD_SANDBOXDIALOG           6000

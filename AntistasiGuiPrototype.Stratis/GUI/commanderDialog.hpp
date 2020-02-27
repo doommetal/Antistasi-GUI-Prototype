@@ -129,6 +129,7 @@ class A3A_CommanderDialog
         {
           idc = -1;
           text = "Air Support";
+          action = "[] spawn A3A_fnc_airSupportDialog";
           x = 8 * GRID_W;
           y = 80 * GRID_H;
           w = 24 * GRID_W;

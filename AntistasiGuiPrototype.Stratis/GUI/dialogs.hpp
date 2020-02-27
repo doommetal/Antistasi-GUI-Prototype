@@ -17,3 +17,4 @@ This file contains all dialogs used in Antistasi
 #include "requestMissionDialog.hpp"
 #include "minefieldDialog.hpp"
 #include "aiManagementDialog.hpp"
+#include "airSupportDialog.hpp"

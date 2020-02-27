@@ -22,5 +22,6 @@ class A3A
     class requestMissionDialog {};
     class minefieldDialog {};
     class aiManagementDialog {};
+    class airSupportDialog {};
   };
 };
