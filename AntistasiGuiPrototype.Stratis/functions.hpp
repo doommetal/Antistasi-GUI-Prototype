@@ -23,5 +23,6 @@ class A3A
     class minefieldDialog {};
     class aiManagementDialog {};
     class airSupportDialog {};
+    class donateDialog{};
   };
 };

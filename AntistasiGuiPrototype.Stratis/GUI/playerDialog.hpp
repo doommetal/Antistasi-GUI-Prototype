@@ -222,45 +222,145 @@ class A3A_PlayerDialog
           h = 3 * GRID_H;
         };
 
-        class MoneySectionLabel : A3A_SectionLabelRight
+        class PlayerNameText : RscText
         {
           idc = -1;
-          text = "Donate money";
+          text = "Player McPlayerface";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          colorBackground[] = {0,0,0,1};
           x = 70 * GRID_W;
-          y = 11 * GRID_H;
+          y = 7 * GRID_H;
           w = 90 * GRID_W;
-          h = 4 * GRID_H;
+          h = 6 * GRID_H;
         };
 
-        class MoneySlider : ctrlXSliderH
+        class PlayerRankText : RscText
         {
-          idc = A3A_IDC_MONEYSLIDER;
-          x = 74 * GRID_W;
-          y = 23 * GRID_H;
-          w = 60 * GRID_W;
-          h = 4 * GRID_H;
-          onSliderPosChanged = "[""moneySliderChanged""] spawn A3A_fnc_playerDialog";
-        };
-
-        class MoneyEditBox : ctrlEdit
-        {
-          idc = A3A_IDC_MONEYEDITBOX;
+          idc = -1;
+          text = "Major";
+          colorText[] = {0.7,0.7,0.7};
           style = ST_RIGHT;
-          text = "0";
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
-          x = 136 * GRID_W;
-          y = 23 * GRID_H;
-          w = 16 * GRID_W;
+          x = 117 * GRID_W;
+          y = 8 * GRID_H;
+          w = 30 * GRID_W;
           h = 4 * GRID_H;
-          onKeyDown = "[""moneyEditBoxChanged""] spawn A3A_fnc_playerDialog";
         };
 
-        class DonateFactionButton : A3A_ShortcutButton
+        class PlayerRankPicture : RscPicture
         {
-          idc = A3A_IDC_DONATEFACTIONBUTTON;
-          text = "Donate to faction";
-          x = 106 * GRID_W;
-          y = 31 * GRID_H;
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          colorText[] = {0.7,0.7,0.7};
+          text = "\A3\Ui_f\data\GUI\Cfg\Ranks\major_gs.paa";
+          x = 147 * GRID_W;
+          y = 8 * GRID_H;
+          w = 4 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class AliveLabel : RscText
+        {
+          idc = -1;
+          text = "Time alive:";
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          x = 98 * GRID_W;
+          y = 17 * GRID_H;
+          w = 30 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class AliveText : RscText
+        {
+          idc = -1;
+          style = ST_RIGHT;
+          text = "30d 14h 15m 36s";
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          x = 130 * GRID_W;
+          y = 17 * GRID_H;
+          w = 22 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class MissionsLabel : RscText
+        {
+          idc = -1;
+          text = "Missions completed:";
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          x = 98 * GRID_W;
+          y = 22 * GRID_H;
+          w = 30 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class MissionsText : RscText
+        {
+          idc = -1;
+          style = ST_RIGHT;
+          text = "123";
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          x = 130 * GRID_W;
+          y = 22 * GRID_H;
+          w = 22 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class KillsLabel : RscText
+        {
+          idc = -1;
+          text = "Kills:";
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          x = 98 * GRID_W;
+          y = 27 * GRID_H;
+          w = 30 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class KillsText : RscText
+        {
+          idc = -1;
+          style = ST_RIGHT;
+          text = "361685";
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          x = 130 * GRID_W;
+          y = 27 * GRID_H;
+          w = 22 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class CommanderPicture : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          colorText[] = {1,0.9,0.5,1};
+          colorShadow[] = {0,0,0,1};
+          shadow = 2;
+          text = "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa";
+          x = 79 * GRID_W;
+          y = 16 * GRID_H;
+          w = 12 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class CommanderText : RscText
+        {
+          text = "Commander";
+          style = ST_CENTER;
+          colorText[] = {1,0.9,0.5,1};
+          colorShadow[] = {0,0,0,1};
+          shadow = 2;
+          x = 74 * GRID_W;
+          y = 25 * GRID_H;
+          w = 22 * GRID_W;
+          h = 4 * GRID_H;
+        }
+
+        class CommanderButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Resign";
+          x = 74 * GRID_W;
+          y = 34 * GRID_H;
           w = 22 * GRID_W;
           h = 12 * GRID_H;
 
@@ -273,12 +373,26 @@ class A3A_PlayerDialog
           };
         };
 
-        class DonatePlayerButton : A3A_ShortcutButton
+        class MoneyText : RscTextMulti
         {
-          idc = A3A_IDC_DONATEPLAYERBUTTON;
-          text = "Donate to player";
+          idc = -1;
+          text = "Current money:\nALL THE MONEY";
+          // font = "PuristaLight";
+          colorBackground[] = {0,0,0,0.5};
+          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          x = 98 * GRID_W;
+          y = 34 * GRID_H;
+          w = 30 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class DonateButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Donate Money";
+          action = "[] spawn A3A_fnc_donateDialog";
           x = 130 * GRID_W;
-          y = 31 * GRID_H;
+          y = 34 * GRID_H;
           w = 22 * GRID_W;
           h = 12 * GRID_H;
 
@@ -465,6 +579,15 @@ class A3A_PlayerDialog
       y = CENTER_Y(DIALOG_H);
       w = PX_W(DIALOG_W);
       h = PX_H(DIALOG_H);
+    };
+
+    class RankPictureBackground : A3A_MainBackground
+    {
+      colorBackground[] = {0,0,0,0.5};
+      x = CENTER_X(DIALOG_W) + 74 * GRID_W;
+      y = CENTER_Y(DIALOG_H) + 17 * GRID_H;
+      w = 22 * GRID_W;
+      h = 14 * GRID_H;
     };
   };
 };

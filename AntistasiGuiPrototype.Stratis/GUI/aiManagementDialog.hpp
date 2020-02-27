@@ -9,7 +9,7 @@ class A3A_AiManagementDialog
     class TitleText : A3A_TitleText
     {
       idc = -1;
-      text = "AI MANAGEMENT";
+      text = "PLAYER OPTIONS > AI MANAGEMENT";
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
       w = PX_W(DIALOG_W);

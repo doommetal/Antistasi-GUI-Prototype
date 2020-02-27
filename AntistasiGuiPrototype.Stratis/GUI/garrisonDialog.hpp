@@ -9,7 +9,7 @@ class A3A_GarrisonDialog
     class TitleText : A3A_TitleText
     {
       idc = -1;
-      text = "GARRISON MANAGEMENT";
+      text = "HQ MANAGEMENT > GARRISON MANAGEMENT";
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
       w = PX_W(DIALOG_W);

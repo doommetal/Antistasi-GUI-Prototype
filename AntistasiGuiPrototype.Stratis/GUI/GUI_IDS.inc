@@ -1,5 +1,5 @@
 // IDDs and IDCs
-// Current highest IDC:                 7039
+// Current highest IDC:                 7040
 
 // Tabs
 #define A3A_IDC_PLAYERTABBUTTON         5000
@@ -21,10 +21,6 @@
 #define A3A_IDC_AIMANAGEMENTBUTTON      5013
 #define A3A_IDC_AIMANAGEMENTICON        5014
 #define A3A_IDC_AIMANAGEMENTERROR       5015
-#define A3A_IDC_MONEYSLIDER             5016
-#define A3A_IDC_MONEYEDITBOX            5017
-#define A3A_IDC_DONATEFACTIONBUTTON     5018
-#define A3A_IDC_DONATEPLAYERBUTTON      5019
 #define A3A_IDC_PLAYERVEHICLEGROUP      7034
 #define A3A_IDC_VEHICLENAMELABEL        7030
 #define A3A_IDC_VEHICLEPICTURE          7031
@@ -34,6 +30,13 @@
 #define A3A_IDC_ADDTOAIRSUPPORTBUTTON   7033
 #define A3A_IDC_NOVEHICLEGROUP          7035
 #define A3A_IDC_NOVEHICLETEXT           7036
+
+// Donate Dialog
+#define A3A_IDD_DONATEDIALOG            7040
+#define A3A_IDC_MONEYSLIDER             5016
+#define A3A_IDC_MONEYEDITBOX            5017
+#define A3A_IDC_DONATEFACTIONBUTTON     5018
+#define A3A_IDC_DONATEPLAYERBUTTON      5019
 
 // Garage dialog
 #define A3A_IDD_GARAGEDIALOG            5022
