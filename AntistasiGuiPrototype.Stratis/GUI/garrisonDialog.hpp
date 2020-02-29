@@ -36,7 +36,8 @@ class A3A_GarrisonDialog
     class GarrisonMap : RscMapControl
     {
       idc = A3A_IDC_GARRISONMAP;
-      onMouseButtonClick = "[""mapClicked"", _this] spawn A3A_fnc_garrisonDialog";
+      // onMouseButtonClick = "[""mapClicked"", _this] spawn A3A_fnc_garrisonDialog";
+      onMouseButtonClick = "[""mapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] spawn A3A_fnc_garrisonDialog";
       x = CENTER_X(DIALOG_W) + 68 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
       // x = 68 * GRID_W;
@@ -51,18 +52,19 @@ class A3A_GarrisonDialog
 
       // Set zoom levels
       scaleMin = 0.2; // Smallest scale showing the 100m lines
-      scaleDefault = 0.325; // Largest scale forests still are visible
+      // scaleDefault = 0.325; // Largest scale forests are still visible
+      scaleDefault = 0.5; // Largest scale roads are still visible
       scaleMax = 2;
     };
 
-    class MainContent : RscControlsGroupNoScrollbars
+    class MainContent : RscControlsGroupNoHScrollbars
     {
       idc = -1;
       x = CENTER_X(DIALOG_W);
       y = CENTER_Y(DIALOG_H);
       // Width set to smaller than usual to avoid an issue where
       // pressing anything other than the map would (invisibly) cover up the
-      // map control, making it not get click events
+      // map control, making it unclickable
       w = 68 * GRID_W;
       h = PX_H(DIALOG_H);
 
@@ -89,7 +91,7 @@ class A3A_GarrisonDialog
           x = 14 * GRID_W;
           y = 18 * GRID_H;
           w = 46 * GRID_W;
-          h = 50 * GRID_H;
+          h = 41 * GRID_H;
 
           class controls
           {
@@ -120,6 +122,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""rifleman"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 0 * GRID_H;
               w = 4 * GRID_W;
@@ -138,6 +141,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""rifleman"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 0 * GRID_H;
               w = 4 * GRID_W;
@@ -179,6 +183,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""squadleader"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 5 * GRID_H;
               w = 4 * GRID_W;
@@ -197,6 +202,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""squadleader"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 5 * GRID_H;
               w = 4 * GRID_W;
@@ -238,6 +244,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""autorifleman"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 10 * GRID_H;
               w = 4 * GRID_W;
@@ -256,6 +263,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""autorifleman"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 10 * GRID_H;
               w = 4 * GRID_W;
@@ -297,6 +305,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""grenadier"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 15 * GRID_H;
               w = 4 * GRID_W;
@@ -315,6 +324,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""grenadier"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 15 * GRID_H;
               w = 4 * GRID_W;
@@ -356,6 +366,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""medic"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 20 * GRID_H;
               w = 4 * GRID_W;
@@ -374,6 +385,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""medic"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 20 * GRID_H;
               w = 4 * GRID_W;
@@ -415,6 +427,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""mortar"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 25 * GRID_H;
               w = 4 * GRID_W;
@@ -433,6 +446,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""mortar"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 25 * GRID_H;
               w = 4 * GRID_W;
@@ -474,6 +488,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""marksman"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 30 * GRID_H;
               w = 4 * GRID_W;
@@ -492,6 +507,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""marksman"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 30 * GRID_H;
               w = 4 * GRID_W;
@@ -533,6 +549,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "-";
+              action = "[""garrisonAdd"",[""at"",-1]] spawn A3A_fnc_garrisonDialog";
               x = 37 * GRID_W;
               y = 35 * GRID_H;
               w = 4 * GRID_W;
@@ -551,6 +568,7 @@ class A3A_GarrisonDialog
             {
               idc = -1;
               text = "+";
+              action = "[""garrisonAdd"",[""at"",1]] spawn A3A_fnc_garrisonDialog";
               x = 42 * GRID_W;
               y = 35 * GRID_H;
               w = 4 * GRID_W;
@@ -564,45 +582,51 @@ class A3A_GarrisonDialog
                 bottom = 0;
               };
             };
-
-            class DismissGarrisonButton : A3A_ShortcutButton
-            {
-              idc = -1;
-              text = "Dismiss Garrison";
-              x = 0 * GRID_W;
-              y = 42 * GRID_H;
-              w = 46 * GRID_W;
-              h = 8 * GRID_H;
-            };
           };
+        };
+
+        class RebuildButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Rebuild Assets";
+          x = 14 * GRID_W;
+          y = 60 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class DismissGarrisonButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Dismiss Garrison";
+          x = 38 * GRID_W;
+          y = 60 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
         };
 
         class BuildOutpostButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Build Outpost / Roadblock";
-          x = 8 * GRID_W;
-          y = 74 * GRID_H;
-          w = 56 * GRID_W;
-          h = 8 * GRID_H;
+          text = "Build Outpost";
+          x = 14 * GRID_W;
+          y = 78 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
         };
 
         class RemoveOutpostButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Remove Outpost / Roadblock";
-          x = 8 * GRID_W;
-          y = 84 * GRID_H;
-          w = 56 * GRID_W;
-          h = 8 * GRID_H;
+          text = "Remove Outpost";
+          x = 38 * GRID_W;
+          y = 78 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
         };
         // End of main content group controls
-
-
       };
     };
-
-
     // End of controls
   };
 
@@ -630,7 +654,7 @@ class A3A_GarrisonDialog
       x = CENTER_X(DIALOG_W) + 12 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 16 * GRID_H;
       w = 50 * GRID_W;
-      h = 54 * GRID_H;
+      h = 58 * GRID_H;
     };
   };
 };
