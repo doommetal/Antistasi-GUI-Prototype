@@ -62,35 +62,37 @@ class A3A_DonateDialog
         class MoneyLabel : RscText
         {
           idc = -1;
-          style = ST_CENTER;
+          style = ST_LEFT;
           text = "Current money:";
           sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 74 * GRID_W;
-          y = 27 * GRID_H;
-          w = 78 * GRID_W;
+          x = 83 * GRID_W;
+          y = 30 * GRID_H;
+          w = 30 * GRID_W;
           h = 6 * GRID_H;
         };
 
         class MoneyText : RscText
         {
           idc = A3A_IDC_DONATIONMONEYTEXT;
-          style = ST_CENTER;
+          style = ST_RIGHT;
           text = "€ 0";
           sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 74 * GRID_W;
-          y = 33 * GRID_H;
-          w = 78 * GRID_W;
+          x = 113 * GRID_W;
+          y = 30 * GRID_H;
+          w = 30 * GRID_W;
           h = 6 * GRID_H;
         };
 
-        class MoneySlider : ctrlXSliderH
+        class DonationLabel : RscText
         {
-          idc = A3A_IDC_MONEYSLIDER;
-          x = 74 * GRID_W;
-          y = 53 * GRID_H;
-          w = 60 * GRID_W;
-          h = 4 * GRID_H;
-          onSliderPosChanged = "[""moneySliderChanged""] spawn A3A_fnc_donateDialog";
+          idc = -1;
+          style = ST_LEFT;
+          text = "Donate:";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 83 * GRID_W;
+          y = 40 * GRID_H;
+          w = 30 * GRID_W;
+          h = 6 * GRID_H;
         };
 
         class MoneyEditBox : ctrlEdit
@@ -98,47 +100,151 @@ class A3A_DonateDialog
           idc = A3A_IDC_MONEYEDITBOX;
           style = ST_RIGHT;
           text = "0";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
-          x = 136 * GRID_W;
-          y = 53 * GRID_H;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 123 * GRID_W;
+          y = 40 * GRID_H;
           w = 16 * GRID_W;
-          h = 4 * GRID_H;
+          h = 6 * GRID_H;
           onKeyDown = "[""moneyEditBoxChanged""] spawn A3A_fnc_donateDialog";
         };
 
-        class DonateFactionButton : A3A_ShortcutButton
+        class EuroLabel : RscText
         {
-          idc = A3A_IDC_DONATEFACTIONBUTTON;
-          text = "Donate to Faction";
-          x = 106 * GRID_W;
-          y = 61 * GRID_H;
-          w = 22 * GRID_W;
-          h = 12 * GRID_H;
+          idc = -1;
+          style = ST_RIGHT;
+          text = "€";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 139 * GRID_W;
+          y = 40 * GRID_H;
+          w = 4 * GRID_W;
+          h = 6 * GRID_H;
+        };
 
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 1 * GRID_H;
-            bottom = 1 * GRID_W;
-          };
+        class Sub1000Button : RscButtonMenu
+        {
+          idc = -1;
+          // animTextureFocused = "#(argb,8,8,3)color(1,1,1,0)"; // Focused by KB, or after mouse click
+          // animTextureOver = "#(argb,8,8,3)color(1,1,1,0)"; // Mouse over
+          // animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)"; // Doesn't do shit ?
+          textureNoShortcut = "GUI\textures\arrowEmpty_3L.paa";
+          action = "[""add"", [-1000]] spawn A3A_fnc_donateDialog";
+          x = 74 * GRID_W;
+          y = 53 * GRID_H;
+          w = 6 * GRID_W;
+          h = 6 * GRID_H;
+
+          class ShortcutPos
+        	{
+        		left = 0;
+        		top = 0;
+        		w = 6 * GRID_W;
+        		h = 6 * GRID_H;
+        	};
+        };
+
+        class Sub100Button : A3A_ShortcutButton
+        {
+          idc = -1;
+          textureNoShortcut = "GUI\textures\arrowEmpty_2L.paa";
+          action = "[""add"", [-100]] spawn A3A_fnc_donateDialog";
+          x = 81 * GRID_W;
+          y = 53 * GRID_H;
+          w = 6 * GRID_W;
+          h = 6 * GRID_H;
+
+          class ShortcutPos
+        	{
+        		left = 0;
+        		top = 0;
+        		w = 6 * GRID_W;
+        		h = 6 * GRID_H;
+        	};
+        };
+
+        class MoneySlider : ctrlXSliderH
+        {
+          idc = A3A_IDC_MONEYSLIDER;
+          color[] = {1,1,1,1};
+          arrowEmpty = "GUI\textures\arrowEmpty_1L.paa";
+          arrowFull = "GUI\textures\arrowFull_1L.paa";
+          x = 88 * GRID_W;
+          y = 53 * GRID_H;
+          w = 50 * GRID_W;
+          h = 6 * GRID_H;
+          onSliderPosChanged = "[""moneySliderChanged""] spawn A3A_fnc_donateDialog";
+        };
+
+        class Add100Button : A3A_ShortcutButton
+        {
+          idc = -1;
+          textureNoShortcut = "GUI\textures\arrowEmpty_2R.paa";
+          action = "[""add"", [100]] spawn A3A_fnc_donateDialog";
+          x = 139 * GRID_W;
+          y = 53 * GRID_H;
+          w = 6 * GRID_W;
+          h = 6 * GRID_H;
+
+          class ShortcutPos
+        	{
+        		left = 0;
+        		top = 0;
+        		w = 6 * GRID_W;
+        		h = 6 * GRID_H;
+        	};
+        };
+
+        class Add1000Button : A3A_ShortcutButton
+        {
+          idc = -1;
+          textureNoShortcut = "GUI\textures\arrowEmpty_3R.paa";
+          action = "[""add"", [1000]] spawn A3A_fnc_donateDialog";
+          x = 146 * GRID_W;
+          y = 53 * GRID_H;
+          w = 6 * GRID_W;
+          h = 6 * GRID_H;
+
+          class ShortcutPos
+        	{
+        		left = 0;
+        		top = 0;
+        		w = 6 * GRID_W;
+        		h = 6 * GRID_H;
+        	};
         };
 
         class DonatePlayerButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_DONATEPLAYERBUTTON;
           text = "Donate to Player";
-          x = 130 * GRID_W;
-          y = 61 * GRID_H;
-          w = 22 * GRID_W;
-          h = 12 * GRID_H;
+          x = 74 * GRID_W;
+          y = 63 * GRID_H;
+          w = 36 * GRID_W;
+          h = 10 * GRID_H;
 
           class TextPos
           {
             left = 2 * GRID_W;
             right = 2 * GRID_W;
-            top = 1 * GRID_H;
-            bottom = 1 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
+          };
+        };
+
+        class DonateFactionButton : A3A_ShortcutButton
+        {
+          idc = A3A_IDC_DONATEFACTIONBUTTON;
+          text = "Donate to Faction";
+          x = 116 * GRID_W;
+          y = 63 * GRID_H;
+          w = 36 * GRID_W;
+          h = 10 * GRID_H;
+
+          class TextPos
+          {
+            left = 2 * GRID_W;
+            right = 2 * GRID_W;
+            top = 3 * GRID_H;
+            bottom = 3 * GRID_W;
           };
         };
       };
@@ -170,5 +276,13 @@ class A3A_DonateDialog
       w = PX_W(DIALOG_W);
       h = PX_H(DIALOG_H);
     };
+
+    class DonationBackground : A3A_MainBackground
+    {
+      x = CENTER_X(DIALOG_W) + 81 * GRID_W;
+      y = CENTER_Y(DIALOG_H) + 28 * GRID_H;
+      w = 64 * GRID_W;
+      h = 22 * GRID_H;
+    }
   };
 };

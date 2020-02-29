@@ -16,7 +16,7 @@ switch (_mode) do {
     _money = player getVariable "money";
     _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     _moneySlider sliderSetRange [0,_money];
-    _moneySlider sliderSetSpeed [100, 100];
+    _moneySlider sliderSetSpeed [10, 10];
     _moneySlider sliderSetPosition 0;
     _target = cursorTarget;
 
@@ -53,8 +53,22 @@ switch (_mode) do {
     _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
-    _moneySlider sliderSetPosition _moneyEditBoxValue;
     if (_moneyEditBoxValue < 0) then {_moneyEditBox ctrlSetText str 0};
     if (_moneyEditBoxValue > _money) then {_moneyEditBox ctrlSetText str _money};
+    _moneySlider sliderSetPosition _moneyEditBoxValue;
+  };
+
+  case ("add"): {
+    _moneyToAdd = _params select 0;
+    _money = player getVariable "money";
+    _display = findDisplay A3A_IDD_DONATEDIALOG;
+    _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
+    _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
+    _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
+    _newValue = _moneyEditBoxValue + _moneyToAdd;
+    if (_newValue < 0) then {_newValue = 0};
+    if (_newValue > _money) then {_newValue = _money};
+    _moneyEditBox ctrlSetText str _newValue;
+    _moneySlider sliderSetPosition _newValue;
   };
 };
