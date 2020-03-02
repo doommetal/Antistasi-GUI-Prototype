@@ -50,6 +50,8 @@ class A3A_GarrisonDialog
       alphaFadeStartScale = 3.0;
       alphaFadeEndScale = 3.0;
 
+      // Hide map markers
+      showMarkers = false;
       // Set zoom levels
       scaleMin = 0.2; // Smallest scale showing the 100m lines
       // scaleDefault = 0.325; // Largest scale forests are still visible

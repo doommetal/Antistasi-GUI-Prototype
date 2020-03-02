@@ -3594,7 +3594,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={6369.603,8.0839996,5329.27};
-			name="marker_outpost5";
+			name="marker_outpost4";
 			text="FIA Outpost";
 			type="mil_flag";
 			colorName="ColorGUER";
@@ -3605,7 +3605,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={5014.6992,208.537,5909.9609};
-			name="marker_outpost6";
+			name="marker_outpost5";
 			text="FIA Outpost";
 			type="mil_flag";
 			colorName="ColorGUER";

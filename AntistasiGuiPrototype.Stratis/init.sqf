@@ -104,6 +104,25 @@ fakePlayers = [p1, p2, p3, p4];
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
 
+
+// Fake map places
+// markerName (str), type (str), garrison (array<int>)
+// TODO: D'oh, forgot to add side
+outposts = [
+  ["marker_outpost1", "outpost", [0,0,0,0,0,0,0,0]],
+  ["marker_outpost2", "outpost", [0,0,0,0,0,0,0,0]],
+  ["marker_outpost3", "outpost", [0,0,0,0,0,0,0,0]],
+  ["marker_outpost4", "outpost", [0,0,0,0,0,0,0,0]],
+  ["marker_outpost5", "outpost", [0,0,0,0,0,0,0,0]],
+  ["marker_HQ", "hq", [0,0,0,0,0,0,0,0]]
+];
+
+// markerName (str), type (str), mines (array<obj>)
+/* minefields = [
+  ["minefield1", "ap", [] ];
+]; */
+
+
 // Init addActions for HQ assets
 petros addAction["HQ Management","[] spawn A3A_fnc_hqDialog"];
 petros addAction["Request Mission","[] spawn A3A_fnc_requestMissionDialog"];
@@ -111,9 +130,9 @@ flagX addAction["Recruit","[] spawn A3A_fnc_recruitDialog"];
 flagX addAction["Recruit Squads","[] spawn A3A_fnc_recruitSquadDialog"];
 mapX addAction["Map Info","hint ""Imagine opening Map Info."""];
 boxX addAction["Arsenal","hint ""Imagine opening the Arsenal."""];
+vehicleBox addaction["Buy Vehicle","[] spawn A3A_fnc_buyVehicleDialog"];
 vehicleBox addaction["Heal, Repair and Rearm","hint ""Imagine a healing light passing over you as Petros does his magic ;^)"""];
 vehicleBox addaction["Unload Vehicle Cargo to Ammobox","hint ""Imagine carrying all those heavy boxes."""];
-vehicleBox addaction["Buy Vehicle","[] spawn A3A_fnc_buyVehicleDialog"];
 vehicleBox addaction["Personal Garage","hint ""Imagine opening the garage."""];
 vehicleBox addaction["Faction Garage","hint ""Imagine opening the garage."""];
 fireX addaction["Save","hint ""Imagine saving."""];

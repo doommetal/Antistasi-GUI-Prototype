@@ -6,6 +6,7 @@ class A3A
     class handleTabs{};
     class sandboxDialog{};
     class getVehicleCrewCount {}; // Should probably be somewhere else when merging
+    class getOutpostByMarkerName {};
 
     // Open dialogs
     class playerDialog {};
