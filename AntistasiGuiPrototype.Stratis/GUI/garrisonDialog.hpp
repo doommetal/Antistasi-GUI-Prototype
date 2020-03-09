@@ -36,24 +36,23 @@ class A3A_GarrisonDialog
     class GarrisonMap : RscMapControl
     {
       idc = A3A_IDC_GARRISONMAP;
-      // onMouseButtonClick = "[""mapClicked"", _this] spawn A3A_fnc_garrisonDialog";
       onMouseButtonClick = "[""mapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] spawn A3A_fnc_garrisonDialog";
       x = CENTER_X(DIALOG_W) + 68 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
-      // x = 68 * GRID_W;
-      // y = 8 * GRID_H;
       w = 84 * GRID_W;
       h = 84 * GRID_H;
 
       // Fade satellite texture a bit
+      // Trying to get a good balance between day/night readibility
+      // Might consider adding a button/slider to let users change this
       maxSatelliteAlpha = 0.75;
-      alphaFadeStartScale = 3.0;
-      alphaFadeEndScale = 3.0;
+      alphaFadeStartScale = 3.0;  // Setting the alpha fade off scale to
+      alphaFadeEndScale = 3.0;    // stop it from doing any fading
 
       // Hide map markers
       showMarkers = false;
       // Set zoom levels
-      scaleMin = 0.2; // Smallest scale showing the 100m lines
+      scaleMin = 0.2; // Largest scale showing the 100m lines
       // scaleDefault = 0.325; // Largest scale forests are still visible
       scaleDefault = 0.5; // Largest scale roads are still visible
       scaleMax = 2;

@@ -9,23 +9,17 @@ switch (_mode) do {
     createDialog "A3A_GarrisonDialog";
     waitUntil {dialog}; // Wait until the dialog is actually created
 
-    /* _display = findDisplay A3A_IDD_GARRISONDIALOG;
-    _display displayAddEventHandler ["KeyDown",{
-      _display = findDisplay A3A_IDD_GARRISONDIALOG;
-      _map = _display displayCtrl A3A_IDC_GARRISONMAP;
-      systemChat format ["Map zoom: ", ctrlMapScale _maps];
-    }]; */
-
+    // Simulate a map click event to select the garrison closest to the player
     ["mapClicked", [getPos player select 0, getPos player select 1]] spawn A3A_fnc_garrisonDialog;
 
     _display = findDisplay A3A_IDD_GARRISONDIALOG;
 
-    // We don't show map markers on the garrison map to avoid clutter,
-    // so we only show the ones relevant to the garrisons
+    // We only need to show the relevant map markers, so all normal markers are
+    // hidden by default, and we draw back the ones we want.
+    // This method can later be expanded upon to draw more information on the map.
 
+    // Get the data we need [Outpost name, position, icon, color (side)]
     _outpostIconData = [];
-
-    _map = _display displayCtrl A3A_IDC_GARRISONMAP;
     {
       _x params ["_marker", "_type", "_garrison"];
       _name = markerText _marker;
@@ -49,8 +43,11 @@ switch (_mode) do {
       _outpostIconData pushBack [_name, _pos, _icon, _color];
     } forEach outposts;
 
+    // Save the data to the map control to make it available in the draw EH
+    _map = _display displayCtrl A3A_IDC_GARRISONMAP;
     _map setVariable ["outpostIconData", _outpostIconData];
 
+    // Draw EH for outpost icons
     _map ctrlAddEventHandler ["Draw",{
       _display = findDisplay A3A_IDD_GARRISONDIALOG;
       _map = _display displayCtrl A3A_IDC_GARRISONMAP;
@@ -72,7 +69,6 @@ switch (_mode) do {
   };
 
   case ("mapClicked"): {
-
     // Find closest marker to the clicked position
     _clickedPosition = [_params select 0, _params select 1];
     _selectedMarker = [allMapMarkers, _clickedPosition] call BIS_fnc_nearestPosition;
@@ -93,18 +89,6 @@ switch (_mode) do {
       "_marksman",
       "_at"];
 
-    /* _rifleman = _garrisonNumbers select 0;
-    _squadleader = _garrisonNumbers select 1;
-    _autorifleman = _garrisonNumbers select 2;
-    _grenadier = _garrisonNumbers select 3;
-    _medic = _garrisonNumbers select 4;
-    _mortar = _garrisonNumbers select 5;
-    _marksman = _garrisonNumbers select 6;
-    _at = _garrisonNumbers select 7; */
-
-    /* systemChat ("Map clicked: " + str _clickedPosition);
-    systemChat (_garrisonName + ": " + str _position); */
-
     // Get the controls
     _display = findDisplay A3A_IDD_GARRISONDIALOG;
     _garrisonTitle = _display displayCtrl A3A_IDC_GARRISONTITLE;
@@ -117,8 +101,6 @@ switch (_mode) do {
     _marksmanNumber = _display displayCtrl A3A_IDC_MARKSMANNUMBER;
     _atNumber = _display displayCtrl A3A_IDC_ATNUMBER;
     _map = _display displayCtrl A3A_IDC_GARRISONMAP;
-
-    /* systemChat format["Display:%1 MapControl: %2", str _display, str _map]; */
 
     // Add currently selected marker to map, we need it later for... stuff...
     _map setVariable ["selectedOutpost", _selectedMarker];
@@ -137,16 +119,19 @@ switch (_mode) do {
     // Draw selection marker
     _radius = 85;
     _dir = 0;
+
+    // We need to save the position and animation state of the
+    // selection marker between frames, so we do this in the map control itself
     _map setVariable["data", [_position, _radius, _dir]];
-    // TODO: Change to remove only the selection marker
-    // we need another one to draw the outposts themselves
-    /* _map ctrlRemoveAllEventHandlers "Draw"; */
+
+    // Delete any old selection marker if it exists
     _selectEH = _map getVariable "selectEH";
     if !(isNil "_selectEH") then {
       _map ctrlRemoveEventHandler ["Draw", _selectEH];
     };
-    _selectEH = _map ctrlAddEventHandler ["Draw",{
 
+    // Draw EH for the selection marker
+    _selectEH = _map ctrlAddEventHandler ["Draw",{
       _map = _this select 0;
       _data = _map getVariable "data";
       _data params ["_position", "_radius", "_dir"];
@@ -170,17 +155,17 @@ switch (_mode) do {
         _radius,
         0
       ];
-      /* _map drawEllipse [_position, _radius, _radius, 0, [1,1,1,1], _texture]; */
     }];
 
+    // Save the selection Draw EH to the map control
     _map setVariable ["selectEH", _selectEH];
 
     // Pan to location
     _map ctrlMapAnimAdd [0.2, ctrlMapScale _map, _position];
-    /* systemChat format["Map scale %1", ctrlMapScale _map]; */
     ctrlMapAnimCommit _map;
   };
 
+// Updating the garrison numbers
 // TODO: this needs to be generalized a bit for garrison update compatibility
   case ("garrisonAdd"): {
     _type = _params select 0;
@@ -235,14 +220,11 @@ switch (_mode) do {
     if (_typeIndex != -1) then {
       {
         if ((_x select 0) == _selectedMarker) then {
-          /* systemChat format ["Trying to add garrison to %1", _x]; */
-
           ((outposts select _forEachIndex) select 2) set [_typeIndex, _newVal];
         };
       } forEach outposts;
     };
 
     _text ctrlSetText str _newVal;
-    /* systemChat format["Type: %1, Num: %2, Text: %3, Val: %4 NewVal: %5", _type, _num, _text, _val, _newVal]; */
   };
 };
