@@ -16,21 +16,6 @@ class A3A_ConstructDialog
       h = 4 * GRID_H;
     };
 
-    class BackButton : A3A_BackButton
-    {
-      idc = -1;
-      action = "[] spawn A3A_fnc_playerDialog";
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 9 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
-    };
-
-    class CloseButton : A3A_CloseButton
-    {
-      idc = -1;
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
-    };
-
     class Tabs : A3A_Tabs {
       idc = -1;
       x = CENTER_X(DIALOG_W);
@@ -58,6 +43,21 @@ class A3A_ConstructDialog
           h = PX_H(DIALOG_H) - 8 * GRID_H;
         };
       };
+    };
+
+    class BackButton : A3A_BackButton
+    {
+      idc = -1;
+      action = "[] spawn A3A_fnc_playerDialog";
+      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 9 * GRID_W;
+      y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
+    };
+
+    class CloseButton : A3A_CloseButton
+    {
+      idc = -1;
+      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
+      y = CENTER_Y(DIALOG_H) - 8 * GRID_H;
     };
   };
 

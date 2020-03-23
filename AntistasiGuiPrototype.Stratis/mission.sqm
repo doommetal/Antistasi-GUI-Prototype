@@ -110,7 +110,7 @@ class CustomAttributes
 		class Attribute0
 		{
 			property="ENH_ambientFlyby";
-			expression="			if (isServer && !is3DEN && !((_value # 0) isEqualTo '')) then			{				ENH_AmbientFlyby_Enabled = true;				_value spawn				{					params ['_classes','_startPos','_endPos','_alt','_speed','_side','_delay'];					while {ENH_AmbientFlyby_Enabled} do					{						sleep _delay;						[_startPos,_endPos,_alt,_speed,selectRandom _classes,_side] call BIS_fnc_ambientFlyby;					};				};			}";
+			expression="			if (isServer && {!is3DEN && {!((_value # 0) isEqualTo [])}}) then			{				ENH_AmbientFlyby_Enabled = true;				_value spawn				{					params ['_classes','_startPos','_endPos','_alt','_speed','_side','_delay'];					while {ENH_AmbientFlyby_Enabled} do					{						sleep _delay;						[_startPos,_endPos,_alt,_speed,selectRandom _classes,_side] call BIS_fnc_ambientFlyby;					};				};			}";
 			class Value
 			{
 				class data
@@ -319,7 +319,7 @@ class CustomAttributes
 		class Attribute1
 		{
 			property="ENH_Airdrop";
-			expression="				if (!is3DEN && !((_value # 0) isEqualTo '') && isServer) then				{					_value spawn					{						params ['_classes','_center','_condition','_alt','_r','_side'];						_condition = compile _condition;						waitUntil {sleep 1; call _condition};						private _group = createGroup _side;						playSound3D ['A3\Data_F_Warlords\sfx\flyby.wss',objNull,false,_center vectorAdd [0,0,100],2.5];						ENH_Airdrop_Units = [];						{							_center set [2,_center # 2 + random [-20,0,20]];							private _unit = _group createUnit [_x,_center,[],0,'NONE'];							private _para = createVehicle ['Steerable_Parachute_F',_center getPos [_r * sqrt random 1,random 360],[],0,'FLY'];							_unit moveInDriver _para;							ENH_Airdrop_Units pushBack _unit;						} forEach _classes;					};				}";
+			expression="				if (!is3DEN && {!((_value # 0) isEqualTo []) && {isServer}}) then				{					_value spawn					{						params ['_classes','_center','_condition','_alt','_r','_side'];						_condition = compile _condition;						waitUntil {sleep 1; call _condition};						private _group = createGroup _side;						playSound3D ['A3\Data_F_Warlords\sfx\flyby.wss',objNull,false,_center vectorAdd [0,0,100],2.5];						ENH_Airdrop_Units = [];						{							_center set [2,_center # 2 + random [-20,0,20]];							private _unit = _group createUnit [_x,_center,[],0,'NONE'];							private _para = createVehicle ['Steerable_Parachute_F',_center getPos [_r * sqrt random 1,random 360],[],0,'FLY'];							_unit moveInDriver _para;							ENH_Airdrop_Units pushBack _unit;						} forEach _classes;					};				}";
 			class Value
 			{
 				class data

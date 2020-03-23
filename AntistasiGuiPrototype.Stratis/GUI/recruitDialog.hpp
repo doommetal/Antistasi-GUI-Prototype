@@ -16,13 +16,6 @@ class A3A_RecruitDialog
       h = 4 * GRID_H;
     };
 
-    class CloseButton : A3A_CloseButton
-    {
-      idc = -1;
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-    };
-
     class MainContent : RscControlsGroupNoScrollbars
     {
       idc = -1;
@@ -385,6 +378,13 @@ class A3A_RecruitDialog
           };
         };
       };
+    };
+
+    class CloseButton : A3A_CloseButton
+    {
+      idc = -1;
+      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
+      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
     };
   };
 
