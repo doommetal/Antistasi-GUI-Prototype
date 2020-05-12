@@ -26,65 +26,212 @@ class A3A_RequestMissionDialog
 
       class controls
       {
+        class AssasinationIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_assasination.paa";
+          x = 24 * GRID_W;
+          y = 10 * GRID_H;
+          w = 16 * GRID_W;
+          h = 16 * GRID_H;
+        };
+
         class AssasinationButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Assasination";
+          size = GUI_TEXT_SIZE_LARGE;
           x = 16 * GRID_W;
-          y = 13 * GRID_H;
+          y = 30 * GRID_H;
           w = 32 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
+        };
+
+        class LogisticsIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_logistics.paa";
+          x = 72 * GRID_W;
+          y = 10 * GRID_H;
+          w = 16 * GRID_W;
+          h = 16 * GRID_H;
         };
 
         class LogisticsButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Logistics";
-          x = 16 * GRID_W;
-          y = 34 * GRID_H;
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 64 * GRID_W;
+          y = 30 * GRID_H;
           w = 32 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
+        };
+
+        class ConvoyIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_convoy_ambush.paa";
+          x = 120 * GRID_W;
+          y = 10 * GRID_H;
+          w = 16 * GRID_W;
+          h = 16 * GRID_H;
         };
 
         class ConvoyButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Convoy Ambush";
-          x = 16 * GRID_W;
-          y = 55 * GRID_H;
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 112 * GRID_W;
+          y = 30 * GRID_H;
           w = 32 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
+        };
+
+        class ConquestIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa";
+          x = 24 * GRID_W;
+          y = 50 * GRID_H;
+          w = 16 * GRID_W;
+          h = 16 * GRID_H;
         };
 
         class ConquestButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Conquest";
-          x = 112 * GRID_W;
-          y = 13 * GRID_H;
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 16 * GRID_W;
+          y = 70 * GRID_H;
           w = 32 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
+        };
+
+        class DestroyIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_destroy.paa";
+          x = 72 * GRID_W;
+          y = 50 * GRID_H;
+          w = 16 * GRID_W;
+          h = 16 * GRID_H;
         };
 
         class DestroyButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Destroy";
-          x = 112 * GRID_W;
-          y = 34 * GRID_H;
+          size = GUI_TEXT_SIZE_LARGE;
+          x = 64 * GRID_W;
+          y = 70 * GRID_H;
           w = 32 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
+        };
+
+        class RescueIcon : RscPicture
+        {
+          idc = -1;
+          colorBackground[] = {0,0,0,0};
+          text = "GUI\textures\icon_rescue.paa";
+          x = 120 * GRID_W;
+          y = 50 * GRID_H;
+          w = 16 * GRID_W;
+          h = 16 * GRID_H;
         };
 
         class RescueButton : A3A_ShortcutButton
         {
           idc = -1;
           text = "Rescue";
+          size = GUI_TEXT_SIZE_LARGE;
           x = 112 * GRID_W;
-          y = 55 * GRID_H;
+          y = 70 * GRID_H;
           w = 32 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
         };
+
+        ///////////////////
+        /// OLD BUTTONS ///
+        ///////////////////
+
+        // class AssasinationIcon : RscPicture
+        // {
+        //   idc = -1;
+        //   colorBackground[] = {0,0,0,0};
+        //   text = "GUI\textures\icon_assasination.paa";
+        //   x = 24 * GRID_W;
+        //   y = 68 * GRID_H;
+        //   w = 8 * GRID_W;
+        //   h = 8 * GRID_H;
+        // };
+        //
+        // class AssasinationButton : A3A_ShortcutButton
+        // {
+        //   idc = -1;
+        //   text = "Assasination";
+        //   x = 16 * GRID_W;
+        //   y = 13 * GRID_H;
+        //   w = 32 * GRID_W;
+        //   h = 8 * GRID_H;
+        // };
+        //
+        // class LogisticsButton : A3A_ShortcutButton
+        // {
+        //   idc = -1;
+        //   text = "Logistics";
+        //   x = 16 * GRID_W;
+        //   y = 34 * GRID_H;
+        //   w = 32 * GRID_W;
+        //   h = 8 * GRID_H;
+        // };
+        //
+        // class ConvoyButton : A3A_ShortcutButton
+        // {
+        //   idc = -1;
+        //   text = "Convoy Ambush";
+        //   x = 16 * GRID_W;
+        //   y = 55 * GRID_H;
+        //   w = 32 * GRID_W;
+        //   h = 8 * GRID_H;
+        // };
+        //
+        // class ConquestButton : A3A_ShortcutButton
+        // {
+        //   idc = -1;
+        //   text = "Conquest";
+        //   x = 112 * GRID_W;
+        //   y = 13 * GRID_H;
+        //   w = 32 * GRID_W;
+        //   h = 8 * GRID_H;
+        // };
+        //
+        // class DestroyButton : A3A_ShortcutButton
+        // {
+        //   idc = -1;
+        //   text = "Destroy";
+        //   x = 112 * GRID_W;
+        //   y = 34 * GRID_H;
+        //   w = 32 * GRID_W;
+        //   h = 8 * GRID_H;
+        // };
+        //
+        // class RescueButton : A3A_ShortcutButton
+        // {
+        //   idc = -1;
+        //   text = "Rescue";
+        //   x = 112 * GRID_W;
+        //   y = 55 * GRID_H;
+        //   w = 32 * GRID_W;
+        //   h = 8 * GRID_H;
+        // };
       };
     };
 

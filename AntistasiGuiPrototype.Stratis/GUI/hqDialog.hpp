@@ -32,7 +32,7 @@ class A3A_HqDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_garrison.paa";
           x = 8 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -54,7 +54,7 @@ class A3A_HqDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_minefield.paa";
           x = 8 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -76,7 +76,7 @@ class A3A_HqDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_train_troops.paa";
           x = 8 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -97,7 +97,7 @@ class A3A_HqDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_move_hq.paa";
           // text = "\A3\Ui_f\data\IGUI\Cfg\Actions\talk_ca.paa";
           x = 8 * GRID_W;
           y = 76 * GRID_H;

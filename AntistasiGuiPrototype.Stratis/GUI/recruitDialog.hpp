@@ -31,7 +31,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_rifleman.paa";
           x = 24 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -75,7 +75,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_autorifleman.paa";
           x = 24 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -119,7 +119,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_grenadier.paa";
           x = 24 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -163,7 +163,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_at.paa";
           x = 24 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -207,7 +207,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
           x = 128 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -251,7 +251,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_sniper.paa";
           x = 128 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -295,7 +295,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "\A3\ui_f\data\igui\cfg\cursors\iconRepairVehicle_ca.paa";
           x = 128 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -339,7 +339,7 @@ class A3A_RecruitDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_bomb_specialist.paa";
           x = 128 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;

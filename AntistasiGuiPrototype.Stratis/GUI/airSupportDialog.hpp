@@ -63,7 +63,7 @@ class A3A_AirSupportDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_he_bombs.paa";
           x = 24 * GRID_W;
           y = 50 * GRID_H;
           w = 16 * GRID_W;
@@ -85,7 +85,7 @@ class A3A_AirSupportDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_carpet_bombing.paa";
           x = 72 * GRID_W;
           y = 50 * GRID_H;
           w = 16 * GRID_W;
@@ -107,7 +107,7 @@ class A3A_AirSupportDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_napalm_bomb.paa";
           x = 120 * GRID_W;
           y = 50 * GRID_H;
           w = 16 * GRID_W;
@@ -127,7 +127,7 @@ class A3A_AirSupportDialog
         // End of main content group controls
       };
     };
-    
+
     class BackButton : A3A_BackButton
     {
       idc = -1;

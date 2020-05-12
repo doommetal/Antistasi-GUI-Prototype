@@ -31,7 +31,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_inf_squad.paa";
           x = 24 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -75,7 +75,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_inf_team.paa";
           x = 24 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -119,7 +119,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_mg_team.paa";
           x = 24 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -163,7 +163,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_at_team.paa";
           x = 24 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -207,7 +207,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_mortar_team.paa";
           x = 128 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -251,7 +251,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_sniper_team.paa";
           x = 128 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -295,7 +295,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_at_car.paa";
           x = 128 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -339,7 +339,7 @@ class A3A_RecruitSquadDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_aa_truck.paa";
           x = 128 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;

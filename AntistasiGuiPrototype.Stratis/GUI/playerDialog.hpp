@@ -40,7 +40,7 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_UNDERCOVERICON;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_hide.paa";
+          text = "GUI\textures\icon_undercover.paa";
           x = 8 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -85,7 +85,8 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_FASTTRAVELICON;
           colorBackground[] = {0,0,0,0};
-          text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\run_ca.paa";
+          text = "GUI\textures\icon_fasttravel.paa";
+          // text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\run_ca.paa";
           x = 8 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -175,7 +176,7 @@ class A3A_PlayerDialog
         {
           idc = A3A_IDC_AIMANAGEMENTICON;
           colorBackground[] = {0,0,0,0};
-          text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
+          text = "GUI\textures\icon_ai_management.paa";
           // text = "\A3\Ui_f\data\IGUI\Cfg\Actions\talk_ca.paa";
           x = 8 * GRID_W;
           y = 76 * GRID_H;

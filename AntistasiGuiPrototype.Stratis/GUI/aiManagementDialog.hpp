@@ -39,7 +39,7 @@ class A3A_AiManagementDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "\a3\modules_f_curator\data\portraitremotecontrol_ca.paa";
           x = 24 * GRID_W;
           y = 24 * GRID_H;
           w = 8 * GRID_W;
@@ -61,7 +61,7 @@ class A3A_AiManagementDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "\A3\Ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa";
           x = 24 * GRID_W;
           y = 46 * GRID_H;
           w = 8 * GRID_W;
@@ -83,7 +83,7 @@ class A3A_AiManagementDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
           x = 24 * GRID_W;
           y = 68 * GRID_H;
           w = 8 * GRID_W;
@@ -105,7 +105,7 @@ class A3A_AiManagementDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_add_garrison.paa";
           x = 128 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -127,7 +127,7 @@ class A3A_AiManagementDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_none.paa";
+          text = "GUI\textures\icon_dismiss.paa";
           x = 128 * GRID_W;
           y = 60 * GRID_H;
           w = 8 * GRID_W;
@@ -147,7 +147,7 @@ class A3A_AiManagementDialog
         // End of main content group controls
       };
     };
-    
+
     class BackButton : A3A_BackButton
     {
       idc = -1;
