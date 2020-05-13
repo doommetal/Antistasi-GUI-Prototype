@@ -96,7 +96,7 @@ class A3A_RequestMissionDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa";
+          text = "GUI\textures\icon_conquest.paa";
           x = 24 * GRID_W;
           y = 50 * GRID_H;
           w = 16 * GRID_W;
