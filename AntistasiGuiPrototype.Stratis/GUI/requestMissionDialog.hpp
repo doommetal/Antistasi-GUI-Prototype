@@ -26,21 +26,21 @@ class A3A_RequestMissionDialog
 
       class controls
       {
-        class AssasinationIcon : RscPicture
+        class AssassinationIcon : RscPicture
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_assasination.paa";
+          text = "GUI\textures\icon_assassination.paa";
           x = 24 * GRID_W;
           y = 10 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
-        class AssasinationButton : A3A_ShortcutButton
+        class AssassinationButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Assasination";
+          text = "Assassination";
           size = GUI_TEXT_SIZE_LARGE;
           x = 16 * GRID_W;
           y = 30 * GRID_H;
@@ -157,81 +157,6 @@ class A3A_RequestMissionDialog
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
-
-        ///////////////////
-        /// OLD BUTTONS ///
-        ///////////////////
-
-        // class AssasinationIcon : RscPicture
-        // {
-        //   idc = -1;
-        //   colorBackground[] = {0,0,0,0};
-        //   text = "GUI\textures\icon_assasination.paa";
-        //   x = 24 * GRID_W;
-        //   y = 68 * GRID_H;
-        //   w = 8 * GRID_W;
-        //   h = 8 * GRID_H;
-        // };
-        //
-        // class AssasinationButton : A3A_ShortcutButton
-        // {
-        //   idc = -1;
-        //   text = "Assasination";
-        //   x = 16 * GRID_W;
-        //   y = 13 * GRID_H;
-        //   w = 32 * GRID_W;
-        //   h = 8 * GRID_H;
-        // };
-        //
-        // class LogisticsButton : A3A_ShortcutButton
-        // {
-        //   idc = -1;
-        //   text = "Logistics";
-        //   x = 16 * GRID_W;
-        //   y = 34 * GRID_H;
-        //   w = 32 * GRID_W;
-        //   h = 8 * GRID_H;
-        // };
-        //
-        // class ConvoyButton : A3A_ShortcutButton
-        // {
-        //   idc = -1;
-        //   text = "Convoy Ambush";
-        //   x = 16 * GRID_W;
-        //   y = 55 * GRID_H;
-        //   w = 32 * GRID_W;
-        //   h = 8 * GRID_H;
-        // };
-        //
-        // class ConquestButton : A3A_ShortcutButton
-        // {
-        //   idc = -1;
-        //   text = "Conquest";
-        //   x = 112 * GRID_W;
-        //   y = 13 * GRID_H;
-        //   w = 32 * GRID_W;
-        //   h = 8 * GRID_H;
-        // };
-        //
-        // class DestroyButton : A3A_ShortcutButton
-        // {
-        //   idc = -1;
-        //   text = "Destroy";
-        //   x = 112 * GRID_W;
-        //   y = 34 * GRID_H;
-        //   w = 32 * GRID_W;
-        //   h = 8 * GRID_H;
-        // };
-        //
-        // class RescueButton : A3A_ShortcutButton
-        // {
-        //   idc = -1;
-        //   text = "Rescue";
-        //   x = 112 * GRID_W;
-        //   y = 55 * GRID_H;
-        //   w = 32 * GRID_W;
-        //   h = 8 * GRID_H;
-        // };
       };
     };
 
