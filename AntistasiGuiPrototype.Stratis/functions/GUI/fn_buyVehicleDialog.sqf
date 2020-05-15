@@ -65,7 +65,7 @@ switch (_mode) do {
 
       // Undercover icon
       if (_canGoUndercover) then {
-        _undercoverIcon = _display ctrlCreate ["RscPicture", -1, _itemControlsGroup];
+        _undercoverIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
         _undercoverIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _undercoverIcon ctrlSetText "GUI\textures\icon_hidevic.paa";
         _undercoverIcon ctrlCommit 0;
@@ -86,17 +86,17 @@ switch (_mode) do {
       _crewInfoAdded = 0;
       if (_driver > 0) then
       {
-        _driverIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
+        _driverIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _driverIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _driverIcon ctrlSetText "GUI\textures\icon_driver.paa";
         _driverIcon ctrlCommit 0;
 
         if (_coPilot > 0) then
         {
-          _coPilotIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
+          _coPilotIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
           _coPilotIcon ctrlSetPosition [5 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
           _coPilotIcon ctrlSetText "GUI\textures\icon_driver.paa";
-          _coPilotIcon ctrlSetTextColor [0.7,0.7,0.7,1];
+          _coPilotIcon ctrlSetTextColor [0.8,0.8,0.8,1];
           _coPilotIcon ctrlCommit 0;
         };
         _crewInfoAdded = _crewInfoAdded + 1;
@@ -104,7 +104,7 @@ switch (_mode) do {
 
       if (_commander > 0) then
       {
-        _commanderIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
+        _commanderIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _commanderIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _commanderIcon ctrlSetText "GUI\textures\icon_commander.paa";
         _commanderIcon ctrlCommit 0;
@@ -114,7 +114,7 @@ switch (_mode) do {
 
       if (_gunners > 0) then
       {
-        _gunnerIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
+        _gunnerIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _gunnerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _gunnerIcon ctrlSetText "GUI\textures\icon_gunner.paa";
         _gunnerIcon ctrlCommit 0;
@@ -131,7 +131,7 @@ switch (_mode) do {
 
       if (_passengers > 0) then
       {
-        _passengerIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
+        _passengerIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _passengerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _passengerIcon ctrlSetText "GUI\textures\icon_cargo.paa";
         _passengerIcon ctrlCommit 0;
@@ -146,10 +146,10 @@ switch (_mode) do {
 
         if (_passengersFFV > 0) then
         {
-          _ffvIcon = _display ctrlCreate ["RscPicture", -1, _crewControlsGroup];
+          _ffvIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
           _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
           _ffvIcon ctrlSetText "GUI\textures\icon_ffv.paa";
-          _ffvIcon ctrlSetTextColor [0.7,0.7,0.7,1];
+          _ffvIcon ctrlSetTextColor [0.8,0.8,0.8,1];
           _ffvIcon ctrlCommit 0;
 
           if (_passengersFFV > 1) then
@@ -157,7 +157,7 @@ switch (_mode) do {
             _ffvText = _display ctrlCreate ["A3A_InfoText", -1, _crewControlsGroup];
             _ffvText ctrlSetPosition [10 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
             _ffvText ctrlSetText str _passengersFFV;
-            _ffvText ctrlSetTextColor [0.7,0.7,0.7,1];
+            _ffvText ctrlSetTextColor [0.8,0.8,0.8,1];
             _ffvText ctrlCommit 0;
           };
         };
