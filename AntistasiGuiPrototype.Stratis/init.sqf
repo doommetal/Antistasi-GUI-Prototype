@@ -47,6 +47,12 @@ aiLimiter = 100;
 aiLimiterMin = 0;
 aiLimiterMax = 200;
 
+// Template stuff
+// Needed for AI/A3A_fn_typeOfSoldier.sqf to work
+// Most left empty as it shouldn't matter for the GUI testing
+allMachineGuns = [];
+allSniperRifles = [];
+
 // List of stuff to choose from in the Construct menu
 // [classname, price, buildtime]
 constructionsList = [

@@ -34,6 +34,27 @@ class A3A_SandboxDialog
 
       class controls
       {
+        class InvisibleButton : RscButtonNoColor
+        {
+          idc = -1;
+          action = "hint ""Test""";
+          // colorBackground[] = {0,0,0,1};
+          x = 0;
+          y = 0;
+          w = 40 * GRID_W;
+          h = 20 * GRID_H;
+        };
+
+        class ToolTipPic : RscPicture
+        {
+          idc = -1;
+          text = "GUI\textures\icon_rifleman.paa";
+          tooltip = "This is a tooltip";
+          x = 0;
+          y = 0 * GRID_H;
+          w = 16 * GRID_W;
+          h = 16 * GRID_H;
+        };
         // Start of main group controls
         class SizeTestGroup : RscControlsGroupNoScrollbars
         {

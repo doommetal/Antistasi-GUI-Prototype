@@ -26,4 +26,16 @@ class A3A
     class airSupportDialog {};
     class donateDialog{};
   };
+
+  class AI
+  {
+    class getGroupInfo {};
+    class typeOfSoldier {}; // Already in antistasi, don't merge
+    class canFight {}; // Already in antistasi, don't merge
+  };
+
+  class Revive
+  {
+    class isMedic {}; // Already in antistasi, don't merge
+  };
 };

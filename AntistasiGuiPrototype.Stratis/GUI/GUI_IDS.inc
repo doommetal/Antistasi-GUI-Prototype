@@ -59,6 +59,11 @@
 
 // Commander Dialog
 #define A3A_IDD_COMMANDERDIALOG         5400
+#define A3A_IDC_COMMANDERMAP            5401
+#define A3A_IDC_HCSINGLEGROUPVIEW       5402
+#define A3A_IDC_HCSQUADNAME             5403
+#define A3A_IDC_HCSQUADINFO             5404
+#define A3A_IDC_HCMULTIPLEGROUPSVIEW    5405
 
 // Admin Dialog
 #define A3A_IDD_ADMINDIALOG             5200

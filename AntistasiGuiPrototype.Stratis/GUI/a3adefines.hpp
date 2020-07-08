@@ -49,6 +49,10 @@ class A3A_MainBackground
   SizeEx = "0";
   font = "RobotoCondensed";
   text = "";
+  x = 0;
+  y = 0;
+  w = 0;
+  h = 0;
 };
 
 class A3A_TitleBackground
@@ -63,6 +67,10 @@ class A3A_TitleBackground
   SizeEx = "0";
   font = "RobotoCondensed";
   text = "";
+  x = 0;
+  y = 0;
+  w = 0;
+  h = 0;
 };
 
 class A3A_TabsBackground
@@ -77,6 +85,10 @@ class A3A_TabsBackground
   SizeEx = "0";
   font = "RobotoCondensed";
   text = "";
+  x = 0;
+  y = 0;
+  w = 0;
+  h = 0;
 };
 
 
