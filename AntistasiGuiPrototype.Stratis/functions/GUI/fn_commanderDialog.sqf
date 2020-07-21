@@ -20,6 +20,49 @@ switch (_mode) do {
 
     ["commanderDialog"] call A3A_fnc_handleTabs;
 
+
+
+    // Init map drawing event handler
+    _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
+    _map ctrlAddEventHandler ["Draw",{
+      ["updateMapData"] call A3A_fnc_commanderDialog;
+      _display = findDisplay A3A_IDD_COMMANDERDIALOG;
+      _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
+      _hcGroupData = _map getVariable "hcGroupData";
+      {
+        _x params [
+          "_group",
+          "_groupID",
+          "_groupLeader",
+          "_units",
+          "_position",
+          "_aliveUnits",
+          "_ableToCombat",
+          "_task",
+          "_combatMode",
+          "_hasOperativeMedic",
+          "_hasAt",
+          "_hasAa",
+          "_hasMortar",
+          "_mortarDeployed",
+          "_hasStatic",
+          "_staticDeployed",
+          "_groupVehicle"
+        ];
+
+        _map drawIcon [
+          "\A3\ui_f\data\Map\Markers\Military\flag_CA.paa", // TODO: Change to nato markers
+          [0.1,0.7,0.1,1], // colour
+          _position, // position
+          32, // width
+          32, // height
+          0, // angle
+          "", // text, no text for this?
+          2 // shadow (outline if 2)
+        ];
+      } forEach _hcGroupData;
+    }];
+
     // Switch high command mode
     // Should probably be left off to prevent unintentional map interaction
     hcShowBar false;
@@ -31,41 +74,28 @@ switch (_mode) do {
       // If none or multiple are selected show the multiple view
       ["showMultipleGroups"] call A3A_fnc_commanderDialog;
     };
+  };
 
+  case ("updateMapData"): {
+    // Get display and map control
+    _display = findDisplay A3A_IDD_COMMANDERDIALOG;
+    _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
 
-    // Get data on all hc squads
-    _hcSquadData = [];
+    // Get data on all high command squads
+    _hcGroupData = [];
     {
-      // A lot of this stuff was in  functions/REINF/vehStats.sqf
-      // however that file was a tangled mess of hot poop so I rewrote it here
-      _squadName = groupID _x;
-      _squadLeader = leader _x;
-      _units = units _x;
-      _squadPosition = position _squadLeader;
-      _aliveMembers = {alive _x} count _units;
-      _ableToCombat = {[_x] call A3A_fnc_canFight} count _units;
-      _task = "N/A (coming after merge)"; // TODO: Update when merging: _x getVariable ["taskX","Patrol"]
-      _combatMode = behaviour _squadLeader;
-      _hasOperativeMedic = {[_x] call A3A_fnc_isMedic} count _units > 0;
-      _hasAt = {_x call A3A_fnc_typeOfSoldier == "ATMan"} count _units > 0;
-      _hasAa = {_x call A3A_fnc_typeOfSoldier == "AAMan"} count _units > 0;
-
-      // TODO: Mortar/static deployment status
-      // TODO: Vehicle status
+      _groupInfo = [_x] call A3A_fnc_getGroupInfo;
+      _hcGroupData pushBack _groupInfo;
     } forEach hcAllGroups player;
 
     // Save the data to the map control to make it available in the draw EH
     _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
-    _map setVariable ["hcSquadData", _hcSquadData];
-
-    // TODO: Draw markers on map
-    // Use Draw EH; see fn_garrisonDialog.sqf
+    _map setVariable ["hcGroupData", _hcGroupData];
   };
 
   case ("mapClicked"): {
     // Find closest HC squad to the clicked position
     _clickedPosition = [_params select 0, _params select 1];
-    diag_log format["COMMANDER DIALOG MAP CLICK: %1", _clickedPosition]; // TODO: Debug, remove this
     _selectedSquad = [hcAllGroups player, _clickedPosition] call BIS_fnc_nearestPosition;
 
     // If clicked position is nowhere near any hc groups, deselect all units
@@ -239,6 +269,7 @@ switch (_mode) do {
       };
 
       // Create icons, right justified
+      // TODO: Replace icon paths
       {
         _iconXpos = (30 * GRID_W) - ((count _statusIcons) * 4 * GRID_W) + (_forEachIndex * 4 * GRID_W);
         _iconPath = "";
