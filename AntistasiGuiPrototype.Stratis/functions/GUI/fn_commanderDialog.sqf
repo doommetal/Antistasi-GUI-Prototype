@@ -51,7 +51,7 @@ switch (_mode) do {
         ];
 
         _map drawIcon [
-          "\A3\ui_f\data\Map\Markers\Military\flag_CA.paa", // TODO: Change to nato markers
+          "\A3\ui_f\data\Map\Markers\NATO\b_inf.paa", // TODO: Change to nato markers
           [0.1,0.7,0.1,1], // colour
           _position, // position
           32, // width
