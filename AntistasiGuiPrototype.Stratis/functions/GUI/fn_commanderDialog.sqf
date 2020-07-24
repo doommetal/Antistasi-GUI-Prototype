@@ -64,6 +64,44 @@ switch (_mode) do {
       } forEach _hcGroupData;
     }];
 
+    // Selection marker event handler
+    _radius = 85;
+    _dir = 0;
+    _map setVariable ["selectMarker", [_radius, _dir]];
+
+    _selectEH = _map ctrlAddEventHandler ["Draw",{
+      _display = findDisplay A3A_IDD_COMMANDERDIALOG;
+      _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
+      _data = _map getVariable "selectMarker";
+      _data params ["_radius", "_dir"];
+      if (_dir == 0) then {
+        _radius = _radius - 0.5;
+        if (_radius < 75) then {
+          _dir = 1; // Reverse direction
+        };
+      } else {
+        _radius = _radius + 0.5;
+        if (_radius > 85) then {
+          _dir = 0;
+        };
+      };
+
+      _map setVariable ["selectMarker", [_radius, _dir]];
+      _selectedGroup = _map getVariable "selectedGroup";
+
+      if !(_selectedGroup isEqualTo grpNull) then {
+        _position = getPos leader _selectedGroup;
+        _map drawIcon [
+        "\A3\ui_f\data\IGUI\Cfg\Cursors\selectOver_ca.paa",
+        [1,1,1,1],
+        _position,
+        _radius,
+        _radius,
+        0
+        ];
+      };
+    }];
+
     // Switch high command mode off to prevent it interfering with the map view
     hcShowBar false;
 
@@ -111,6 +149,7 @@ switch (_mode) do {
     // If clicked position is nowhere near any hc groups, deselect all units
     // and show list view
     if (leader _selectedGroup distance _clickedPosition > 100) exitWith {
+      _map setVariable ["selectedGroup", grpNull];
       ["showGroupList"] call A3A_fnc_commanderDialog;
     };
 

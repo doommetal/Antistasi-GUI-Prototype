@@ -3301,7 +3301,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4102.1421,222.19788,4600.7661};
-				angles[]={0,0.69497818,0};
+				angles[]={0,0.69497263,0};
 			};
 			side="Empty";
 			flags=4;
@@ -3350,7 +3350,7 @@ class Mission
 							};
 							class value
 							{
-								items=14;
+								items=13;
 								class Item0
 								{
 									class data
@@ -3533,25 +3533,30 @@ class Mission
 										value=1;
 									};
 								};
-								class Item13
-								{
-									class data
-									{
-										class type
-										{
-											type[]=
-											{
-												"STRING"
-											};
-										};
-										value="";
-									};
-								};
 							};
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute2
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="plznodumdum.jpg";
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item10
