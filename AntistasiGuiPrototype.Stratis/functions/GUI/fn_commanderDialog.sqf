@@ -17,13 +17,14 @@ switch (_mode) do {
     // ^ This method might be a bit heavy handed, but it *** works ***
 
     _display = findDisplay A3A_IDD_COMMANDERDIALOG;
+    _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
 
     ["commanderDialog"] call A3A_fnc_handleTabs;
 
+    // Initialize selection
+    _map setVariable ["selectedGroup", grpNull];
 
-
-    // Init map drawing event handler
-    _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
+    // HC group map drawing event handler
     _map ctrlAddEventHandler ["Draw",{
       ["updateMapData"] call A3A_fnc_commanderDialog;
       _display = findDisplay A3A_IDD_COMMANDERDIALOG;
@@ -63,17 +64,22 @@ switch (_mode) do {
       } forEach _hcGroupData;
     }];
 
-    // Switch high command mode
-    // Should probably be left off to prevent unintentional map interaction
+    // Switch high command mode off to prevent it interfering with the map view
     hcShowBar false;
 
-    // If a single HC squad is selected show detailed view for that squad
+    // If a single HC squad is selected show detailed information for that group
     if (count hcSelected player == 1) then {
+      _map setVariable ["selectedGroup", hcSelected player select 0];
       ["showSingleGroup"] call A3A_fnc_commanderDialog;
     } else {
-      // If none or multiple are selected show the multiple view
-      ["showMultipleGroups"] call A3A_fnc_commanderDialog;
+      // If none or multiple are selected show the list view
+      ["showGroupList"] call A3A_fnc_commanderDialog;
     };
+
+    // Finally, deselect all HC groups to prevent interference
+    {
+      player hcSelectGroup [_x, false];
+    } forEach hcAllGroups player;
   };
 
   case ("updateMapData"): {
@@ -94,24 +100,22 @@ switch (_mode) do {
   };
 
   case ("mapClicked"): {
+    // Get display and map control
+    _display = findDisplay A3A_IDD_COMMANDERDIALOG;
+    _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
+
     // Find closest HC squad to the clicked position
     _clickedPosition = [_params select 0, _params select 1];
-    _selectedSquad = [hcAllGroups player, _clickedPosition] call BIS_fnc_nearestPosition;
+    _selectedGroup = [hcAllGroups player, _clickedPosition] call BIS_fnc_nearestPosition;
 
     // If clicked position is nowhere near any hc groups, deselect all units
     // and show list view
-    if (leader _selectedSquad distance _clickedPosition > 100) exitWith {
-      {
-        player hcSelectGroup [_x, false];
-      } forEach hcAllGroups player;
-      ["showMultipleGroups"] call A3A_fnc_commanderDialog;
+    if (leader _selectedGroup distance _clickedPosition > 100) exitWith {
+      ["showGroupList"] call A3A_fnc_commanderDialog;
     };
 
-    // Clear selection and select only the group clicked
-    {
-      player hcSelectGroup [_x, false];
-    } forEach hcAllGroups player;
-    player hcSelectGroup [_selectedSquad];
+    // Save selected group to map
+    _map setVariable ["selectedGroup", _selectedGroup];
 
     // Update single group view
     ["showSingleGroup"] call A3A_fnc_commanderDialog;
@@ -139,7 +143,8 @@ switch (_mode) do {
 
   case ("updateSingle"): {
     // Get data
-    _selectedSquad = hcSelected player select 0;
+    // TODO: change this to use A3A_fnc_getGroupInfo
+    _selectedSquad = _map getVariable "selectedGroup";
     _squadName = groupId _selectedSquad;
     _squadLeader = leader _selectedSquad;
     _units = units _selectedSquad;
@@ -156,6 +161,8 @@ switch (_mode) do {
     _squadNameText = _display displayCtrl A3A_IDC_HCSQUADNAME;
     _squadInfoText = _display displayCtrl A3A_IDC_HCSQUADINFO;
     _squadNameText ctrlSetText _squadName;
+
+    // TODO: replace with something similar to the group list
     _squadInfoText ctrlSetText format ["%1\n%2\n%3\n%4\n%5",
       _aliveMembers,
       _ableToCombat,
@@ -171,7 +178,7 @@ switch (_mode) do {
   };
 
 
-  case ("showMultipleGroups"): {
+  case ("showGroupList"): {
     // Hide single group view
     _display = findDisplay A3A_IDD_COMMANDERDIALOG;
     _singleGroupView = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
@@ -180,11 +187,11 @@ switch (_mode) do {
     _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
     _multipleGroupsView ctrlShow true;
     // Update view
-    ["updateMultiple"] call A3A_fnc_commanderDialog;
+    ["updateGroupList"] call A3A_fnc_commanderDialog;
   };
 
 
-  case ("updateMultiple"): {
+  case ("updateGroupList"): {
     // Get data
     _hcGroups = hcAllGroups player;
 
