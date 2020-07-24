@@ -155,7 +155,7 @@ switch (_mode) do {
     _display = findDisplay A3A_IDD_COMMANDERDIALOG;
     _squadNameText = _display displayCtrl A3A_IDC_HCSQUADNAME;
     _squadInfoText = _display displayCtrl A3A_IDC_HCSQUADINFO;
-    _squadNameText = _squadName;
+    _squadNameText ctrlSetText _squadName;
     _squadInfoText ctrlSetText format ["%1\n%2\n%3\n%4\n%5",
       _aliveMembers,
       _ableToCombat,
