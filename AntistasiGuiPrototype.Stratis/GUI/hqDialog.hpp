@@ -222,7 +222,7 @@ class A3A_HqDialog
           text = "Clear Trees";
           x = 74 * GRID_W;
           y = 78 * GRID_H;
-          w = 36 * GRID_W;
+          w = 22 * GRID_W;
           h = 12 * GRID_H;
         };
 
@@ -230,9 +230,20 @@ class A3A_HqDialog
         {
           idc = -1;
           text = "Clear Fog";
-          x = 116 * GRID_W;
+          x = 102 * GRID_W;
           y = 78 * GRID_H;
-          w = 36 * GRID_W;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class StopRainButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          action = "[] call A3A_fnc_stopRain";
+          text = "Stop Rain";
+          x = 130 * GRID_W;
+          y = 78 * GRID_H;
+          w = 22 * GRID_W;
           h = 12 * GRID_H;
         };
         // End of main content group controls

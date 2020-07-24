@@ -27,6 +27,11 @@ class A3A
     class donateDialog{};
   };
 
+  class Environment
+  {
+    class stopRain {};
+  };
+
   class AI
   {
     class getGroupInfo {};
