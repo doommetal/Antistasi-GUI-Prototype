@@ -327,32 +327,32 @@ switch (_mode) do {
           };
 
           case ("at"): {
-            _iconPath = "\A3\ui_f\data\igui\cfg\weaponicons\at_ca.paa";
+            _iconPath = "GUI\textures\icon_has_at.paa";
             _toolTipText = "Has AT capability";
           };
 
           case ("aa"): {
-            _iconPath = "\A3\ui_f\data\igui\cfg\weaponicons\at_ca.paa";
+            _iconPath = "GUI\textures\icon_has_aa.paa";
             _toolTipText = "Has AA capability";
           };
 
           case ("mortarDeployed"): {
-            _iconPath = "\A3\ui_f\data\igui\cfg\weaponicons\at_ca.paa";
+            _iconPath = "GUI\textures\icon_has_mortar.paa";
             _toolTipText = "Mortar is deployed";
           };
 
           case ("mortar"): {
-            _iconPath = "\A3\ui_f\data\igui\cfg\weaponicons\at_ca.paa";
+            _iconPath = "GUI\textures\icon_has_mortar.paa";
             _toolTipText = "Mortar is not deployed";
           };
 
           case ("staticDeployed"): {
-            _iconPath = "\A3\ui_f\data\igui\cfg\weaponicons\at_ca.paa";
+            _iconPath = "GUI\textures\icon_has_static.paa";
             _toolTipText = "Static weapon is deployed";
           };
 
           case ("static"): {
-            _iconPath = "\A3\ui_f\data\igui\cfg\weaponicons\at_ca.paa";
+            _iconPath = "GUI\textures\icon_has_static.paa";
             _toolTipText = "Static weapon is not deployed";
           };
         };
