@@ -170,7 +170,6 @@ class A3A_TabButton : A3A_ShortcutButton
   };
 };
 
-
 // Section labels
 
 class A3A_SectionLabelLeft : RscText

@@ -147,7 +147,7 @@ class A3A_CommanderDialog
           idc = A3A_IDC_HCMULTIPLEGROUPSVIEW;
           x = 8 * GRID_W;
           y = 8 * GRID_H;
-          w = 54 * GRID_W;
+          w = 58 * GRID_W;
           h = 62 * GRID_H;
           show = false;
 

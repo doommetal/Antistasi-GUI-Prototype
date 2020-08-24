@@ -212,7 +212,7 @@ switch (_mode) do {
 
     // Pan to location
     _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
-    _map ctrlMapAnimAdd [0.2, ctrlMapScale _map, _clickedPosition];
+    _map ctrlMapAnimAdd [0.2, ctrlMapScale _map, getPos _squadLeader];
     ctrlMapAnimCommit _map;
   };
 
@@ -271,7 +271,15 @@ switch (_mode) do {
       _itemBackground ctrlSetPosition [0, 0, 54 * GRID_W, 14 * GRID_H];
       _itemBackground ctrlCommit 0;
 
-      _groupNameLabel = _display ctrlCreate ["RscText", -1, _itemControlsGroup];
+      _groupNameLabel = _display ctrlCreate ["A3A_ShortcutButton", -1, _itemControlsGroup];
+      _groupNameLabel setVariable ["groupToSelect", _x];
+      _groupNameLabel ctrlAddEventHandler ["ButtonClick", {
+        params ["_control"];
+        _display = findDisplay A3A_IDD_COMMANDERDIALOG;
+        _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
+        _map setVariable ["selectedGroup", _control getVariable "groupToSelect"];
+        ["showSingleGroup"] call A3A_fnc_commanderDialog;
+      }];
       _groupNameLabel ctrlSetPosition [0, 0, 54 * GRID_W, 6 * GRID_H];
       _groupNameLabel ctrlSetBackgroundColor [0,0,0,1];
       _groupNameLabel ctrlSetText _groupID;
@@ -363,6 +371,21 @@ switch (_mode) do {
         _icon ctrlSetTooltip _toolTipText;
         _icon ctrlCommit 0;
       } forEach _statusIcons;
+
+    // Big invisible button covering everything selecting the entire squad
+    /* _invisibleSelectButton = _display ctrlCreate ["RscButtonNoColor", -1, _itemControlsGroup];
+    _invisibleSelectButton ctrlSetPosition [0,0,54 * GRID_W, 14 * GRID_H];
+    _invisibleSelectButton ctrlSetBackgroundColor [1,0,0,1];
+    _invisibleSelectButton setVariable ["groupToSelect", _x];
+    _invisibleSelectButton ctrlCommit 0;
+
+    _invisibleSelectButton ctrlAddEventHandler ["onButtonClick",{
+      params ["_control"];
+      // _map setVariable ["selectedGroup", _control getVariable "groupToSelect"];
+      // ["showSingleGroup"] call A3A_fnc_commanderDialog;
+      _groupName = _control getVariable "groupToSelect";
+      hint format ["Button for %1", _groupName];
+    }]; */
 
     } forEach _hcGroups;
   };

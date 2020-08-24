@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=71;
+		nextID=75;
 	};
 	class MarkerIDProvider
 	{
@@ -43,7 +43,8 @@ addons[]=
 	"A3_Static_F_Mortar_01",
 	"A3_Weapons_F_Rifles_TRG20",
 	"A3_Weapons_F_Exp",
-	"A3_Weapons_F_Launchers_Titan"
+	"A3_Weapons_F_Launchers_Titan",
+	"A3_Static_F_HMG_02"
 };
 class AddonsMetaData
 {
@@ -545,7 +546,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=28;
+		items=31;
 		class Item0
 		{
 			dataType="Object";
@@ -6920,16 +6921,95 @@ class Mission
 				nAttributes=1;
 			};
 		};
+		class Item28
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3642.311,147.66479,3865.8909};
+						angles[]={0,1.5323701,0};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=73;
+					type="I_soldier_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=73;
+						item1=72;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=71;
+		};
+		class Item29
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3642.269,149.34155,3865.8997};
+				angles[]={0,1.5323701,0};
+			};
+			side="Independent";
+			flags=6;
+			class Attributes
+			{
+			};
+			id=72;
+			type="I_HMG_02_high_F";
+		};
+		class Item30
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3644.3313,0,3867.906};
+				angles[]={0,5.7400503,0};
+			};
+			id=74;
+			type="HighCommandSubordinate";
+			atlOffset=-147.64182;
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=9;
+			nextID=11;
 		};
 		class Links
 		{
-			items=9;
+			items=11;
 			class Item0
 			{
 				linkID=0;
@@ -7014,6 +7094,26 @@ class Mission
 			{
 				linkID=8;
 				item0=66;
+				item1=50;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item9
+			{
+				linkID=9;
+				item0=74;
+				item1=73;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item10
+			{
+				linkID=10;
+				item0=74;
 				item1=50;
 				class CustomData
 				{
