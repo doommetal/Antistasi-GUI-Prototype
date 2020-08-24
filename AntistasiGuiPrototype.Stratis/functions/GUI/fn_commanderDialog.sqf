@@ -184,35 +184,124 @@ switch (_mode) do {
     // Get data
     // TODO: change this to use A3A_fnc_getGroupInfo
     _selectedSquad = _map getVariable "selectedGroup";
-    _squadName = groupId _selectedSquad;
-    _squadLeader = leader _selectedSquad;
-    _units = units _selectedSquad;
-    _aliveMembers = {alive _x} count _units;
-    _ableToCombat = {[_x] call A3A_fnc_canFight} count _units;
-    _task = "N/A"; // TODO: Update when merging: _x getVariable ["taskX","Patrol"]
-    _combatMode = behaviour _squadLeader;
-    _hasOperativeMedic = {[_x] call A3A_fnc_isMedic} count _units > 0;
-    _hasAt = {_x call A3A_fnc_typeOfSoldier == "ATMan"} count _units > 0;
-    _hasAa = {_x call A3A_fnc_typeOfSoldier == "AAMan"} count _units > 0;
+    _groupInfo = [_selectedSquad] call A3A_fnc_getGroupInfo;
+    _groupInfo params [
+      "_group",
+      "_groupID",
+      "_groupLeader",
+      "_units",
+      "_position",
+      "_aliveUnits",
+      "_ableToCombat",
+      "_task",
+      "_combatMode",
+      "_hasOperativeMedic",
+      "_hasAt",
+      "_hasAa",
+      "_hasMortar",
+      "_mortarDeployed",
+      "_hasStatic",
+      "_staticDeployed",
+      "_groupVehicle"
+    ];
 
     // Update controls
     _display = findDisplay A3A_IDD_COMMANDERDIALOG;
-    _squadNameText = _display displayCtrl A3A_IDC_HCSQUADNAME;
-    _squadInfoText = _display displayCtrl A3A_IDC_HCSQUADINFO;
-    _squadNameText ctrlSetText _squadName;
+    _controlsGroup = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
+    _groupNameText = _display displayCtrl A3A_IDC_HCGROUPNAME;
+    _groupCountText = _display displayCtrl A3A_IDC_HCGROUPCOUNT;
+    _groupTaskText = _display displayCtrl A3A_IDC_HCGROUPTASK;
+    _groupCombatModeText = _display displayCtrl A3A_IDC_HCGROUPCOMBATMODE;
 
-    // TODO: replace with something similar to the group list
-    _squadInfoText ctrlSetText format ["%1\n%2\n%3\n%4\n%5",
-      _aliveMembers,
-      _ableToCombat,
-      _task,
-      _combatMode,
-      _hasOperativeMedic
-    ];
+    _groupNameText ctrlSetText _groupID;
+    _groupCountText ctrlSetText format ["%1 / %2", _ableToCombat, _aliveUnits];
 
-    // Pan to location
+    // Delete any previous status icons
+    _iconsControlsGroup = _display displayCtrl A3A_IDC_HCGROUPSTATUSICONS;
+    if !(_iconsControlsGroup isEqualTo controlNull) then {
+      ctrlDelete _iconsControlsGroup;
+    };
+
+    // Create controlsGroup for status icons
+    _iconsControlsGroup = _display ctrlCreate ["RscControlsGroupNoScrollbars", A3A_IDC_HCGROUPSTATUSICONS, _controlsGroup];
+    _iconsControlsGroup ctrlSetPosition [22 * GRID_W, 8 * GRID_H, 30 * GRID_W, 6 * GRID_H];
+    _iconsControlsGroup ctrlCommit 0;
+
+    // Get the status icons to display
+    _statusIcons = [];
+    if _hasOperativeMedic then {_statusIcons pushBack "medic"};
+    if _hasAt then {_statusIcons pushBack "at"};
+    if _hasAa then {_statusIcons pushBack "aa"};
+    if _hasMortar then {
+      if _mortarDeployed then {
+        _statusIcons pushBack "mortarDeployed";
+      } else {
+        _statusIcons pushBack "mortar";
+      };
+    };
+    if _hasStatic then {
+      if _staticDeployed then {
+        _statusIcons pushBack "staticDeployed";
+      } else {
+        _statusIcons pushBack "static";
+      };
+    };
+
+    // Create icons, right justified
+    {
+      _iconXpos = (30 * GRID_W) - ((count _statusIcons) * 5 * GRID_W) + (_forEachIndex * 5 * GRID_W);
+      _iconPath = "";
+      _toolTipText = "";
+      switch (_x) do {
+        case ("medic"): {
+          _iconPath = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
+          _toolTipText = "Has operative medic";
+        };
+
+        case ("at"): {
+          _iconPath = "GUI\textures\icon_has_at.paa";
+          _toolTipText = "Has AT capability";
+        };
+
+        case ("aa"): {
+          _iconPath = "GUI\textures\icon_has_aa.paa";
+          _toolTipText = "Has AA capability";
+        };
+
+        case ("mortarDeployed"): {
+          _iconPath = "GUI\textures\icon_has_mortar.paa";
+          _toolTipText = "Mortar is deployed";
+        };
+
+        case ("mortar"): {
+          _iconPath = "GUI\textures\icon_has_mortar.paa";
+          _toolTipText = "Mortar is not deployed";
+        };
+
+        case ("staticDeployed"): {
+          _iconPath = "GUI\textures\icon_has_static.paa";
+          _toolTipText = "Static weapon is deployed";
+        };
+
+        case ("static"): {
+          _iconPath = "GUI\textures\icon_has_static.paa";
+          _toolTipText = "Static weapon is not deployed";
+        };
+      };
+
+      _icon = _display ctrlCreate ["RscPicture", -1, _iconsControlsGroup];
+      _icon ctrlSetPosition [_iconXpos, 0, 4 * GRID_W, 4 * GRID_H];
+      _icon ctrlSetText _iconPath;
+      _icon ctrlSetTooltip _toolTipText;
+      _icon ctrlCommit 0;
+    } forEach _statusIcons;
+
+    _groupTaskText ctrlSetText _task;
+    _groupCombatModeText ctrlSetText _combatMode;
+
+    // Pan to group location
     _map = _display displayCtrl A3A_IDC_COMMANDERMAP;
-    _map ctrlMapAnimAdd [0.2, ctrlMapScale _map, getPos _squadLeader];
+    _map ctrlMapAnimAdd [0.2, ctrlMapScale _map, getPos _groupLeader];
     ctrlMapAnimCommit _map;
   };
 
@@ -323,9 +412,8 @@ switch (_mode) do {
       };
 
       // Create icons, right justified
-      // TODO: Replace icon paths
       {
-        _iconXpos = (30 * GRID_W) - ((count _statusIcons) * 4 * GRID_W) + (_forEachIndex * 4 * GRID_W);
+        _iconXpos = (30 * GRID_W) - ((count _statusIcons) * 5 * GRID_W) + (_forEachIndex * 5 * GRID_W);
         _iconPath = "";
         _toolTipText = "";
         switch (_x) do {
@@ -371,21 +459,6 @@ switch (_mode) do {
         _icon ctrlSetTooltip _toolTipText;
         _icon ctrlCommit 0;
       } forEach _statusIcons;
-
-    // Big invisible button covering everything selecting the entire squad
-    /* _invisibleSelectButton = _display ctrlCreate ["RscButtonNoColor", -1, _itemControlsGroup];
-    _invisibleSelectButton ctrlSetPosition [0,0,54 * GRID_W, 14 * GRID_H];
-    _invisibleSelectButton ctrlSetBackgroundColor [1,0,0,1];
-    _invisibleSelectButton setVariable ["groupToSelect", _x];
-    _invisibleSelectButton ctrlCommit 0;
-
-    _invisibleSelectButton ctrlAddEventHandler ["onButtonClick",{
-      params ["_control"];
-      // _map setVariable ["selectedGroup", _control getVariable "groupToSelect"];
-      // ["showSingleGroup"] call A3A_fnc_commanderDialog;
-      _groupName = _control getVariable "groupToSelect";
-      hint format ["Button for %1", _groupName];
-    }]; */
 
     } forEach _hcGroups;
   };

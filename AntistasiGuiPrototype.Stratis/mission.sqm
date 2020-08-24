@@ -6933,8 +6933,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3642.311,147.66479,3865.8909};
-						angles[]={0,1.5323701,0};
+						position[]={3642.311,147.66476,3865.8911};
+						angles[]={0,1.5323641,0};
 					};
 					side="Independent";
 					flags=6;
@@ -6943,6 +6943,7 @@ class Mission
 					};
 					id=73;
 					type="I_soldier_F";
+					atlOffset=-1.5258789e-005;
 				};
 			};
 			class Attributes
@@ -6971,14 +6972,38 @@ class Mission
 				};
 			};
 			id=71;
+			atlOffset=-1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="What happens if the squad name is too long?";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item29
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3642.269,149.34155,3865.8997};
-				angles[]={0,1.5323701,0};
+				position[]={3642.269,149.34152,3865.8999};
+				angles[]={0,1.5323641,0};
 			};
 			side="Independent";
 			flags=6;
@@ -6987,6 +7012,7 @@ class Mission
 			};
 			id=72;
 			type="I_HMG_02_high_F";
+			atlOffset=-1.5258789e-005;
 		};
 		class Item30
 		{

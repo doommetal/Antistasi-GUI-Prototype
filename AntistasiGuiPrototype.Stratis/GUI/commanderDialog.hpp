@@ -63,42 +63,116 @@ class A3A_CommanderDialog
           h = 62 * GRID_H;
 
           class controls {
-            class SquadName : RscText
+            class GroupNameLabel : A3A_ShortcutButton
             {
-              idc = A3A_IDC_HCSQUADNAME;
-              text = "Alpha 1-3";
-              shadow = 2;
-              colorShadow[] = {0,0,0,1};
-              colorBackground[] = {0,0,0,0.5};
+              idc = A3A_IDC_HCGROUPNAME;
+              text = "No squad selected";
+              action = "['showGroupList'] call A3A_fnc_commanderDialog";
               x = 0;
               y = 0;
               w = 54 * GRID_W;
               h = 6 * GRID_H;
-              sizeEx = GUI_TEXT_SIZE_LARGE;
             };
 
-            class SquadInfoLabels : RscTextMulti
+            class GroupBackground : A3A_MainBackground
             {
               idc = -1;
-              text = "Alive members:\nAble to combat:\nCurrent task:\nCombat Mode:\nOperative Medic:";
-              sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 0;
-              y = 8 * GRID_H;
-              w = 24 * GRID_W;
+              y = 6 * GRID_H;
+              w = 54 * GRID_W;
               h = 24 * GRID_H;
             };
 
-            class SquadInfoValues : RscTextMulti
+            class GroupUnitCountIcon : RscPicture
             {
-              idc = A3A_IDC_HCSQUADINFO;
-              style = ST_MULTI + ST_RIGHT;
-              text = "4\n2\nAssault\nCOMBAT\nYes";
-              sizeEx = GUI_TEXT_SIZE_MEDIUM;
-              x = 26 * GRID_W;
+              idc = -1;
+              text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
+              tooltip = "Number of units in the group\nAble to combat / Total number of units";
+              x = 2 * GRID_W;
               y = 8 * GRID_H;
-              w = 24 * GRID_W;
-              h = 24 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
             };
+
+            class GroupUnitCountText : RscText
+            {
+              idc = A3A_IDC_HCGROUPCOUNT;
+              text = "10 / 10";
+              tooltip = "Number of units in the group\nAble to combat / Total number of units";
+              x = 6 * GRID_W;
+              y = 8 * GRID_H;
+              w = 16 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GroupTaskLabel : RscText
+            {
+              idc = -1;
+              text = "Current task:";
+              sizeEx = GUI_TEXT_SIZE_MEDIUM;
+              x = 0;
+              y = 14 * GRID_H;
+              w = 24 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GroupTaskText : RscText
+            {
+              idc = A3A_IDC_HCGROUPTASK;
+              style = ST_RIGHT;
+              text = "";
+              sizeEx = GUI_TEXT_SIZE_MEDIUM;
+              x = 28 * GRID_W;
+              y = 14 * GRID_H;
+              w = 24 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GroupCombatModeLabel : RscText
+            {
+              idc = -1;
+              text = "Combat mode:";
+              sizeEx = GUI_TEXT_SIZE_MEDIUM;
+              x = 0;
+              y = 20 * GRID_H;
+              w = 24 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GroupCombatModeText : RscText
+            {
+              idc = A3A_IDC_HCGROUPCOMBATMODE;
+              style = ST_RIGHT;
+              text = "";
+              sizeEx = GUI_TEXT_SIZE_MEDIUM;
+              x = 28 * GRID_W;
+              y = 20 * GRID_H;
+              w = 24 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            // class SquadInfoLabels : RscTextMulti
+            // {
+            //   idc = -1;
+            //   text = "Alive members:\nAble to combat:\nCurrent task:\nCombat Mode:\nOperative Medic:";
+            //   sizeEx = GUI_TEXT_SIZE_MEDIUM;
+            //   x = 0;
+            //   y = 8 * GRID_H;
+            //   w = 24 * GRID_W;
+            //   h = 24 * GRID_H;
+            // };
+            //
+            // class SquadInfoValues : RscTextMulti
+            // {
+            //   idc = A3A_IDC_HCSQUADINFO;
+            //   style = ST_MULTI + ST_RIGHT;
+            //   text = "4\n2\nAssault\nCOMBAT\nYes";
+            //   sizeEx = GUI_TEXT_SIZE_MEDIUM;
+            //   x = 26 * GRID_W;
+            //   y = 8 * GRID_H;
+            //   w = 24 * GRID_W;
+            //   h = 24 * GRID_H;
+            // };
 
             class MountButton : A3A_ShortcutButton
             {
