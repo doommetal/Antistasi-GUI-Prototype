@@ -1,49 +1,61 @@
-class A3A_RecruitSquadDialog
+class A3A_RecruitSquadDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_RECRUITSQUADDIALOG;
+  idd = A3A_IDD_RecruitSquadDialog;
 
-  #define DIALOG_W 160
-  #define DIALOG_H 100
-
-  class controls {
-    class TitleText : A3A_TitleText
+  class Controls
+  {
+    class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = "RECRUIT SQUADS";
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
+      text = "Recruit Squad";
+      x = DIALOG_X;
+      y = DIALOG_Y - 4 * GRID_H;
+      w = DIALOG_W * GRID_W;
       h = 4 * GRID_H;
     };
 
-    class MainContent : RscControlsGroupNoScrollbars
+    // Main content
+    class MainContent : A3A_DefaultControlsGroup
     {
-      idc = -1;
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      idc = A3A_IDC_RECRUITSQUADMAIN;
 
-      class controls
+      class Controls
       {
-        class InfSquadIcon : RscPicture
+        class IncludeVehicleLabel : A3A_Text
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
+          text = "Include vehicle:";
+          x = 66 * GRID_W;
+          y = 4 * GRID_H;
+          w = 24 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class IncludeVehicleCB : A3A_CheckBox
+        {
+          idc = A3A_IDC_SQUADINCLUDEVEHICLECHECKBOX;
+          x = 90 * GRID_W;
+          y = 4 * GRID_H;
+          w = 4 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class InfSquadIcon : A3A_Picture
+        {
+          idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_inf_squad.paa";
+          text = A3A_Tex_Icon_Inf_Squad;
           x = 24 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class InfSquadPriceText : RscText
+        class InfSquadPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 19 * GRID_H;
@@ -51,7 +63,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class InfSquadButton : A3A_ShortcutButton
+        class InfSquadButton : A3A_Button
         {
           idc = -1;
           text = "Inf. Squad";
@@ -60,34 +72,24 @@ class A3A_RecruitSquadDialog
           y = 11 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class InfTeamIcon : RscPicture
+        class InfTeamIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_inf_team.paa";
+          text = A3A_Tex_Icon_Inf_Team;
           x = 24 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class InfTeamPriceText : RscText
+        class InfTeamPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 40 * GRID_H;
@@ -95,7 +97,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class InfTeamButton : A3A_ShortcutButton
+        class InfTeamButton : A3A_Button
         {
           idc = -1;
           text = "Inf. Team";
@@ -104,34 +106,24 @@ class A3A_RecruitSquadDialog
           y = 32 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class MgTeamIcon : RscPicture
+        class MgTeamIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_mg_team.paa";
+          text = A3A_Tex_Icon_MG_Team;
           x = 24 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class MgTeamPriceText : RscText
+        class MgTeamPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 61 * GRID_H;
@@ -139,7 +131,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class MgTeamButton : A3A_ShortcutButton
+        class MgTeamButton : A3A_Button
         {
           idc = -1;
           text = "MG Team";
@@ -148,34 +140,24 @@ class A3A_RecruitSquadDialog
           y = 53 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class AtTeamIcon : RscPicture
+        class AtTeamIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_at_team.paa";
+          text = A3A_Tex_Icon_AT_Team;
           x = 24 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class AtTeamPriceText : RscText
+        class AtTeamPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 82 * GRID_H;
@@ -183,7 +165,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class AtTeamButton : A3A_ShortcutButton
+        class AtTeamButton : A3A_Button
         {
           idc = -1;
           text = "AT Team";
@@ -192,34 +174,24 @@ class A3A_RecruitSquadDialog
           y = 74 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class MortarTeamIcon : RscPicture
+        class MortarTeamIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_mortar_team.paa";
+          text = A3A_Tex_Icon_Mortar_Team;
           x = 128 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class MortarTeamPriceText : RscText
+        class MortarTeamPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 19 * GRID_H;
@@ -227,7 +199,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class MortarTeamButton : A3A_ShortcutButton
+        class MortarTeamButton : A3A_Button
         {
           idc = -1;
           text = "Mortar Team";
@@ -236,34 +208,25 @@ class A3A_RecruitSquadDialog
           y = 11 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class SniperTeamIcon : RscPicture
+        class SniperTeamIcon : A3A_Picture
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_sniper_team.paa";
+          text = A3A_Tex_Icon_Sniper_Team;
           x = 128 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class SniperTeamPriceText : RscText
+        class SniperTeamPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 40 * GRID_H;
@@ -271,7 +234,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class SniperTeamButton : A3A_ShortcutButton
+        class SniperTeamButton : A3A_Button
         {
           idc = -1;
           text = "Sniper Team";
@@ -280,34 +243,24 @@ class A3A_RecruitSquadDialog
           y = 32 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class AtCarIcon : RscPicture
+        class AtCarIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_at_car.paa";
+          text = A3A_Tex_Icon_AT_Car;
           x = 128 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class AtCarPriceText : RscText
+        class AtCarPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 61 * GRID_H;
@@ -315,7 +268,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class AtCarButton : A3A_ShortcutButton
+        class AtCarButton : A3A_Button
         {
           idc = -1;
           text = "AT Car";
@@ -324,34 +277,24 @@ class A3A_RecruitSquadDialog
           y = 53 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class AaTruckIcon : RscPicture
+        class AaTruckIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_aa_truck.paa";
+          text = A3A_Tex_Icon_AA_Truck;
           x = 128 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class AaTruckPriceText : RscText
+        class AaTruckPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 82 * GRID_H;
@@ -359,7 +302,7 @@ class A3A_RecruitSquadDialog
           h = 4 * GRID_H;
         };
 
-        class AaTruckButton : A3A_ShortcutButton
+        class AaTruckButton : A3A_Button
         {
           idc = -1;
           text = "AA Truck";
@@ -368,50 +311,15 @@ class A3A_RecruitSquadDialog
           y = 74 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
       };
-    };
-
-    class BackButton : A3A_BackButton
-    {
-      idc = -1;
-      action = "[] spawn A3A_fnc_hqDialog";
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 9 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
     };
 
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-    };
-  };
-
-  class controlsBackground
-  {
-    class TitleBackground : A3A_TitleBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
-      h = 4 * GRID_H;
-    };
-
-    class MainBackground : A3A_MainBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
+      y = DIALOG_Y - 4 * GRID_H;
     };
   };
 };

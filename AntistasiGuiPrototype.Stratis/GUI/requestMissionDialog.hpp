@@ -1,189 +1,165 @@
-class A3A_RequestMissionDialog
+class A3A_RequestMissionDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_REQUESTMISSONDIALOG;
+  idd = A3A_IDD_RequestMissionDialog;
 
-  #define DIALOG_W 160
-  #define DIALOG_H 100
-
-  class controls {
-    class TitleText : A3A_TitleText
+  class Controls
+  {
+    class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = "REQUEST MISSION";
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
+      text = "Request Mission";
+      x = DIALOG_X;
+      y = DIALOG_Y - 4 * GRID_H;
+      w = DIALOG_W * GRID_W;
       h = 4 * GRID_H;
     };
 
-    class MainContent : RscControlsGroupNoScrollbars
+    // Main content
+    class MainContent : A3A_DefaultControlsGroup
     {
-      idc = -1;
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      idc = A3A_IDC_REQUESTMISSIONMAIN;
 
-      class controls
+      class Controls
       {
-        class AssassinationIcon : RscPicture
+        class AssassinationIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_assassination.paa";
+          text = A3A_Tex_Icon_Assassination;
           x = 24 * GRID_W;
           y = 10 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
-        class AssassinationButton : A3A_ShortcutButton
+        class AssassinationButton : A3A_Button
         {
           idc = -1;
           text = "Assassination";
-          size = GUI_TEXT_SIZE_LARGE;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 16 * GRID_W;
           y = 30 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class LogisticsIcon : RscPicture
+        class LogisticsIcon : A3A_Picture
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_logistics.paa";
+          text = A3A_Tex_Icon_Logistics;
           x = 72 * GRID_W;
           y = 10 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
-        class LogisticsButton : A3A_ShortcutButton
+        class LogisticsButton : A3A_Button
         {
           idc = -1;
           text = "Logistics";
-          size = GUI_TEXT_SIZE_LARGE;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 64 * GRID_W;
           y = 30 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class ConvoyIcon : RscPicture
+        class ConvoyIcon : A3A_Picture
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_convoy_ambush.paa";
+          text = A3A_Tex_Icon_Convoy_Ambush;
           x = 120 * GRID_W;
           y = 10 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
-        class ConvoyButton : A3A_ShortcutButton
+        class ConvoyButton : A3A_Button
         {
           idc = -1;
           text = "Convoy Ambush";
-          size = GUI_TEXT_SIZE_LARGE;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 112 * GRID_W;
           y = 30 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class ConquestIcon : RscPicture
+        class ConquestIcon : A3A_Picture
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_conquest.paa";
+          text = A3A_Tex_Icon_Conquest;
           x = 24 * GRID_W;
           y = 50 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
-        class ConquestButton : A3A_ShortcutButton
+        class ConquestButton : A3A_Button
         {
           idc = -1;
           text = "Conquest";
-          size = GUI_TEXT_SIZE_LARGE;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 16 * GRID_W;
           y = 70 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class DestroyIcon : RscPicture
+        class DestroyIcon : A3A_Picture
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_destroy.paa";
+          text = A3A_Tex_Icon_Destroy;
           x = 72 * GRID_W;
           y = 50 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
-        class DestroyButton : A3A_ShortcutButton
+        class DestroyButton : A3A_Button
         {
           idc = -1;
           text = "Destroy";
-          size = GUI_TEXT_SIZE_LARGE;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 64 * GRID_W;
           y = 70 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class RescueIcon : RscPicture
+        class RescueIcon : A3A_Picture
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_rescue.paa";
+          text = A3A_Tex_Icon_Rescue;
           x = 120 * GRID_W;
           y = 50 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
-        class RescueButton : A3A_ShortcutButton
+        class RescueButton : A3A_Button
         {
           idc = -1;
           text = "Rescue";
-          size = GUI_TEXT_SIZE_LARGE;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 112 * GRID_W;
           y = 70 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
+
       };
     };
 
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-    };
-  };
-
-  class controlsBackground
-  {
-    class TitleBackground : A3A_TitleBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
-      h = 4 * GRID_H;
-    };
-
-    class MainBackground : A3A_MainBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
+      y = DIALOG_Y - 4 * GRID_H;
     };
   };
 };

@@ -2,29 +2,18 @@ class A3A
 {
   class GUI
   {
-    // Utility
-    class handleTabs{};
-    class sandboxDialog{};
-    class getVehicleCrewCount {}; // Should probably be somewhere else when merging
+    // Dialog functions
+    class mainDialog {};
+    class hqDialog {};
+    class buyVehicleDialog {};
+
+    // Utility functions
+    class configColorToArray {};
+    class getVehicleCrewCount {};
     class getOutpostByMarkerName {};
 
-    // Open dialogs
-    class playerDialog {};
-    class constructDialog {};
-    class commanderDialog {};
-    class adminDialog {};
-    class playerManagementDialog{};
-    class buyVehicleDialog {};
-    class hqDialog {};
-    class garageDialog {};
-    class garrisonDialog {};
-    class recruitDialog {};
-    class recruitSquadDialog {};
-    class requestMissionDialog {};
-    class minefieldDialog {};
-    class aiManagementDialog {};
-    class airSupportDialog {};
-    class donateDialog{};
+    // TODO: Test stuff, remove when merging
+    class testTabbedDialog {};
   };
 
   class Environment
@@ -35,12 +24,12 @@ class A3A
   class AI
   {
     class getGroupInfo {};
-    class typeOfSoldier {}; // Already in antistasi, don't merge
-    class canFight {}; // Already in antistasi, don't merge
+    class typeOfSoldier {}; // TODO: Already in antistasi, don't merge
+    class canFight {}; // TODO: Already in antistasi, don't merge
   };
 
   class Revive
   {
-    class isMedic {}; // Already in antistasi, don't merge
+    class isMedic {}; // TODO: Already in antistasi, don't merge
   };
 };

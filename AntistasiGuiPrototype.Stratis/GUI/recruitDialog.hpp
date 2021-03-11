@@ -1,49 +1,43 @@
-class A3A_RecruitDialog
+class A3A_RecruitDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_RECRUITDIALOG;
+  idd = A3A_IDD_RecruitDialog;
+  // onLoad = "[""onLoad""] spawn A3A_fnc_buyVehicleDialog";
 
-  #define DIALOG_W 160
-  #define DIALOG_H 100
-
-  class controls {
-    class TitleText : A3A_TitleText
+  class Controls
+  {
+    class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = "RECRUIT UNITS";
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
+      text = "Recruit Units";
+      x = DIALOG_X;
+      y = DIALOG_Y - 4 * GRID_H;
+      w = DIALOG_W * GRID_W;
       h = 4 * GRID_H;
     };
 
-    class MainContent : RscControlsGroupNoScrollbars
+    // Main content
+    class MainContent : A3A_DefaultControlsGroup
     {
-      idc = -1;
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      idc = A3A_IDC_RECRUITMAIN;
 
-      class controls
+      class Controls
       {
-        class RiflemanIcon : RscPicture
+        class RiflemanIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_rifleman.paa";
+          text = A3A_Tex_Icon_Rifleman;
           x = 24 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class RiflemanPriceText : RscText
+        class RiflemanPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 19 * GRID_H;
@@ -51,43 +45,33 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class RiflemanButton : A3A_ShortcutButton
+        class RiflemanButton : A3A_Button
         {
           idc = -1;
           text = "Rifleman";
-          size = GUI_TEXT_SIZE_LARGE;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class AutoriflemanIcon : RscPicture
+        class AutoriflemanIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_autorifleman.paa";
+          text = A3A_Tex_Icon_Autorifleman;
           x = 24 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class AutoriflemanPriceText : RscText
+        class AutoriflemanPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 40 * GRID_H;
@@ -95,7 +79,7 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class AutoriflemanButton : A3A_ShortcutButton
+        class AutoriflemanButton : A3A_Button
         {
           idc = -1;
           text = "Autorifleman";
@@ -104,34 +88,24 @@ class A3A_RecruitDialog
           y = 32 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class GrenadierIcon : RscPicture
+        class GrenadierIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_grenadier.paa";
+          text = A3A_Tex_Icon_Grenadier;
           x = 24 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class GrenadierPriceText : RscText
+        class GrenadierPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 61 * GRID_H;
@@ -139,7 +113,7 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class GrenadierButton : A3A_ShortcutButton
+        class GrenadierButton : A3A_Button
         {
           idc = -1;
           text = "Grenadier";
@@ -148,34 +122,24 @@ class A3A_RecruitDialog
           y = 53 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class AtIcon : RscPicture
+        class AtIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_at.paa";
+          text = A3A_Tex_Icon_AT;
           x = 24 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class AtPriceText : RscText
+        class AtPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 24 * GRID_W;
           y = 82 * GRID_H;
@@ -183,7 +147,7 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class AtButton : A3A_ShortcutButton
+        class AtButton : A3A_Button
         {
           idc = -1;
           text = "AT";
@@ -192,34 +156,24 @@ class A3A_RecruitDialog
           y = 74 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class MedicIcon : RscPicture
+        class MedicIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
+          text = A3A_Tex_Icon_Heal;
           x = 128 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class MedicPriceText : RscText
+        class MedicPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 19 * GRID_H;
@@ -227,7 +181,7 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class MedicButton : A3A_ShortcutButton
+        class MedicButton : A3A_Button
         {
           idc = -1;
           text = "Medic";
@@ -236,34 +190,24 @@ class A3A_RecruitDialog
           y = 11 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class MarksmanIcon : RscPicture
+        class MarksmanIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_sniper.paa";
+          text = A3A_Tex_Icon_Sniper;
           x = 128 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class MarksmanPriceText : RscText
+        class MarksmanPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 40 * GRID_H;
@@ -271,7 +215,7 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class MarksmanButton : A3A_ShortcutButton
+        class MarksmanButton : A3A_Button
         {
           idc = -1;
           text = "Marksman";
@@ -280,34 +224,24 @@ class A3A_RecruitDialog
           y = 32 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class EngineerIcon : RscPicture
+        class EngineerIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "\A3\ui_f\data\igui\cfg\cursors\iconRepairVehicle_ca.paa";
+          text = A3A_Tex_Icon_Construct;
           x = 128 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class EngineerPriceText : RscText
+        class EngineerPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 61 * GRID_H;
@@ -315,7 +249,7 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class EngineerButton : A3A_ShortcutButton
+        class EngineerButton : A3A_Button
         {
           idc = -1;
           text = "Engineer";
@@ -324,34 +258,24 @@ class A3A_RecruitDialog
           y = 53 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
 
-        class BombSpecialistIcon : RscPicture
+        class BombSpecialistIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = "GUI\textures\icon_bomb_specialist.paa";
+          text = A3A_Tex_Icon_Bomb_Specialist;
           x = 128 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class BombSpecialistPriceText : RscText
+        class BombSpecialistPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
           text = "€ 5000";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           shadow = 2;
           x = 128 * GRID_W;
           y = 82 * GRID_H;
@@ -359,7 +283,7 @@ class A3A_RecruitDialog
           h = 4 * GRID_H;
         };
 
-        class BombSpecialistButton : A3A_ShortcutButton
+        class BombSpecialistButton : A3A_Button
         {
           idc = -1;
           text = "Bomb Specialist";
@@ -368,42 +292,16 @@ class A3A_RecruitDialog
           y = 74 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
-
-          class TextPos
-          {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 3 * GRID_H;
-            bottom = 3 * GRID_W;
-          };
         };
+
       };
     };
 
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-    };
-  };
-
-  class controlsBackground
-  {
-    class TitleBackground : A3A_TitleBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
-      h = 4 * GRID_H;
-    };
-
-    class MainBackground : A3A_MainBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
+      y = DIALOG_Y - 4 * GRID_H;
     };
   };
 };

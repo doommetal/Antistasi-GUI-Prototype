@@ -1,3 +1,5 @@
+// TODO: update header
+
 // Returns info about a group
 // Group name, position, alive/combat ready counts, vehicle status etc.
 // Mostly rewritten stuff from REINF/fn_vehStats.sqf
@@ -22,32 +24,38 @@
   14: has static weapon, bool
   15: static deployed, bool
   16: vehicle (not yet implemented)
+  17: icon
+  18: icon color
   ]
 */
 
-params[["_group", grpNull]];
+// Logging
+#define Log_Debug true
+#define Log_Error true
+#include "..\..\LogMacros.inc"
 
-if (_group == grpNull) exitWith {
+// TODO: Replace with logging macro
+params[["_group", grpNull]];
+if (_group isEqualTo grpNull) exitWith {
   diag_log ["fn_getGroupInfo: No group specified"];
 };
 
-_groupID = groupID _group;
-_groupLeader = leader _group;
-_units = units _group;
-_position = position _groupLeader;
-_aliveUnits = {alive _x} count _units;
-_ableToCombat = {[_x] call A3A_fnc_canFight} count _units;
-_task = "N/A"; // TODO: Update when merging: _x getVariable ["taskX","Patrol"]
-_combatMode = behaviour _groupLeader;
-_hasOperativeMedic = {[_x] call A3A_fnc_isMedic} count _units > 0;
-_hasAt = {_x call A3A_fnc_typeOfSoldier == "ATMan"} count _units > 0;
-_hasAa = {_x call A3A_fnc_typeOfSoldier == "AAMan"} count _units > 0;
+private _groupID = groupID _group;
+private _groupLeader = leader _group;
+private _units = units _group;
+private _aliveUnits = {alive _x} count _units;
+private _ableToCombat = {[_x] call A3A_fnc_canFight} count _units;
+private _task = "N/A"; // TODO: Update when merging: _x getVariable ["taskX","Patrol"]
+private _combatMode = behaviour _groupLeader;
+private _hasOperativeMedic = {[_x] call A3A_fnc_isMedic} count _units > 0;
+private _hasAt = {_x call A3A_fnc_typeOfSoldier == "ATMan"} count _units > 0;
+private _hasAa = {_x call A3A_fnc_typeOfSoldier == "AAMan"} count _units > 0;
 
 // Mortars and statics
-_hasMortar = false;
-_mortarDeployed = false;
-_hasStatic = false;
-_staticDeployed = false;
+private _hasMortar = false;
+private _mortarDeployed = false;
+private _hasStatic = false;
+private _staticDeployed = false;
 
 // If the group has variable mortarsX OR if any of the units has a mortar
 if (!(isNull(_group getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_typeOfSoldier == "StaticMortar"} count _units > 0)) then {
@@ -66,6 +74,21 @@ if (!(isNull(_group getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_type
 };
 
 // TODO: Get group vehicle
-_groupVehicle = false;
+private _groupVehicle = false;
 
-[_group, _groupID, _groupLeader, _units, _position, _aliveUnits, _ableToCombat, _task, _combatMode, _hasOperativeMedic, _hasAt, _hasAa, _hasMortar, _mortarDeployed, _hasStatic, _staticDeployed, _groupVehicle];
+
+// Get group icon
+private _groupIconId = _group getVariable "BIS_MARTA_ICON_TYPE";
+private _groupIcon = "n_unknown";
+if !(isNil "_groupIconId") then {
+  _groupIcon = (_group getGroupIcon _groupIconId) # 0;
+};
+
+if (_groupIcon isEqualTo "dummy") then {
+  _groupIcon = "n_unknown";
+};
+
+// Get group icon color
+private _groupIconColor = getGroupIconParams _group # 0;
+
+[_group, _groupID, _groupLeader, _units, _aliveUnits, _ableToCombat, _task, _combatMode, _hasOperativeMedic, _hasAt, _hasAa, _hasMortar, _mortarDeployed, _hasStatic, _staticDeployed, _groupVehicle, _groupIcon, _groupIconColor];

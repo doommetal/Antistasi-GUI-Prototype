@@ -1,32 +1,28 @@
-class A3A_BuyVehicleDialog
+class A3A_BuyVehicleDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_BUYVEHICLEDIALOG;
+  idd = A3A_IDD_BuyVehicleDialog;
+  onLoad = "[""onLoad""] spawn A3A_fnc_buyVehicleDialog";
 
-  #define DIALOG_W 160
-  #define DIALOG_H 100
-
-  class controls {
-    class TitleText : A3A_TitleText
+  class Controls
+  {
+    class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = "BUY VEHICLE";
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
+      text = "Buy Vehicle";
+      x = DIALOG_X;
+      y = DIALOG_Y - 4 * GRID_H;
+      w = DIALOG_W * GRID_W;
       h = 4 * GRID_H;
     };
 
-    class MainContent : RscControlsGroupNoScrollbars
+    // Main content
+    class MainContent : A3A_DefaultControlsGroup
     {
-      idc = -1;
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      idc = A3A_IDC_BUYVEHICLEMAIN;
 
-      class controls
+      class Controls
       {
-        class VehiclesControlsGroup : RscControlsGroupNoHScrollbars
+        class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
         {
           idc = A3A_IDC_VEHICLESGROUP;
           x = 0;
@@ -36,31 +32,12 @@ class A3A_BuyVehicleDialog
         };
       };
     };
-    
+
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-    };
-  };
-
-  class controlsBackground
-  {
-    class TitleBackground : A3A_TitleBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
-      h = 4 * GRID_H;
-    };
-
-    class MainBackground : A3A_MainBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
+      y = DIALOG_Y - 4 * GRID_H;
     };
   };
 };

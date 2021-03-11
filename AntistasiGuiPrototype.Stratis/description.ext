@@ -1,8 +1,8 @@
-
 class CfgFunctions {
   #include "functions.hpp"
 };
 
-#include "defines.hpp" // Vanilla arma 3 exports
-#include "GUI\a3adefines.hpp" // Antistasi specific defines and snippets
+#include "GUI\defines.hpp" // Base defines
+#include "GUI\textures.inc" // Textures for icons etc.
+#include "GUI\controls.hpp" // Class definitions for controls and dialog templates
 #include "GUI\dialogs.hpp" // Includes for all the dialogs

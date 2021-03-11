@@ -1,10 +1,17 @@
 // Needed to get custom textures on map icons
-MISSION_ROOT = call {
+/* MISSION_ROOT = call {
     private "_arr";
     _arr = toArray __FILE__;
     _arr resize (count _arr - 8);
     toString _arr
-};
+}; */
+
+// Stupid hack to force group icons to load
+/* [] spawn {
+  setGroupIconsVisible [true, true];
+  sleep 1;
+  setGroupIconsVisible [false, false];
+}; */
 
 ///////////////////////////////////////////////////////////////////////////////
 // EVERYTHING BELOW THIS POINT IS "FAKE" ANTISTASI FUNCTIONS TO TEST THE GUI //
@@ -15,12 +22,17 @@ waituntil {!isnull (finddisplay 46)};
 
 // Y
 eventHandlerY = findDisplay 46 displayAddEventHandler ["KeyDown",{
-  if (_this select 1 == 21) then {[] spawn A3A_fnc_playerDialog;};
+  if (_this select 1 == 21) then {
+    if (!dialog) then {createDialog "A3A_MainDialog";};
+  };
 }];
+
 
 // U
 eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
-  if (_this select 1 == 22) then {[] spawn A3A_fnc_sandboxDialog;};
+  if (_this select 1 == 22) then {
+    if (!dialog) then {createDialog "A3A_TestDefaultDialog";};
+  };
 }];
 
 // U (cursorTarget)
@@ -130,13 +142,13 @@ outposts = [
 
 
 // Init addActions for HQ assets
-petros addAction["HQ Management","[] spawn A3A_fnc_hqDialog"];
-petros addAction["Request Mission","[] spawn A3A_fnc_requestMissionDialog"];
-flagX addAction["Recruit","[] spawn A3A_fnc_recruitDialog"];
-flagX addAction["Recruit Squads","[] spawn A3A_fnc_recruitSquadDialog"];
+petros addAction["HQ Management","createDialog ""A3A_HqDialog"""];
+petros addAction["Request Mission","createDialog ""A3A_RequestMissionDialog"""];
+flagX addAction["Recruit","createDialog ""A3A_RecruitDialog"""];
+flagX addAction["Recruit Squads","createDialog ""A3A_RecruitSquadDialog"""];
 mapX addAction["Map Info","hint ""Imagine opening Map Info."""];
 boxX addAction["Arsenal","hint ""Imagine opening the Arsenal."""];
-vehicleBox addaction["Buy Vehicle","[] spawn A3A_fnc_buyVehicleDialog"];
+vehicleBox addaction["Buy Vehicle","createDialog ""A3A_BuyVehicleDialog"""];
 vehicleBox addaction["Heal, Repair and Rearm","hint ""Imagine a healing light passing over you as Petros does his magic ;^)"""];
 vehicleBox addaction["Unload Vehicle Cargo to Ammobox","hint ""Imagine carrying all those heavy boxes."""];
 vehicleBox addaction["Personal Garage","hint ""Imagine opening the garage."""];

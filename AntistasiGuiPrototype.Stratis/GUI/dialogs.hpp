@@ -1,21 +1,24 @@
 /*
-This file contains all dialogs used in Antistasi
+GUI\dialogs.hpp
+
+Description:
+    Contains class definitions for GUI dialogs
+
+Author: DoomMetal
+License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Community
 */
 
-#include "playerDialog.hpp"
-#include "commanderDialog.hpp"
-#include "adminDialog.hpp"
-#include "playerManagementDialog.hpp"
-#include "buyVehicleDialog.hpp"
-#include "sandboxDialog.hpp"
-#include "constructDialog.hpp"
-#include "garageDialog.hpp"
+//////////////////
+// TEST DIALOGS //
+//////////////////
+
+#include "mainDialog.hpp"
 #include "hqDialog.hpp"
-#include "garrisonDialog.hpp"
+#include "requestMissionDialog.hpp"
 #include "recruitDialog.hpp"
 #include "recruitSquadDialog.hpp"
-#include "requestMissionDialog.hpp"
-#include "minefieldDialog.hpp"
-#include "aiManagementDialog.hpp"
-#include "airSupportDialog.hpp"
-#include "donateDialog.hpp"
+#include "buyVehicleDialog.hpp"
+
+// TODO: Test stuff, remove when merging
+#include "testTabbedDialog.hpp"
+#include "testDefaultDialog.hpp"

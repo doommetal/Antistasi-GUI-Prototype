@@ -1,38 +1,31 @@
-class A3A_HqDialog
+class A3A_HqDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_HQDIALOG;
+  idd = A3A_IDD_HqDialog;
+  onLoad = "[""onLoad""] spawn A3A_fnc_hqDialog";
 
-  #define DIALOG_W 160
-  #define DIALOG_H 100
-
-  class controls {
-    class TitleText : A3A_TitleText
+  class Controls
+  {
+    class TitlebarText : A3A_Text
     {
-      idc = -1;
-      text = "HQ MANAGEMENT";
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
+      idc = A3A_IDC_HQDIALOGTITLEBAR;
+      text = "HQ Management";
+      x = DIALOG_X;
+      y = DIALOG_Y - 4 * GRID_H;
+      w = DIALOG_W * GRID_W;
       h = 4 * GRID_H;
     };
 
-    class MainContent : RscControlsGroupNoScrollbars
+    // Main content
+    class MainTab : A3A_DefaultControlsGroup
     {
-      idc = -1;
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      idc = A3A_IDC_HQDIALOGMAINTAB;
 
       class controls
       {
-        // Start of main group controls
-
-        class GarrisonManagementIcon : RscPicture
+        class GarrisonManagementIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_garrison.paa";
+          text = A3A_Tex_Icon_Garrison;
           x = 8 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -43,18 +36,17 @@ class A3A_HqDialog
         {
           idc = -1;
           text = "Garrison Management";
-          action = "[] spawn A3A_fnc_garrisonDialog";
+          onButtonClick = "[""switchTab"",[""garrison""]] call A3A_fnc_hqDialog";
           x = 20 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class MinefieldManagementIcon : RscPicture
+        class MinefieldManagementIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_minefield.paa";
+          text = A3A_Tex_Icon_Minefield;
           x = 8 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -65,18 +57,17 @@ class A3A_HqDialog
         {
           idc = -1;
           text = "Minefield Management";
-          action = "[] spawn A3A_fnc_minefieldDialog";
+          onButtonClick = "[""switchTab"",[""minefields""]] call A3A_fnc_hqDialog";
           x = 20 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class TrainTroopsIcon : RscPicture
+        class TrainTroopsIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_train_troops.paa";
+          text = A3A_Tex_Icon_Train_Troops;
           x = 8 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -93,12 +84,10 @@ class A3A_HqDialog
           h = 12 * GRID_H;
         };
 
-        class MoveHqIcon : RscPicture
+        class MoveHqIcon : A3A_Picture
         {
           idc = -1;
-          colorBackground[] = {0,0,0,0};
-          text = "GUI\textures\icon_move_hq.paa";
-          // text = "\A3\Ui_f\data\IGUI\Cfg\Actions\talk_ca.paa";
+          text = A3A_Tex_Icon_Move_HQ;
           x = 8 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -125,7 +114,7 @@ class A3A_HqDialog
           h = 4 * GRID_H;
         };
 
-        class FactionMoneySlider : ctrlXSliderH
+        class FactionMoneySlider : A3A_Slider
         {
           idc = A3A_IDC_FACTIONMONEYSLIDER;
           x = 74 * GRID_W;
@@ -135,12 +124,11 @@ class A3A_HqDialog
           onSliderPosChanged = "[""factionMoneySliderChanged""] spawn A3A_fnc_hqDialog";
         };
 
-        class FactionMoneyEditBox : ctrlEdit
+        class FactionMoneyEditBox : A3A_Edit
         {
           idc = A3A_IDC_FACTIONMONEYEDITBOX;
           style = ST_RIGHT;
           text = "0";
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 136 * GRID_W;
           y = 19 * GRID_H;
           w = 16 * GRID_W;
@@ -176,7 +164,7 @@ class A3A_HqDialog
           h = 4 * GRID_H;
         };
 
-        class RestText : ctrlStructuredText
+        class RestText : A3A_StructuredText
         {
           idc = A3A_IDC_RESTTEXT;
           text = "";
@@ -187,7 +175,7 @@ class A3A_HqDialog
           colorBackground[] = {0,0,0,0.5};
         };
 
-        class RestSlider : ctrlXSliderH
+        class RestSlider : A3A_Slider
         {
           idc = A3A_IDC_RESTSLIDER;
           x = 74 * GRID_W;
@@ -201,7 +189,7 @@ class A3A_HqDialog
         {
           idc = -1;
           text = "Rest";
-          action = "[""debugChangeTime""] spawn A3A_fnc_hqDialog;";
+          onButtonClick = "[""debugChangeTime""] spawn A3A_fnc_hqDialog;";
           x = 136 * GRID_W;
           y = 64 * GRID_H;
           w = 16 * GRID_W;
@@ -239,43 +227,705 @@ class A3A_HqDialog
         class StopRainButton : A3A_ShortcutButton
         {
           idc = -1;
-          action = "[] call A3A_fnc_stopRain";
+          onButtonClick = "[] call A3A_fnc_stopRain";
           text = "Stop Rain";
           x = 130 * GRID_W;
           y = 78 * GRID_H;
           w = 22 * GRID_W;
           h = 12 * GRID_H;
         };
-        // End of main content group controls
       };
+    };
+
+    // Map misbehaves inside controlsGroups, hence this is placed outside
+    // See controls.hpp for details
+    class GarrisonMap : A3A_MapControl
+    {
+      idc = A3A_IDC_GARRISONMAP;
+      onMouseButtonClick = "[""garrisonMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_hqDialog";
+      x = CENTER_X(DIALOG_W) + 68 * GRID_W;
+      y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
+      w = 84 * GRID_W;
+      h = 84 * GRID_H;
+
+      // Hide map markers
+      showMarkers = false;
+
+      // Fade satellite texture a bit
+      maxSatelliteAlpha = 0.75;
+      alphaFadeStartScale = 3.0;
+      alphaFadeEndScale = 3.0;
+
+      // Set zoom levels
+      scaleMin = 0.2; // 0.2 = Smallest scale showing the 100m grid
+      scaleDefault = 0.325; // 0.325 = Largest scale forests still are visible
+      scaleMax = 2; // 2 = Max zoom level
+    };
+
+    class GarrisonTab : A3A_DefaultControlsGroup
+    {
+      idc = A3A_IDC_HQDIALOGGARRISONTAB;
+      // Width set to smaller than usual to avoid an issue where
+      // pressing anything other than the map would (invisibly) cover up the
+      // map control, making it unclickable
+      w = 68 * GRID_W;
+
+      class controls
+      {
+        class GarrisonTitle : A3A_Text
+        {
+          text = "HQ";
+          idc = A3A_IDC_GARRISONTITLE;
+          shadow = 2;
+          colorShadow[] = {0,0,0,1};
+          colorBackground[] = {0,0,0,0.5};
+          x = 8 * GRID_W;
+          y = 8 * GRID_H;
+          w = 54 * GRID_W;
+          h = 6 * GRID_H;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+        };
+
+        class GarrisonControlsGroup : A3A_ControlsGroupNoScrollbars
+        {
+          idc = -1;
+          x = 14 * GRID_W;
+          y = 18 * GRID_H;
+          w = 46 * GRID_W;
+          h = 41 * GRID_H;
+
+          class controls
+          {
+            class RiflemanLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Rifleman";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class RiflemanNumber : A3A_Text
+            {
+              idc = A3A_IDC_RIFLEMANNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 0 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class RiflemanRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""rifleman"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 0 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class RiflemanAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""rifleman"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 0 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class SquadleaderLabel : A3A_Text
+            {
+              idc = -1;
+              text = "SquadLeader";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 5 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class SquadleaderNumber : A3A_Text
+            {
+              idc = A3A_IDC_SQUADLEADERNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 5 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class SquadleaderRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""squadleader"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 5 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class SquadleaderAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""squadleader"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 5 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class AutoriflemanLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Autorifleman";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 10 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class AutoriflemanNumber : A3A_Text
+            {
+              idc = A3A_IDC_AUTORIFLEMANNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 10 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class AutoriflemanRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""autorifleman"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 10 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class AutoriflemanAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""autorifleman"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 10 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class GrenadierLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Grenadier";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 15 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GrenadierNumber : A3A_Text
+            {
+              idc = A3A_IDC_GRENADIERNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 15 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GrenadierRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""grenadier"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 15 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class GrenadierAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""grenadier"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 15 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class MedicLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Medic";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 20 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MedicNumber : A3A_Text
+            {
+              idc = A3A_IDC_MEDICNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 20 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MedicRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""medic"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 20 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class MedicAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""medic"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 20 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class MortarLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Mortar";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 25 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MortarNumber : A3A_Text
+            {
+              idc = A3A_IDC_MORTARNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 25 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MortarRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""mortar"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 25 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class MortarAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""mortar"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 25 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class MarksmanLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Marksman";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 30 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MarksmanNumber : A3A_Text
+            {
+              idc = A3A_IDC_MARKSMANNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 30 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MarksmanRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""marksman"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 30 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class MarksmanAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""marksman"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 30 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class AtLabel : A3A_Text
+            {
+              idc = -1;
+              text = "AT";
+              font = "RobotoCondensedLight";
+              x = 0 * GRID_W;
+              y = 35 * GRID_H;
+              w = 30 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class AtNumber : A3A_Text
+            {
+              idc = A3A_IDC_ATNUMBER;
+              text = "0";
+              style = ST_RIGHT;
+              font = "RobotoCondensedLight";
+              x = 30 * GRID_W;
+              y = 35 * GRID_H;
+              w = 6 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class AtRemove : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "-";
+              action = "[""garrisonAdd"",[""at"",-1]] spawn A3A_fnc_hqDialog";
+              x = 37 * GRID_W;
+              y = 35 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+
+            class AtAdd : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "+";
+              action = "[""garrisonAdd"",[""at"",1]] spawn A3A_fnc_hqDialog";
+              x = 42 * GRID_W;
+              y = 35 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+              size = GUI_TEXT_SIZE_LARGE;
+              class textPos
+              {
+                left = 1.5 * GRID_W;
+                right = 0;
+                top = -1 * GRID_H;
+                bottom = 0;
+              };
+            };
+          };
+        };
+
+        class RebuildButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Rebuild Assets";
+          x = 14 * GRID_W;
+          y = 60 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class DismissGarrisonButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Dismiss Garrison";
+          x = 38 * GRID_W;
+          y = 60 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class BuildOutpostButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Build Outpost";
+          x = 14 * GRID_W;
+          y = 78 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class RemoveOutpostButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Remove Outpost";
+          x = 38 * GRID_W;
+          y = 78 * GRID_H;
+          w = 22 * GRID_W;
+          h = 12 * GRID_H;
+        };
+      };
+    };
+
+    class MinefieldsMap : A3A_MapControl
+    {
+      idc = A3A_IDC_MINEFIELDSMAP;
+      onMouseButtonClick = "[""minefieldsMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_hqDialog";
+      x = CENTER_X(DIALOG_W) + 68 * GRID_W;
+      y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
+      w = 84 * GRID_W;
+      h = 84 * GRID_H;
+
+      // Hide map markers
+      showMarkers = false;
+
+      // Fade satellite texture a bit
+      maxSatelliteAlpha = 0.75;
+      alphaFadeStartScale = 3.0;
+      alphaFadeEndScale = 3.0;
+
+      // Set zoom levels
+      scaleMin = 0.2; // 0.2 = Smallest scale showing the 100m grid
+      scaleDefault = 0.325; // 0.325 = Largest scale forests still are visible
+      scaleMax = 2; // 2 = Max zoom level
+    };
+
+    class MinefieldsTab : A3A_DefaultControlsGroup
+    {
+      idc = A3A_IDC_HQDIALOGMINEFIELDSTAB;
+      // Width set to smaller than usual to avoid an issue where
+      // pressing anything other than the map would (invisibly) cover up the
+      // map control, making it unclickable
+      w = 68 * GRID_W;
+
+      class controls
+      {
+        class MinefieldList : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Placeholder List / Info";
+          x = 8 * GRID_W;
+          y = 8 * GRID_H;
+          w = 56 * GRID_W;
+          h = 32 * GRID_H;
+        };
+
+        class RemoveMinefieldButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "Remove Minefield";
+          x = 8 * GRID_W;
+          y = 48 * GRID_H;
+          w = 56 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
+        class DeploySectionLabel : A3A_SectionLabelLeft
+        {
+          idc = -1;
+          text = "Deploy minefield";
+          x = 0;
+          y = 64 * GRID_H;
+          w = 64 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class DeployApersMinefieldButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "APERS Mines";
+          x = 16 * GRID_W;
+          y = 74 * GRID_H;
+          w = 40 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
+        class DeployAtMinefieldButton : A3A_ShortcutButton
+        {
+          idc = -1;
+          text = "AT Mines";
+          x = 16 * GRID_W;
+          y = 84 * GRID_H;
+          w = 40 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
+      };
+    };
+
+    class BackButton : A3A_BackButton
+    {
+      idc = A3A_IDC_HQDIALOGBACKBUTTON;
+      x = DIALOG_X + DIALOG_W * GRID_W - 10 * GRID_W;
+      y = DIALOG_Y - 4 * GRID_H;
     };
 
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = CENTER_X(DIALOG_W) + PX_W(DIALOG_W) - 4 * GRID_W;
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-    };
-
-    // End of controls
-  };
-
-  class controlsBackground
-  {
-    class TitleBackground : A3A_TitleBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H) - 4 * GRID_H;
-      w = PX_W(DIALOG_W);
-      h = 4 * GRID_H;
-    };
-
-    class MainBackground : A3A_MainBackground
-    {
-      x = CENTER_X(DIALOG_W);
-      y = CENTER_Y(DIALOG_H);
-      w = PX_W(DIALOG_W);
-      h = PX_H(DIALOG_H);
+      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
+      y = DIALOG_Y - 4 * GRID_H;
     };
   };
 };
