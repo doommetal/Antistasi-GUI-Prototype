@@ -312,7 +312,12 @@ switch (_mode) do
     Debug_1("Garrison map clicked: %1", _params);
     // Find closest marker to the clicked position
     private _clickedPosition = [_params select 0, _params select 1];
-    private _selectedMarker = [allMapMarkers, _clickedPosition] call BIS_fnc_nearestPosition;
+    private _outposts = [];
+    {
+      _outposts pushBack _x # 0;
+    } forEach outposts;
+    private _selectedMarker = [_outposts, _clickedPosition] call BIS_fnc_nearestPosition;
+    Debug_1("Selected marker: %1", _selectedMarker);
     private _position = getMarkerPos _selectedMarker;
 
     // Get the data from the marker
