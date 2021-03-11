@@ -323,7 +323,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""rifleman"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""rifleman"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 0 * GRID_H;
               w = 4 * GRID_W;
@@ -342,7 +342,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""rifleman"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""rifleman"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 0 * GRID_H;
               w = 4 * GRID_W;
@@ -384,7 +384,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""squadleader"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""squadleader"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 5 * GRID_H;
               w = 4 * GRID_W;
@@ -403,7 +403,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""squadleader"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""squadleader"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 5 * GRID_H;
               w = 4 * GRID_W;
@@ -445,7 +445,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""autorifleman"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""autorifleman"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 10 * GRID_H;
               w = 4 * GRID_W;
@@ -464,7 +464,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""autorifleman"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""autorifleman"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 10 * GRID_H;
               w = 4 * GRID_W;
@@ -506,7 +506,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""grenadier"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""grenadier"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 15 * GRID_H;
               w = 4 * GRID_W;
@@ -525,7 +525,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""grenadier"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""grenadier"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 15 * GRID_H;
               w = 4 * GRID_W;
@@ -567,7 +567,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""medic"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""medic"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 20 * GRID_H;
               w = 4 * GRID_W;
@@ -586,7 +586,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""medic"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""medic"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 20 * GRID_H;
               w = 4 * GRID_W;
@@ -628,7 +628,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""mortar"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""mortar"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 25 * GRID_H;
               w = 4 * GRID_W;
@@ -647,7 +647,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""mortar"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""mortar"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 25 * GRID_H;
               w = 4 * GRID_W;
@@ -689,7 +689,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""marksman"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""marksman"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 30 * GRID_H;
               w = 4 * GRID_W;
@@ -708,7 +708,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""marksman"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""marksman"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 30 * GRID_H;
               w = 4 * GRID_W;
@@ -750,7 +750,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "-";
-              action = "[""garrisonAdd"",[""at"",-1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""at"",-1]] spawn A3A_fnc_hqDialog";
               x = 37 * GRID_W;
               y = 35 * GRID_H;
               w = 4 * GRID_W;
@@ -769,7 +769,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = "+";
-              action = "[""garrisonAdd"",[""at"",1]] spawn A3A_fnc_hqDialog";
+              onButtonClick = "[""garrisonAdd"",[""at"",1]] spawn A3A_fnc_hqDialog";
               x = 42 * GRID_W;
               y = 35 * GRID_H;
               w = 4 * GRID_W;

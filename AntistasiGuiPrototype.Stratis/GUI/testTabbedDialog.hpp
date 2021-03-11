@@ -29,7 +29,7 @@ class A3A_TestTabbedDialog : A3A_TabbedDialog
         {
           idc = 7003;
           text = "Tab 1";
-          action = "ctrlShow [7100, true]; ctrlShow [7200, false]";
+          onButtonClick = "ctrlShow [7100, true]; ctrlShow [7200, false]";
           x = 0;
           y = 0;
           w = 20 * GRID_W;
@@ -40,7 +40,7 @@ class A3A_TestTabbedDialog : A3A_TabbedDialog
         {
           idc = 7004;
           text = "Tab 2";
-          action = "ctrlShow [7200, true]; ctrlShow [7100, false]";
+          onButtonClick = "ctrlShow [7200, true]; ctrlShow [7100, false]";
           x = 20 * GRID_W;
           y = 0;
           w = 20 * GRID_W;
