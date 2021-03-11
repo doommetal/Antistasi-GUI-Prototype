@@ -470,6 +470,15 @@ switch (_mode) do
     _text ctrlSetText str _newVal;
   };
 
+  // TODO: Remove placeholder mode
+  case ("debugChangeTime"): {
+    private _display = findDisplay A3A_IDD_HqDialog;
+    private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
+    private _time = sliderPosition _restSlider;
+    skipTime _time;
+    closeDialog 1;
+  };
+
   default {
       // Log error if attempting to call a mode that doesn't exist
       Error_1("HQ Dialog mode does not exist: %1", _mode);
