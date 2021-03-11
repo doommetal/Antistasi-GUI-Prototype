@@ -828,87 +828,76 @@ class A3A_HqDialog : A3A_DefaultDialog
       };
     };
 
-    class MinefieldsMap : A3A_MapControl
-    {
-      idc = A3A_IDC_MINEFIELDSMAP;
-      onMouseButtonClick = "[""minefieldsMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_hqDialog";
-      x = CENTER_X(DIALOG_W) + 68 * GRID_W;
-      y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
-      w = 84 * GRID_W;
-      h = 84 * GRID_H;
-
-      // Hide map markers
-      showMarkers = false;
-
-      // Fade satellite texture a bit
-      maxSatelliteAlpha = 0.75;
-      alphaFadeStartScale = 3.0;
-      alphaFadeEndScale = 3.0;
-
-      // Set zoom levels
-      scaleMin = 0.2; // 0.2 = Smallest scale showing the 100m grid
-      scaleDefault = 0.325; // 0.325 = Largest scale forests still are visible
-      scaleMax = 2; // 2 = Max zoom level
-    };
-
     class MinefieldsTab : A3A_DefaultControlsGroup
     {
       idc = A3A_IDC_HQDIALOGMINEFIELDSTAB;
-      // Width set to smaller than usual to avoid an issue where
-      // pressing anything other than the map would (invisibly) cover up the
-      // map control, making it unclickable
-      w = 68 * GRID_W;
 
       class controls
       {
-        class MinefieldList : A3A_ShortcutButton
+        class DeployMinefieldText : A3A_Text
         {
           idc = -1;
-          text = "Placeholder List / Info";
-          x = 8 * GRID_W;
-          y = 8 * GRID_H;
-          w = 56 * GRID_W;
-          h = 32 * GRID_H;
-        };
+          style = ST_CENTER;
+          text = "Deploy Minefield:";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 50 * GRID_W;
+          y = 16 * GRID_H;
+          w = 60 * GRID_W;
+          h = 6 * GRID_H;
+        }
 
-        class RemoveMinefieldButton : A3A_ShortcutButton
+        class ApersMinefieldIcon : A3A_Picture
         {
           idc = -1;
-          text = "Remove Minefield";
-          x = 8 * GRID_W;
-          y = 48 * GRID_H;
-          w = 56 * GRID_W;
-          h = 8 * GRID_H;
+          text = A3A_Tex_Icon_AP_Minefield;
+          x = 42 * GRID_W;
+          y = 24 * GRID_H;
+          w = 28 * GRID_W;
+          h = 28 * GRID_H;
         };
 
-        class DeploySectionLabel : A3A_SectionLabelLeft
-        {
-          idc = -1;
-          text = "Deploy minefield";
-          x = 0;
-          y = 64 * GRID_H;
-          w = 64 * GRID_W;
-          h = 4 * GRID_H;
-        };
-
-        class DeployApersMinefieldButton : A3A_ShortcutButton
+        class DeployApersMinefieldButton : A3A_Button
         {
           idc = -1;
           text = "APERS Mines";
-          x = 16 * GRID_W;
-          y = 74 * GRID_H;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 36 * GRID_W;
+          y = 54 * GRID_H;
           w = 40 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
         };
 
-        class DeployAtMinefieldButton : A3A_ShortcutButton
+        class AtMinefieldIcon : A3A_Picture
+        {
+          idc = -1;
+          text = A3A_Tex_Icon_AT_Minefield;
+          x = 90 * GRID_W;
+          y = 24 * GRID_H;
+          w = 28 * GRID_W;
+          h = 28 * GRID_H;
+        };
+
+
+        class DeployAtMinefieldButton : A3A_Button
         {
           idc = -1;
           text = "AT Mines";
-          x = 16 * GRID_W;
-          y = 84 * GRID_H;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 84 * GRID_W;
+          y = 54 * GRID_H;
           w = 40 * GRID_W;
-          h = 8 * GRID_H;
+          h = 12 * GRID_H;
+        };
+
+        class RemoveMinefieldButton : A3A_Button
+        {
+          idc = -1;
+          text = "Remove Minefield";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 52 * GRID_W;
+          y = 80 * GRID_H;
+          w = 56 * GRID_W;
+          h = 12 * GRID_H;
         };
 
       };

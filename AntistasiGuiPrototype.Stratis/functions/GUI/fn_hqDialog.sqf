@@ -178,7 +178,6 @@ switch (_mode) do
       A3A_IDC_HQDIALOGMAINTAB,
       A3A_IDC_GARRISONMAP,
       A3A_IDC_HQDIALOGGARRISONTAB,
-      A3A_IDC_MINEFIELDSMAP,
       A3A_IDC_HQDIALOGMINEFIELDSTAB
       ];
 
@@ -243,10 +242,6 @@ switch (_mode) do
   case ("updateMinefieldsTab"):
   {
     _display = findDisplay A3A_IDD_HqDialog;
-
-    // Show map if not already visible
-    private _minefieldsMap = _display displayCtrl A3A_IDC_MINEFIELDSMAP;
-    if (!ctrlShown _minefieldsMap) then {_minefieldsMap ctrlShow true;};
 
     // Show back button
     private _backButton = _display displayCtrl A3A_IDC_HQDIALOGBACKBUTTON;
@@ -473,27 +468,6 @@ switch (_mode) do
     };
 
     _text ctrlSetText str _newVal;
-  };
-
-  case ("minefieldsMapClicked"):
-  {
-    // TODO: Actually do something here...
-    Debug_1("Minefields map clicked: %1", _params);
-    // Find closest marker to the clicked position
-    private _clickedPosition = [_params select 0, _params select 1];
-
-    // Get the controls
-    private _display = findDisplay A3A_IDD_HqDialog;
-    private _minefieldsMap = _display displayCtrl A3A_IDC_MINEFIELDSMAP;
-  };
-
-  // TODO: Remove placeholder mode
-  case ("debugChangeTime"): {
-    private _display = findDisplay A3A_IDD_HqDialog;
-    private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
-    private _time = sliderPosition _restSlider;
-    skipTime _time;
-    closeDialog 1;
   };
 
   default {

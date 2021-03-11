@@ -60,6 +60,9 @@
 #define A3A_Tex_Icon_Sniper_Team "GUI\textures\icon_sniper_team.paa"
 #define A3A_Tex_Icon_Train_Troops "GUI\textures\icon_train_troops.paa"
 #define A3A_Tex_Icon_Undercover "GUI\textures\icon_undercover.paa"
+#define A3A_Tex_Icon_AP_Minefield "GUI\textures\icon_ap_minefield.paa"
+#define A3A_Tex_Icon_AT_Minefield "GUI\textures\icon_at_minefield.paa"
+
 
 // From Arma
 #define A3A_Tex_Icon_Construct "\a3\ui_f\data\igui\cfg\cursors\iconRepairVehicle_ca.paa"
