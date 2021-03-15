@@ -638,14 +638,19 @@ switch (_mode) do
     private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
     if (!ctrlShown _commanderMap) then {_commanderMap ctrlShow true;};
 
-    // TODO: Remove the placeholder things here:
+    // Hide both group views initially
     private _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
     private _singleGroupView = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
     _multipleGroupsView ctrlShow false;
     _singleGroupView ctrlShow false;
 
-    // Actual commander tab update routine:
+    // Hide fire mission controlsGroup initially
+    private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
+    _fireMissionControlsGroup ctrlShow false;
 
+    // TODO: Make update routine for fire mission view
+
+    // Check for selected groups
     private _selectedGroup = _commanderMap getVariable ["selectedGroup", grpNull];
     if !(_selectedGroup isEqualTo grpNull) then
     {
