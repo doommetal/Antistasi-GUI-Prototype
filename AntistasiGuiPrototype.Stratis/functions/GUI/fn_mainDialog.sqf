@@ -653,6 +653,10 @@ switch (_mode) do
       _multipleGroupsView ctrlShow false;
       _singleGroupView ctrlShow true;
 
+      // Hide fire mission button initially
+      private _fireMissionButton = _display displayCtrl A3A_IDC_HCFIREMISSIONBUTTON;
+      _fireMissionButton ctrlShow false;
+
       private _groupInfo = [_selectedGroup] call A3A_fnc_getGroupInfo;
       _groupInfo params [
         "_group",
@@ -701,8 +705,16 @@ switch (_mode) do
       if _hasMortar then {
         if _mortarDeployed then {
           _statusIcons pushBack "mortarDeployed";
+
+          // also show fire mission button
+          _fireMissionButton ctrlShow true;
         } else {
           _statusIcons pushBack "mortar";
+
+          // show fire mission button, disable and show tooltip
+          _fireMissionButton ctrlShow true;
+          _fireMissionButton ctrlEnable false;
+          _fireMissionButton ctrlSetTooltip "Unable to fire. Mortar is not deployed.";
         };
       };
       if _hasStatic then {
@@ -719,6 +731,7 @@ switch (_mode) do
         private _iconPath = "";
         private _toolTipText = "";
         switch (_x) do {
+          // TODO: fade undeployed weapon icons a bit
           case ("medic"): {
             _iconPath = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
             _toolTipText = "Has operative medic";
