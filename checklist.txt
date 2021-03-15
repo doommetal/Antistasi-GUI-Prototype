@@ -1,0 +1,78 @@
+Checklist for covering all the basic functionality in the new UI
+
+
+List of createDialog occurences in Antistasi:
+
+A3-Antistasi\dialogs.hpp:
+  createDialogs in this file is mostly for navigation purposes, will do a thorough check on it later...
+
+A3-Antistasi\functions.hpp
+  276   createDialog_setParams | This is SP related, to be removed
+  277   createDialog_shouldLoadPersonalSave | This is probably used both in SP and MP
+
+A3-Antistasi\functions\AI\fn_artySupport.sqf
+  30    createDialog "mortar_type" | These are all related to HC mortars, to be integrated in new UI
+  73    createDialog "strike_type"
+  146   createDialog "rounds_number"
+
+A3-Antistasi\functions\Base\fn_flagaction.sqf
+  24    createDialog "vehicle_option" | Vehicle buy menu (civ/mil select), already integrated in new UI
+  28    createDialog "mission_menu" | Mission request menu, already integrated in new UI
+  145   createDialog "vehicle_option" | Vehicle buy menu (civ/mil select) again on flag
+
+A3-Antistasi\functions\Base\fn_keys.sqf
+  19    createDialog "radio_comm" | Opens the Y-menu, already integrated in new UI
+
+A3-Antistasi\functions\Dialogs\fn_buyVehicle.sqf
+  2     createDialog "buy_vehicle" | Mil vehicle buy menu, already integrated in new UI
+
+A3-Antistasi\functions\Dialogs\fn_buyVehicleCiv.sqf
+  2     createDialog "civ_vehicle" | Civ vehicle buy menu, already integrated in new UI
+
+A3-Antistasi\functions\Dialogs\fn_createDialog_setParams.sqf
+  1     createDialog "set_params" | SP parameters menu, SP stuff to be removed
+  14    createDialog "diff_menu" | SP difficulty select menu, SP stuff to be removed
+  48    createDialog "gameMode_menu" | SP mode select menu, SP stuff to be removed
+
+A3-Antistasi\functions\Dialogs\fn_dialogHQ.sqf
+  2     createDialog "HQ_menu" | Opens HQ menu, already integrated in new UI
+
+A3-Antistasi\functions\Dialogs\fn_squadOptions.sqf
+  3     createDialog "squad_options" | Recruit squad menu, already integrated in new UI
+
+A3-Antistasi\functions\Dialogs\fn_squadRecruit.sqf
+  3     createDialog "squad_recruit" | Recruit squad menu, already integrated in new UI
+
+A3-Antistasi\functions\Dialogs\fn_unit_recruit.sqf
+  2     createDialog "unit_recruit" | Recruit unit menu, already integrated in new UI
+
+A3-Antistasi\functions\init\fn_initClient.sqf
+  132   createDialog "NATO_player" | PvP stuff, to be removed?
+  446   createDialog "vehicle_option" | Vehicle buy menu (civ/mil select), already integrated in new UI
+  469   createDialog "game_options" | Map game options, all functions except save has been moved to admin/commander menu
+  503   [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave | Shows load last save dialog, not yet integrated
+
+A3-Antistasi\functions\init\fn_initServer.sqf
+  24    Just a comment about SP using createDialog_setParams
+
+A3-Antistasi\functions\REINF\fn_addFIAsquadHC.sqf
+  182   createDialog "veh_query" | Opens add vehicle prompt when recruiting HC squad, moved to recruit menu as a checkbox in new UI
+
+A3-Antistasi\functions\REINF\fn_garrisonDialog.sqf
+  22    createDialog "build_menu" | Build outpost garrison menu, already integrated in new UI, moved to HQ options
+  24    createDialog "build_menu" | See above
+  25    createDialog "build_menu" | See above
+  26    createDialog "garrison_menu" | commented out, "garrison_menu" doesn't even exist
+  33    createDialog "build_menu" | See above
+  59    createDialog "build_menu" | See above
+  67    createDialog "garrison_recruit" | Recruit garrison menu, already integrated in new UI
+
+A3-Antistasi\initServer.sqf
+  14    		[] call A3A_fnc_createDialog_setParams | SP params menu, to be removed
+
+A3-Antistasi\JeroenArsenal\Shit Jeroen.sqf
+  Is this even used? To be refactored/removed?
+
+Ignoring these as they aren't used in the mission itself:
+Tools\NavGridPP\functions\NavGridPP\fn_NG_import.sqf
+Tools\sqfvalidator\sqf\database.py
