@@ -1224,8 +1224,22 @@ switch (_mode) do
       _endPosEditBox ctrlSetText "NOT SET";
     };
 
-    // TODO: Add tooltip to fire button when unable to fire
-    // TODO: Enable fire button when able to fire
+    // Add tooltip to fire button when unable to fire
+    private _firebuttonTooltipText = "";
+    private _availableRounds = [_smokeRoundsCount, _heRoundsCount] select _pointStrike;
+    switch (true) do
+    {
+      case (isNil "_startPos" || (!_pointStrike && isNil "_endPos")): {_firebuttonTooltipText = _firebuttonTooltipText + "Strike position not set\n"};
+      case (_pointStrike && _roundsCount > _availableRounds): {_firebuttonTooltipText = _firebuttonTooltipText + "Not enough ammo\n"};
+    };
+
+    _fireButton ctrlSetTooltip _firebuttonTooltipText;
+
+    // Enable fire button when able to fire
+    if (_firebuttonTooltipText isEqualTo "") then
+    {
+      _fireButton ctrlEnable true;
+    };
 
 
   };
