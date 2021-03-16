@@ -1,10 +1,10 @@
 // Needed to get custom textures on map icons
-/* MISSION_ROOT = call {
+MISSION_ROOT = call {
     private "_arr";
     _arr = toArray __FILE__;
     _arr resize (count _arr - 8);
     toString _arr
-}; */
+};
 
 // Stupid hack to force group icons to load
 /* [] spawn {
