@@ -796,6 +796,11 @@ class A3A_MainDialog : A3A_TabbedDialog
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
                   h = 4 * GRID_H;
+
+                  // Colors are a bit different on these because we use them as radio buttons
+                  // We disable them to show that they are active
+                  colorDisabled[] = A3A_COLOR_BUTTON_TEXT;
+                  colorBackgroundDisabled[] = A3A_COLOR_BUTTON_ACTIVE;
                 };
 
                 class SmokeButton : A3A_Button
@@ -808,6 +813,10 @@ class A3A_MainDialog : A3A_TabbedDialog
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
                   h = 4 * GRID_H;
+
+                  // Colors, see HE button for clarification
+                  colorDisabled[] = A3A_COLOR_BUTTON_TEXT;
+                  colorBackgroundDisabled[] = A3A_COLOR_BUTTON_ACTIVE;
                 };
               };
             };
@@ -843,6 +852,10 @@ class A3A_MainDialog : A3A_TabbedDialog
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
                   h = 4 * GRID_H;
+
+                  // Colors, see HE button for clarification
+                  colorDisabled[] = A3A_COLOR_BUTTON_TEXT;
+                  colorBackgroundDisabled[] = A3A_COLOR_BUTTON_ACTIVE;
                 };
 
                 class BarrageButton : A3A_Button
@@ -855,6 +868,10 @@ class A3A_MainDialog : A3A_TabbedDialog
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
                   h = 4 * GRID_H;
+
+                  // Colors, see HE button for clarification
+                  colorDisabled[] = A3A_COLOR_BUTTON_TEXT;
+                  colorBackgroundDisabled[] = A3A_COLOR_BUTTON_ACTIVE;
                 };
               };
             };
@@ -931,8 +948,8 @@ class A3A_MainDialog : A3A_TabbedDialog
               {
                 class StartPositionLabel : A3A_Text
                 {
-                  idc = -1;
-                  text = "Position:";
+                  idc = A3A_IDC_STARTPOSITIONLABEL;
+                  text = "Start:";
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -980,7 +997,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               {
                 class EndPositionLabel : A3A_Text
                 {
-                  idc = -1;
+                  idc = A3A_IDC_ENDPOSITIONLABEL;
                   text = "Position:";
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;

@@ -1117,39 +1117,46 @@ switch (_mode) do
     private _roundsControlsGroup = _display displayCtrl A3A_IDC_ROUNDSCONTROLSGROUP;
     private _roundsEditBox = _display displayCtrl A3A_IDC_ROUNDSEDITBOX;
     private _startPosControlsGroup = _display displayCtrl A3A_IDC_STARTPOSITIONCONTROLSGROUP;
+    private _startPosLabel = _display displayCtrl A3A_IDC_STARTPOSITIONLABEL;
     private _startPosEditBox = _display displayCtrl A3A_IDC_STARTPOSITIONEDITBOX;
+    private _endPosLabel = _display displayCtrl A3A_IDC_ENDPOSITIONLABEL;
     private _endPosEditBox = _display displayCtrl A3A_IDC_ENDPOSITIONEDITBOX;
 
     if (_heShell) then
     {
       // HE
-      _heButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
-      _smokeButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+      _heButton ctrlEnable false;
+      _smokeButton ctrlEnable true;
 
     } else {
       // Smoke
-      _smokeButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
-      _heButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+      _smokeButton ctrlEnable false;
+      _heButton ctrlEnable true;
     };
 
     if (_pointStrike) then
     {
       // Point strike
-      _pointStrikeButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
-      _barrageButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+      _pointStrikeButton ctrlEnable false;
+      _barrageButton ctrlEnable true;
 
       // Hide startPos controlsGroup, show roundsCount controlsGroup
       _startPosControlsGroup ctrlShow false;
-      _roundsCountControlsGroup ctrlShow true;
+      _roundsControlsGroup ctrlShow true;
+
+      // Change text on end position label
+      _endPosLabel ctrlSetText "Position:";
     } else {
       // Barrage
-      _barrageButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
-      _pointStrikeButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+      _barrageButton ctrlEnable false;
+      _pointStrikeButton ctrlEnable true;
 
       // Hide roundsCount controlsGroup, show startPos controlsGroup
-      _roundsCountControlsGroup ctrlShow false;
+      _roundsControlsGroup ctrlShow false;
       _startPosControlsGroup ctrlShow true;
 
+      // Change text on end position label
+      _endPosLabel ctrlSetText "End:";
     };
 
 
