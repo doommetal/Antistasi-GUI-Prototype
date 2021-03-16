@@ -1094,14 +1094,25 @@ class A3A_MainDialog : A3A_TabbedDialog
 
       class Controls
       {
-        class DebugInfoPlaceholder : A3A_ShortcutButton
+        class DebugSectionLabel : A3A_SectionLabelRight
         {
-          idc = A3A_IDC_DEBUGINFO;
-          text = "Debug info placeholder";
+          idc = -1;
+          text = "Debug info";
           x = 8 * GRID_W;
           y = 8 * GRID_H;
           w = 48 * GRID_W;
-          h = 48 * GRID_H;
+          h = 4 * GRID_H;
+        };
+
+        class DebugInfoPlaceholder : A3A_StructuredText
+        {
+          idc = A3A_IDC_DEBUGINFO;
+          colorBackground[] = A3A_COLOR_BACKGROUND;
+          // font = "EtelkaMonospacePro"; // Maybe this dont work with structured text?
+          x = 8 * GRID_W;
+          y = 12 * GRID_H;
+          w = 48 * GRID_W;
+          h = 44 * GRID_H;
         };
 
         class PlayerManagementButton : A3A_ShortcutButton

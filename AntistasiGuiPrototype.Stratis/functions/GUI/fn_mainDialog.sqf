@@ -1036,13 +1036,43 @@ switch (_mode) do
       };
 
     };
-
   };
 
   case ("updateAdminTab"):
   {
     // TODO: Get debug info
     // TODO: Get current AI settings
+
+    // TODO, change this to get server values instead when merging
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _debugText = _display displayCtrl A3A_IDC_DEBUGINFO;
+    private _time = [time / 3600, "ARRAY"] call BIS_fnc_timeToString;
+    private _missionTime = format["%1h%2m%3s", _time # 0, _time # 1, _time # 2];
+    private _connectedHCs = 0;
+    private _serverFps = diag_fps;
+    private _allUnits = count allUnits;
+    private _deadUnits = 1349;
+    private _destroyedVehicles = 2;
+
+    private _formattedString = format [
+"<t font='EtelkaMonospacePro' size='0.8'>
+<t>Mission time:</t><t align='right'>%1</t><br />
+<t>Connected HCs:</t><t align='right'>%2</t><br />
+<t>Server FPS:</t><t align='right'>%3</t><br />
+<t>Units</t><t align='right'>%4</t><br />
+<t>Dead units:</t><t align='right'>%5</t><br />
+<t>Destroyed vehicles:</t><t align='right'>%6</t>
+</t>",
+      _missionTime,
+      _connectedHCs,
+      _serverFps,
+      _allUnits,
+      _deadUnits,
+      _destroyedVehicles
+    ];
+
+    _debugText ctrlSetStructuredText parseText _formattedString;
+
   };
 
   case ("updateConstructTab"):
@@ -1317,8 +1347,6 @@ switch (_mode) do
     {
       _fireButton ctrlEnable true;
     };
-
-
   };
 
   case ("updateAirSupportTab"):
