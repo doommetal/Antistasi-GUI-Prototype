@@ -978,6 +978,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = -1;
                   text = "Set";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""setstart""]] call A3A_fnc_mainDialog;";
                   x = 42 * GRID_W;
                   y = 0 * GRID_H;
                   w = 8 * GRID_W;
@@ -1027,6 +1028,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = -1;
                   text = "Set";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""setend""]] call A3A_fnc_mainDialog;";
                   x = 42 * GRID_W;
                   y = 0 * GRID_H;
                   w = 8 * GRID_W;

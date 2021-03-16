@@ -658,6 +658,14 @@ switch (_mode) do
     _fireMissionControlsGroup setVariable ["availableHeRounds", 0];
     _fireMissionControlsGroup setVariable ["availableSmokeRounds", 0];
 
+    // Initialize position to nil
+    _fireMissionControlsGroup setVariable ["startPos", nil];
+    _fireMissionControlsGroup setVariable ["endPos", nil];
+
+    // Make sure commander map is in group selection mode
+    _commanderMap setVariable ["selectFireMissionPos", false];
+    _commanderMap setVariable ["selectFireMissionEndPos", false];
+
 
     // Check for selected groups
     private _selectedGroup = _commanderMap getVariable ["selectedGroup", grpNull];
@@ -1113,8 +1121,8 @@ switch (_mode) do
     private _heShell = _fireMissionControlsGroup getVariable ["heSelected", true];
     private _pointStrike = _fireMissionControlsGroup getVariable ["pointSelected", true];
     private _roundsCount = _fireMissionControlsGroup getVariable ["roundsNumber", 1];
-    private _startPos = [0,0,0];
-    private _endPos = [0,0,0];
+    private _startPos = _fireMissionControlsGroup getVariable ["startPos", nil];
+    private _endPos = _fireMissionControlsGroup getVariable ["endPos", nil];
 
 
     // Update controls based on what is selected
@@ -1195,6 +1203,26 @@ switch (_mode) do
     };
 
     _roundsEditBox ctrlSetText str _roundsCount;
+
+    Trace("Updating fire mission position edit box...");
+
+    Trace_1("_startPos: %1", _startPos);
+    if !(isNil "_startPos") then
+    {
+      private _gridPos = mapGridPosition _startPos;
+      _startPosEditBox ctrlSetText _gridPos;
+    } else {
+      _startPosEditBox ctrlSetText "NOT SET";
+    };
+
+    Trace_1("_endPos: %1", _endPos);
+    if !(isNil "_endPos") then
+    {
+      private _gridPos = mapGridPosition _endPos;
+      _endPosEditBox ctrlSetText _gridPos;
+    } else {
+      _endPosEditBox ctrlSetText "NOT SET";
+    };
 
     // TODO: Add tooltip to fire button when unable to fire
     // TODO: Enable fire button when able to fire
@@ -1290,9 +1318,30 @@ switch (_mode) do
     // Get display and map control
     private _display = findDisplay A3A_IDD_MainDialog;
     private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
+    private _clickedPosition = [_params select 0, _params select 1];
+
+    // Special cases for selecting fire mission position(s)
+    private _selectFireMissionPos = _commanderMap getVariable ["selectFireMissionPos", false];
+    if (_selectFireMissionPos) exitWith
+    {
+      private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
+      _fireMissionControlsGroup setVariable ["startPos", _clickedPosition];
+      ["updateFireMissionView"] call A3A_fnc_mainDialog;
+      _commanderMap setVariable ["selectFireMissionPos", false];
+      Trace_1("Set fire mission startPos: %1", _clickedPosition);
+    };
+
+    private _selectFireMissionEndPos = _commanderMap getVariable ["selectFireMissionEndPos", false];
+    if (_selectFireMissionEndPos) exitWith
+    {
+      private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
+      _fireMissionControlsGroup setVariable ["endPos", _clickedPosition];
+      ["updateFireMissionView"] call A3A_fnc_mainDialog;
+      _commanderMap setVariable ["selectFireMissionEndPos", false];
+      Trace_1("Set fire mission endPos: %1", _clickedPosition);
+    };
 
     // Find closest HC squad to the clicked position
-    private _clickedPosition = [_params select 0, _params select 1];
     private _selectedGroup = [hcAllGroups player, _clickedPosition] call BIS_fnc_nearestPosition;
 
     // If clicked position is nowhere near any hc groups, deselect all units
@@ -1323,15 +1372,25 @@ switch (_mode) do
       case ("he"):
       {
         _fireMissionControlsGroup setVariable ["heSelected", true];
-        // Set rounds number back to 1
-        _fireMissionControlsGroup setVariable ["roundsNumber", 1];
+        // Set rounds number back to 1 or 0 depending on point/barrage mode
+        if (_fireMissionControlsGroup getVariable ["pointSelected", false]) then
+        {
+          _fireMissionControlsGroup setVariable ["roundsNumber", 1];
+        } else {
+          _fireMissionControlsGroup setVariable ["roundsNumber", 0];
+        };
       };
 
       case ("smoke"):
       {
         _fireMissionControlsGroup setVariable ["heSelected", false];
-        // Set rounds number back to 1
-        _fireMissionControlsGroup setVariable ["roundsNumber", 1];
+        // Set rounds number back to 1 or 0 depending on point/barrage mode
+        if (_fireMissionControlsGroup getVariable ["pointSelected", false]) then
+        {
+          _fireMissionControlsGroup setVariable ["roundsNumber", 1];
+        } else {
+          _fireMissionControlsGroup setVariable ["roundsNumber", 0];
+        };
       };
 
       case ("point"):
@@ -1387,6 +1446,18 @@ switch (_mode) do
         _fireMissionControlsGroup setVariable ["roundsNumber", _newNumber];
 
         Trace_1("Rounds count now at %1", _newNumber);
+      };
+
+      case ("setstart"):
+      {
+        private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
+        _commanderMap setVariable ["selectFireMissionPos", true];
+      };
+
+      case ("setend"):
+      {
+        private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
+        _commanderMap setVariable ["selectFireMissionEndPos", true];
       };
     };
 
