@@ -714,7 +714,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               idc = -1;
               text = "Ammo";
               x = 2 * GRID_W;
-              y = 10 * GRID_H;
+              y = 8 * GRID_H;
               w = 50 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -725,7 +725,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               text = "HE:";
               colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 2 * GRID_W;
-              y = 15 * GRID_H;
+              y = 13 * GRID_H;
               w = 25 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -737,7 +737,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               colorBackground[] = A3A_COLOR_BACKGROUND;
               style = ST_RIGHT;
               x = 27 * GRID_W;
-              y = 15 * GRID_H;
+              y = 13 * GRID_H;
               w = 25 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -748,7 +748,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               text = "Smoke:";
               colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 2 * GRID_W;
-              y = 20 * GRID_H;
+              y = 18 * GRID_H;
               w = 25 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -760,7 +760,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               colorBackground[] = A3A_COLOR_BACKGROUND;
               style = ST_RIGHT;
               x = 27 * GRID_W;
-              y = 20 * GRID_H;
+              y = 18 * GRID_H;
               w = 25 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -769,7 +769,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               x = 2 * GRID_W;
-              y = 30 * GRID_H;
+              y = 27 * GRID_H;
               w = 50 * GRID_W;
               h = 4 * GRID_H;
 
@@ -825,7 +825,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               x = 2 * GRID_W;
-              y = 35 * GRID_H;
+              y = 32 * GRID_H;
               w = 50 * GRID_W;
               h = 4 * GRID_H;
 
@@ -881,7 +881,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_ROUNDSCONTROLSGROUP;
               x = 2 * GRID_W;
-              y = 40 * GRID_H;
+              y = 37 * GRID_H;
               w = 50 * GRID_W;
               h = 4 * GRID_H;
 
@@ -913,20 +913,22 @@ class A3A_MainDialog : A3A_TabbedDialog
 
                 class AddRoundsButton : A3A_Button
                 {
-                  idc = -1;
+                  idc = A3A_IDC_ADDROUNDSBUTTON;
                   text = "+";
                   // sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""addround""]] call A3A_fnc_mainDialog;";
                   x = 42 * GRID_W;
                   y = 0 * GRID_H;
                   w = 4 * GRID_W;
                   h = 4 * GRID_H;
                 };
 
-                class RemoveRoundsButton : A3A_Button
+                class SubRoundsButton : A3A_Button
                 {
-                  idc = -1;
+                  idc = A3A_IDC_SUBROUNDSBUTTON;
                   text = "-";
                   // sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""subround""]] call A3A_fnc_mainDialog;";
                   x = 46 * GRID_W;
                   y = 0 * GRID_H;
                   w = 4 * GRID_W;
@@ -940,7 +942,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_STARTPOSITIONCONTROLSGROUP;
               x = 2 * GRID_W;
-              y = 40 * GRID_H;
+              y = 42 * GRID_H;
               w = 50 * GRID_W;
               h = 4 * GRID_H;
 
@@ -949,7 +951,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class StartPositionLabel : A3A_Text
                 {
                   idc = A3A_IDC_STARTPOSITIONLABEL;
-                  text = "Start:";
+                  text = "Position:";
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -989,7 +991,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_ENDPOSITIONCONTROLSGROUP;
               x = 2 * GRID_W;
-              y = 45 * GRID_H;
+              y = 47 * GRID_H;
               w = 50 * GRID_W;
               h = 4 * GRID_H;
 
@@ -998,7 +1000,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class EndPositionLabel : A3A_Text
                 {
                   idc = A3A_IDC_ENDPOSITIONLABEL;
-                  text = "Position:";
+                  text = "End:";
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -1036,7 +1038,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
             class FireButton : A3A_Button
             {
-              idc = -1;
+              idc = A3A_IDC_FIREBUTTON;
               text = "Fire";
               x = 17 * GRID_W;
               y = 56 * GRID_H;

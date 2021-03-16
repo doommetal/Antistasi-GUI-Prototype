@@ -652,6 +652,12 @@ switch (_mode) do
     // Initialize fire mission vars
     _fireMissionControlsGroup setVariable ["heSelected", true];
     _fireMissionControlsGroup setVariable ["pointSelected", true];
+    _fireMissionControlsGroup setVariable ["roundsNumber", 1];
+
+    // TODO: This should be moved to where we select a group, here atm for debugging purposes
+    _fireMissionControlsGroup setVariable ["availableHeRounds", 0];
+    _fireMissionControlsGroup setVariable ["availableSmokeRounds", 0];
+
 
     // Check for selected groups
     private _selectedGroup = _commanderMap getVariable ["selectedGroup", grpNull];
@@ -1091,6 +1097,8 @@ switch (_mode) do
     // TODO: Actually get rounds count from squad
     private _heRoundsCount = 40;
     private _smokeRoundsCount = 24;
+    _fireMissionControlsGroup setVariable ["availableHeRounds", _heRoundsCount];
+    _fireMissionControlsGroup setVariable ["availableSmokeRounds", _smokeRoundsCount];
 
     private _heRoundsText = _display displayCtrl A3A_IDC_HEROUNDSTEXT;
     private _smokeRoundsText = _display displayCtrl A3A_IDC_SMOKEROUNDSTEXT;
@@ -1104,7 +1112,7 @@ switch (_mode) do
     // TODO: Actually save and get values
     private _heShell = _fireMissionControlsGroup getVariable ["heSelected", true];
     private _pointStrike = _fireMissionControlsGroup getVariable ["pointSelected", true];
-    private _roundsCount = 1;
+    private _roundsCount = _fireMissionControlsGroup getVariable ["roundsNumber", 1];
     private _startPos = [0,0,0];
     private _endPos = [0,0,0];
 
@@ -1116,11 +1124,21 @@ switch (_mode) do
     private _barrageButton = _display displayCtrl A3A_IDC_BARRAGEBUTTON;
     private _roundsControlsGroup = _display displayCtrl A3A_IDC_ROUNDSCONTROLSGROUP;
     private _roundsEditBox = _display displayCtrl A3A_IDC_ROUNDSEDITBOX;
+    private _addRoundsButton = _display displayCtrl A3A_IDC_ADDROUNDSBUTTON;
+    private _subRoundsButton = _display displayCtrl A3A_IDC_SUBROUNDSBUTTON;
+
     private _startPosControlsGroup = _display displayCtrl A3A_IDC_STARTPOSITIONCONTROLSGROUP;
     private _startPosLabel = _display displayCtrl A3A_IDC_STARTPOSITIONLABEL;
     private _startPosEditBox = _display displayCtrl A3A_IDC_STARTPOSITIONEDITBOX;
+
+    private _endPosControlsGroup = _display displayCtrl A3A_IDC_ENDPOSITIONCONTROLSGROUP;
     private _endPosLabel = _display displayCtrl A3A_IDC_ENDPOSITIONLABEL;
     private _endPosEditBox = _display displayCtrl A3A_IDC_ENDPOSITIONEDITBOX;
+
+    private _fireButton = _display displayCtrl A3A_IDC_FIREBUTTON;
+
+    // Disable fire button initially
+    _fireButton ctrlEnable false;
 
     if (_heShell) then
     {
@@ -1137,27 +1155,49 @@ switch (_mode) do
     if (_pointStrike) then
     {
       // Point strike
+
       _pointStrikeButton ctrlEnable false;
       _barrageButton ctrlEnable true;
 
-      // Hide startPos controlsGroup, show roundsCount controlsGroup
-      _startPosControlsGroup ctrlShow false;
-      _roundsControlsGroup ctrlShow true;
+      // Change text on start position label
+      _startPosLabel ctrlSetText "Position:";
 
-      // Change text on end position label
-      _endPosLabel ctrlSetText "Position:";
+      // Hide endPos controlsGroup
+      _endPosControlsGroup ctrlShow false;
+
+      // Enable rounds buttons, remove tooltips
+      _addRoundsButton ctrlEnable true;
+      _addRoundsButton ctrlSetTooltip "";
+      _subRoundsButton ctrlEnable true;
+      _subRoundsButton ctrlSetTooltip "";
+      _roundsEditBox ctrlSetTooltip "";
+
+
     } else {
       // Barrage
+
       _barrageButton ctrlEnable false;
       _pointStrikeButton ctrlEnable true;
 
-      // Hide roundsCount controlsGroup, show startPos controlsGroup
-      _roundsControlsGroup ctrlShow false;
-      _startPosControlsGroup ctrlShow true;
+      // Show endPos controlsGroup
+      _endPosControlsGroup ctrlShow true;
 
-      // Change text on end position label
-      _endPosLabel ctrlSetText "End:";
+      // Change text on start position label
+      _startPosLabel ctrlSetText "Start:";
+
+      // Disable rounds buttons and editBox, show tooltip
+      _tooltipText = "Number of rounds set by barrage length";
+      _addRoundsButton ctrlEnable false;
+      _addRoundsButton ctrlSetTooltip _tooltipText;
+      _subRoundsButton ctrlEnable false;
+      _subRoundsButton ctrlSetTooltip _tooltipText;
+      _roundsEditBox ctrlSetTooltip _tooltipText;
     };
+
+    _roundsEditBox ctrlSetText str _roundsCount;
+
+    // TODO: Add tooltip to fire button when unable to fire
+    // TODO: Enable fire button when able to fire
 
 
   };
@@ -1283,21 +1323,70 @@ switch (_mode) do
       case ("he"):
       {
         _fireMissionControlsGroup setVariable ["heSelected", true];
+        // Set rounds number back to 1
+        _fireMissionControlsGroup setVariable ["roundsNumber", 1];
       };
 
       case ("smoke"):
       {
         _fireMissionControlsGroup setVariable ["heSelected", false];
+        // Set rounds number back to 1
+        _fireMissionControlsGroup setVariable ["roundsNumber", 1];
       };
 
       case ("point"):
       {
         _fireMissionControlsGroup setVariable ["pointSelected", true];
+        // Set rounds number back to 1
+        _fireMissionControlsGroup setVariable ["roundsNumber", 1];
       };
 
       case ("barrage"):
       {
         _fireMissionControlsGroup setVariable ["pointSelected", false];
+        // Set rounds number to 0, nubmer decided by barrage length
+        _fireMissionControlsGroup setVariable ["roundsNumber", 0];
+      };
+
+      case ("addround"):
+      {
+        // Check for available ammo
+        private _availableAmmo = 0;
+        if (_fireMissionControlsGroup getVariable ["heSelected", true]) then {
+          _availableAmmo = _fireMissionControlsGroup getVariable ["availableHeRounds", 0];
+        } else {
+          _availableAmmo = _fireMissionControlsGroup getVariable ["availableSmokeRounds", 0];
+        };
+
+        Trace_1("Available ammo: %1", _availableAmmo);
+
+        // Add 1
+        private _previousNumber = _fireMissionControlsGroup getVariable ["roundsNumber", 1];
+        private _newNumber = _previousNumber + 1;
+
+        // Check if num exceeds available ammo
+        if (_newNumber > _availableAmmo) then {_newNumber = _availableAmmo};
+
+        // Set new rounds count
+        _fireMissionControlsGroup setVariable ["roundsNumber", _newNumber];
+
+        Trace_1("Rounds count now at %1", _newNumber);
+      };
+
+      case ("subround"):
+      {
+        // Subtract 1
+        private _previousNumber = _fireMissionControlsGroup getVariable ["roundsNumber", 1];
+        private _newNumber = _previousNumber - 1;
+
+        // Check if number is at least 1
+        // We clamp it to 1 here and then check if we actually have that 1 round in updateFireMissionView
+        if (_newNumber < 1) then {_newNumber = 1};
+
+        // Set new rounds count
+        _fireMissionControlsGroup setVariable ["roundsNumber", _newNumber];
+
+        Trace_1("Rounds count now at %1", _newNumber);
       };
     };
 
