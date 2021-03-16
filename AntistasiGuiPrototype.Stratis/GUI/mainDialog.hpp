@@ -624,7 +624,8 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_HCFIREMISSIONBUTTON;
               text = "Fire Mission";
-              onButtonClick = "findDisplay 7000 displayCtrl 7203 ctrlShow false; findDisplay 7000 displayCtrl 7210 ctrlShow true;";
+              onButtonClick = "[""updateFireMissionView""] call A3A_fnc_mainDialog;";
+              // onButtonClick = "findDisplay 7000 displayCtrl 7203 ctrlShow false; findDisplay 7000 displayCtrl 7210 ctrlShow true;";
               x = 28 * GRID_W;
               y = 28 * GRID_H;
               w = 24 * GRID_W;
@@ -686,6 +687,8 @@ class A3A_MainDialog : A3A_TabbedDialog
           class controls
           {
             // TODO: Replace placeholder values
+
+            // Label also works as a back button
             class FireMissionLabel : A3A_Button_Left
             {
               idc = -1;
@@ -706,7 +709,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               h = 62 * GRID_H;
             };
 
-            class RoundsCountLabel : A3A_SectionLabelRight
+            class AmmoLabel : A3A_SectionLabelRight
             {
               idc = -1;
               text = "Ammo";
@@ -729,7 +732,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
             class HeRoundsCountText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_HEROUNDSTEXT;
               text = "32";
               colorBackground[] = A3A_COLOR_BACKGROUND;
               style = ST_RIGHT;
@@ -752,7 +755,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
             class SmokeRoundsCountText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_SMOKEROUNDSTEXT;
               text = "16";
               colorBackground[] = A3A_COLOR_BACKGROUND;
               style = ST_RIGHT;
@@ -785,9 +788,10 @@ class A3A_MainDialog : A3A_TabbedDialog
 
                 class HeButton : A3A_Button
                 {
-                  idc = -1;
+                  idc = A3A_IDC_HEBUTTON;
                   text = "HE";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""he""]] call A3A_fnc_mainDialog;";
                   x = 20 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -796,9 +800,10 @@ class A3A_MainDialog : A3A_TabbedDialog
 
                 class SmokeButton : A3A_Button
                 {
-                  idc = -1;
+                  idc = A3A_IDC_SMOKEBUTTON;
                   text = "Smoke";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""smoke""]] call A3A_fnc_mainDialog;";
                   x = 35 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -828,11 +833,12 @@ class A3A_MainDialog : A3A_TabbedDialog
                   h = 4 * GRID_H;
                 };
 
-                class PointButton : A3A_Button
+                class PointStrikeButton : A3A_Button
                 {
-                  idc = -1;
+                  idc = A3A_IDC_POINTSTRIKEBUTTON;
                   text = "Point";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""point""]] call A3A_fnc_mainDialog;";
                   x = 20 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -841,9 +847,10 @@ class A3A_MainDialog : A3A_TabbedDialog
 
                 class BarrageButton : A3A_Button
                 {
-                  idc = -1;
+                  idc = A3A_IDC_BARRAGEBUTTON;
                   text = "Barrage";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""barrage""]] call A3A_fnc_mainDialog;";
                   x = 35 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -855,7 +862,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
             class RoundsControlsGroup : A3A_ControlsGroupNoScrollbars
             {
-              idc = -1;
+              idc = A3A_IDC_ROUNDSCONTROLSGROUP;
               x = 2 * GRID_W;
               y = 40 * GRID_H;
               w = 50 * GRID_W;
@@ -863,7 +870,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
               class controls
               {
-                class MissionTypeLabel : A3A_Text
+                class RoundsLabel : A3A_Text
                 {
                   idc = -1;
                   text = "Rounds:";
@@ -876,7 +883,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
                 class RoundsEditbox : A3A_Edit
                 {
-                  idc = -1;
+                  idc = A3A_IDC_ROUNDSEDITBOX;
                   text = "0";
                   style = ST_RIGHT + ST_NO_RECT;
                   onLoad = "_this#0 ctrlEnable false";
@@ -912,9 +919,58 @@ class A3A_MainDialog : A3A_TabbedDialog
             };
 
 
+            class StartPositionControlsGroup : A3A_ControlsGroupNoScrollbars
+            {
+              idc = A3A_IDC_STARTPOSITIONCONTROLSGROUP;
+              x = 2 * GRID_W;
+              y = 40 * GRID_H;
+              w = 50 * GRID_W;
+              h = 4 * GRID_H;
+
+              class controls
+              {
+                class StartPositionLabel : A3A_Text
+                {
+                  idc = -1;
+                  text = "Position:";
+                  colorBackground[] = A3A_COLOR_BACKGROUND;
+                  x = 0 * GRID_W;
+                  y = 0 * GRID_H;
+                  w = 20 * GRID_W;
+                  h = 4 * GRID_H;
+                };
+
+                class StartPositionEditbox : A3A_Edit
+                {
+                  idc = A3A_IDC_STARTPOSITIONEDITBOX;
+                  text = "039 047";
+                  sizeEx = GUI_TEXT_SIZE_SMALL;
+                  style = ST_RIGHT + ST_NO_RECT;
+                  onLoad = "_this#0 ctrlEnable false";
+                  colorBackground[] = A3A_COLOR_BLACK;
+                  x = 20 * GRID_W;
+                  y = 0 * GRID_H;
+                  w = 22 * GRID_W;
+                  h = 4 * GRID_H;
+                };
+
+                class SetStartPositionButton : A3A_Button
+                {
+                  idc = -1;
+                  text = "Set";
+                  sizeEx = GUI_TEXT_SIZE_SMALL;
+                  x = 42 * GRID_W;
+                  y = 0 * GRID_H;
+                  w = 8 * GRID_W;
+                  h = 4 * GRID_H;
+                };
+              };
+            };
+
+
             class EndPositionControlsGroup : A3A_ControlsGroupNoScrollbars
             {
-              idc = -1;
+              idc = A3A_IDC_ENDPOSITIONCONTROLSGROUP;
               x = 2 * GRID_W;
               y = 45 * GRID_H;
               w = 50 * GRID_W;
@@ -935,7 +991,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
                 class EndPositionEditbox : A3A_Edit
                 {
-                  idc = -1;
+                  idc = A3A_IDC_ENDPOSITIONEDITBOX;
                   text = "039 047";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   style = ST_RIGHT + ST_NO_RECT;

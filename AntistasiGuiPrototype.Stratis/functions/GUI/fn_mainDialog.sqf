@@ -28,6 +28,7 @@ Example:
 // Logging
 #define Log_Debug true
 #define Log_Error true
+#define Log_Trace true
 #include "..\..\LogMacros.inc"
 
 params[["_mode","onLoad"], ["_params",[]]];
@@ -648,7 +649,9 @@ switch (_mode) do
     private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
     _fireMissionControlsGroup ctrlShow false;
 
-    // TODO: Make update routine for fire mission view
+    // Initialize fire mission vars
+    _fireMissionControlsGroup setVariable ["heSelected", true];
+    _fireMissionControlsGroup setVariable ["pointSelected", true];
 
     // Check for selected groups
     private _selectedGroup = _commanderMap getVariable ["selectedGroup", grpNull];
@@ -1066,6 +1069,92 @@ switch (_mode) do
     } forEach fakePlayers;
   };
 
+  case ("updateFireMissionView"):
+  {
+    private _display = findDisplay A3A_IDD_MainDialog;
+    Trace("Updating Fire Mission View");
+
+    // Hide group views
+    private _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
+    private _singleGroupView = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
+    _multipleGroupsView ctrlShow false;
+    _singleGroupView ctrlShow false;
+
+    // Show fire mission view if not already shown
+    private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
+    if !(ctrlShown _fireMissionControlsGroup) then {
+      _fireMissionControlsGroup ctrlShow true;
+    };
+
+
+    // Update rounds count
+    // TODO: Actually get rounds count from squad
+    private _heRoundsCount = 40;
+    private _smokeRoundsCount = 24;
+
+    private _heRoundsText = _display displayCtrl A3A_IDC_HEROUNDSTEXT;
+    private _smokeRoundsText = _display displayCtrl A3A_IDC_SMOKEROUNDSTEXT;
+
+    _heRoundsText ctrlSetText str _heRoundsCount;
+    _smokeRoundsText ctrlSetText str _smokeRoundsCount;
+
+
+    // States for selecting shell type, mission type and round counts are initialized
+    // in updateCommanderTab, we get them here
+    // TODO: Actually save and get values
+    private _heShell = _fireMissionControlsGroup getVariable ["heSelected", true];
+    private _pointStrike = _fireMissionControlsGroup getVariable ["pointSelected", true];
+    private _roundsCount = 1;
+    private _startPos = [0,0,0];
+    private _endPos = [0,0,0];
+
+
+    // Update controls based on what is selected
+    private _heButton = _display displayCtrl A3A_IDC_HEBUTTON;
+    private _smokeButton = _display displayCtrl A3A_IDC_SMOKEBUTTON;
+    private _pointStrikeButton = _display displayCtrl A3A_IDC_POINTSTRIKEBUTTON;
+    private _barrageButton = _display displayCtrl A3A_IDC_BARRAGEBUTTON;
+    private _roundsControlsGroup = _display displayCtrl A3A_IDC_ROUNDSCONTROLSGROUP;
+    private _roundsEditBox = _display displayCtrl A3A_IDC_ROUNDSEDITBOX;
+    private _startPosControlsGroup = _display displayCtrl A3A_IDC_STARTPOSITIONCONTROLSGROUP;
+    private _startPosEditBox = _display displayCtrl A3A_IDC_STARTPOSITIONEDITBOX;
+    private _endPosEditBox = _display displayCtrl A3A_IDC_ENDPOSITIONEDITBOX;
+
+    if (_heShell) then
+    {
+      // HE
+      _heButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
+      _smokeButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+
+    } else {
+      // Smoke
+      _smokeButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
+      _heButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+    };
+
+    if (_pointStrike) then
+    {
+      // Point strike
+      _pointStrikeButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
+      _barrageButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+
+      // Hide startPos controlsGroup, show roundsCount controlsGroup
+      _startPosControlsGroup ctrlShow false;
+      _roundsCountControlsGroup ctrlShow true;
+    } else {
+      // Barrage
+      _barrageButton ctrlSetBackgroundColor ([A3A_COLOR_BUTTON_ACTIVE] call A3A_fnc_configColorToArray);
+      _pointStrikeButton ctrlSetBackgroundColor  ([A3A_COLOR_BUTTON_BACKGROUND] call A3A_fnc_configColorToArray);
+
+      // Hide roundsCount controlsGroup, show startPos controlsGroup
+      _roundsCountControlsGroup ctrlShow false;
+      _startPosControlsGroup ctrlShow true;
+
+    };
+
+
+  };
+
   case ("updateAirSupportTab"):
   {
     // Show back button
@@ -1171,6 +1260,42 @@ switch (_mode) do
 
     // Update single group view
     ["updateCommanderTab"] call A3A_fnc_mainDialog;
+  };
+
+  case ("fireMissionSelectionChanged"):
+  {
+    private _selection = _params select 0;
+    Trace_1("Fire Mission selection changed: %1", _selection);
+
+    _display = findDisplay A3A_IDD_MainDialog;
+    _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
+
+
+    switch (_selection) do
+    {
+      case ("he"):
+      {
+        _fireMissionControlsGroup setVariable ["heSelected", true];
+      };
+
+      case ("smoke"):
+      {
+        _fireMissionControlsGroup setVariable ["heSelected", false];
+      };
+
+      case ("point"):
+      {
+        _fireMissionControlsGroup setVariable ["pointSelected", true];
+      };
+
+      case ("barrage"):
+      {
+        _fireMissionControlsGroup setVariable ["pointSelected", false];
+      };
+    };
+
+    // Update fire mission view to show changes
+    ["updateFireMissionView"] call A3A_fnc_mainDialog;
   };
 
   case ("civLimitSliderChanged"):
