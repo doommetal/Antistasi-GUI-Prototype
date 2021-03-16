@@ -158,3 +158,6 @@
 #define A3A_IDD_BuyVehicleDialog 9300
 #define A3A_IDC_BUYVEHICLEMAIN 9301
 #define A3A_IDC_VEHICLESGROUP 9302
+
+// Load last save
+#define A3A_IDC_LoadDialog 9400

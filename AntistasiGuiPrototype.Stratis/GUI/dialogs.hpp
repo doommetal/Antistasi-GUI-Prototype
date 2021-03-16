@@ -18,6 +18,7 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 #include "recruitDialog.hpp"
 #include "recruitSquadDialog.hpp"
 #include "buyVehicleDialog.hpp"
+#include "loadDialog.hpp"
 
 // TODO: Test stuff, remove when merging
 #include "testTabbedDialog.hpp"

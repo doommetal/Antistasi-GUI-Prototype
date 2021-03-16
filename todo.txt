@@ -15,4 +15,3 @@ TODO-LIST:
     wrecked vehicles
 - remove add to garrison from ai management
 - add temp ai control button to commander menu squads
-- mortar button to squads on the commander menu
