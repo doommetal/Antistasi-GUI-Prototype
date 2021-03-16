@@ -1,6 +1,5 @@
 TODO-LIST:
 - add toggle for top bar (checkbox somewhere in player options?)
-- recruit squad menu: move "add vehicle" checkbox to bottom and make it larger
 - add confirmation to ai limits
 - add garbage clean HQ option, should be in commander menu
 - add server performance info to admin tab:

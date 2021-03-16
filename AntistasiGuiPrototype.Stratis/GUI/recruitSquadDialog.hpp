@@ -21,25 +21,6 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
 
       class Controls
       {
-        class IncludeVehicleLabel : A3A_Text
-        {
-          idc = -1;
-          text = "Include vehicle:";
-          x = 66 * GRID_W;
-          y = 4 * GRID_H;
-          w = 24 * GRID_W;
-          h = 4 * GRID_H;
-        };
-
-        class IncludeVehicleCB : A3A_CheckBox
-        {
-          idc = A3A_IDC_SQUADINCLUDEVEHICLECHECKBOX;
-          x = 90 * GRID_W;
-          y = 4 * GRID_H;
-          w = 4 * GRID_W;
-          h = 4 * GRID_H;
-        };
-
         class InfSquadIcon : A3A_Picture
         {
           idc = -1;
@@ -311,6 +292,27 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
           y = 74 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
+        };
+
+        class IncludeVehicleLabel : A3A_Text
+        {
+          idc = -1;
+          text = "Include vehicle:";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          colorBackground[] = A3A_COLOR_BACKGROUND;
+          x = 60 * GRID_W;
+          y = 90 * GRID_H;
+          w = 42 * GRID_W;
+          h = 6 * GRID_H;
+        };
+
+        class IncludeVehicleCB : A3A_CheckBox
+        {
+          idc = A3A_IDC_SQUADINCLUDEVEHICLECHECKBOX;
+          x = 96 * GRID_W;
+          y = 90 * GRID_H;
+          w = 6 * GRID_W;
+          h = 6 * GRID_H;
         };
       };
     };
