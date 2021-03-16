@@ -499,6 +499,15 @@ class A3A_MainDialog : A3A_TabbedDialog
       class Controls
       {
         // Main group list
+        class MultipleGroupsBackground : A3A_Background
+        {
+          idc = A3A_HCMULTIPLEGROUPSBACKGROUND;
+          x = 8 * GRID_W;
+          y = 8 * GRID_H;
+          w = 54 * GRID_W;
+          h = 68 * GRID_H;
+        };
+
         class MultipleGroupsView : A3A_ControlsGroupNoHScrollbars
         {
           idc = A3A_IDC_HCMULTIPLEGROUPSVIEW;

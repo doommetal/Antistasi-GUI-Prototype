@@ -706,8 +706,10 @@ switch (_mode) do
 
     // Hide both group views initially
     private _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
+    private _multipleGroupsBackground = _display displayCtrl A3A_HCMULTIPLEGROUPSBACKGROUND;
     private _singleGroupView = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
     _multipleGroupsView ctrlShow false;
+    _multipleGroupsBackground ctrlShow false;
     _singleGroupView ctrlShow false;
 
     // Hide fire mission controlsGroup initially
@@ -738,6 +740,7 @@ switch (_mode) do
     {
       // If exactly 1 HC group is selected show the single group view
       _multipleGroupsView ctrlShow false;
+      _multipleGroupsBackground ctrlShow false;
       _singleGroupView ctrlShow true;
 
       // Hide fire mission button initially
@@ -874,6 +877,7 @@ switch (_mode) do
       // If 0 or multiple groups are selected show the multiple groups view
       _singleGroupView ctrlShow false;
       _multipleGroupsView ctrlShow true;
+      _multipleGroupsBackground ctrlShow true;
 
       // Get data
       private _hcGroupData = _commanderMap getVariable "hcGroupData";
@@ -1022,6 +1026,14 @@ switch (_mode) do
         } forEach _statusIcons;
 
       } forEach _hcGroupData;
+
+      if (count _hcGroupData < 1) then
+      {
+        private _noHcGroupsText = _display ctrlCreate ["A3A_StructuredText", -1, _multipleGroupsView];
+        _noHcGroupsText ctrlSetPosition [0, 10 * GRID_H, 54 * GRID_W, 14 * GRID_H];
+        _noHcGroupsText ctrlSetStructuredText parseText "<t align='center'>You have no high command groups.</t><br /><t align='center'>You can recruit them at the flag.</t>";
+        _noHcGroupsText ctrlCommit 0;
+      };
 
     };
 
@@ -1418,6 +1430,10 @@ switch (_mode) do
       ["updateFireMissionView"] call A3A_fnc_mainDialog;
       _commanderMap setVariable ["selectFireMissionEndPos", false];
       Trace_1("Set fire mission endPos: %1", _clickedPosition);
+    };
+
+    if (count hcAllGroups player < 1) exitWith {
+      Debug("CommanderMap clicked but there are no HC groups to select.");
     };
 
     // Find closest HC squad to the clicked position

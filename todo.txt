@@ -3,8 +3,6 @@ TODO-LIST:
 - recruit squad menu: move "add vehicle" checkbox to bottom and make it larger
 - add confirmation to ai limits
 - add garbage clean HQ option, should be in commander menu
-- add background to squad list in commander menu
-- add no HC squads text to empty squad list in commander menu
 - add server performance info to admin tab:
     Mission run time / server uptime
     Headless Clients connected
