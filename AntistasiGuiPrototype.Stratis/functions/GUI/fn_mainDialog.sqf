@@ -1054,6 +1054,7 @@ switch (_mode) do
     private _deadUnits = 1349;
     private _destroyedVehicles = 2;
 
+    // TODO: get this from stringtable
     private _formattedString = format [
 "<t font='EtelkaMonospacePro' size='0.8'>
 <t>Mission time:</t><t align='right'>%1</t><br />
@@ -1224,7 +1225,6 @@ switch (_mode) do
 
     // States for selecting shell type, mission type and round counts are initialized
     // in updateCommanderTab, we get them here
-    // TODO: Actually save and get values
     private _heShell = _fireMissionControlsGroup getVariable ["heSelected", true];
     private _pointStrike = _fireMissionControlsGroup getVariable ["pointSelected", true];
     private _roundsCount = _fireMissionControlsGroup getVariable ["roundsNumber", 1];
@@ -1307,37 +1307,74 @@ switch (_mode) do
       _subRoundsButton ctrlEnable false;
       _subRoundsButton ctrlSetTooltip _tooltipText;
       _roundsEditBox ctrlSetTooltip _tooltipText;
+
+      // If mission type is barrage and both positions are set, calculate number of rounds
+      // One round per 10m
+      // _rounds = round (_positionTel distance _positionTel2) / 10; // <- from antistasi
+      if (!isNil "_startPos" && !isNil "_endPos") then
+      {
+        _roundsCount = round ((_startPos distance _endPos) / 10);
+      };
     };
 
     _roundsEditBox ctrlSetText str _roundsCount;
 
+    // Update position editBoxes
     Trace("Updating fire mission position edit box...");
+    private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
+    _selectFireMissionPos = _commanderMap getVariable ["selectFireMissionPos", false];
+    _selectFireMissionEndPos = _commanderMap getVariable ["selectFireMissionEndPos", false];
 
-    Trace_1("_startPos: %1", _startPos);
-    if !(isNil "_startPos") then
+    // Start pos
+    switch (true) do
     {
-      private _gridPos = mapGridPosition _startPos;
-      _startPosEditBox ctrlSetText _gridPos;
-    } else {
-      _startPosEditBox ctrlSetText "NOT SET";
+      // Selecting position on map
+      case (_selectFireMissionPos):
+      {
+        _startPosEditBox ctrlSetText "CLICK MAP";
+      };
+
+      // Position is already set
+      case (!isNil "_startPos"):
+      {
+        private _gridPos = mapGridPosition _startPos;
+        _startPosEditBox ctrlSetText _gridPos;
+      };
+
+      // No position set
+      default
+      {
+        _startPosEditBox ctrlSetText "NOT SET";
+      };
     };
 
-    Trace_1("_endPos: %1", _endPos);
-    if !(isNil "_endPos") then
+    // End pos
+    switch (true) do
     {
-      private _gridPos = mapGridPosition _endPos;
-      _endPosEditBox ctrlSetText _gridPos;
-    } else {
-      _endPosEditBox ctrlSetText "NOT SET";
+      case (_selectFireMissionEndPos):
+      {
+        _endPosEditBox ctrlSetText "CLICK MAP";
+      };
+
+      case (!isNil "_endPos"):
+      {
+        private _gridPos = mapGridPosition _endPos;
+        _endPosEditBox ctrlSetText _gridPos;
+      };
+
+      default
+      {
+        _endPosEditBox ctrlSetText "NOT SET";
+      };
     };
 
     // Add tooltip to fire button when unable to fire
     private _firebuttonTooltipText = "";
-    private _availableRounds = [_smokeRoundsCount, _heRoundsCount] select _pointStrike;
+    private _availableRounds = [_smokeRoundsCount, _heRoundsCount] select _heShell;
     switch (true) do
     {
       case (isNil "_startPos" || (!_pointStrike && isNil "_endPos")): {_firebuttonTooltipText = _firebuttonTooltipText + "Strike position not set\n"};
-      case (_pointStrike && _roundsCount > _availableRounds): {_firebuttonTooltipText = _firebuttonTooltipText + "Not enough ammo\n"};
+      case (_roundsCount > _availableRounds): {_firebuttonTooltipText = _firebuttonTooltipText + "Not enough ammo\n"};
     };
 
     _fireButton ctrlSetTooltip _firebuttonTooltipText;
@@ -1445,8 +1482,8 @@ switch (_mode) do
     {
       private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
       _fireMissionControlsGroup setVariable ["startPos", _clickedPosition];
-      ["updateFireMissionView"] call A3A_fnc_mainDialog;
       _commanderMap setVariable ["selectFireMissionPos", false];
+      ["updateFireMissionView"] call A3A_fnc_mainDialog;
       Trace_1("Set fire mission startPos: %1", _clickedPosition);
     };
 
@@ -1455,8 +1492,8 @@ switch (_mode) do
     {
       private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
       _fireMissionControlsGroup setVariable ["endPos", _clickedPosition];
-      ["updateFireMissionView"] call A3A_fnc_mainDialog;
       _commanderMap setVariable ["selectFireMissionEndPos", false];
+      ["updateFireMissionView"] call A3A_fnc_mainDialog;
       Trace_1("Set fire mission endPos: %1", _clickedPosition);
     };
 
