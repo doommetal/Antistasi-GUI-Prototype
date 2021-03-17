@@ -1,6 +1,85 @@
 Checklist for covering all the basic functionality in the new UI
 
 
+Changes needed in Antistasi:
+
+
+Undercover:
+    A3-Antistasi\functions\Undercover\fn_goUndercover.sqf
+    Split into two parts:
+    1. A3A_fnc_canGoUndercover: Checking if undercover is available, should return a boolean and an array of reasons if false
+    2. A3A_fnc_goUndercover: Same as before just with the check split out
+
+
+Fast travel
+    A3-Antistasi\functions\Dialogs\fn_fastTravelRadio.sqf
+    Split into two parts:
+    1. A3A_fnc_canFastTravel: Checking if fast travel is available, should return a boolean and an array of reasons if false
+    2. A3A_fnc_fastTravel: Everything from beyond the availability check
+
+
+Construction
+    A3-Antistasi\functions\REINF\fn_build.sqf
+    Split into two parts:
+    1. A3A_fnc_canBuild: Checking if building is available, should return a boolean and an array of reasons if false
+    2. A3A_fnc_build: Everything from beyond the availability check
+
+
+Move HQ
+    A3-Antistasi\functions\Base\fn_moveHQ.sqf
+    Split into two parts:
+    1. A3A_fnc_canMoveHQ: Checking if moving HQ is available, should return a boolean and an array of reasons if false
+    2. A3A_fnc_moveHQ: Everything from beyond the availability check
+
+
+High Command Squads
+    A3-Antistasi\functions\REINF\fn_vehStats.sqf
+    This function currently does:
+    1. Squad SITREP
+    2. Mounting / Dismounting
+    This needs to be split into:
+    1. Getter for the info from sitrep, preferably as an array
+    2. Getter for vehicles assigned to the squad
+    3. Getter for static weapons assigned to the squad + mount status
+    3. A function for handling mounting/dismounting
+
+    A3-Antistasi\functions\REINF\fn_addSquadVeh.sqf
+    Needs to be changed to use a group reference rather than selected group on the high command bar.
+
+    A3-Antistasi\REINF\addToGarrison.sqf
+    Should probably be moved to functions. Currently execVM'd from the button action.
+
+    A3-Antistasi\REINF\dismissSquad.sqf
+    Should probably be moved to functions. Currently execVM'd from the button action.
+
+    A3-Antistasi\REINF\controlHCsquad.sqf
+    Should probably be moved to functions. Currently execVM'd from the button action.
+
+
+AI Options
+    A3-Antistasi\REINF\controlunit.sqf
+    Should probably be moved to functions. Currently execVM'd from the button action.
+
+    A3-Antistasi\REINF\dismissPlayerGroup.sqf
+    Should probably be moved to functions. Currently execVM'd from the button action.
+
+
+Buy Vehicles
+    Needs an array of buyable vehicles and their price.
+    This could either be put in the templates (probably the best solution),
+    or the array could be generated on the fly by initVar.
+
+    A3-Antistasi\functions\REINF\fn_addFIAveh.sqf
+    Split into two parts:
+    1. A3A_fnc_canBuyVehicle: Checking if you can buy (or place) a vehicle, should return a boolean and an array of reasons if false
+    2. A3A_fnc_buyVehicle: Everything from beyond the availability check
+
+
+
+--------------------------------------------------------------------------------
+
+
+
 List of createDialog occurences in Antistasi:
 
 A3-Antistasi\dialogs.hpp:
