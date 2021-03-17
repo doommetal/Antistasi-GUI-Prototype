@@ -86,7 +86,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
         class MoveHqIcon : A3A_Picture
         {
-          idc = -1;
+          idc = A3A_IDC_MOVEHQICON;
           text = A3A_Tex_Icon_Move_HQ;
           x = 8 * GRID_W;
           y = 76 * GRID_H;
@@ -96,7 +96,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
         class MoveHqButton : A3A_ShortcutButton
         {
-          idc = -1;
+          idc = A3A_IDC_MOVEHQBUTTON;
           text = "Move HQ";
           x = 20 * GRID_W;
           y = 74 * GRID_H;

@@ -489,7 +489,7 @@ switch (_mode) do
       _undercoverIcon ctrlCommit 0;
     } else {
       _undercoverButton ctrlEnable false;
-      _undercoverButton ctrlSetTooltip "Can't go undercover while wearing a clown suit";
+      _undercoverButton ctrlSetTooltip "Can't go undercover\n\nIllegal items visible\nYou have been reported by the enemy";
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
       _undercoverIcon ctrlSetFade 0.5;
       _undercoverIcon ctrlCommit 0;
@@ -508,7 +508,7 @@ switch (_mode) do
       _fastTravelIcon ctrlCommit 0;
     } else {
       _fastTravelButton ctrlEnable false;
-      _fastTravelButton ctrlSetTooltip "Can't fast travel because Petros broke your leg";
+      _fastTravelButton ctrlSetTooltip "Can't fast travel\n\nEnemies nearby\nPetros broke your legs";
       _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
       _fastTravelIcon ctrlSetFade 0.5;
       _fastTravelIcon ctrlCommit 0;
@@ -527,7 +527,7 @@ switch (_mode) do
       _constructIcon ctrlCommit 0;
     } else {
       _constructButton ctrlEnable false;
-      _constructButton ctrlSetTooltip "You need someone smart enough to use a hammer in your squad to make constructions";
+      _constructButton ctrlSetTooltip "Can't make constructions\n\nYou need an engineer in your squad";
       _constructIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
       _constructIcon ctrlSetFade 0.5;
       _constructIcon ctrlCommit 0;
@@ -546,7 +546,7 @@ switch (_mode) do
       _aiManagementIcon ctrlCommit 0;
     } else {
       _aiManagementButton ctrlEnable false;
-      _aiManagementButton ctrlSetTooltip "Select some AI to manage them";
+      _aiManagementButton ctrlSetTooltip "Can't manage AI\n\nYou have no AIs in your squad";
       _aiManagementIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
       _aiManagementIcon ctrlSetFade 0.5;
       _aiManagementIcon ctrlCommit 0;

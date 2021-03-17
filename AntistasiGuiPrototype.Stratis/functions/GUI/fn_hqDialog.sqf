@@ -48,6 +48,14 @@ switch (_mode) do
     // Show main tab content
     ["switchTab", ["main"]] call A3A_fnc_hqDialog;
 
+    // Button availability stuff
+    // TODO: Get actual reasons when merging
+    private _moveHqIcon = _display displayCtrl A3A_IDC_MOVEHQICON;
+    _moveHqIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
+    private _moveHqButton = _display displayCtrl A3A_IDC_MOVEHQBUTTON;
+    _moveHqButton ctrlEnable false;
+    _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first";
+
     // Faction money section setup
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
     _factionMoneySlider sliderSetRange [0,factionMoney];

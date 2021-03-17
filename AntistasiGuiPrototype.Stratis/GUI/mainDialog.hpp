@@ -95,7 +95,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class UndercoverButton : A3A_Button
         {
           idc = A3A_IDC_UNDERCOVERBUTTON;
-          text = "Undercover ON"; // TODO: localize
+          text = "Go Undercover"; // TODO: localize
           onButtonClick = "closeDialog 2"; // TODO: undercover function
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
