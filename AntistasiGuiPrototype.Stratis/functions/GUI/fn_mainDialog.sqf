@@ -1048,27 +1048,45 @@ switch (_mode) do
     private _debugText = _display displayCtrl A3A_IDC_DEBUGINFO;
     private _time = [time / 3600, "ARRAY"] call BIS_fnc_timeToString;
     private _missionTime = format["%1h%2m%3s", _time # 0, _time # 1, _time # 2];
+    private _serverFps = (round (diag_fps * 10)) / 10;
     private _connectedHCs = 0;
-    private _serverFps = diag_fps;
+    private _players = 0;
     private _allUnits = count allUnits;
     private _deadUnits = 1349;
+    private _countGroups = count allGroups;
+    private _countRebels = 16;
+    private _countInvaders = 5;
+    private _countOccupants = 37;
+    private _countCiv = 4096;
     private _destroyedVehicles = 2;
 
     // TODO: get this from stringtable
     private _formattedString = format [
 "<t font='EtelkaMonospacePro' size='0.8'>
 <t>Mission time:</t><t align='right'>%1</t><br />
-<t>Connected HCs:</t><t align='right'>%2</t><br />
-<t>Server FPS:</t><t align='right'>%3</t><br />
-<t>Units</t><t align='right'>%4</t><br />
-<t>Dead units:</t><t align='right'>%5</t><br />
-<t>Destroyed vehicles:</t><t align='right'>%6</t>
+<t>Server FPS:</t><t align='right'>%2</t><br />
+<t>Connected HCs:</t><t align='right'>%3</t><br />
+<t>Players:</t><t align='right'>%4</t><br />
+<t>Groups</t><t align='right'>%5</t><br />
+<t>Units:</t><t align='right'>%6</t><br />
+<t>Dead units:</t><t align='right'>%7</t><br />
+<t>Rebels:</t><t align='right'>%8</t><br />
+<t>Invaders:</t><t align='right'>%9</t><br />
+<t>Occupants:</t><t align='right'>%10</t><br />
+<t>Civs:</t><t align='right'>%11</t><br />
+<t>Wrecks:</t><t align='right'>%12</t>
 </t>",
       _missionTime,
-      _connectedHCs,
       _serverFps,
+      _connectedHCs,
+      _players,
+      _countGroups,
       _allUnits,
       _deadUnits,
+      _countRebels,
+      _countInvaders,
+      _countOccupants,
+      _countCiv,
       _destroyedVehicles
     ];
 
