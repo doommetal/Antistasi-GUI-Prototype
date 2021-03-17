@@ -532,13 +532,33 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupNameLabel : A3A_Button_Left
             {
               idc = A3A_IDC_HCGROUPNAME;
-              text = "No squad selected";
+              text = "";
               // TODO: Get rid of hardcoded IDCS here
               onButtonClick = "(findDisplay 7000 displayCtrl 7201) setVariable [""selectedGroup"", grpNull]; [""updateCommanderTab""] call A3A_fnc_mainDialog";
               x = 0;
               y = 0;
-              w = 54 * GRID_W;
+              w = 48 * GRID_W;
               h = 6 * GRID_H;
+            };
+
+            class RemoteControlHCButton : A3A_ShortcutButton
+            {
+              idc = -1;
+              textureNoShortcut = A3A_Tex_Icon_Remotecontrol;
+              tooltip = "Remote control group leader";
+              onButtonClick = "hint ""Totally controlling this dude now""";
+              x = 48 * GRID_W;
+              y = 0 * GRID_H;
+              w = 6 * GRID_W;
+              h = 6 * GRID_H;
+
+              class ShortcutPos
+            	{
+            		left = 0;
+            		top = 0;
+            		w = 6 * GRID_W;
+            		h = 6 * GRID_H;
+            	};
             };
 
             class GroupBackground : A3A_Background
