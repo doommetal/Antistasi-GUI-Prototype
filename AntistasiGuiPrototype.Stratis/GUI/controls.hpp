@@ -336,7 +336,7 @@ class A3A_ShortcutButton : A3A_CtrlDefault
 	animTextureFocused = "#(argb,1,1,1)color(1,1,1,1)";
   animTexturePressed = "#(argb,1,1,1)color(1,1,1,1)";
 
-  textureNoShortcut = "#(argb,1,1,1)color(0,0,0,0)";
+  textureNoShortcut = "#(argb,1,1,1)color(0,0,0,0)"; // Used to put images on the button
 
   period = 0;
 	periodFocus = 0;
@@ -488,6 +488,16 @@ class A3A_ScrollBar
 	autoScrollSpeed = -1;
 	autoScrollDelay = 5;
 	autoScrollRewind = 0;
+};
+
+class A3A_Progress : A3A_CtrlDefault
+{
+  type = CT_PROGRESS;
+  style = ST_HORIZONTAL;
+  colorBackground[] = A3A_COLOR_BACKGROUND;
+  colorFrame[] = {0,0,0,1};
+  colorBar[] = A3A_COLOR_TEXT;
+	texture = "";// "#(argb,8,8,3)color(1,1,1,1)";
 };
 
 class A3A_Slider : A3A_CtrlDefault

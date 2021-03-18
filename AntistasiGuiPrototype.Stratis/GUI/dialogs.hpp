@@ -12,14 +12,17 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 // TEST DIALOGS //
 //////////////////
 
+// TODO: Test stuff, remove when merging
+#include "testTabbedDialog.hpp"
+#include "testDefaultDialog.hpp"
+
+// Standard size dialogs first, else subsequent defines mess them up
 #include "mainDialog.hpp"
 #include "hqDialog.hpp"
 #include "requestMissionDialog.hpp"
 #include "recruitDialog.hpp"
 #include "recruitSquadDialog.hpp"
 #include "buyVehicleDialog.hpp"
-#include "loadDialog.hpp"
 
-// TODO: Test stuff, remove when merging
-#include "testTabbedDialog.hpp"
-#include "testDefaultDialog.hpp"
+// Dialogs with other sizes
+#include "loadDialog.hpp"

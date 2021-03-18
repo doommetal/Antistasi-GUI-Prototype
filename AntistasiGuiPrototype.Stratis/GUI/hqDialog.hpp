@@ -22,7 +22,9 @@ class A3A_HqDialog : A3A_DefaultDialog
 
       class controls
       {
-        class GarrisonManagementIcon : A3A_Picture
+        // Left side buttons
+
+        class GarrisonsIcon : A3A_Picture
         {
           idc = -1;
           text = A3A_Tex_Icon_Garrison;
@@ -32,10 +34,11 @@ class A3A_HqDialog : A3A_DefaultDialog
           h = 8 * GRID_H;
         };
 
-        class GarrisonManagementButton : A3A_ShortcutButton
+        class GarrisonManagementButton : A3A_Button
         {
           idc = -1;
-          text = "Garrison Management";
+          text = "Garrisons";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           onButtonClick = "[""switchTab"",[""garrison""]] call A3A_fnc_hqDialog";
           x = 20 * GRID_W;
           y = 11 * GRID_H;
@@ -43,7 +46,7 @@ class A3A_HqDialog : A3A_DefaultDialog
           h = 12 * GRID_H;
         };
 
-        class MinefieldManagementIcon : A3A_Picture
+        class MinefieldsIcon : A3A_Picture
         {
           idc = -1;
           text = A3A_Tex_Icon_Minefield;
@@ -53,33 +56,14 @@ class A3A_HqDialog : A3A_DefaultDialog
           h = 8 * GRID_H;
         };
 
-        class MinefieldManagementButton : A3A_ShortcutButton
+        class MinefieldsButton : A3A_Button
         {
           idc = -1;
-          text = "Minefield Management";
+          text = "Minefields";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           onButtonClick = "[""switchTab"",[""minefields""]] call A3A_fnc_hqDialog";
           x = 20 * GRID_W;
           y = 32 * GRID_H;
-          w = 36 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class TrainTroopsIcon : A3A_Picture
-        {
-          idc = -1;
-          text = A3A_Tex_Icon_Train_Troops;
-          x = 8 * GRID_W;
-          y = 55 * GRID_H;
-          w = 8 * GRID_W;
-          h = 8 * GRID_H;
-        };
-
-        class TrainTroopsButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Train Troops";
-          x = 20 * GRID_W;
-          y = 53 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
         };
@@ -89,151 +73,600 @@ class A3A_HqDialog : A3A_DefaultDialog
           idc = A3A_IDC_MOVEHQICON;
           text = A3A_Tex_Icon_Move_HQ;
           x = 8 * GRID_W;
+          y = 55 * GRID_H;
+          w = 8 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
+        class MoveHqButton : A3A_Button
+        {
+          idc = A3A_IDC_MOVEHQBUTTON;
+          text = "Move HQ";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 20 * GRID_W;
+          y = 53 * GRID_H;
+          w = 36 * GRID_W;
+          h = 12 * GRID_H;
+        };
+
+        class ClearTreesIcon : A3A_Picture
+        {
+          idc = -1;
+          text = A3A_Tex_Icon_Move_HQ; // TODO: Make new icon for clear trees
+          x = 8 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
           h = 8 * GRID_H;
         };
 
-        class MoveHqButton : A3A_ShortcutButton
+        class ClearTreesButton : A3A_Button
         {
-          idc = A3A_IDC_MOVEHQBUTTON;
-          text = "Move HQ";
+          idc = -1;
+          text = "Clear Trees";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class FactionMoneyLabel : A3A_SectionLabelRight
+        // Campaign status section
+        class CampaignStatusControlsGroup : A3A_ControlsGroupNoScrollbars
         {
           idc = -1;
-          text = "Faction money";
           x = 70 * GRID_W;
           y = 7 * GRID_H;
           w = 90 * GRID_W;
-          h = 4 * GRID_H;
-        };
+          h = 22 * GRID_H;
 
-        class FactionMoneySlider : A3A_Slider
-        {
-          idc = A3A_IDC_FACTIONMONEYSLIDER;
-          x = 74 * GRID_W;
-          y = 19 * GRID_H;
-          w = 60 * GRID_W;
-          h = 4 * GRID_H;
-          onSliderPosChanged = "[""factionMoneySliderChanged""] spawn A3A_fnc_hqDialog";
-        };
-
-        class FactionMoneyEditBox : A3A_Edit
-        {
-          idc = A3A_IDC_FACTIONMONEYEDITBOX;
-          style = ST_RIGHT;
-          text = "0";
-          x = 136 * GRID_W;
-          y = 19 * GRID_H;
-          w = 16 * GRID_W;
-          h = 4 * GRID_H;
-          onKeyDown = "[""factionMoneyEditBoxChanged""] spawn A3A_fnc_hqDialog";
-        };
-
-        class FactionMoneyButton : A3A_ShortcutButton
-        {
-          idc = A3A_IDC_FACTIONMONEYBUTTON;
-          text = "Take money";
-          x = 132 * GRID_W;
-          y = 27 * GRID_H;
-          w = 20 * GRID_W;
-          h = 12 * GRID_H;
-
-          class TextPos
+          class controls
           {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 1 * GRID_H;
-            bottom = 1 * GRID_W;
+            class CampaignStatusLabel : A3A_SectionLabelRight
+            {
+              idc = -1;
+              text = "Campaign status";
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 90 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class WarLevelLabel : A3A_Text
+            {
+              idc = -1;
+              text = "War level:";
+              x = 0 * GRID_W;
+              y = 6 * GRID_H;
+              w = 14 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class WarLevelText : A3A_Text
+            {
+              idc = -1;
+              style = ST_RIGHT;
+              text = "5";
+              x = 14 * GRID_W;
+              y = 6 * GRID_H;
+              w = 14 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class AggressionLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Aggression:";
+              x = 0 * GRID_W;
+              y = 11 * GRID_H;
+              w = 28 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class OccFlagPicture : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\Data_F\Flags\flag_nato_co.paa"; // TODO: Replace with actual faction flag
+              tooltip = "Occupants aggression"; // TODO: Update with faction name
+              // colorText[] = {1,1,1,0.75};
+              // colorBackground[] = A3A_COLOR_BACKGROUND;
+              x = 1 * GRID_W;
+              y = 16 * GRID_H;
+              w = 12 * GRID_W;
+              h = 6 * GRID_H;
+            };
+
+            class OccAggroText : A3A_Text
+            {
+              idc = -1;
+              style = ST_CENTER;
+              text = "MEDIUM";
+              tooltip = "Occupants aggression"; // TODO: Update with faction name
+              // colorText[] = A3A_COLOR_WARNING;
+              colorBackground[] = A3A_COLOR_BACKGROUND;
+              shadow = 2;
+              x = 1 * GRID_W;
+              y = 16 * GRID_H;
+              w = 12 * GRID_W;
+              h = 6 * GRID_H;
+            };
+
+            class InvFlagPicture : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\Data_F\Flags\flag_CSAT_co.paa"; // TODO: Replace with actual faction flag
+              tooltip = "Invader aggression"; // TODO: Update with faction name
+              // colorText[] = {1,1,1,0.75};
+              // colorBackground[] = A3A_COLOR_BACKGROUND;
+              x = 16 * GRID_W;
+              y = 16 * GRID_H;
+              w = 12 * GRID_W;
+              h = 6 * GRID_H;
+            };
+
+            class InvAggroText : A3A_Text
+            {
+              idc = -1;
+              style = ST_CENTER;
+              text = "HIGH";
+              tooltip = "Invader aggression"; // TODO: Update with faction name
+              // colorText[]= A3A_COLOR_ERROR;
+              colorBackground[] = A3A_COLOR_BACKGROUND;
+              shadow = 2;
+              x = 16 * GRID_W;
+              y = 16 * GRID_H;
+              w = 12 * GRID_W;
+              h = 6 * GRID_H;
+            };
+
+
+            // Controlled sites
+
+            class ControlledTownsIcon : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\ui_f\data\Map\MapControl\ruin_CA.paa";
+              tooltip = "Controlled towns";
+              x = 32 * GRID_W;
+              y = 6 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledTownsText : A3A_Text
+            {
+              idc = -1;
+              text = "3/48";
+              tooltip = "Controlled towns";
+              x = 36 * GRID_W;
+              y = 6 * GRID_H;
+              w = 12 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledBasesIcon : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\ui_f\data\Map\MapControl\bunker_CA.paa";
+              tooltip = "Controlled outposts";
+              x = 49 * GRID_W;
+              y = 6 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledBasesText : A3A_Text
+            {
+              idc = -1;
+              text = "15/44";
+              tooltip = "Controlled outposts";
+              x = 53 * GRID_W;
+              y = 6 * GRID_H;
+              w = 12 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledAirBasesIcon : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\ui_f\data\Map\VehicleIcons\iconPlane_ca.paa";
+              tooltip = "Controlled airbases";
+              x = 66 * GRID_W;
+              y = 6 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledAirBasesText : A3A_Text
+            {
+              idc = -1;
+              text = "0/6";
+              tooltip = "Controlled airbases";
+              x = 70 * GRID_W;
+              y = 6 * GRID_H;
+              w = 12 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            ////////////////////////////
+
+            class ControlledResourcesIcon : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\ui_f\data\Map\LocationTypes\rockArea_CA.paa";
+              tooltip = "Controlled resources";
+              x = 32 * GRID_W;
+              y = 11 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledResourcesText : A3A_Text
+            {
+              idc = -1;
+              text = "1/8";
+              tooltip = "Controlled resources";
+              x = 36 * GRID_W;
+              y = 11 * GRID_H;
+              w = 12 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledFactoriesIcon : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\ui_f\data\Map\MapControl\stack_CA.paa";
+              tooltip = "Controlled factories";
+              x = 49 * GRID_W;
+              y = 11 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledFactoriesText : A3A_Text
+            {
+              idc = -1;
+              text = "2/12";
+              tooltip = "Controlled factories";
+              x = 53 * GRID_W;
+              y = 11 * GRID_H;
+              w = 12 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledPortsIcon : A3A_Picture
+            {
+              idc = -1;
+              text = "\A3\ui_f\data\Map\VehicleIcons\iconShip_ca.paa";
+              tooltip = "Controlled ports";
+              x = 66 * GRID_W;
+              y = 11 * GRID_H;
+              w = 4 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class ControlledPortsText : A3A_Text
+            {
+              idc = -1;
+              text = "1/5";
+              tooltip = "Controlled ports";
+              x = 70 * GRID_W;
+              y = 11 * GRID_H;
+              w = 12 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            // Civ support / dead
+            /* class PopStatusBar : A3A_Button
+            {
+              idc = -1;
+              text = "Placeholder";
+              x = 31 * GRID_W;
+              y = 16 * GRID_H;
+              w = 51 * GRID_W;
+              h = 6 * GRID_H;
+            }; */
+
+            /* class PopStatusBarControlsGroup : A3A_ControlsGroupNoScrollbars
+            {
+              idc = -1;
+              x = 31 * GRID_W;
+              y = 16 * GRID_H;
+              w = 51 * GRID_W;
+              h = 6 * GRID_H;
+
+              class controls
+              {
+                class PopStatusBarBackground : A3A_Background
+                {
+                  idc = -1;
+                  x = 0 * GRID_W;
+                  y = 0 * GRID_H;
+                  w = 51 * GRID_W;
+                  h = 6 * GRID_H;
+                };
+
+                class PopStatusBarReb : A3A_Picture
+                {
+                  idc = -1;
+                  text = "#(argb,1,1,1)color(0.1,0.8,0.1,1)";
+                  x = 0 * GRID_W;
+                  y = 0 * GRID_H;
+                  w = 16 * GRID_W;
+                  h = 6 * GRID_H;
+                };
+
+                class PopStatusBarDead : A3A_Picture
+                {
+                  idc = -1;
+                  text = "#(argb,1,1,1)color(0.8,0.1,0.1,1)";
+                  x = 48 * GRID_W;
+                  y = 0 * GRID_H;
+                  w = 3 * GRID_W;
+                  h = 6 * GRID_H;
+                };
+
+                class PopStatusLabel : A3A_Text
+                {
+                  idc = -1;
+                  text = "Population status";
+                  x = 1 * GRID_W;
+                  y = 1 * GRID_H;
+                  w = 20 * GRID_W;
+                  h = 4 * GRID_H;
+                };
+              };
+            }; */
+
+            class PopStatusProgress : A3A_Progress
+            {
+              idc = -1;
+              onLoad = "_this#0 progressSetPosition 0.5;";
+              tooltip = "Civilian support";
+              x = 31 * GRID_W;
+              y = 16 * GRID_H;
+              w = 51 * GRID_W;
+              h = 6 * GRID_H;
+            };
+
           };
         };
 
-        class RestLabel : A3A_SectionLabelRight
+
+        // Faction resources section
+
+        class FactionResourcesControlsGroup : A3A_ControlsGroupNoScrollbars
         {
           idc = -1;
-          text = "Rest";
           x = 70 * GRID_W;
-          y = 46 * GRID_H;
+          y = 33 * GRID_H;
           w = 90 * GRID_W;
-          h = 4 * GRID_H;
-        };
+          h = 28 * GRID_H;
 
-        class RestText : A3A_StructuredText
-        {
-          idc = A3A_IDC_RESTTEXT;
-          text = "";
-          x = 74 * GRID_W;
-          y = 52 * GRID_H;
-          w = 60 * GRID_W;
-          h = 10 * GRID_H;
-          colorBackground[] = {0,0,0,0.5};
-        };
-
-        class RestSlider : A3A_Slider
-        {
-          idc = A3A_IDC_RESTSLIDER;
-          x = 74 * GRID_W;
-          y = 66 * GRID_H;
-          w = 60 * GRID_W;
-          h = 4 * GRID_H;
-          onSliderPosChanged = "[""restSliderChanged""] spawn A3A_fnc_hqDialog";
-        };
-
-        class RestButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Rest";
-          onButtonClick = "[""debugChangeTime""] spawn A3A_fnc_hqDialog;";
-          x = 136 * GRID_W;
-          y = 64 * GRID_H;
-          w = 16 * GRID_W;
-          h = 8 * GRID_H;
-
-          class TextPos
+          class controls
           {
-            left = 2 * GRID_W;
-            right = 2 * GRID_W;
-            top = 1 * GRID_H;
-            bottom = 1 * GRID_W;
+            class FactionResourcesLabel : A3A_SectionLabelRight
+            {
+              idc = -1;
+              text = "Faction Resources";
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 90 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            /* class FactionHRBackground : A3A_Background
+            {
+              idc = -1;
+              x = 0 * GRID_W;
+              y = 7 * GRID_H;
+              w = 60 * GRID_W;
+              h = 9 * GRID_H;
+            }; */
+
+            class FactionHRLabel : A3A_Text
+            {
+              idc = -1;
+              text = "HR:";
+              x = 0 * GRID_W;
+              y = 7 * GRID_H;
+              w = 39 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class FactionHRText : A3A_Text
+            {
+              idc = -1;
+              style = ST_RIGHT;
+              text = "42";
+              x = 41 * GRID_W;
+              y = 7 * GRID_H;
+              w = 16 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class FactionTrainingLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Training level:";
+              x = 0 * GRID_W;
+              y = 12 * GRID_H;
+              w = 39 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class FactionTrainingText : A3A_Text
+            {
+              idc = -1;
+              style = ST_RIGHT;
+              text = "5 / 20";
+              x = 41 * GRID_W;
+              y = 12 * GRID_H;
+              w = 16 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class TrainTroopsButton : A3A_Button
+            {
+              idc = -1;
+              text = "Train";
+              x = 60 * GRID_W;
+              y = 7 * GRID_H;
+              w = 22 * GRID_W;
+              h = 9 * GRID_H;
+            };
+
+            /* class  FactionMoneyBackground : A3A_Background
+            {
+              idc = -1;
+              x = 0 * GRID_W;
+              y = 19 * GRID_H;
+              w = 60 * GRID_W;
+              h = 9 * GRID_H;
+            }; */
+
+            class FactionMoneyLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Faction money:";
+              x = 0 * GRID_W;
+              y = 19 * GRID_H;
+              w = 39 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class FactionMoneyText : A3A_Text
+            {
+              idc = -1;
+              style = ST_RIGHT;
+              text = "10000 £"; // TODO: Switch to euros
+              x = 41 * GRID_W;
+              y = 19 * GRID_H;
+              w = 16 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class FactionMoneySlider : A3A_Slider
+            {
+              idc = A3A_IDC_FACTIONMONEYSLIDER;
+              x = 0 * GRID_W;
+              y = 24 * GRID_H;
+              w = 39 * GRID_W;
+              h = 4 * GRID_H;
+              onSliderPosChanged = "[""factionMoneySliderChanged""] spawn A3A_fnc_hqDialog";
+            };
+
+            class FactionMoneyEditBox : A3A_Edit
+            {
+              idc = A3A_IDC_FACTIONMONEYEDITBOX;
+              style = ST_RIGHT;
+              text = "0";
+              x = 41 * GRID_W;
+              y = 24 * GRID_H;
+              w = 16 * GRID_W;
+              h = 4 * GRID_H;
+              onKeyDown = "[""factionMoneyEditBoxChanged""] spawn A3A_fnc_hqDialog";
+            };
+
+            class FactionMoneyButton : A3A_Button
+            {
+              idc = A3A_IDC_FACTIONMONEYBUTTON;
+              text = "Take";
+              x = 60 * GRID_W;
+              y = 19 * GRID_H;
+              w = 22 * GRID_W;
+              h = 9 * GRID_H;
+            };
+
           };
         };
 
-        class ClearTreesButton : A3A_ShortcutButton
+
+        // Rest & environment section
+
+        class RestSectionControlsGroup : A3A_ControlsGroupNoScrollbars
         {
           idc = -1;
-          text = "Clear Trees";
-          x = 74 * GRID_W;
-          y = 78 * GRID_H;
-          w = 22 * GRID_W;
-          h = 12 * GRID_H;
+          x = 70 * GRID_W;
+          y = 65 * GRID_H;
+          w = 90 * GRID_W;
+          h = 26 * GRID_H;
+
+          class controls {
+            class RestLabel : A3A_SectionLabelRight
+            {
+              idc = -1;
+              text = "Rest & Environment";
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 90 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class RestText : A3A_StructuredText
+            {
+              idc = A3A_IDC_RESTTEXT;
+              text = "";
+              x = 0 * GRID_W;
+              y = 7 * GRID_H;
+              w = 57 * GRID_W;
+              h = 10 * GRID_H;
+              // colorBackground[] = A3A_COLOR_BACKGROUND; // {0,0,0,0.5};
+            };
+
+            /* class RestBackground : A3A_Background
+            {
+              idc = -1;
+              x = 0 * GRID_W;
+              y = 17 * GRID_H;
+              w = 57 * GRID_W;
+              h = 9 * GRID_H;
+            }; */
+
+            class RestSlider : A3A_Slider
+            {
+              idc = A3A_IDC_RESTSLIDER;
+              x = 0 * GRID_W;
+              y = 21 * GRID_H;
+              w = 39 * GRID_W;
+              h = 4 * GRID_H;
+              onSliderPosChanged = "[""restSliderChanged""] spawn A3A_fnc_hqDialog";
+            };
+
+            class RestButton : A3A_Button
+            {
+              idc = -1;
+              text = "Rest";
+              onButtonClick = "[""debugChangeTime""] spawn A3A_fnc_hqDialog;";
+              x = 41 * GRID_W; // 108
+              y = 20 * GRID_H;
+              w = 16 * GRID_W;
+              h = 6 * GRID_H;
+            };
+
+            class ClearFogButton : A3A_Button
+            {
+              idc = -1;
+              text = "Clear Fog";
+              x = 60 * GRID_W;
+              y = 7 * GRID_H;
+              w = 22 * GRID_W;
+              h = 8 * GRID_H;
+            };
+
+            class StopRainButton : A3A_Button
+            {
+              idc = -1;
+              onButtonClick = "[] call A3A_fnc_stopRain";
+              text = "Stop Rain";
+              x = 60 * GRID_W;
+              y = 18 * GRID_H;
+              w = 22 * GRID_W;
+              h = 8 * GRID_H;
+            };
+
+          };
         };
 
-        class ClearFogButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Clear Fog";
-          x = 102 * GRID_W;
-          y = 78 * GRID_H;
-          w = 22 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class StopRainButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          onButtonClick = "[] call A3A_fnc_stopRain";
-          text = "Stop Rain";
-          x = 130 * GRID_W;
-          y = 78 * GRID_H;
-          w = 22 * GRID_W;
-          h = 12 * GRID_H;
-        };
       };
     };
 
