@@ -1329,11 +1329,11 @@ class A3A_MainDialog : A3A_TabbedDialog
           h = 10 * GRID_H;
         };
 
-        class CommitAiButton : A3A_ShortcutButton
+        class CommitAiButton : A3A_Button
         {
           idc = A3A_IDC_COMMITAIBUTTON;
-          text = "Commit Changes";
-          onButtonClick = "hint ""Oh no you broke the server"";"; // TODO: Placeholder
+          text = "Commit";
+          onButtonClick = "[""confirmAILimit""] call A3A_fnc_mainDialog;"; // TODO: Placeholder
           x = 132 * GRID_W;
           y = 36 * GRID_H;
           w = 20 * GRID_W;

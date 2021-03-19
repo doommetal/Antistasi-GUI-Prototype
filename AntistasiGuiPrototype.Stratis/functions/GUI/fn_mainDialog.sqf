@@ -1450,7 +1450,8 @@ switch (_mode) do
   };
 
   // TODO: Move auxilliary modes to functions?
-  // Donation Menu modes
+
+  // Donation Menu
   case ("moneySliderChanged"):
   {
     private _display = findDisplay A3A_IDD_MainDialog;
@@ -1487,6 +1488,7 @@ switch (_mode) do
     _moneySlider sliderSetPosition _newValue;
   };
 
+  // Commander Tab
   case ("commanderMapClicked"):
   {
     // Get display and map control
@@ -1643,6 +1645,7 @@ switch (_mode) do
     ["updateFireMissionView"] call A3A_fnc_mainDialog;
   };
 
+  // Admin Tab
   case ("civLimitSliderChanged"):
   {
     private _display = findDisplay A3A_IDD_MainDialog;
@@ -1703,6 +1706,20 @@ switch (_mode) do
     if (_aiLimiterEditBoxValue > aiLimiterMax) then {_aiLimiterEditBox ctrlSetText str aiLimiterMax};
   };
 
+  case ("confirmAILimit"):
+  {
+      _display = findDisplay A3A_IDD_MainDialog;
+      _commitAiButton = _display displayCtrl A3A_IDC_COMMITAIBUTTON;
+      _commitAiButton ctrlRemoveAllEventHandlers "ButtonClick";
+      _commitAiButton ctrlSetText "Confirm";
+      _commitAiButton ctrlAddEventHandler ["ButtonClick", {
+      hint "Oh no you broke the server :(";
+      closeDialog 2;
+    }];
+  };
+
+
+  // Player Management
   case ("playerLbSelectionChanged"):
   {
     private _display = findDisplay A3A_IDD_MainDialog;
