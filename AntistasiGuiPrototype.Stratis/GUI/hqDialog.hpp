@@ -117,7 +117,7 @@ class A3A_HqDialog : A3A_DefaultDialog
           x = 70 * GRID_W;
           y = 7 * GRID_H;
           w = 90 * GRID_W;
-          h = 22 * GRID_H;
+          h = 23 * GRID_H;
 
           class controls
           {
@@ -143,7 +143,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class WarLevelText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_WARLEVELTEXT;
               style = ST_RIGHT;
               text = "5";
               x = 14 * GRID_W;
@@ -164,11 +164,9 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class OccFlagPicture : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_OCCFLAGPICTURE;
               text = "\A3\Data_F\Flags\flag_nato_co.paa"; // TODO: Replace with actual faction flag
               tooltip = "Occupants aggression"; // TODO: Update with faction name
-              // colorText[] = {1,1,1,0.75};
-              // colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 1 * GRID_W;
               y = 16 * GRID_H;
               w = 12 * GRID_W;
@@ -177,11 +175,10 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class OccAggroText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_OCCAGGROTEXT;
               style = ST_CENTER;
               text = "MEDIUM";
               tooltip = "Occupants aggression"; // TODO: Update with faction name
-              // colorText[] = A3A_COLOR_WARNING;
               colorBackground[] = A3A_COLOR_BACKGROUND;
               shadow = 2;
               x = 1 * GRID_W;
@@ -192,11 +189,9 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class InvFlagPicture : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_INVFLAGPICTURE;
               text = "\A3\Data_F\Flags\flag_CSAT_co.paa"; // TODO: Replace with actual faction flag
               tooltip = "Invader aggression"; // TODO: Update with faction name
-              // colorText[] = {1,1,1,0.75};
-              // colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 16 * GRID_W;
               y = 16 * GRID_H;
               w = 12 * GRID_W;
@@ -205,11 +200,10 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class InvAggroText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_INVAGGROTEXT;
               style = ST_CENTER;
               text = "HIGH";
               tooltip = "Invader aggression"; // TODO: Update with faction name
-              // colorText[]= A3A_COLOR_ERROR;
               colorBackground[] = A3A_COLOR_BACKGROUND;
               shadow = 2;
               x = 16 * GRID_W;
@@ -223,9 +217,11 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledTownsIcon : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDTOWNSICON;
               text = "\A3\ui_f\data\Map\MapControl\ruin_CA.paa";
               tooltip = "Controlled towns";
+              shadow = 2;
+              colorShadow[] = A3A_COLOR_BLACK;
               x = 32 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -234,7 +230,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledTownsText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDTOWNSTEXT;
               text = "3/48";
               tooltip = "Controlled towns";
               x = 36 * GRID_W;
@@ -243,20 +239,22 @@ class A3A_HqDialog : A3A_DefaultDialog
               h = 4 * GRID_H;
             };
 
-            class ControlledBasesIcon : A3A_Picture
+            class ControlledOutpostsIcon : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDOUTPOSTSICON;
               text = "\A3\ui_f\data\Map\MapControl\bunker_CA.paa";
               tooltip = "Controlled outposts";
+              shadow = 2;
+              colorShadow[] = A3A_COLOR_BLACK;
               x = 49 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
               h = 4 * GRID_H;
             };
 
-            class ControlledBasesText : A3A_Text
+            class ControlledOutpostsText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDOUTPOSTSTEXT;
               text = "15/44";
               tooltip = "Controlled outposts";
               x = 53 * GRID_W;
@@ -267,9 +265,11 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledAirBasesIcon : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDAIRBASESICON;
               text = "\A3\ui_f\data\Map\VehicleIcons\iconPlane_ca.paa";
               tooltip = "Controlled airbases";
+              shadow = 2;
+              colorShadow[] = A3A_COLOR_BLACK;
               x = 66 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -278,7 +278,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledAirBasesText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDAIRBASESTEXT;
               text = "0/6";
               tooltip = "Controlled airbases";
               x = 70 * GRID_W;
@@ -291,7 +291,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledResourcesIcon : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDRESOURCESICON;
               text = "\A3\ui_f\data\Map\LocationTypes\rockArea_CA.paa";
               tooltip = "Controlled resources";
               x = 32 * GRID_W;
@@ -302,7 +302,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledResourcesText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDRESOURCESTEXT;
               text = "1/8";
               tooltip = "Controlled resources";
               x = 36 * GRID_W;
@@ -313,7 +313,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledFactoriesIcon : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDFACTORIESICON;
               text = "\A3\ui_f\data\Map\MapControl\stack_CA.paa";
               tooltip = "Controlled factories";
               x = 49 * GRID_W;
@@ -324,7 +324,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledFactoriesText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDFACTORIESTEXT;
               text = "2/12";
               tooltip = "Controlled factories";
               x = 53 * GRID_W;
@@ -335,7 +335,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledPortsIcon : A3A_Picture
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDPORTSICON;
               text = "\A3\ui_f\data\Map\VehicleIcons\iconShip_ca.paa";
               tooltip = "Controlled ports";
               x = 66 * GRID_W;
@@ -346,7 +346,7 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class ControlledPortsText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_CONTROLLEDPORTSTEXT;
               text = "1/5";
               tooltip = "Controlled ports";
               x = 70 * GRID_W;
@@ -355,23 +355,23 @@ class A3A_HqDialog : A3A_DefaultDialog
               h = 4 * GRID_H;
             };
 
-            // Civ support / dead
-            /* class PopStatusBar : A3A_Button
+            // Stupid hack frame because armas normal frames gets off by 1 pixel errors
+            class PopStatusBarFrame : A3A_Background
             {
               idc = -1;
-              text = "Placeholder";
-              x = 31 * GRID_W;
-              y = 16 * GRID_H;
-              w = 51 * GRID_W;
-              h = 6 * GRID_H;
-            }; */
+              colorBackground[]= A3A_COLOR_BLACK;
+              x = 31 * GRID_W - 1 * pixelW;
+              y = 16 * GRID_H - 1 * pixelH;
+              w = 50 * GRID_W + 2 * pixelW;
+              h = 6 * GRID_H + 2 * pixelH;
+            };
 
-            /* class PopStatusBarControlsGroup : A3A_ControlsGroupNoScrollbars
+            class PopStatusBarControlsGroup : A3A_ControlsGroupNoScrollbars
             {
               idc = -1;
               x = 31 * GRID_W;
               y = 16 * GRID_H;
-              w = 51 * GRID_W;
+              w = 50 * GRID_W;
               h = 6 * GRID_H;
 
               class controls
@@ -379,16 +379,18 @@ class A3A_HqDialog : A3A_DefaultDialog
                 class PopStatusBarBackground : A3A_Background
                 {
                   idc = -1;
+                  colorBackground[] = {0.3,0.3,0.3,1}; // TODO: Hardcoded color
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
-                  w = 51 * GRID_W;
+                  w = 50 * GRID_W;
                   h = 6 * GRID_H;
                 };
 
                 class PopStatusBarReb : A3A_Picture
                 {
-                  idc = -1;
-                  text = "#(argb,1,1,1)color(0.1,0.8,0.1,1)";
+                  idc = A3A_IDC_POPSTATUSBARREB;
+                  text = "#(argb,1,1,1)color(0.9,0.9,0.9,1)";
+                  tooltip = "Popular support\nYou need 50% to win";
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
                   w = 16 * GRID_W;
@@ -397,35 +399,70 @@ class A3A_HqDialog : A3A_DefaultDialog
 
                 class PopStatusBarDead : A3A_Picture
                 {
-                  idc = -1;
-                  text = "#(argb,1,1,1)color(0.8,0.1,0.1,1)";
+                  idc = A3A_IDC_POPSTATUSBARDEAD;
+                  text = "#(argb,1,1,1)color(0.15,0.15,0.15,1)";
+                  tooltip = "Dead population\nYou lose when this hits 33%";
                   x = 48 * GRID_W;
                   y = 0 * GRID_H;
-                  w = 3 * GRID_W;
+                  w = 2 * GRID_W;
                   h = 6 * GRID_H;
                 };
 
-                class PopStatusLabel : A3A_Text
+                // Line for win condition
+                class WinLine : A3A_Text
                 {
                   idc = -1;
-                  text = "Population status";
-                  x = 1 * GRID_W;
+                	style = ST_MULTI + ST_TITLE_BAR + ST_HUD_BACKGROUND;
+                  text = "";
+                  colorText[] = {0,0,0,1};
+                  colorBackground[] = A3A_COLOR_TRANSPARENT;
+                	x = 25 * GRID_W;
+                	y = 0;
+                	w = 0;
+                	h = 6 * GRID_H;
+                };
+
+                class LoseLine : A3A_Text
+                {
+                  idc = -1;
+                	style = ST_MULTI + ST_TITLE_BAR + ST_HUD_BACKGROUND;
+                  text = "";
+                  colorText[] = {0,0,0,1};
+                  colorBackground[] = A3A_COLOR_TRANSPARENT;
+                	x = 33.33333 * GRID_W;
+                	y = 0;
+                	w = 0;
+                	h = 6 * GRID_H;
+                };
+
+                class PopStatusRebText : A3A_Text
+                {
+                  idc = A3A_IDC_POPSTATUSREBTEXT;
+                  text = ""; // Updated from script
+                  tooltip = "Popular support\nYou need 50% to win";
+                  colorShadow[] = {0,0,0,0.5};
+                  shadow = 2;
+                  x = 0 * GRID_W;
                   y = 1 * GRID_H;
-                  w = 20 * GRID_W;
+                  w = 10 * GRID_W;
                   h = 4 * GRID_H;
                 };
-              };
-            }; */
 
-            class PopStatusProgress : A3A_Progress
-            {
-              idc = -1;
-              onLoad = "_this#0 progressSetPosition 0.5;";
-              tooltip = "Civilian support";
-              x = 31 * GRID_W;
-              y = 16 * GRID_H;
-              w = 51 * GRID_W;
-              h = 6 * GRID_H;
+                class PopStatusDeadText : A3A_Text
+                {
+                  idc = A3A_IDC_POPSTATUSDEADTEXT;
+                  style = ST_RIGHT;
+                  text = ""; // Updated from script
+                  tooltip = "Dead population\nYou lose when this hits 33%";
+                  colorShadow[] = {0,0,0,0.5};
+                  shadow = 2;
+                  x = 40 * GRID_W;
+                  y = 1 * GRID_H;
+                  w = 10 * GRID_W;
+                  h = 4 * GRID_H;
+                };
+
+              };
             };
 
           };

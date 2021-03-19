@@ -121,7 +121,8 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 // TODO: Maybe the split RGBA values into one line, dunno if they work with sqf yet or if it's only configs
 
 // Background, usually a semitransparent dark grey that works well with layering
-#define A3A_COLOR_BACKGROUND {0.2,0.2,0.2,0.6}
+// #define A3A_COLOR_BACKGROUND {0.2,0.2,0.2,0.6}
+#define A3A_COLOR_BACKGROUND {0.2,0.2,0.2,0.75} // Looks better less transparent?
 
 // Titlebar background
 #define A3A_COLOR_TITLEBAR_BACKGROUND {0.13,0.54,0.21,0.8}

@@ -31,7 +31,7 @@ eventHandlerY = findDisplay 46 displayAddEventHandler ["KeyDown",{
 // U
 eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
   if (_this select 1 == 22) then {
-    if (!dialog) then {createDialog "A3A_LoadDialog";};
+    if (!dialog) then {createDialog "A3A_TestDefaultDialog";};
   };
 }];
 
@@ -58,6 +58,10 @@ spawnDistanceMax = 12000;
 aiLimiter = 100;
 aiLimiterMin = 0;
 aiLimiterMax = 200;
+
+totalPopulation = 500;
+rebelPopulation = 100;
+deadPopulation = 75;
 
 // Template stuff
 // Needed for AI/A3A_fn_typeOfSoldier.sqf to work

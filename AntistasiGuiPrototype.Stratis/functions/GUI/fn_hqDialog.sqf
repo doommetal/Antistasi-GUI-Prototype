@@ -225,6 +225,42 @@ switch (_mode) do
   case ("updateMainTab"):
   {
     _display = findDisplay A3A_IDD_HqDialog;
+
+    // TODO: Update campaign status section
+
+    // Update population status bar
+    private _totalPopulation = totalPopulation;
+    private _rebelPopulation = rebelPopulation;
+    private _deadPopulation = deadPopulation;
+
+    private _statusBarRebels = _display displayCtrl A3A_IDC_POPSTATUSBARREB;
+    private _statusBarDead = _display displayCtrl A3A_IDC_POPSTATUSBARDEAD;
+
+    // Calculate new positions for status bar
+    private _rebelsBarWidth = (_rebelPopulation / _totalPopulation) * 50 * GRID_W;
+    private _deadBarWidth = (_deadPopulation / _totalPopulation) * 50 * GRID_W;
+    private _deadBarXpos = (50 * GRID_W) - _deadBarWidth;
+
+    // Calculate and format percentages, 1 decimal space
+    private _rebPercentage = (round ((_rebelPopulation / _totalPopulation) * 1000)) / 10;
+    private _deadPercentage = (round ((_deadPopulation / _totalPopulation) * 1000)) / 10;
+
+    private _rebText = _display displayCtrl A3A_IDC_POPSTATUSREBTEXT;
+    private _deadText = _display displayCtrl A3A_IDC_POPSTATUSDEADTEXT;
+    _rebText ctrlSetText (str _rebPercentage) + "%";
+    _deadText ctrlSetText (str _deadPercentage) + "%";
+
+
+    _statusBarRebels ctrlSetPosition [0, 0, _rebelsBarWidth, 6 * GRID_H];
+    _statusBarRebels ctrlCommit 0;
+
+    _statusBarDead ctrlSetPosition [_deadBarXpos, 0, _deadBarWidth, 6 * GRID_H];
+    _statusBarDead ctrlCommit 0;
+
+
+    // TODO: Update faction resources section
+
+    // TODO: Update rest section with current ingame time
   };
 
   case ("updateGarrisonTab"):
