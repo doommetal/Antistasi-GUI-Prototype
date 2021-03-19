@@ -345,6 +345,26 @@ class A3A_MainDialog : A3A_TabbedDialog
           h = 12 * GRID_H;
         };
 
+        // Hide top bar checkbox
+        class HideTopBarLabel : A3A_Text
+        {
+          idc = -1;
+          text = "Hide top bar:";
+          x = 98 * GRID_W;
+          y = 47 * GRID_H;
+          w = 26 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class HideTopBarCheckBox :A3A_CheckBox
+        {
+          idc = A3A_IDC_HIDETOPBARCHECKBOX;
+          x = 124 * GRID_W;
+          y = 47 * GRID_H;
+          w = 4 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
         // Vehicle section
         class VehicleSectionLabel : A3A_SectionLabelRight
         {
