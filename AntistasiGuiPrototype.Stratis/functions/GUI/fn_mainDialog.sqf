@@ -24,6 +24,7 @@ Example:
 // disableSerialization; // TODO: Remove when merging
 #include "..\..\GUI\ids.inc"
 #include "..\..\GUI\defines.hpp"
+#include "..\..\GUI\textures.inc"
 
 // Logging
 #define Log_Debug true
@@ -706,10 +707,12 @@ switch (_mode) do
 
     // Hide both group views initially
     private _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
-    private _multipleGroupsBackground = _display displayCtrl A3A_HCMULTIPLEGROUPSBACKGROUND;
+    private _multipleGroupsBackground = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSBACKGROUND;
+    private _multipleGroupsLabel = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSLABEL;
     private _singleGroupView = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
     _multipleGroupsView ctrlShow false;
     _multipleGroupsBackground ctrlShow false;
+    _multipleGroupsView ctrlShow false;
     _singleGroupView ctrlShow false;
 
     // Hide fire mission controlsGroup initially
@@ -741,6 +744,7 @@ switch (_mode) do
       // If exactly 1 HC group is selected show the single group view
       _multipleGroupsView ctrlShow false;
       _multipleGroupsBackground ctrlShow false;
+      _multipleGroupsLabel ctrlShow false;
       _singleGroupView ctrlShow true;
 
       // Hide fire mission button initially
@@ -878,6 +882,7 @@ switch (_mode) do
       _singleGroupView ctrlShow false;
       _multipleGroupsView ctrlShow true;
       _multipleGroupsBackground ctrlShow true;
+      _multipleGroupsLabel ctrlShow true;
 
       // Get data
       private _hcGroupData = _commanderMap getVariable "hcGroupData";
@@ -921,11 +926,14 @@ switch (_mode) do
         _itemControlsGroup ctrlSetPosition [0, _itemYpos, 54 * GRID_W, 14 * GRID_H];
         _itemControlsGroup ctrlCommit 0;
 
+        // background
         private _itemBackground = _display ctrlCreate ["A3A_Background", -1, _itemControlsGroup];
         _itemBackground ctrlSetPosition [0, 0, 54 * GRID_W, 14 * GRID_H];
         _itemBackground ctrlCommit 0;
 
-        private _groupNameLabel = _display ctrlCreate ["A3A_Button_Left", -1, _itemControlsGroup];
+        // Name label / back button
+        // private _groupNameLabel = _display ctrlCreate ["A3A_Button_Left", -1, _itemControlsGroup];
+        private _groupNameLabel = _display ctrlCreate ["A3A_Button", -1, _itemControlsGroup];
         _groupNameLabel setVariable ["groupToSelect", _group];
         _groupNameLabel ctrlAddEventHandler ["ButtonClick", {
           params ["_control"];
@@ -939,6 +947,14 @@ switch (_mode) do
         _groupNameLabel ctrlSetText _groupID;
         _groupNameLabel ctrlCommit 0;
 
+        // Group icon
+        private _ctrlGroupIcon = _display ctrlCreate ["A3A_Picture", -1, _itemControlsGroup];
+        _ctrlGroupIcon ctrlSetPosition [0,0, 6 * GRID_W, 6 * GRID_H];
+        _ctrlGroupIcon ctrlSetText ("\A3\ui_f\data\Map\Markers\NATO\" + _groupIcon);
+        _ctrlGroupIcon ctrlSetTextColor _groupIconColor;
+        _ctrlGroupIcon ctrlCommit 0;
+
+        // Group count, able to combat / alive
         private _groupCountIcon = _display ctrlCreate ["A3A_Picture", -1, _itemControlsGroup];
         _groupCountIcon ctrlSetPosition [2 * GRID_W, 8 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _groupCountIcon ctrlSetText "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
@@ -1027,6 +1043,7 @@ switch (_mode) do
 
       } forEach _hcGroupData;
 
+      // If no high command groups show how to get them
       if (count _hcGroupData < 1) then
       {
         private _noHcGroupsText = _display ctrlCreate ["A3A_StructuredText", -1, _multipleGroupsView];
