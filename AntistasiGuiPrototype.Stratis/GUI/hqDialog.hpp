@@ -92,7 +92,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class ClearTreesIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Move_HQ; // TODO: Make new icon for clear trees
+          text = A3A_Tex_Icon_Clear_Trees;
           x = 8 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -220,8 +220,6 @@ class A3A_HqDialog : A3A_DefaultDialog
               idc = A3A_IDC_CONTROLLEDTOWNSICON;
               text = "\A3\ui_f\data\Map\MapControl\ruin_CA.paa";
               tooltip = "Controlled towns";
-              shadow = 2;
-              colorShadow[] = A3A_COLOR_BLACK;
               x = 32 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -244,8 +242,6 @@ class A3A_HqDialog : A3A_DefaultDialog
               idc = A3A_IDC_CONTROLLEDOUTPOSTSICON;
               text = "\A3\ui_f\data\Map\MapControl\bunker_CA.paa";
               tooltip = "Controlled outposts";
-              shadow = 2;
-              colorShadow[] = A3A_COLOR_BLACK;
               x = 49 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -266,10 +262,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledAirBasesIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDAIRBASESICON;
-              text = "\A3\ui_f\data\Map\VehicleIcons\iconPlane_ca.paa";
+              text = A3A_Tex_Icon_Airbase;
               tooltip = "Controlled airbases";
-              shadow = 2;
-              colorShadow[] = A3A_COLOR_BLACK;
               x = 66 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -292,7 +286,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledResourcesIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDRESOURCESICON;
-              text = "\A3\ui_f\data\Map\LocationTypes\rockArea_CA.paa";
+              text = A3A_Tex_Icon_Resource;
               tooltip = "Controlled resources";
               x = 32 * GRID_W;
               y = 11 * GRID_H;
@@ -314,7 +308,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledFactoriesIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDFACTORIESICON;
-              text = "\A3\ui_f\data\Map\MapControl\stack_CA.paa";
+              text = A3A_Tex_Icon_Factory;
               tooltip = "Controlled factories";
               x = 49 * GRID_W;
               y = 11 * GRID_H;
@@ -336,7 +330,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledPortsIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDPORTSICON;
-              text = "\A3\ui_f\data\Map\VehicleIcons\iconShip_ca.paa";
+              text = A3A_Tex_Icon_Seaport;
               tooltip = "Controlled ports";
               x = 66 * GRID_W;
               y = 11 * GRID_H;

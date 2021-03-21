@@ -62,6 +62,11 @@
 #define A3A_Tex_Icon_Undercover "GUI\textures\icon_undercover.paa"
 #define A3A_Tex_Icon_AP_Minefield "GUI\textures\icon_ap_minefield.paa"
 #define A3A_Tex_Icon_AT_Minefield "GUI\textures\icon_at_minefield.paa"
+#define A3A_Tex_Icon_Airbase "GUI\textures\icon_airbase.paa"
+#define A3A_Tex_Icon_Factory "GUI\textures\icon_factory.paa"
+#define A3A_Tex_Icon_Resource "GUI\textures\icon_resource.paa"
+#define A3A_Tex_Icon_Seaport "GUI\textures\icon_seaport.paa"
+#define A3A_Tex_Icon_Clear_Trees "GUI\textures\icon_clear_trees.paa"
 
 
 // From Arma
