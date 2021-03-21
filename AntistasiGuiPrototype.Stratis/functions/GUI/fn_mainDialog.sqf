@@ -1053,6 +1053,10 @@ switch (_mode) do
       };
 
     };
+
+    // Hide garbage clean controlsGroup group initially
+    _garbageCleanControlsGroup = _display displayCtrl A3A_IDC_GARBAGECLEANCONTROLSGROUP;
+    _garbageCleanControlsGroup ctrlShow false;
   };
 
   case ("updateAdminTab"):
@@ -1660,6 +1664,21 @@ switch (_mode) do
 
     // Update fire mission view to show changes
     ["updateFireMissionView"] call A3A_fnc_mainDialog;
+  };
+
+  case ("showGarbageCleanOptions"):
+  {
+    Trace("Showing garbage clean options");
+    _display = findDisplay A3A_IDD_MainDialog;
+
+    // Hide overlapping buttons
+    _airSupportButton = _display displayCtrl A3A_IDC_AIRSUPPORTBUTTON;
+    _garbageCleanButton = _display displayCtrl A3A_IDC_GARBAGECLEANBUTTON;
+    _airSupportButton ctrlShow false;
+    _garbageCleanButton ctrlShow false;
+    // Show garbage clean controlsGroup
+    _garbageCleanControlsGroup = _display displayCtrl A3A_IDC_GARBAGECLEANCONTROLSGROUP;
+    _garbageCleanControlsGroup ctrlShow true;
   };
 
   // Admin Tab

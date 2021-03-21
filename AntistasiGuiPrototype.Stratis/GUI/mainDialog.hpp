@@ -530,7 +530,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class MultipleGroupsLabel : A3A_SectionLabelRight
         {
-          text = "High command groups"
+          text = "High command groups";
           idc = A3A_IDC_HCMULTIPLEGROUPSLABEL;
           x = 8 * GRID_W;
           y = 8 * GRID_H;
@@ -1116,7 +1116,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class AirSupportButton : A3A_Button
         {
-          idc = -1; // TODO: idc
+          idc = A3A_IDC_AIRSUPPORTBUTTON;
           text = "Air Support";
           onButtonClick = "[""switchTab"", [""airsupport""]] call A3A_fnc_mainDialog;";
           x = 10 * GRID_W;
@@ -1127,13 +1127,50 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class GarbageCleanButton : A3A_ShortcutButton
         {
-          idc = -1;
+          idc = A3A_IDC_GARBAGECLEANBUTTON;
           text = "Garbage Clean";
+          onButtonclick = "[""showGarbageCleanOptions""] call A3A_fnc_mainDialog";
           x = 36 * GRID_W;
           y = 80 * GRID_H;
           w = 24 * GRID_W;
           h = 12 * GRID_H;
         };
+
+        class GarbageCleanControlsGroup : A3A_ControlsGroupNoScrollbars
+        {
+          idc = A3A_IDC_GARBAGECLEANCONTROLSGROUP;
+          x = 10 * GRID_W;
+          y = 80 * GRID_H;
+          w = 50 * GRID_W;
+          h = 12 * GRID_H;
+
+          class controls
+          {
+            class GarbageCleanMapButton : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "Garbage Clean All";
+              onButtonClick = "hint ""Garbage cleaning entire map""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 24 * GRID_W;
+              h = 12 * GRID_H;
+            };
+
+            class GarbageCleanHQButton : A3A_ShortcutButton
+            {
+              idc = -1;
+              text = "Garbage Clean HQ";
+              onButtonClick = "hint ""Garbage cleaning HQ""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
+              x = 26 * GRID_W;
+              y = 0 * GRID_H;
+              w = 24 * GRID_W;
+              h = 12 * GRID_H;
+            };
+
+          };
+        };
+
       };
     };
 
