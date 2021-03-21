@@ -1,4 +1,2 @@
 TODO-LIST:
-- add garbage clean HQ option, should be in commander menu
-- remove add to garrison from ai management
 - give admin tab a makeover

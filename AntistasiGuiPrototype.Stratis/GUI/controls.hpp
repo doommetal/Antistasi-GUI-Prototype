@@ -156,6 +156,11 @@ class A3A_Listbox : A3A_Text
 	};
 };
 
+class A3A_ListboxMulti : A3A_Listbox
+{
+  style = LB_MULTI;
+};
+
 class A3A_ListNBox : A3A_Text
 {
   // Note: Doesn't support background color so that has to be added separately

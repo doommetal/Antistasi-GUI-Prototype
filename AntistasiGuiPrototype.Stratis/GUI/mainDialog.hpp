@@ -1503,105 +1503,131 @@ class A3A_MainDialog : A3A_TabbedDialog
 
       class controls {
 
-        class AiControlIcon : A3A_Picture
+        class AIListLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = A3A_Tex_Icon_Remotecontrol;
-          x = 24 * GRID_W;
-          y = 24 * GRID_H;
+          text = "AI Group members";
+          x = 15 * GRID_W;
+          y = 14 * GRID_H;
+          w = 70 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class ClearAIListSelectionButton : A3A_Button
+        {
+          idc = -1;
+          sizeEx = GUI_TEXT_SIZE_SMALL;
+          text = "CLEAR";
+          tooltip = "Clears list selection";
+          onButtonClick = "[""clearAIListboxSelection""] call A3A_fnc_mainDialog;";
+          x = 85 * GRID_W;
+          y = 14 * GRID_H;
           w = 8 * GRID_W;
-          h = 8 * GRID_H;
+          h = 4 * GRID_H;
         };
 
-        class AiControlButton : A3A_ShortcutButton
+        class AIListBox : A3A_ListBoxMulti
         {
-          idc = -1;
-          text = "Temp. AI Control";
-          x = 36 * GRID_W;
-          y = 22 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
+          idc = A3A_IDC_AILISTBOX;
+          onLBSelChanged = "[""aiListBoxSelectionChanged""] spawn A3A_fnc_MainDialog";
+          x = 15 * GRID_W;
+          y = 18 * GRID_H;
+          w = 78 * GRID_W;
+          h = 68 * GRID_H;
         };
 
-        class AutoLootIcon : A3A_Picture
+        class AIButtonsControlsGroup : A3A_ControlsGroupNoScrollbars
         {
           idc = -1;
-          text = A3A_Tex_Icon_Rearm;
-          x = 24 * GRID_W;
-          y = 46 * GRID_H;
-          w = 8 * GRID_W;
-          h = 8 * GRID_H;
+          x = 101 * GRID_W;
+          y = 14 * GRID_H;
+          w = 44 * GRID_W;
+          h = 72 * GRID_H;
+
+          class controls
+          {
+            class AiControlButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_AICONTROLBUTTON;
+              text = "Temp. AI Control";
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 32 * GRID_W;
+              h = 12 * GRID_H;
+            };
+
+            class AiControlIcon : A3A_Picture
+            {
+              idc = A3A_IDC_AICONTROLICON;
+              text = A3A_Tex_Icon_Remotecontrol;
+              x = 36 * GRID_W;
+              y = 2 * GRID_H;
+              w = 8 * GRID_W;
+              h = 8 * GRID_H;
+            };
+
+            class DismissButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_AIDISMISSBUTTON;
+              text = "Dismiss Unit(s)";
+              x = 0 * GRID_W;
+              y = 20 * GRID_H;
+              w = 32 * GRID_W;
+              h = 12 * GRID_H;
+            };
+
+            class DismissIcon : A3A_Picture
+            {
+              idc = A3A_IDC_AIDISMISSICON;
+              text = A3A_Tex_Icon_Dismiss;
+              x = 36 * GRID_W;
+              y = 22 * GRID_H;
+              w = 8 * GRID_W;
+              h = 8 * GRID_H;
+            };
+
+            class AutoLootButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_AIAUTOLOOTBUTTON;
+              text = "Auto Rearm / Loot";
+              x = 0 * GRID_W;
+              y = 40 * GRID_H;
+              w = 32 * GRID_W;
+              h = 12 * GRID_H;
+            };
+
+            class AutoLootIcon : A3A_Picture
+            {
+              idc = A3A_IDC_AIAUTOLOOTICON;
+              text = A3A_Tex_Icon_Rearm;
+              x = 36 * GRID_W;
+              y = 42 * GRID_H;
+              w = 8 * GRID_W;
+              h = 8 * GRID_H;
+            };
+
+            class AutoHealButton : A3A_ShortcutButton
+            {
+              idc = A3A_IDC_AIAUTOHEALBUTTON;
+              text = "Auto Heal";
+              x = 0 * GRID_W;
+              y = 60 * GRID_H;
+              w = 32 * GRID_W;
+              h = 12 * GRID_H;
+            };
+
+            class AutoHealIcon : A3A_Picture
+            {
+              idc = A3A_IDC_AIAUTOHEALICON;
+              text = A3A_Tex_Icon_Heal;
+              x = 36 * GRID_W;
+              y = 62 * GRID_H;
+              w = 8 * GRID_W;
+              h = 8 * GRID_H;
+            };
+          };
         };
 
-        class AutoLootButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Auto Rearm / Loot";
-          x = 36 * GRID_W;
-          y = 44 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class AutoHealIcon : A3A_Picture
-        {
-          idc = -1;
-          text = A3A_Tex_Icon_Heal;
-          x = 24 * GRID_W;
-          y = 68 * GRID_H;
-          w = 8 * GRID_W;
-          h = 8 * GRID_H;
-        };
-
-        class AutoHealButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Auto Heal";
-          x = 36 * GRID_W;
-          y = 66 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class GarrisonIcon : A3A_Picture
-        {
-          idc = -1;
-          text = A3A_Tex_Icon_Add_Garrison;
-          x = 128 * GRID_W;
-          y = 34 * GRID_H;
-          w = 8 * GRID_W;
-          h = 8 * GRID_H;
-        };
-
-        class GarrisonButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Garrison Unit(s)";
-          x = 92 * GRID_W;
-          y = 32 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
-        };
-
-        class DismissIcon : A3A_Picture
-        {
-          idc = -1;
-          text = A3A_Tex_Icon_Dismiss;
-          x = 128 * GRID_W;
-          y = 60 * GRID_H;
-          w = 8 * GRID_W;
-          h = 8 * GRID_H;
-        };
-
-        class DismissButton : A3A_ShortcutButton
-        {
-          idc = -1;
-          text = "Dismiss Unit(s)";
-          x = 92 * GRID_W;
-          y = 58 * GRID_H;
-          w = 32 * GRID_W;
-          h = 12 * GRID_H;
-        };
       };
     };
 
