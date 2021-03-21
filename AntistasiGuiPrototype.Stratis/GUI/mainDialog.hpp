@@ -1191,11 +1191,10 @@ class A3A_MainDialog : A3A_TabbedDialog
           h = 4 * GRID_H;
         };
 
-        class DebugInfoPlaceholder : A3A_StructuredText
+        class DebugInfoText : A3A_StructuredText
         {
           idc = A3A_IDC_DEBUGINFO;
           colorBackground[] = A3A_COLOR_BACKGROUND;
-          // font = "EtelkaMonospacePro"; // Maybe this dont work with structured text?
           x = 8 * GRID_W;
           y = 12 * GRID_H;
           w = 48 * GRID_W;
@@ -1356,23 +1355,33 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiSectionWarningBackground : A3A_Background
         {
           idc = -1;
+          colorBackground[] = {0,0,0,0.6};
           x = 75 * GRID_W;
           y = 37 * GRID_H;
           w = 52 * GRID_W;
           h = 10 * GRID_H;
         };
 
+        class AiSectionWarningIcon : A3A_Picture
+        {
+          idc = -1;
+          text = A3A_Tex_Icon_Warning;
+          colorText[] = A3A_COLOR_ERROR;
+          x = 76 * GRID_W;
+          y = 38 * GRID_H;
+          w = 8 * GRID_W;
+          h = 8 * GRID_H;
+        };
+
         class AiSectionWarning : A3A_TextMulti
         {
           idc = -1;
-          style = "0x02 + 0x10 + 0x0200"; // ST_CENTER + ST_MULTI
           text = "BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.";
           sizeEx = GUI_TEXT_SIZE_SMALL;
           font = "PuristaLight";
-          shadow = 2;
-          x = 75 * GRID_W;
+          x = 85 * GRID_W;
           y = 37 * GRID_H;
-          w = 52 * GRID_W;
+          w = 42 * GRID_W;
           h = 10 * GRID_H;
         };
 

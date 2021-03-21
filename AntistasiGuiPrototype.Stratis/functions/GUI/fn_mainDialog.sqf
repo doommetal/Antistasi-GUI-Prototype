@@ -1498,6 +1498,7 @@ switch (_mode) do
     _backButton ctrlShow true;
 
     private _listBox = _display displayCtrl A3A_IDC_ADMINPLAYERLIST;
+    lbClear _listBox;
     {
       private _name = name _x;
       private _isMember = _x getVariable "isMember";

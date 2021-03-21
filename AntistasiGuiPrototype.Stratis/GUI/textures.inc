@@ -71,8 +71,7 @@
 #define A3A_Tex_Icon_Remotecontrol "\a3\modules_f_curator\data\portraitremotecontrol_ca.paa"
 #define A3A_Tex_Icon_Rearm "\A3\Ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa"
 #define A3A_Tex_Icon_Heal "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa"
-
-
+#define A3A_Tex_Icon_Warning "\A3\Ui_f\data\Map\Markers\Military\warning_CA.paa"
 
 // Debug stuff
 // TODO: Remove when merging

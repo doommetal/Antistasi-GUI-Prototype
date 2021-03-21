@@ -1,2 +1,2 @@
 TODO-LIST:
-- give admin tab a makeover
+- remove borders on ai management list
