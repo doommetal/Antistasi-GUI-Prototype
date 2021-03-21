@@ -44,7 +44,6 @@ eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
 canGoUndercover = false;
 canFastTravel = true;
 canConstruct = true;
-canManageAI = true;
 factionMoney = 10000;
 playerIsCommander = true;
 playerIsAdmin = true;

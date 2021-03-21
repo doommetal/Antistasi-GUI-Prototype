@@ -486,14 +486,10 @@ switch (_mode) do
       _undercoverButton ctrlEnable true;
       _undercoverButton ctrlSetTooltip "";
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
-      _undercoverIcon ctrlSetFade 0;
-      _undercoverIcon ctrlCommit 0;
     } else {
       _undercoverButton ctrlEnable false;
       _undercoverButton ctrlSetTooltip "Can't go undercover\n\nIllegal items visible\nYou have been reported by the enemy";
-      _undercoverIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
-      _undercoverIcon ctrlSetFade 0.5;
-      _undercoverIcon ctrlCommit 0;
+      _undercoverIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
     // Fasttravel
@@ -505,14 +501,10 @@ switch (_mode) do
       _fastTravelButton ctrlEnable true;
       _fastTravelButton ctrlSetTooltip "";
       _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
-      _fastTravelIcon ctrlSetFade 0;
-      _fastTravelIcon ctrlCommit 0;
     } else {
       _fastTravelButton ctrlEnable false;
       _fastTravelButton ctrlSetTooltip "Can't fast travel\n\nEnemies nearby\nPetros broke your legs";
-      _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
-      _fastTravelIcon ctrlSetFade 0.5;
-      _fastTravelIcon ctrlCommit 0;
+      _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
     // Construct
@@ -524,33 +516,47 @@ switch (_mode) do
       _constructButton ctrlEnable true;
       _constructButton ctrlSetTooltip "";
       _constructIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
-      _constructIcon ctrlSetFade 0;
-      _constructIcon ctrlCommit 0;
     } else {
       _constructButton ctrlEnable false;
       _constructButton ctrlSetTooltip "Can't make constructions\n\nYou need an engineer in your squad";
-      _constructIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
-      _constructIcon ctrlSetFade 0.5;
-      _constructIcon ctrlCommit 0;
+      _constructIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
     // AI Management
-    // TODO: Get actual reason for no construction and display in tooltip
+    _aiManagementTooltipText = "";
+    _canManageAi = false;
+
+    // Check if AI Management is available
+    switch (true) do
+    {
+      case !(leader player == player):
+      {
+        _aiManagementTooltipText = "Only available to squad leaders";
+      };
+
+      case ({!isPlayer _x} count units group player < 1):
+      {
+        _aiManagementTooltipText = "Needs AI group members\nYou can recruit them at the flag";
+      };
+
+      default
+      {
+        _canManageAi = true;
+      };
+    };
+
     private _aiManagementButton = _display displayCtrl A3A_IDC_AIMANAGEMENTBUTTON;
     private _aiManagementIcon = _display displayCtrl A3A_IDC_AIMANAGEMENTICON;
-    if (canManageAI) then
+
+    if (_canManageAi) then
     {
       _aiManagementButton ctrlEnable true;
       _aiManagementButton ctrlSetTooltip "";
       _aiManagementIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
-      _aiManagementIcon ctrlSetFade 0;
-      _aiManagementIcon ctrlCommit 0;
     } else {
       _aiManagementButton ctrlEnable false;
-      _aiManagementButton ctrlSetTooltip "Can't manage AI\n\nYou have no AIs in your squad";
-      _aiManagementIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
-      _aiManagementIcon ctrlSetFade 0.5;
-      _aiManagementIcon ctrlCommit 0;
+      _aiManagementButton ctrlSetTooltip _aiManagementTooltipText;
+      _aiManagementIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
 
@@ -1553,7 +1559,7 @@ switch (_mode) do
     } else {
       _aiControlButton ctrlEnable false;
       _aiControlButton ctrlSetTooltip "You can only remote control single units\nSelect exactly one AI in the list";
-      _aiControlIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
+      _aiControlIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
     // If none are selected, disable all the other buttons
@@ -1577,13 +1583,13 @@ switch (_mode) do
     } else {
       _aiDismissButton ctrlEnable false;
       _aiDismissButton ctrlSetTooltip "Select AI in the list";
-      _aiDismissIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
+      _aiDismissIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
       _aiAutoLootButton ctrlEnable false;
       _aiAutoLootButton ctrlSetTooltip "Select AI in the list";
-      _aiAutoLootIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
+      _aiAutoLootIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
       _aiAutoHealButton ctrlEnable false;
       _aiAutoHealButton ctrlSetTooltip "Select AI in the list";
-      _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_ERROR] call A3A_fnc_configColorToArray);
+      _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
   };
 
