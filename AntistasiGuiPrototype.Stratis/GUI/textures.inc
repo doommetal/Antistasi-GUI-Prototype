@@ -62,6 +62,8 @@
 #define A3A_Tex_Icon_Undercover "GUI\textures\icon_undercover.paa"
 #define A3A_Tex_Icon_AP_Minefield "GUI\textures\icon_ap_minefield.paa"
 #define A3A_Tex_Icon_AT_Minefield "GUI\textures\icon_at_minefield.paa"
+#define A3A_Tex_Icon_Town "GUI\textures\icon_town.paa"
+#define A3A_Tex_Icon_Outpost "GUI\textures\icon_outpost.paa"
 #define A3A_Tex_Icon_Airbase "GUI\textures\icon_airbase.paa"
 #define A3A_Tex_Icon_Factory "GUI\textures\icon_factory.paa"
 #define A3A_Tex_Icon_Resource "GUI\textures\icon_resource.paa"

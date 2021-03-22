@@ -218,7 +218,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledTownsIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDTOWNSICON;
-              text = "\A3\ui_f\data\Map\MapControl\ruin_CA.paa";
+              text = A3A_Tex_Icon_Town;
               tooltip = "Controlled towns";
               x = 32 * GRID_W;
               y = 6 * GRID_H;
@@ -240,7 +240,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledOutpostsIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDOUTPOSTSICON;
-              text = "\A3\ui_f\data\Map\MapControl\bunker_CA.paa";
+              text = A3A_Tex_Icon_Outpost;
               tooltip = "Controlled outposts";
               x = 49 * GRID_W;
               y = 6 * GRID_H;
