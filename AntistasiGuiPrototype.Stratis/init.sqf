@@ -31,7 +31,7 @@ eventHandlerY = findDisplay 46 displayAddEventHandler ["KeyDown",{
 // U
 eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
   if (_this select 1 == 22) then {
-    if (!dialog) then {createDialog "A3A_TestDefaultDialog";};
+    if (!dialog) then {createDialog "A3A_TestStartDialog";};
   };
 }];
 

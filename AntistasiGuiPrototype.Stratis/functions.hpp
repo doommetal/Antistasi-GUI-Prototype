@@ -14,6 +14,7 @@ class A3A
 
     // TODO: Test stuff, remove when merging
     class testTabbedDialog {};
+    class testStartDialog {};
   };
 
   class Environment

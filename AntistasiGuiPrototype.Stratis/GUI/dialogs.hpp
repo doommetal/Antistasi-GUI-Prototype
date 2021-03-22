@@ -15,6 +15,7 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 // TODO: Test stuff, remove when merging
 #include "testTabbedDialog.hpp"
 #include "testDefaultDialog.hpp"
+#include "testStartDialog.hpp"
 
 // Standard size dialogs first, else subsequent defines mess them up
 #include "mainDialog.hpp"
