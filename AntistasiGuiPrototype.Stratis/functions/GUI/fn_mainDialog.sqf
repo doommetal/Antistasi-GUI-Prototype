@@ -1610,6 +1610,7 @@ switch (_mode) do
     private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     private _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
+    _moneyEditBox ctrlSetText str _moneyEditBoxValue; // Strips non-numeric characters
     if (_moneyEditBoxValue < 0) then {_moneyEditBox ctrlSetText str 0};
     if (_moneyEditBoxValue > _money) then {_moneyEditBox ctrlSetText str _money};
     _moneySlider sliderSetPosition _moneyEditBoxValue;
@@ -1818,6 +1819,7 @@ switch (_mode) do
     private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
     private _civLimitSlider = _display displayCtrl A3A_IDC_CIVLIMITSLIDER;
     private _civLimitEditBoxValue = floor parseNumber ctrlText _civLimitEditBox;
+    _civLimitEditBox ctrlSetText str _civLimitEditBoxValue;  // Strips non-numeric characters
     _civLimitSlider sliderSetPosition _civLimitEditBoxValue;
     if (_civLimitEditBoxValue < civLimitMin) then {_civLimitEditBox ctrlSetText str civLimitMin};
     if (_civLimitEditBoxValue > civLimitMax) then {_civLimitEditBox ctrlSetText str civLimitMax};
@@ -1838,6 +1840,7 @@ switch (_mode) do
     private _spawnDistanceEditBox = _display displayCtrl A3A_IDC_SPAWNDISTANCEEDITBOX;
     private _spawnDistanceSlider = _display displayCtrl A3A_IDC_SPAWNDISTANCESLIDER;
     private _spawnDistanceEditBoxValue = floor parseNumber ctrlText _spawnDistanceEditBox;
+    _spawnDistanceEditBox ctrlSetText str _spawnDistanceEditBoxValue; // Strips non-numeric characters
     _spawnDistanceSlider sliderSetPosition _spawnDistanceEditBoxValue;
     if (_spawnDistanceEditBoxValue < spawnDistanceMin) then {_spawnDistanceEditBox ctrlSetText str spawnDistanceMin};
     if (_spawnDistanceEditBoxValue > spawnDistanceMax) then {_spawnDistanceEditBox ctrlSetText str spawnDistanceMax};
@@ -1858,6 +1861,7 @@ switch (_mode) do
     private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
     private _aiLimiterSlider = _display displayCtrl A3A_IDC_AILIMITERSLIDER;
     private _aiLimiterEditBoxValue = floor parseNumber ctrlText _aiLimiterEditBox;
+    _aiLimiterEditBox ctrlSetText str _aiLimiterEditBoxValue; // Strips non-numeric characters
     _aiLimiterSlider sliderSetPosition _aiLimiterEditBoxValue;
     if (_aiLimiterEditBoxValue < aiLimiterMin) then {_aiLimiterEditBox ctrlSetText str aiLimiterMin};
     if (_aiLimiterEditBoxValue > aiLimiterMax) then {_aiLimiterEditBox ctrlSetText str aiLimiterMax};

@@ -595,7 +595,7 @@ class A3A_HqDialog : A3A_DefaultDialog
               y = 24 * GRID_H;
               w = 16 * GRID_W;
               h = 4 * GRID_H;
-              onKeyDown = "[""factionMoneyEditBoxChanged""] spawn A3A_fnc_hqDialog";
+              onChar = "[""factionMoneyEditBoxChanged""] spawn A3A_fnc_hqDialog";
             };
 
             class FactionMoneyButton : A3A_Button

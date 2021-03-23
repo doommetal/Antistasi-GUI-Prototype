@@ -306,7 +306,7 @@ switch (_mode) do
 
     private _factionMoney = server getVariable ["resourcesFIA", 0];
     private _factionMoneyText = _display displayCtrl A3A_IDC_FACTIONMONEYTEXT;
-    _factionMoneyText ctrlSetText format ["%1 €"];
+    _factionMoneyText ctrlSetText format ["%1 €", _factionMoney];
 
 
     // TODO: Update rest section with current ingame time
@@ -396,6 +396,7 @@ switch (_mode) do
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
     private _factionMoneyEditBoxValue = floor parseNumber ctrlText _factionMoneyEditBox;
     private _factionMoney = server getVariable ["resourcesFIA", 0];
+    _factionMoneyEditBox ctrlSetText str _factionMoneyEditBoxValue; // Strips non-numeric characters
     _factionMoneySlider sliderSetPosition _factionMoneyEditBoxValue;
     if (_factionMoneyEditBoxValue < 0) then {_factionMoneyEditBox ctrlSetText str 0};
     if (_factionMoneyEditBoxValue > _factionMoney) then {_factionMoneyEditBox ctrlSetText str _factionMoney};

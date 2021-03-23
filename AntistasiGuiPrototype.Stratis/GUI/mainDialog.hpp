@@ -1268,7 +1268,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 16 * GRID_H;
           w = 40 * GRID_W;
           h = 4 * GRID_H;
-          onSliderPosChanged = "[""civLimitSliderChanged""] call A3A_fnc_mainDialog";
+          onSliderPosChanged = "[""civLimitSliderChanged""] spawn A3A_fnc_mainDialog";
         };
 
         class CivLimitEditBox : A3A_Edit
@@ -1281,7 +1281,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 16 * GRID_H;
           w = 12 * GRID_W;
           h = 4 * GRID_H;
-          onKeyDown = "[""civLimitEditBoxChanged""] call A3A_fnc_mainDialog";
+          onChar = "[""civLimitEditBoxChanged""] spawn A3A_fnc_mainDialog";
         };
 
         class SpawnDistanceLabel : A3A_Text
@@ -1302,7 +1302,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 22 * GRID_H;
           w = 40 * GRID_W;
           h = 4 * GRID_H;
-          onSliderPosChanged = "[""spawnDistanceSliderChanged""] call A3A_fnc_mainDialog";
+          onSliderPosChanged = "[""spawnDistanceSliderChanged""] spawn A3A_fnc_mainDialog";
         };
 
         class SpawnDistanceEditBox : A3A_Edit
@@ -1315,7 +1315,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 22 * GRID_H;
           w = 12 * GRID_W;
           h = 4 * GRID_H;
-          onKeyDown = "[""spawnDistanceEditBoxChanged""] call A3A_fnc_mainDialog";
+          onChar = "[""spawnDistanceEditBoxChanged""] spawn A3A_fnc_mainDialog";
         };
 
         class AiLimiterLabel : A3A_Text
@@ -1336,7 +1336,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 28 * GRID_H;
           w = 40 * GRID_W;
           h = 4 * GRID_H;
-          onSliderPosChanged = "[""aiLimiterSliderChanged""] call A3A_fnc_mainDialog";
+          onSliderPosChanged = "[""aiLimiterSliderChanged""] spawn A3A_fnc_mainDialog";
         };
 
         class AiLimiterEditBox : A3A_Edit
@@ -1349,7 +1349,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 28 * GRID_H;
           w = 12 * GRID_W;
           h = 4 * GRID_H;
-          onKeyDown = "[""aiLimiterEditBoxChanged""] call A3A_fnc_mainDialog";
+          onChar = "[""aiLimiterEditBoxChanged""] spawn A3A_fnc_mainDialog";
         };
 
         class AiSectionWarningBackground : A3A_Background
@@ -1702,7 +1702,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 40 * GRID_H;
           w = 16 * GRID_W;
           h = 6 * GRID_H;
-          onKeyDown = "[""donationEditBoxChanged""] spawn A3A_fnc_mainDialog";
+          onChar = "[""moneyEditBoxChanged""] spawn A3A_fnc_mainDialog";
         };
 
         class EuroLabel : A3A_Text
