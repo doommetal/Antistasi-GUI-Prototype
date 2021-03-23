@@ -37,11 +37,31 @@ switch (_mode) do
   case ("update"):
   {
     Trace("Updating admin tab");
-    // TODO: Get debug info
-    // TODO: Get current AI settings
-
-    // TODO, change this to get server values instead when merging
     private _display = findDisplay A3A_IDD_MainDialog;
+    // Update AI limit settings
+    _civLimitSlider = _display displayCtrl A3A_IDC_CIVLIMITSLIDER;
+    _civLimitSlider sliderSetRange [civLimitMin,civLimitMax];
+    _civLimitSlider sliderSetSpeed [10, 10];
+    _civLimit = missionNamespace getVariable ["civPerc",0];
+    _civLimitSlider sliderSetPosition _civLimit;
+    ctrlSetText [A3A_IDC_CIVLIMITEDITBOX, str _civLimit];
+
+    _spawnDistanceSlider = _display displayCtrl A3A_IDC_SPAWNDISTANCESLIDER;
+    _spawnDistanceSlider sliderSetRange [spawnDistanceMin,spawnDistanceMax];
+    _spawnDistanceSlider sliderSetSpeed [100, 100];
+    _spawnDistance = missionNamespace getVariable ["distanceSPWN",0];
+    _spawnDistanceSlider sliderSetPosition _spawnDistance;
+    ctrlSetText [A3A_IDC_SPAWNDISTANCEEDITBOX, str _spawnDistance];
+
+    _aiLimiterSlider = _display displayCtrl A3A_IDC_AILIMITERSLIDER;
+    _aiLimiterSlider sliderSetRange [civLimitMin,civLimitMax];
+    _aiLimiterSlider sliderSetSpeed [10, 10];
+    _aiLimiter = missionNamespace getVariable ["maxUnits",0];
+    _aiLimiterSlider sliderSetPosition _aiLimiter;
+    ctrlSetText [A3A_IDC_AILIMITEREDITBOX, str _aiLimiter];
+
+    // Get Debug info
+    // TODO, change this to get server values instead when merging
     private _debugText = _display displayCtrl A3A_IDC_DEBUGINFO;
     private _time = [time / 3600, "ARRAY"] call BIS_fnc_timeToString;
     private _missionTime = format["%1h%2m%3s", _time # 0, _time # 1, _time # 2];
@@ -157,23 +177,31 @@ switch (_mode) do
 
   case ("confirmAILimit"):
   {
-      _display = findDisplay A3A_IDD_MainDialog;
-      _commitAiButton = _display displayCtrl A3A_IDC_COMMITAIBUTTON;
-      _commitAiButton ctrlRemoveAllEventHandlers "ButtonClick";
-      _commitAiButton ctrlSetText "Confirm";
-      _commitAiButton ctrlAddEventHandler ["ButtonClick", {
+    Trace("Showing AI Settings confirm button");
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _commitAiButton = _display displayCtrl A3A_IDC_COMMITAIBUTTON;
+    _commitAiButton ctrlRemoveAllEventHandlers "ButtonClick";
+    _commitAiButton ctrlSetText "Confirm";
+    _commitAiButton ctrlAddEventHandler ["ButtonClick", {
+      Trace("Confirmed AI Settings");
       hint "Oh no you broke the server :(";
 
-      // TODO: Update routine for merging
-      /* private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
+      private _display = findDisplay A3A_IDD_MainDialog;
+      private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
       private _civPerc = floor parseNumber ctrlText _civLimitEditBox;
       private _spawnDistanceEditBox = _display displayCtrl A3A_IDC_SPAWNDISTANCEEDITBOX;
       private _distanceSPWN = floor parseNumber ctrlText _spawnDistanceEditBox;
       private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
       private _maxUnits = floor parseNumber ctrlText _aiLimiterEditBox;
 
-      // Something like this but with "set" ?
-      [player,"maxUnits","increase"] remoteExecCall ["A3A_fnc_HQGameOptions",2]; */
+      // TODO: Change when merging. Something like this but with "set" instead of "increase"?
+      // [player,"maxUnits","increase"] remoteExecCall ["A3A_fnc_HQGameOptions",2];
+
+      // TODO: Placeholder routine, don't merge! Has no security checks whatsoever
+      Trace_3("Changing AI Settings - civPerc:%1, distanceSPWN:%2, maxUnits:%3", _civPerc, _distanceSPWN, _maxUnits);
+      missionNamespace setVariable ["civPerc", _civPerc];
+      missionNamespace setVariable ["distanceSPWN", _distanceSPWN];
+      missionNamespace setVariable ["maxUnits", _maxUnits];
 
 
       closeDialog 2;

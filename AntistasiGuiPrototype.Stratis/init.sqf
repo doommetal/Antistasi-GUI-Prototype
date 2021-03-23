@@ -70,13 +70,16 @@ playerIsAdmin = true;
 // tierWar
 
 // TODO: Replace this with A3A_fnc_HQGameOptions
-civLimit = 40; // missionNamespace getVariable ["civPerc",0];
+//civLimit = 40; // missionNamespace getVariable ["civPerc",0];
+missionNamespace setVariable ["civPerc", 40, true];
 civLimitMin = 0;
 civLimitMax = 200;
-spawnDistance = 1000; // missionNamespace getVariable ["distanceSPWN",0];
+// spawnDistance = 1000; // missionNamespace getVariable ["distanceSPWN",0];
+missionNamespace setVariable ["distanceSPWN", 1000, true];
 spawnDistanceMin = 100;
 spawnDistanceMax = 12000;
-aiLimiter = 100; // missionNamespace getVariable ["maxUnits",0];
+// aiLimiter = 100; // missionNamespace getVariable ["maxUnits",0];
+missionNamespace setVariable ["maxUnits", 100, true];
 aiLimiterMin = 0;
 aiLimiterMax = 200;
 

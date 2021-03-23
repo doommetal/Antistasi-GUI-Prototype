@@ -293,28 +293,6 @@ switch (_mode) do
 
     Debug_1("Adding HC group selection Draw EH to commander map: %1", _selectEH);
 
-
-    // Admin tab
-
-    // AI options section setup
-    _civLimitSlider = _display displayCtrl A3A_IDC_CIVLIMITSLIDER;
-    _civLimitSlider sliderSetRange [civLimitMin,civLimitMax];
-    _civLimitSlider sliderSetSpeed [10, 10];
-    _civLimitSlider sliderSetPosition civLimit;
-    ctrlSetText [A3A_IDC_CIVLIMITEDITBOX, str civLimit];
-
-    _spawnDistanceSlider = _display displayCtrl A3A_IDC_SPAWNDISTANCESLIDER;
-    _spawnDistanceSlider sliderSetRange [spawnDistanceMin,spawnDistanceMax];
-    _spawnDistanceSlider sliderSetSpeed [100, 100];
-    _spawnDistanceSlider sliderSetPosition spawnDistance;
-    ctrlSetText [A3A_IDC_SPAWNDISTANCEEDITBOX, str spawnDistance];
-
-    _aiLimiterSlider = _display displayCtrl A3A_IDC_AILIMITERSLIDER;
-    _aiLimiterSlider sliderSetRange [civLimitMin,civLimitMax];
-    _aiLimiterSlider sliderSetSpeed [10, 10];
-    _aiLimiterSlider sliderSetPosition aiLimiter;
-    ctrlSetText [A3A_IDC_AILIMITEREDITBOX, str aiLimiter];
-
     Debug("MainDialog onLoad complete.");
   };
 
