@@ -15,6 +15,13 @@ class A3A
     class hqDialog {};
     class buyVehicleDialog {};
 
+    // Map drawing event handlers
+    class fireMissionEH {};
+    class hcGroupsEH {};
+    class hcSelectEH {};
+    class outpostMarkersEH {};
+    class outpostSelectEH {};
+
     // Utility functions
     class configColorToArray {};
     class getVehicleCrewCount {};

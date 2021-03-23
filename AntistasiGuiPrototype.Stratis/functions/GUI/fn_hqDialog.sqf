@@ -105,25 +105,7 @@ switch (_mode) do
     _garrisonMap setVariable ["outpostIconData", _outpostIconData];
 
     // Draw EH for outpost icons
-    _garrisonMap ctrlAddEventHandler ["Draw",{
-      private _display = findDisplay A3A_IDD_HqDialog;
-      private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
-      private _outpostIconData = _garrisonMap getVariable "outpostIconData";
-      {
-        _x params ["_name", "_pos", "_icon", "_color"];
-        _garrisonMap drawIcon [
-          _icon, // texture
-          _color,
-          _pos,
-          32, // width
-          32, // height
-          0, // angle
-          _name, // text
-          2 // shadow (outline if 2)
-        ];
-      } forEach _outpostIconData;
-    }];
-
+    _garrisonMap ctrlAddEventHandler ["Draw","call A3A_fnc_outpostMarkersEH"];
 
     Debug("HqDialog onLoad complete.");
   };
@@ -472,31 +454,7 @@ switch (_mode) do
     };
 
     // Draw EH for the selection marker
-    _selectEH = _garrisonMap ctrlAddEventHandler ["Draw",{
-      private _garrisonMap = _this select 0;
-      private _data = _garrisonMap getVariable "data";
-      _data params ["_position", "_radius", "_dir"];
-      if (_dir == 0) then {
-        _radius = _radius - 0.5;
-        if (_radius < 48) then {
-          _dir = 1; // Reverse direction
-        };
-      } else {
-        _radius = _radius + 0.5;
-        if (_radius > 64) then {
-          _dir = 0;
-        };
-      };
-      _garrisonMap setVariable["data", [_position, _radius, _dir]];
-      _garrisonMap drawIcon [
-         "\A3\ui_f\data\IGUI\Cfg\Cursors\selectOver_ca.paa",
-        [1,1,1,0.75],
-        _position,
-        _radius,
-        _radius,
-        0
-      ];
-    }];
+    _selectEH = _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_outpostSelectEH"];
 
     // Save the selection Draw EH to the map control
     _garrisonMap setVariable ["selectEH", _selectEH];
