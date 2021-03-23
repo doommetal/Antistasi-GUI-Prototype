@@ -54,7 +54,7 @@ switch (_mode) do
     _moveHqIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     private _moveHqButton = _display displayCtrl A3A_IDC_MOVEHQBUTTON;
     _moveHqButton ctrlEnable false;
-    _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first";
+    _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first"; // TODO: localize
 
     // Faction money section setup
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
@@ -341,15 +341,15 @@ switch (_mode) do
     private _restTimeString = "";
     // correct grammar up in this motherfucker
     if (_hours == 1 and _minutes == 1) then {
-      _restTimeString = format ["%1 hour, %1 minute", _hours, _minutes];
+      _restTimeString = format ["%1 hour, %1 minute", _hours, _minutes]; // TODO: localize
     } else {
       if (_hours == 1) then {
-        _restTimeString = format ["%1 hour, %2 minutes", _hours, _minutes];
+        _restTimeString = format ["%1 hour, %2 minutes", _hours, _minutes]; // TODO: localize
       } else {
         if (_minutes == 1) then {
-          _restTimeString = format ["%1 hours, %2 minute", _hours, _minutes];
+          _restTimeString = format ["%1 hours, %2 minute", _hours, _minutes]; // TODO: localize
         } else {
-          _restTimeString = format ["%1 hours, %2 minutes", _hours, _minutes];
+          _restTimeString = format ["%1 hours, %2 minutes", _hours, _minutes]; // TODO: localize
         };
       };
     };
@@ -358,7 +358,7 @@ switch (_mode) do
       _postRestTime = _postRestTime - 24;
     };
     private _postRestTimeString = [_postRestTime, "HH:MM"] call BIS_fnc_timeToString;
-    private _message = format ["Rest for %1.<br />Time will be %2 when you wake up.", _restTimeString, _postRestTimeString];
+    private _message = format ["Rest for %1.<br />Time will be %2 when you wake up.", _restTimeString, _postRestTimeString]; // TODO: localize
     _restText ctrlSetStructuredText parseText _message;
   };
 

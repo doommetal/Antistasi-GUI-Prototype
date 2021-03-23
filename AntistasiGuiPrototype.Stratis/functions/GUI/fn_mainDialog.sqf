@@ -46,7 +46,7 @@ switch (_mode) do
     if (!playerIsCommander) then {
       private _commanderTabButton = _display displayCtrl A3A_IDC_CommanderTabButton;
       _commanderTabButton ctrlEnable false;
-      _commanderTabButton ctrlSetTooltip "Only the commander can access the commander tab";
+      _commanderTabButton ctrlSetTooltip "Only the commander can access the commander tab"; // TODO: localize
     };
 
     if (!playerIsAdmin) then {

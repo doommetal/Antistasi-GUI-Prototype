@@ -1,2 +1,3 @@
 TODO-LIST:
+- fix RscControlsGroupNoScrollbars in fn_buyVehicleDialog.sqf
 - remove borders on ai management list

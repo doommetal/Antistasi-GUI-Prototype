@@ -59,6 +59,7 @@ switch (_mode) do
     // If there are no AI just add a message and disable the listBox
     if (count _aisInGroup < 1) then
     {
+      // This should not happen, the button on the playertab is disabled if you have no AI
       _aiListBox ctrlEnable false;
       _aiListBox lbAdd "No AIs in group. You can recruit them at the flag.";
     } else {
@@ -124,7 +125,7 @@ switch (_mode) do
       _aiControlIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _aiControlButton ctrlEnable false;
-      _aiControlButton ctrlSetTooltip "You can only remote control single units\nSelect exactly one AI in the list";
+      _aiControlButton ctrlSetTooltip "You can only remote control single units\nSelect exactly one AI in the list"; // TODO: localize
       _aiControlIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
@@ -148,13 +149,13 @@ switch (_mode) do
       _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _aiDismissButton ctrlEnable false;
-      _aiDismissButton ctrlSetTooltip "Select AI in the list";
+      _aiDismissButton ctrlSetTooltip "Select AI in the list"; // TODO: localize
       _aiDismissIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
       _aiAutoLootButton ctrlEnable false;
-      _aiAutoLootButton ctrlSetTooltip "Select AI in the list";
+      _aiAutoLootButton ctrlSetTooltip "Select AI in the list"; // TODO: localize
       _aiAutoLootIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
       _aiAutoHealButton ctrlEnable false;
-      _aiAutoHealButton ctrlSetTooltip "Select AI in the list";
+      _aiAutoHealButton ctrlSetTooltip "Select AI in the list"; // TODO: localize
       _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
   };

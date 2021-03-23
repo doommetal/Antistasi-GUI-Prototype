@@ -15,7 +15,7 @@ class A3A_MainDialog : A3A_TabbedDialog
     class TitlebarText : A3A_Text
     {
       idc = A3A_IDC_MainDialogTitleBar;
-      text = "Main Menu";
+      text = $STR_antistasi_dialogs_radio_comm; // TODO: localize
       x = DIALOG_X;
       y = DIALOG_Y - 8 * GRID_H;
       w = DIALOG_W * GRID_W;
@@ -35,7 +35,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class PlayerTabButton : A3A_Button
         {
           idc = A3A_IDC_PlayerTabButton;
-          text = "Player";
+          text = "Player"; // TODO: localize
           onButtonClick = "[""switchTab"", [""player""]] call A3A_fnc_mainDialog;";
           x = 0;
           y = 0;
@@ -46,7 +46,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CommanderTabButton : A3A_Button
         {
           idc = A3A_IDC_CommanderTabButton;
-          text = "Commander";
+          text = "Commander"; // TODO: localize
           onButtonClick = "[""switchTab"", [""commander""]] call A3A_fnc_mainDialog;";
           x = 30 * GRID_W;
           y = 0;
@@ -57,7 +57,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AdminTabButton : A3A_Button
         {
           idc = A3A_IDC_AdminTabButton;
-          text = "Admin";
+          text = "Admin"; // TODO: localize
           onButtonClick = "[""switchTab"", [""admin""]] call A3A_fnc_mainDialog;";
           x = 60 * GRID_W;
           y = 0;
@@ -118,7 +118,8 @@ class A3A_MainDialog : A3A_TabbedDialog
         class FastTravelButton : A3A_Button
         {
           idc = A3A_IDC_FASTTRAVELBUTTON;
-          text = "Fast Travel"; // TODO: localize
+          text = $STR_antistasi_dialogs_radio_comm_fast_travel; // TODO: localize
+          tooltip = $STR_antistasi_dialogs_radio_comm_fast_travel_tooltip; // TODO: localize
           onButtonClick = "closeDialog 2"; // TODO: fasttravel function
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
@@ -300,7 +301,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class CommanderText : A3A_Text
         {
-          text = "Commander";
+          text = "Commander"; // TODO: localize
           idc = A3A_IDC_COMMANDERTEXT;
           style = ST_CENTER;
           colorText[] = {1,0.9,0.5,1};
@@ -315,7 +316,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CommanderButton : A3A_Button
         {
           idc = A3A_IDC_COMMANDERBUTTON;
-          text = "Resign";
+          text = "Resign"; // TODO: localize
           x = 74 * GRID_W;
           y = 34 * GRID_H;
           w = 22 * GRID_W;
@@ -325,7 +326,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class MoneyText : A3A_TextMulti
         {
           idc = A3A_IDC_MONEYTEXT;
-          text = "Current money:\n€ 0";
+          text = "Current money:\n€ 0"; // TODO: localize
           // font = "PuristaLight";
           colorBackground[] = {0,0,0,0.5};
           x = 98 * GRID_W;
@@ -337,7 +338,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DonateButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_DONATEBUTTON;
-          text = "Donate Money";
+          text = "Donate Money"; // TODO: localize
           onButtonClick = "[""switchTab"", [""donate""]] call A3A_fnc_mainDialog;";
           x = 130 * GRID_W;
           y = 34 * GRID_H;
@@ -349,7 +350,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class HideTopBarLabel : A3A_Text
         {
           idc = -1;
-          text = "Hide top bar:";
+          text = "Hide top bar:"; // TODO: localize
           x = 98 * GRID_W;
           y = 47 * GRID_H;
           w = 26 * GRID_W;
@@ -442,7 +443,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarageVehicleButton : A3A_Button
             {
               idc = A3A_IDC_GARAGEVEHICLEBUTTON;
-              text = "Garage";
+              text = "Garage"; // TODO: localize
               onButtonClick = ""; // TODO: garage this shit
               x = 32 * GRID_W;
               y = 0 * GRID_H;
@@ -453,7 +454,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class UnlockVehicleButton : A3A_Button
             {
               idc = A3A_IDC_UNLOCKVEHICLEBUTTON;
-              text = "Unlock";
+              text = "Unlock"; // TODO: localize
               x = 32 * GRID_W;
               y = 14 * GRID_H;
               w = 22 * GRID_W;
@@ -463,7 +464,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class SellVehicleButton : A3A_Button
             {
               idc = A3A_IDC_SELLVEHICLEBUTTON;
-              text = "Sell";
+              text = "Sell"; // TODO: localize
               x = 56 * GRID_W;
               y = 0 * GRID_H;
               w = 22 * GRID_W;
@@ -473,7 +474,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AddToAirSuportButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_ADDTOAIRSUPPORTBUTTON;
-              text = "Add to Air Support";
+              text = "Add to Air Support"; // TODO: localize
               x = 56 * GRID_W;
               y = 14 * GRID_H;
               w = 22 * GRID_W;
@@ -530,7 +531,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class MultipleGroupsLabel : A3A_SectionLabelRight
         {
-          text = "High command groups";
+          text = "High command groups"; // TODO: localize
           idc = A3A_IDC_HCMULTIPLEGROUPSLABEL;
           x = 8 * GRID_W;
           y = 8 * GRID_H;
@@ -575,7 +576,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               textureNoShortcut = A3A_Tex_Icon_Remotecontrol;
-              tooltip = "Remote control group leader";
+              tooltip = "Remote control group leader"; // TODO: localize<
               onButtonClick = "hint ""Totally controlling this dude now""";
               x = 48 * GRID_W;
               y = 0 * GRID_H;
@@ -615,7 +616,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
-              tooltip = "Number of units in the group\nAble to combat / Total number of units";
+              tooltip = "Number of units in the group\nAble to combat / Total number of units"; // TODO: localize
               x = 2 * GRID_W;
               y = 8 * GRID_H;
               w = 4 * GRID_W;
@@ -626,7 +627,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_HCGROUPCOUNT;
               text = "10 / 10";
-              tooltip = "Number of units in the group\nAble to combat / Total number of units";
+              tooltip = "Number of units in the group\nAble to combat / Total number of units"; // TODO: localize
               x = 6 * GRID_W;
               y = 8 * GRID_H;
               w = 16 * GRID_W;
@@ -659,7 +660,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupCombatModeLabel : A3A_Text
             {
               idc = -1;
-              text = "Combat mode:";
+              text = "Combat mode:"; // TODO: localize
               sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 0;
               y = 20 * GRID_H;
@@ -682,7 +683,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class FireMissionButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_HCFIREMISSIONBUTTON;
-              text = "Fire Mission";
+              text = "Fire Mission"; // TODO: localize
               onButtonClick = "[""updateFireMissionView""] call A3A_fnc_commanderTab;";
               // onButtonClick = "findDisplay 7000 displayCtrl 7203 ctrlShow false; findDisplay 7000 displayCtrl 7210 ctrlShow true;";
               x = 28 * GRID_W;
@@ -694,7 +695,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class MountButton : A3A_ShortcutButton
             {
               idc = -1;
-              text = "Mount / Dismount";
+              text = "Mount / Dismount"; // TODO: localize
               x = 2 * GRID_H;
               y = 40 * GRID_H;
               w = 24 * GRID_W;
@@ -704,7 +705,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AddVehicleButton : A3A_Button
             {
               idc = -1;
-              text = "Add Vehicle";
+              text = "Add Vehicle"; // TODO: localize
               x = 2 * GRID_H;
               y = 54 * GRID_H;
               w = 24 * GRID_W;
@@ -714,7 +715,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarrisonButton : A3A_Button
             {
               idc = -1;
-              text = "Garrison";
+              text = "Garrison"; // TODO: localize
               x = 28 * GRID_W;
               y = 40 * GRID_H;
               w = 24 * GRID_W;
@@ -724,7 +725,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class DismissButton : A3A_Button
             {
               idc = -1;
-              text = "Dismiss";
+              text = "Dismiss"; // TODO: localize
               x = 28 * GRID_W;
               y = 54 * GRID_H;
               w = 24 * GRID_W;
@@ -751,7 +752,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class FireMissionLabel : A3A_Button_Left
             {
               idc = -1;
-              text = "Fire mission";
+              text = "Fire mission"; // TODO: localize
               onButtonClick = "[""update""] call A3A_fnc_commanderTab;";
               x = 0;
               y = 0;
@@ -771,7 +772,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AmmoLabel : A3A_SectionLabelRight
             {
               idc = -1;
-              text = "Ammo";
+              text = "Ammo"; // TODO: localize
               x = 2 * GRID_W;
               y = 8 * GRID_H;
               w = 50 * GRID_W;
@@ -781,7 +782,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class HeRoundsCountLabel : A3A_Text
             {
               idc = -1;
-              text = "HE:";
+              text = "HE:"; // TODO: localize
               colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 2 * GRID_W;
               y = 13 * GRID_H;
@@ -792,7 +793,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class HeRoundsCountText : A3A_Text
             {
               idc = A3A_IDC_HEROUNDSTEXT;
-              text = "32";
+              text = "0";
               colorBackground[] = A3A_COLOR_BACKGROUND;
               style = ST_RIGHT;
               x = 27 * GRID_W;
@@ -804,7 +805,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class SmokeRoundsCountLabel : A3A_Text
             {
               idc = -1;
-              text = "Smoke:";
+              text = "Smoke:"; // TODO: localize
               colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 2 * GRID_W;
               y = 18 * GRID_H;
@@ -815,7 +816,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class SmokeRoundsCountText : A3A_Text
             {
               idc = A3A_IDC_SMOKEROUNDSTEXT;
-              text = "16";
+              text = "0";
               colorBackground[] = A3A_COLOR_BACKGROUND;
               style = ST_RIGHT;
               x = 27 * GRID_W;
@@ -837,7 +838,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class ShellTypeLabel : A3A_Text
                 {
                   idc = -1;
-                  text = "Shell type:";
+                  text = "Shell type:"; // TODO: localize
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -848,7 +849,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class HeButton : A3A_Button
                 {
                   idc = A3A_IDC_HEBUTTON;
-                  text = "HE";
+                  text = "HE"; // TODO: localize
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""he""]] call A3A_fnc_commanderTab;";
                   x = 20 * GRID_W;
@@ -865,7 +866,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class SmokeButton : A3A_Button
                 {
                   idc = A3A_IDC_SMOKEBUTTON;
-                  text = "Smoke";
+                  text = "Smoke"; // TODO: localize
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""smoke""]] call A3A_fnc_commanderTab;";
                   x = 35 * GRID_W;
@@ -893,7 +894,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class MissionTypeLabel : A3A_Text
                 {
                   idc = -1;
-                  text = "Mission type:";
+                  text = "Mission type:"; // TODO: localize
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -904,7 +905,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class PointStrikeButton : A3A_Button
                 {
                   idc = A3A_IDC_POINTSTRIKEBUTTON;
-                  text = "Point";
+                  text = "Point"; // TODO: localize
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""point""]] call A3A_fnc_commanderTab;";
                   x = 20 * GRID_W;
@@ -920,7 +921,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class BarrageButton : A3A_Button
                 {
                   idc = A3A_IDC_BARRAGEBUTTON;
-                  text = "Barrage";
+                  text = "Barrage"; // TODO: localize
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""barrage""]] call A3A_fnc_commanderTab;";
                   x = 35 * GRID_W;
@@ -949,7 +950,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class RoundsLabel : A3A_Text
                 {
                   idc = -1;
-                  text = "Rounds:";
+                  text = "Rounds:"; // TODO: localize
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -1010,7 +1011,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class StartPositionLabel : A3A_Text
                 {
                   idc = A3A_IDC_STARTPOSITIONLABEL;
-                  text = "Position:";
+                  text = "Position:"; // TODO: localize
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -1021,7 +1022,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class StartPositionEditbox : A3A_Edit
                 {
                   idc = A3A_IDC_STARTPOSITIONEDITBOX;
-                  text = "039 047";
+                  text = "";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   style = ST_RIGHT + ST_NO_RECT;
                   onLoad = "_this#0 ctrlEnable false";
@@ -1035,7 +1036,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class SetStartPositionButton : A3A_Button
                 {
                   idc = -1;
-                  text = "Set";
+                  text = "Set"; // TODO: localize
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""setstart""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
@@ -1060,7 +1061,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class EndPositionLabel : A3A_Text
                 {
                   idc = A3A_IDC_ENDPOSITIONLABEL;
-                  text = "End:";
+                  text = "End:"; // TODO: localize
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -1085,7 +1086,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class SetEndPositionButton : A3A_Button
                 {
                   idc = -1;
-                  text = "Set";
+                  text = "Set"; // TODO: localize
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""setend""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
@@ -1100,7 +1101,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class FireButton : A3A_Button
             {
               idc = A3A_IDC_FIREBUTTON;
-              text = "Fire";
+              text = "Fire"; // TODO: localize
               x = 17 * GRID_W;
               y = 56 * GRID_H;
               w = 20 * GRID_W;
@@ -1117,7 +1118,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AirSupportButton : A3A_Button
         {
           idc = A3A_IDC_AIRSUPPORTBUTTON;
-          text = "Air Support";
+          text = "Air Support"; // TODO: localize
           onButtonClick = "[""switchTab"", [""airsupport""]] call A3A_fnc_mainDialog;";
           x = 10 * GRID_W;
           y = 80 * GRID_H;
@@ -1128,7 +1129,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class GarbageCleanButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_GARBAGECLEANBUTTON;
-          text = "Garbage Clean";
+          text = "Garbage Clean"; // TODO: localize
           onButtonclick = "[""showGarbageCleanOptions""] call A3A_fnc_commanderTab";
           x = 36 * GRID_W;
           y = 80 * GRID_H;
@@ -1149,7 +1150,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarbageCleanMapButton : A3A_ShortcutButton
             {
               idc = -1;
-              text = "Garbage Clean All";
+              text = "Garbage Clean All"; // TODO: localize
               onButtonClick = "hint ""Garbage cleaning entire map""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
               x = 0 * GRID_W;
               y = 0 * GRID_H;
@@ -1160,7 +1161,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarbageCleanHQButton : A3A_ShortcutButton
             {
               idc = -1;
-              text = "Garbage Clean HQ";
+              text = "Garbage Clean HQ"; // TODO: localize
               onButtonClick = "hint ""Garbage cleaning HQ""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
               x = 26 * GRID_W;
               y = 0 * GRID_H;
@@ -1184,7 +1185,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DebugSectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "Debug info";
+          text = "Debug info"; // TODO: localize
           x = 8 * GRID_W;
           y = 8 * GRID_H;
           w = 48 * GRID_W;
@@ -1224,7 +1225,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class ResetHqButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_RESETHQBUTTON;
-          text = "RESET HQ";
+          text = "RESET HQ"; // TODO: localize
           x = 8 * GRID_W;
           y = 80 * GRID_H;
           w = 48 * GRID_W;
@@ -1243,7 +1244,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiSectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "AI Options";
+          text = "AI Options"; // TODO: localize
           x = 70 * GRID_W;
           y = 8 * GRID_H;
           w = 90 * GRID_W;
@@ -1253,7 +1254,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CivLimitLabel : A3A_Text
         {
           idc = -1;
-          text = "Civ Limit";
+          text = "Civ Limit"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 74 * GRID_W;
           y = 16 * GRID_H;
@@ -1287,7 +1288,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class SpawnDistanceLabel : A3A_Text
         {
           idc = -1;
-          text = "Spawn Distance";
+          text = "Spawn Distance"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 74 * GRID_W;
           y = 22 * GRID_H;
@@ -1321,7 +1322,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiLimiterLabel : A3A_Text
         {
           idc = -1;
-          text = "AI Limiter";
+          text = "AI Limiter"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 74 * GRID_W;
           y = 28 * GRID_H;
@@ -1376,7 +1377,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiSectionWarning : A3A_TextMulti
         {
           idc = -1;
-          text = "BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.";
+          text = "BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME."; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_SMALL;
           font = "PuristaLight";
           x = 85 * GRID_W;
@@ -1417,7 +1418,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpPetrosButton : A3A_Button
         {
           idc = -1;
-          text = "Petros";
+          text = "Petros"; // TODO: localize
           onButtonClick = "petros setPos getPos player;";
           x = 74 * GRID_W;
           y = 64 * GRID_H;
@@ -1428,7 +1429,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpArsenalBoxButton : A3A_Button
         {
           idc = -1;
-          text = "Arsenal Box";
+          text = "Arsenal Box"; // TODO: localize
           onButtonClick = "boxX setPos getPos player;";
           x = 103 * GRID_W;
           y = 64 * GRID_H;
@@ -1439,7 +1440,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpVehicleBoxButton : A3A_Button
         {
           idc = -1;
-          text = "Vehicle Box";
+          text = "Vehicle Box"; // TODO: localize
           onButtonClick = "vehicleBox setPos getPos player;";
           x = 132 * GRID_W;
           y = 64 * GRID_H;
@@ -1450,7 +1451,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpFlagButton : A3A_Button
         {
           idc = -1;
-          text = "Flag";
+          text = "Flag"; // TODO: localize
           onButtonClick = "flagX setPos getPos player;";
           x = 74 * GRID_W;
           y = 80 * GRID_H;
@@ -1461,7 +1462,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpTentButton : A3A_Button
         {
           idc = -1;
-          text = "Tent";
+          text = "Tent"; // TODO: localize
           onButtonClick = "fireX setPos getPos player;";
           x = 103 * GRID_W;
           y = 80 * GRID_H;
@@ -1472,7 +1473,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpMapButton : A3A_Button
         {
           idc = -1;
-          text = "Map";
+          text = "Map"; // TODO: localize
           onButtonClick = "mapX setPos getPos player;";
           x = 132 * GRID_W;
           y = 80 * GRID_H;
@@ -1515,7 +1516,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AIListLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "AI Group members";
+          text = "AI Group members"; // TODO: localize
           x = 15 * GRID_W;
           y = 14 * GRID_H;
           w = 70 * GRID_W;
@@ -1526,8 +1527,8 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           sizeEx = GUI_TEXT_SIZE_SMALL;
-          text = "CLEAR";
-          tooltip = "Clears list selection";
+          text = "CLEAR"; // TODO: localize
+          tooltip = "Clears list selection"; // TODO: localize
           onButtonClick = "[""clearAIListboxSelection""] call A3A_fnc_aiManagementTab;";
           x = 85 * GRID_W;
           y = 14 * GRID_H;
@@ -1558,7 +1559,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AiControlButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AICONTROLBUTTON;
-              text = "Temp. AI Control";
+              text = "Temp. AI Control"; // TODO: localize
               x = 0 * GRID_W;
               y = 0 * GRID_H;
               w = 32 * GRID_W;
@@ -1578,7 +1579,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class DismissButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AIDISMISSBUTTON;
-              text = "Dismiss Unit(s)";
+              text = "Dismiss Unit(s)"; // TODO: localize
               x = 0 * GRID_W;
               y = 20 * GRID_H;
               w = 32 * GRID_W;
@@ -1598,7 +1599,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AutoLootButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AIAUTOLOOTBUTTON;
-              text = "Auto Rearm / Loot";
+              text = "Auto Rearm / Loot"; // TODO: localize
               x = 0 * GRID_W;
               y = 40 * GRID_H;
               w = 32 * GRID_W;
@@ -1618,7 +1619,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AutoHealButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AIAUTOHEALBUTTON;
-              text = "Auto Heal";
+              text = "Auto Heal"; // TODO: localize
               x = 0 * GRID_W;
               y = 60 * GRID_H;
               w = 32 * GRID_W;
@@ -1660,7 +1661,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           style = ST_LEFT;
-          text = "Current money:";
+          text = "Current money:"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 83 * GRID_W;
           y = 30 * GRID_H;
@@ -1684,7 +1685,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           style = ST_LEFT;
-          text = "Donate:";
+          text = "Donate:"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 83 * GRID_W;
           y = 40 * GRID_H;
@@ -1809,7 +1810,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DonatePlayerButton : A3A_Button
         {
           idc = A3A_IDC_DONATEPLAYERBUTTON;
-          text = "Donate to Player";
+          text = "Donate to Player"; // TODO: localize
           // TODO: Hook up to donate function
           x = 74 * GRID_W;
           y = 63 * GRID_H;
@@ -1820,7 +1821,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DonateFactionButton : A3A_Button
         {
           idc = A3A_IDC_DONATEFACTIONBUTTON;
-          text = "Donate to Faction";
+          text = "Donate to Faction"; // TODO: localize
           // TODO: Hook up to donate function
           x = 116 * GRID_W;
           y = 63 * GRID_H;
@@ -1860,8 +1861,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AirSupportInfoText : A3A_TextMulti
         {
           idc = -1;
-          // TODO: Localize:
-          text = "Aircraft used: Antonov An-2\n\nAdd aircraft to the air support pool by using the thing in the other menu and things.\nMore lines.";
+          text = "Aircraft used: Antonov An-2\n\nAdd aircraft to the air support pool by using the thing in the other menu and things.\nMore lines."; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           colorText[] = {0.7,0.7,0.7,1}; // TODO: Use colors from defines
           x = 40 * GRID_W;
@@ -1884,7 +1884,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class HeBombsButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "HE Bombs";
+          text = "HE Bombs"; // TODO: localize
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 16 * GRID_W;
           y = 70 * GRID_H;
@@ -1906,7 +1906,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CarpetBombingButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Carpet Bombing";
+          text = "Carpet Bombing"; // TODO: localize
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 64 * GRID_W;
           y = 70 * GRID_H;
@@ -1928,7 +1928,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class NapalmBombButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Napalm Bomb";
+          text = "Napalm Bomb"; // TODO: localize
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 112 * GRID_W;
           y = 70 * GRID_H;
@@ -1956,7 +1956,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class NameLabel : A3A_Text
         {
-          text = "Name";
+          text = "Name"; // TODO: localize
           x = 9 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
@@ -1966,7 +1966,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class DistanceLabel : A3A_Text
         {
-          text = "Distance";
+          text = "Distance"; // TODO: localize
           x = 71 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
@@ -1976,7 +1976,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class UIDLabel : A3A_Text
         {
-          text = "PlayerUID";
+          text = "PlayerUID"; // TODO: localize
           x = 85 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
@@ -2001,7 +2001,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AddMemberButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_ADDMEMBERBUTTON;
-          text = "Add Member";
+          text = "Add Member"; // TODO: localize
           onButtonClick = "[""adminAddMember""] spawn A3A_fnc_playerManagementTab";
           show = false;
           x = 120 * GRID_W;
@@ -2013,7 +2013,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class RemoveMemberButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_REMOVEMEMBERBUTTON;
-          text = "Remove Member";
+          text = "Remove Member"; // TODO: localize
           onButtonClick = "[""adminRemoveMember""] spawn A3A_fnc_playerManagementTab";
           show = false;
           x = 120 * GRID_W;
@@ -2025,7 +2025,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TeleportToPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Teleport to Player";
+          text = "Teleport to Player"; // TODO: localize
           x = 120 * GRID_W;
           y = 22 * GRID_H;
           w = 32 * GRID_W;
@@ -2035,7 +2035,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TeleportPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Teleport Player to Me";
+          text = "Teleport Player to Me"; // TODO: localize
           x = 120 * GRID_W;
           y = 37 * GRID_H;
           w = 32 * GRID_W;
@@ -2045,7 +2045,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class KickPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Kick Player";
+          text = "Kick Player"; // TODO: localize
           x = 120 * GRID_W;
           y = 52 * GRID_H;
           w = 32 * GRID_W;
@@ -2055,7 +2055,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class BanPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Ban Player";
+          text = "Ban Player"; // TODO: localize
           x = 120 * GRID_W;
           y = 67 * GRID_H;
           w = 32 * GRID_W;
@@ -2065,7 +2065,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CopyIdButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Copy UID to Clipboard";
+          text = "Copy UID to Clipboard"; // TODO: localize
           x = 120 * GRID_W;
           y = 82 * GRID_H;
           w = 32 * GRID_W;

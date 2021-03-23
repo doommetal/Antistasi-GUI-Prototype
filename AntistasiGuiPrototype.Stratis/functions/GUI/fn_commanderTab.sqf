@@ -146,7 +146,7 @@ switch (_mode) do
           // show fire mission button, disable and show tooltip
           _fireMissionButton ctrlShow true;
           _fireMissionButton ctrlEnable false;
-          _fireMissionButton ctrlSetTooltip "Unable to fire. Mortar is not deployed.";
+          _fireMissionButton ctrlSetTooltip "Unable to fire. Mortar is not deployed."; // TODO: localize
         };
       };
       if _hasStatic then {
@@ -166,37 +166,37 @@ switch (_mode) do
           // TODO: fade undeployed weapon icons a bit
           case ("medic"): {
             _iconPath = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
-            _toolTipText = "Has operative medic";
+            _toolTipText = "Has operative medic"; // TODO: localize
           };
 
           case ("at"): {
             _iconPath = "GUI\textures\icon_has_at.paa";
-            _toolTipText = "Has AT capability";
+            _toolTipText = "Has AT capability"; // TODO: localize
           };
 
           case ("aa"): {
             _iconPath = "GUI\textures\icon_has_aa.paa";
-            _toolTipText = "Has AA capability";
+            _toolTipText = "Has AA capability"; // TODO: localize
           };
 
           case ("mortarDeployed"): {
             _iconPath = "GUI\textures\icon_has_mortar.paa";
-            _toolTipText = "Mortar is deployed";
+            _toolTipText = "Mortar is deployed"; // TODO: localize
           };
 
           case ("mortar"): {
             _iconPath = "GUI\textures\icon_has_mortar.paa";
-            _toolTipText = "Mortar is not deployed";
+            _toolTipText = "Mortar is not deployed"; // TODO: localize
           };
 
           case ("staticDeployed"): {
             _iconPath = "GUI\textures\icon_has_static.paa";
-            _toolTipText = "Static weapon is deployed";
+            _toolTipText = "Static weapon is deployed"; // TODO: localize
           };
 
           case ("static"): {
             _iconPath = "GUI\textures\icon_has_static.paa";
-            _toolTipText = "Static weapon is not deployed";
+            _toolTipText = "Static weapon is not deployed"; // TODO: localize
           };
         };
 
@@ -296,13 +296,13 @@ switch (_mode) do
         private _groupCountIcon = _display ctrlCreate ["A3A_Picture", -1, _itemControlsGroup];
         _groupCountIcon ctrlSetPosition [2 * GRID_W, 8 * GRID_H, 4 * GRID_W, 4 * GRID_H];
         _groupCountIcon ctrlSetText "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
-        _groupCountIcon ctrlSetTooltip "Number of units in the group\nAble to combat / Total number of units";
+        _groupCountIcon ctrlSetTooltip "Number of units in the group\nAble to combat / Total number of units"; // TODO: localize
         _groupCountIcon ctrlCommit 0;
 
         private _groupCountText = _display ctrlCreate ["A3A_Text", -1, _itemControlsGroup];
         _groupCountText ctrlSetPosition [6 * GRID_W, 8 * GRID_H, 16 * GRID_W, 4 * GRID_H];
         _groupCountText ctrlSetText format["%1 / %2", _aliveUnits, count _units];
-        _groupCountText ctrlSetTooltip "Number of units in the group\nAble to combat / Total number of units";
+        _groupCountText ctrlSetTooltip "Number of units in the group\nAble to combat / Total number of units"; // TODO: localize
         _groupCountText ctrlCommit 0;
 
         // Subgroup for status icons
@@ -338,37 +338,37 @@ switch (_mode) do
           switch (_x) do {
             case ("medic"): {
               _iconPath = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
-              _toolTipText = "Has operative medic";
+              _toolTipText = "Has operative medic"; // TODO: localize
             };
 
             case ("at"): {
               _iconPath = "GUI\textures\icon_has_at.paa";
-              _toolTipText = "Has AT capability";
+              _toolTipText = "Has AT capability"; // TODO: localize
             };
 
             case ("aa"): {
               _iconPath = "GUI\textures\icon_has_aa.paa";
-              _toolTipText = "Has AA capability";
+              _toolTipText = "Has AA capability"; // TODO: localize
             };
 
             case ("mortarDeployed"): {
               _iconPath = "GUI\textures\icon_has_mortar.paa";
-              _toolTipText = "Mortar is deployed";
+              _toolTipText = "Mortar is deployed"; // TODO: localize
             };
 
             case ("mortar"): {
               _iconPath = "GUI\textures\icon_has_mortar.paa";
-              _toolTipText = "Mortar is not deployed";
+              _toolTipText = "Mortar is not deployed"; // TODO: localize
             };
 
             case ("staticDeployed"): {
               _iconPath = "GUI\textures\icon_has_static.paa";
-              _toolTipText = "Static weapon is deployed";
+              _toolTipText = "Static weapon is deployed"; // TODO: localize
             };
 
             case ("static"): {
               _iconPath = "GUI\textures\icon_has_static.paa";
-              _toolTipText = "Static weapon is not deployed";
+              _toolTipText = "Static weapon is not deployed"; // TODO: localize
             };
           };
 
@@ -386,7 +386,7 @@ switch (_mode) do
       {
         private _noHcGroupsText = _display ctrlCreate ["A3A_StructuredText", -1, _multipleGroupsView];
         _noHcGroupsText ctrlSetPosition [0, 10 * GRID_H, 54 * GRID_W, 14 * GRID_H];
-        _noHcGroupsText ctrlSetStructuredText parseText "<t align='center'>You have no high command groups.</t><br /><t align='center'>You can recruit them at the flag.</t>";
+        _noHcGroupsText ctrlSetStructuredText parseText "<t align='center'>You have no high command groups.</t><br /><t align='center'>You can recruit them at the flag.</t>"; // TODO: localize
         _noHcGroupsText ctrlCommit 0;
       };
 
@@ -504,10 +504,10 @@ switch (_mode) do
       _endPosControlsGroup ctrlShow true;
 
       // Change text on start position label
-      _startPosLabel ctrlSetText "Start:";
+      _startPosLabel ctrlSetText "Start:"; // TODO: localize
 
       // Disable rounds buttons and editBox, show tooltip
-      _tooltipText = "Number of rounds set by barrage length";
+      _tooltipText = "Number of rounds set by barrage length"; // TODO: localize
       _addRoundsButton ctrlEnable false;
       _addRoundsButton ctrlSetTooltip _tooltipText;
       _subRoundsButton ctrlEnable false;
@@ -537,7 +537,7 @@ switch (_mode) do
       // Selecting position on map
       case (_selectFireMissionPos):
       {
-        _startPosEditBox ctrlSetText "CLICK MAP";
+        _startPosEditBox ctrlSetText "CLICK MAP"; // TODO: localize
       };
 
       // Position is already set
@@ -550,7 +550,7 @@ switch (_mode) do
       // No position set
       default
       {
-        _startPosEditBox ctrlSetText "NOT SET";
+        _startPosEditBox ctrlSetText "NOT SET"; // TODO: localize
       };
     };
 
@@ -559,7 +559,7 @@ switch (_mode) do
     {
       case (_selectFireMissionEndPos):
       {
-        _endPosEditBox ctrlSetText "CLICK MAP";
+        _endPosEditBox ctrlSetText "CLICK MAP"; // TODO: localize
       };
 
       case (!isNil "_endPos"):
@@ -570,7 +570,7 @@ switch (_mode) do
 
       default
       {
-        _endPosEditBox ctrlSetText "NOT SET";
+        _endPosEditBox ctrlSetText "NOT SET"; // TODO: localize
       };
     };
 
@@ -579,8 +579,8 @@ switch (_mode) do
     private _availableRounds = [_smokeRoundsCount, _heRoundsCount] select _heShell;
     switch (true) do
     {
-      case (isNil "_startPos" || (!_pointStrike && isNil "_endPos")): {_firebuttonTooltipText = _firebuttonTooltipText + "Strike position not set\n"};
-      case (_roundsCount > _availableRounds): {_firebuttonTooltipText = _firebuttonTooltipText + "Not enough ammo\n"};
+      case (isNil "_startPos" || (!_pointStrike && isNil "_endPos")): {_firebuttonTooltipText = _firebuttonTooltipText + "Strike position not set\n"}; // TODO: localize
+      case (_roundsCount > _availableRounds): {_firebuttonTooltipText = _firebuttonTooltipText + "Not enough ammo\n"}; // TODO: localize
     };
 
     _fireButton ctrlSetTooltip _firebuttonTooltipText;

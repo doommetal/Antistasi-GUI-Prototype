@@ -52,7 +52,7 @@ switch (_mode) do
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _undercoverButton ctrlEnable false;
-      _undercoverButton ctrlSetTooltip "Can't go undercover\n\nIllegal items visible\nYou have been reported by the enemy";
+      _undercoverButton ctrlSetTooltip "Can't go undercover\n\nIllegal items visible\nYou have been reported by the enemy"; // TODO: localize
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
@@ -63,11 +63,11 @@ switch (_mode) do
     if (canFastTravel) then
     {
       _fastTravelButton ctrlEnable true;
-      _fastTravelButton ctrlSetTooltip "";
+      _fastTravelButton ctrlSetTooltip localize "STR_antistasi_dialogs_radio_comm_fast_travel_tooltip";
       _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _fastTravelButton ctrlEnable false;
-      _fastTravelButton ctrlSetTooltip "Can't fast travel\n\nEnemies nearby\nPetros broke your legs";
+      _fastTravelButton ctrlSetTooltip "Can't fast travel\n\nEnemies nearby\nPetros broke your legs"; // TODO localize
       _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
@@ -82,7 +82,7 @@ switch (_mode) do
       _constructIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _constructButton ctrlEnable false;
-      _constructButton ctrlSetTooltip "Can't make constructions\n\nYou need an engineer in your squad";
+      _constructButton ctrlSetTooltip "Can't make constructions\n\nYou need an engineer in your squad"; // TODO: localize
       _constructIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
@@ -95,12 +95,12 @@ switch (_mode) do
     {
       case !(leader player == player):
       {
-        _aiManagementTooltipText = "Only available to squad leaders";
+        _aiManagementTooltipText = "Only available to squad leaders"; // TODO: localize
       };
 
       case ({!isPlayer _x} count units group player < 1):
       {
-        _aiManagementTooltipText = "Needs AI group members\nYou can recruit them at the flag";
+        _aiManagementTooltipText = "Needs AI group members\nYou can recruit them at the flag"; // TODO: localize
       };
 
       default
@@ -142,37 +142,37 @@ switch (_mode) do
     private _playerRank = rank player;
     switch (_playerRank) do {
       case ("PRIVATE"): {
-        _playerRankText ctrlSetText "Private";
+        _playerRankText ctrlSetText "Private"; // TODO: localize
         _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\private_gs.paa";
       };
 
       case ("CORPORAL"): {
-        _playerRankText ctrlSetText "Corporal";
+        _playerRankText ctrlSetText "Corporal"; // TODO: localize
         _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\corporal_gs.paa";
       };
 
       case ("SERGEANT"): {
-        _playerRankText ctrlSetText "Sergeant";
+        _playerRankText ctrlSetText "Sergeant"; // TODO: localize
         _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
       };
 
       case ("LIEUTENANT"): {
-        _playerRankText ctrlSetText "Lieutenant";
+        _playerRankText ctrlSetText "Lieutenant"; // TODO: localize
         _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\lieutenant_gs.paa";
       };
 
       case ("CAPTAIN"): {
-        _playerRankText ctrlSetText "Captain";
+        _playerRankText ctrlSetText "Captain"; // TODO: localize
         _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\captain_gs.paa";
       };
 
       case ("MAJOR"): {
-        _playerRankText ctrlSetText "Major";
+        _playerRankText ctrlSetText "Major"; // TODO: localize
         _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\major_gs.paa";
       };
 
       case ("COLONEL"): {
-        _playerRankText ctrlSetText "Colonel";
+        _playerRankText ctrlSetText "Colonel"; // TODO: localize
         _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa";
       };
     };
@@ -182,7 +182,7 @@ switch (_mode) do
     private _days = floor (_time / 86400);
     private _hours = floor ((_time - _days * 86400) / 3600);
     private _minutes = floor (((_time - _days * 86400) - _hours * 3600) / 60);
-    _aliveText ctrlSetText format ["%1d %2h %3m", _days, _hours, _minutes];
+    _aliveText ctrlSetText format ["%1d %2h %3m", _days, _hours, _minutes]; // TODO: localize
 
     // TODO: Make function for getting num of completed missions
     private _missions = player getVariable "missionsCompleted";
@@ -195,7 +195,7 @@ switch (_mode) do
     // TODO: Update commander icon/button
 
     private _money = player getVariable "moneyX"; // player getVariable moneyX
-    _moneyText ctrlSetText format["Current money:\n€ %1", _money];
+    _moneyText ctrlSetText format["Current money:\n€ %1", _money]; // TODO: localize
 
     // Vehicle section
     private _vehicleGroup = _display displayCtrl A3A_IDC_PLAYERVEHICLEGROUP;
@@ -234,16 +234,16 @@ switch (_mode) do
             if !(_vehicle isKindOf "Air") then {
               private _addToAirSupportButton = _display displayCtrl A3A_IDC_ADDTOAIRSUPPORTBUTTON;
               _addToAirSupportButton ctrlEnable false;
-              _addToAirSupportButton ctrlSetTooltip "Not eligible vehicle";
+              _addToAirSupportButton ctrlSetTooltip "Not eligible vehicle"; // TODO: localize
             };
           } else {
             // Enable only "garage" and "lock/unlock" buttons to regular players
             private _sellVehicleButton = _display displayCtrl A3A_IDC_SELLVEHICLEBUTTON;
             _sellVehicleButton ctrlEnable false;
-            _sellVehicleButton ctrlSetTooltip "Commander only";
+            _sellVehicleButton ctrlSetTooltip "Commander only"; // TODO: localize
             private _addToAirSupportButton = _display displayCtrl A3A_IDC_ADDTOAIRSUPPORTBUTTON;
             _addToAirSupportButton ctrlEnable false;
-            _addToAirSupportButton ctrlSetTooltip "Commander only";
+            _addToAirSupportButton ctrlSetTooltip "Commander only"; // TODO: localize
           };
           // Show vehicle group
           _noVehicleGroup ctrlShow false;
@@ -263,7 +263,7 @@ switch (_mode) do
       _vehicleGroup ctrlShow false;
       _noVehicleGroup ctrlShow true;
       private _noVehicleText = _display displayCtrl A3A_IDC_NOVEHICLETEXT;
-      _noVehicleText ctrlSetText "Members only function.";
+      _noVehicleText ctrlSetText "Members only function."; // TODO: localize
     };
   };
 
