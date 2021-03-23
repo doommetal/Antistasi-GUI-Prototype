@@ -41,20 +41,35 @@ eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
 }]; */
 
 // State variables
-canGoUndercover = false;
-canFastTravel = true;
-canConstruct = true;
-factionMoney = 10000;
+canGoUndercover = false; // TODO: Replace with A3A_fnc_canGoUndercover
+// isUndercover = (captive _player) and !(_player getVariable ["incapacitated",false]);
+canFastTravel = true; // TODO: Replace with A3A_fnc_canFastTravel
+canConstruct = true; // check for engineer in squad
+factionMoney = 10000; // server getVariable "resourcesFIA"
+// server getVariable "hr"
 playerIsCommander = true;
+// theBoss == player
+// player getVariable "eligible"
 playerIsAdmin = true;
+// if (player == A3A_admin)
+// if (player == [] call A3A_fnc_getAdmin)
+// call BIS_fnc_admin > 0
 
-civLimit = 40;
+// Aggro
+// [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString
+// [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString
+
+// War level
+// tierWar
+
+// TODO: Replace this with A3A_fnc_HQGameOptions
+civLimit = 40; // missionNamespace getVariable ["civPerc",0];
 civLimitMin = 0;
 civLimitMax = 200;
-spawnDistance = 1000;
+spawnDistance = 1000; // missionNamespace getVariable ["distanceSPWN",0];
 spawnDistanceMin = 100;
 spawnDistanceMax = 12000;
-aiLimiter = 100;
+aiLimiter = 100; // missionNamespace getVariable ["maxUnits",0];
 aiLimiterMin = 0;
 aiLimiterMax = 200;
 
@@ -121,7 +136,7 @@ fakePlayers = [p1, p2, p3, p4];
   _x setVariable ["kills", 0];
   _x setVariable ["missionsCompleted", 0];
   _x setVariable ["eligibleCommander", true];
-  _x setVariable ["money", floor random 2000];
+  _x setVariable ["moneyX", floor random 2000];
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
 

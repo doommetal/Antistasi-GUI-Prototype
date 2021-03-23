@@ -630,7 +630,7 @@ switch (_mode) do
 
     // TODO: Update commander icon/button
 
-    private _money = player getVariable "money";
+    private _money = player getVariable "moneyX"; // player getVariable moneyX
     _moneyText ctrlSetText format["Current money:\n€ %1", _money];
 
     // Vehicle section
@@ -1256,7 +1256,7 @@ switch (_mode) do
     _backButton ctrlShow true;
 
     // Money section setup
-    private _money = player getVariable "money";
+    private _money = player getVariable "moneyX";
     private _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     _moneySlider sliderSetRange [0,_money];
     _moneySlider sliderSetSpeed [10, 10];
@@ -1605,7 +1605,7 @@ switch (_mode) do
 
   case ("moneyEditBoxChanged"):
   {
-    private _money = player getVariable "money";
+    private _money = player getVariable "moneyX";
     private _display = findDisplay A3A_IDD_MainDialog;
     private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     private _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
@@ -1618,7 +1618,7 @@ switch (_mode) do
   case ("donationAdd"):
   {
     private _moneyToAdd = _params select 0;
-    private _money = player getVariable "money";
+    private _money = player getVariable "moneyX";
     private _display = findDisplay A3A_IDD_MainDialog;
     private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     private _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
@@ -1871,6 +1871,19 @@ switch (_mode) do
       _commitAiButton ctrlSetText "Confirm";
       _commitAiButton ctrlAddEventHandler ["ButtonClick", {
       hint "Oh no you broke the server :(";
+
+      // TODO: Update routine for merging
+      /* private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
+      private _civPerc = floor parseNumber ctrlText _civLimitEditBox;
+      private _spawnDistanceEditBox = _display displayCtrl A3A_IDC_SPAWNDISTANCEEDITBOX;
+      private _distanceSPWN = floor parseNumber ctrlText _spawnDistanceEditBox;
+      private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
+      private _maxUnits = floor parseNumber ctrlText _aiLimiterEditBox;
+
+      // Something like this but with "set" ?
+      [player,"maxUnits","increase"] remoteExecCall ["A3A_fnc_HQGameOptions",2]; */
+
+
       closeDialog 2;
     }];
   };
