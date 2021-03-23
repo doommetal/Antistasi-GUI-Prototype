@@ -8,7 +8,7 @@ class A3A_BuyVehicleDialog : A3A_DefaultDialog
     class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = "Buy Vehicle";
+      text = "Buy Vehicle"; // TODO: localize
       x = DIALOG_X;
       y = DIALOG_Y - 4 * GRID_H;
       w = DIALOG_W * GRID_W;

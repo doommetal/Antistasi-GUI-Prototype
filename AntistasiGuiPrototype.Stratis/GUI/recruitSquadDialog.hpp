@@ -47,7 +47,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class InfSquadButton : A3A_Button
         {
           idc = -1;
-          text = "Inf. Squad";
+          text = "Inf. Squad"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 11 * GRID_H;
@@ -81,7 +81,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class InfTeamButton : A3A_Button
         {
           idc = -1;
-          text = "Inf. Team";
+          text = "Inf. Team"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 32 * GRID_H;
@@ -115,7 +115,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class MgTeamButton : A3A_Button
         {
           idc = -1;
-          text = "MG Team";
+          text = "MG Team"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 53 * GRID_H;
@@ -149,7 +149,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class AtTeamButton : A3A_Button
         {
           idc = -1;
-          text = "AT Team";
+          text = "AT Team"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 74 * GRID_H;
@@ -183,7 +183,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class MortarTeamButton : A3A_Button
         {
           idc = -1;
-          text = "Mortar Team";
+          text = "Mortar Team"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 11 * GRID_H;
@@ -218,7 +218,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class SniperTeamButton : A3A_Button
         {
           idc = -1;
-          text = "Sniper Team";
+          text = "Sniper Team"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 32 * GRID_H;
@@ -252,7 +252,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class AtCarButton : A3A_Button
         {
           idc = -1;
-          text = "AT Car";
+          text = "AT Car"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 53 * GRID_H;
@@ -286,7 +286,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class AaTruckButton : A3A_Button
         {
           idc = -1;
-          text = "AA Truck";
+          text = "AA Truck"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 74 * GRID_H;
@@ -297,7 +297,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         class IncludeVehicleLabel : A3A_Text
         {
           idc = -1;
-          text = "Include vehicle:";
+          text = "Include vehicle:"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           colorBackground[] = A3A_COLOR_BACKGROUND;
           x = 60 * GRID_W;

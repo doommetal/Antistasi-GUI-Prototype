@@ -34,7 +34,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         class AssassinationButton : A3A_Button
         {
           idc = -1;
-          text = "Assassination";
+          text = "Assassination"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 16 * GRID_W;
           y = 30 * GRID_H;
@@ -56,7 +56,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         class LogisticsButton : A3A_Button
         {
           idc = -1;
-          text = "Logistics";
+          text = "Logistics"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 64 * GRID_W;
           y = 30 * GRID_H;
@@ -78,7 +78,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         class ConvoyButton : A3A_Button
         {
           idc = -1;
-          text = "Convoy Ambush";
+          text = "Convoy Ambush"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 112 * GRID_W;
           y = 30 * GRID_H;
@@ -100,7 +100,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         class ConquestButton : A3A_Button
         {
           idc = -1;
-          text = "Conquest";
+          text = "Conquest"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 16 * GRID_W;
           y = 70 * GRID_H;
@@ -122,7 +122,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         class DestroyButton : A3A_Button
         {
           idc = -1;
-          text = "Destroy";
+          text = "Destroy"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 64 * GRID_W;
           y = 70 * GRID_H;
@@ -144,7 +144,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         class RescueButton : A3A_Button
         {
           idc = -1;
-          text = "Rescue";
+          text = "Rescue"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 112 * GRID_W;
           y = 70 * GRID_H;

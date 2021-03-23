@@ -37,7 +37,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class GarrisonManagementButton : A3A_Button
         {
           idc = -1;
-          text = "Garrisons";
+          text = "Garrisons"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           onButtonClick = "[""switchTab"",[""garrison""]] call A3A_fnc_hqDialog";
           x = 20 * GRID_W;
@@ -59,7 +59,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class MinefieldsButton : A3A_Button
         {
           idc = -1;
-          text = "Minefields";
+          text = "Minefields"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           onButtonClick = "[""switchTab"",[""minefields""]] call A3A_fnc_hqDialog";
           x = 20 * GRID_W;
@@ -81,7 +81,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class MoveHqButton : A3A_Button
         {
           idc = A3A_IDC_MOVEHQBUTTON;
-          text = "Move HQ";
+          text = "Move HQ"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 53 * GRID_H;
@@ -102,7 +102,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class ClearTreesButton : A3A_Button
         {
           idc = -1;
-          text = "Clear Trees";
+          text = "Clear Trees"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 74 * GRID_H;
@@ -124,7 +124,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class CampaignStatusLabel : A3A_SectionLabelRight
             {
               idc = -1;
-              text = "Campaign status";
+              text = "Campaign status"; // TODO: localize
               x = 0 * GRID_W;
               y = 0 * GRID_H;
               w = 90 * GRID_W;
@@ -134,7 +134,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class WarLevelLabel : A3A_Text
             {
               idc = -1;
-              text = "War level:";
+              text = "War level:"; // TODO: localize
               x = 0 * GRID_W;
               y = 6 * GRID_H;
               w = 14 * GRID_W;
@@ -145,7 +145,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_WARLEVELTEXT;
               style = ST_RIGHT;
-              text = "5";
+              text = "1";
               x = 14 * GRID_W;
               y = 6 * GRID_H;
               w = 14 * GRID_W;
@@ -155,7 +155,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class AggressionLabel : A3A_Text
             {
               idc = -1;
-              text = "Aggression:";
+              text = "Aggression:"; // TODO: localize
               x = 0 * GRID_W;
               y = 11 * GRID_H;
               w = 28 * GRID_W;
@@ -166,7 +166,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_OCCFLAGPICTURE;
               text = "\A3\Data_F\Flags\flag_nato_co.paa"; // TODO: Replace with actual faction flag
-              tooltip = "Occupants aggression"; // TODO: Update with faction name
+              tooltip = "Occupants aggression"; // TODO: Update with faction name // TODO: localize
               x = 1 * GRID_W;
               y = 16 * GRID_H;
               w = 12 * GRID_W;
@@ -177,8 +177,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_OCCAGGROTEXT;
               style = ST_CENTER;
-              text = "MEDIUM";
-              tooltip = "Occupants aggression"; // TODO: Update with faction name
+              text = "";
+              tooltip = "Occupants aggression"; // TODO: Update with faction name // TODO: localize
               colorBackground[] = A3A_COLOR_BACKGROUND;
               shadow = 2;
               x = 1 * GRID_W;
@@ -191,7 +191,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_INVFLAGPICTURE;
               text = "\A3\Data_F\Flags\flag_CSAT_co.paa"; // TODO: Replace with actual faction flag
-              tooltip = "Invader aggression"; // TODO: Update with faction name
+              tooltip = "Invader aggression"; // TODO: Update with faction name // TODO: localize
               x = 16 * GRID_W;
               y = 16 * GRID_H;
               w = 12 * GRID_W;
@@ -202,8 +202,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_INVAGGROTEXT;
               style = ST_CENTER;
-              text = "HIGH";
-              tooltip = "Invader aggression"; // TODO: Update with faction name
+              text = "";
+              tooltip = "Invader aggression"; // TODO: Update with faction name // TODO: localize
               colorBackground[] = A3A_COLOR_BACKGROUND;
               shadow = 2;
               x = 16 * GRID_W;
@@ -219,7 +219,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_CONTROLLEDCITIESICON;
               text = A3A_Tex_Icon_Town;
-              tooltip = "Controlled cities";
+              tooltip = "Controlled cities"; // TODO: localize
               x = 32 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -229,8 +229,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledCitiesText : A3A_Text
             {
               idc = A3A_IDC_CONTROLLEDCITIESTEXT;
-              text = "3/48";
-              tooltip = "Controlled cities";
+              text = "0/0";
+              tooltip = "Controlled cities"; // TODO: localize
               x = 36 * GRID_W;
               y = 6 * GRID_H;
               w = 12 * GRID_W;
@@ -241,7 +241,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_CONTROLLEDOUTPOSTSICON;
               text = A3A_Tex_Icon_Outpost;
-              tooltip = "Controlled outposts";
+              tooltip = "Controlled outposts"; // TODO: localize
               x = 49 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -251,8 +251,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledOutpostsText : A3A_Text
             {
               idc = A3A_IDC_CONTROLLEDOUTPOSTSTEXT;
-              text = "15/44";
-              tooltip = "Controlled outposts";
+              text = "0/0";
+              tooltip = "Controlled outposts"; // TODO: localize
               x = 53 * GRID_W;
               y = 6 * GRID_H;
               w = 12 * GRID_W;
@@ -263,7 +263,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_CONTROLLEDAIRBASESICON;
               text = A3A_Tex_Icon_Airbase;
-              tooltip = "Controlled airbases";
+              tooltip = "Controlled airbases"; // TODO: localize
               x = 66 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
@@ -273,8 +273,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledAirBasesText : A3A_Text
             {
               idc = A3A_IDC_CONTROLLEDAIRBASESTEXT;
-              text = "0/6";
-              tooltip = "Controlled airbases";
+              text = "0/0";
+              tooltip = "Controlled airbases"; // TODO: localize
               x = 70 * GRID_W;
               y = 6 * GRID_H;
               w = 12 * GRID_W;
@@ -287,7 +287,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_CONTROLLEDRESOURCESICON;
               text = A3A_Tex_Icon_Resource;
-              tooltip = "Controlled resources";
+              tooltip = "Controlled resources"; // TODO: localize
               x = 32 * GRID_W;
               y = 11 * GRID_H;
               w = 4 * GRID_W;
@@ -297,8 +297,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledResourcesText : A3A_Text
             {
               idc = A3A_IDC_CONTROLLEDRESOURCESTEXT;
-              text = "1/8";
-              tooltip = "Controlled resources";
+              text = "0/0";
+              tooltip = "Controlled resources"; // TODO: localize
               x = 36 * GRID_W;
               y = 11 * GRID_H;
               w = 12 * GRID_W;
@@ -309,7 +309,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_CONTROLLEDFACTORIESICON;
               text = A3A_Tex_Icon_Factory;
-              tooltip = "Controlled factories";
+              tooltip = "Controlled factories"; // TODO: localize
               x = 49 * GRID_W;
               y = 11 * GRID_H;
               w = 4 * GRID_W;
@@ -319,8 +319,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledFactoriesText : A3A_Text
             {
               idc = A3A_IDC_CONTROLLEDFACTORIESTEXT;
-              text = "2/12";
-              tooltip = "Controlled factories";
+              text = "0/0";
+              tooltip = "Controlled factories"; // TODO: localize
               x = 53 * GRID_W;
               y = 11 * GRID_H;
               w = 12 * GRID_W;
@@ -331,7 +331,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_CONTROLLEDPORTSICON;
               text = A3A_Tex_Icon_Seaport;
-              tooltip = "Controlled ports";
+              tooltip = "Controlled ports"; // TODO: localize
               x = 66 * GRID_W;
               y = 11 * GRID_H;
               w = 4 * GRID_W;
@@ -341,8 +341,8 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledPortsText : A3A_Text
             {
               idc = A3A_IDC_CONTROLLEDPORTSTEXT;
-              text = "1/5";
-              tooltip = "Controlled ports";
+              text = "0/0";
+              tooltip = "Controlled ports"; // TODO: localize
               x = 70 * GRID_W;
               y = 11 * GRID_H;
               w = 12 * GRID_W;
@@ -384,7 +384,7 @@ class A3A_HqDialog : A3A_DefaultDialog
                 {
                   idc = A3A_IDC_POPSTATUSBARREB;
                   text = "#(argb,1,1,1)color(0.9,0.9,0.9,1)";
-                  tooltip = "Popular support\nYou need 50% to win";
+                  tooltip = "Popular support\nYou need 50% to win"; // TODO: localize
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
                   w = 16 * GRID_W;
@@ -395,7 +395,7 @@ class A3A_HqDialog : A3A_DefaultDialog
                 {
                   idc = A3A_IDC_POPSTATUSBARDEAD;
                   text = "#(argb,1,1,1)color(0.15,0.15,0.15,1)";
-                  tooltip = "Dead population\nYou lose when this hits 33%";
+                  tooltip = "Dead population\nYou lose when this hits 33%"; // TODO: localize
                   x = 48 * GRID_W;
                   y = 0 * GRID_H;
                   w = 2 * GRID_W;
@@ -433,7 +433,7 @@ class A3A_HqDialog : A3A_DefaultDialog
                 {
                   idc = A3A_IDC_POPSTATUSREBTEXT;
                   text = ""; // Updated from script
-                  tooltip = "Popular support\nYou need 50% to win";
+                  tooltip = "Popular support\nYou need 50% to win"; // TODO: localize
                   colorShadow[] = {0,0,0,0.5};
                   shadow = 2;
                   x = 0 * GRID_W;
@@ -447,7 +447,7 @@ class A3A_HqDialog : A3A_DefaultDialog
                   idc = A3A_IDC_POPSTATUSDEADTEXT;
                   style = ST_RIGHT;
                   text = ""; // Updated from script
-                  tooltip = "Dead population\nYou lose when this hits 33%";
+                  tooltip = "Dead population\nYou lose when this hits 33%"; // TODO: localize
                   colorShadow[] = {0,0,0,0.5};
                   shadow = 2;
                   x = 40 * GRID_W;
@@ -478,7 +478,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class FactionResourcesLabel : A3A_SectionLabelRight
             {
               idc = -1;
-              text = "Faction Resources";
+              text = "Faction Resources"; // TODO: localize
               x = 0 * GRID_W;
               y = 0 * GRID_H;
               w = 90 * GRID_W;
@@ -497,7 +497,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class FactionHRLabel : A3A_Text
             {
               idc = -1;
-              text = "HR:";
+              text = "HR:"; // TODO: localize
               x = 0 * GRID_W;
               y = 7 * GRID_H;
               w = 39 * GRID_W;
@@ -518,7 +518,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class FactionTrainingLabel : A3A_Text
             {
               idc = -1;
-              text = "Training level:";
+              text = "Training level:"; // TODO: localize
               x = 0 * GRID_W;
               y = 12 * GRID_H;
               w = 39 * GRID_W;
@@ -539,7 +539,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class TrainTroopsButton : A3A_Button
             {
               idc = -1;
-              text = "Train";
+              text = "Train"; // TODO: localize
               x = 60 * GRID_W;
               y = 7 * GRID_H;
               w = 22 * GRID_W;
@@ -558,7 +558,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class FactionMoneyLabel : A3A_Text
             {
               idc = -1;
-              text = "Faction money:";
+              text = "Faction money:"; // TODO: localize
               x = 0 * GRID_W;
               y = 19 * GRID_H;
               w = 39 * GRID_W;
@@ -601,7 +601,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class FactionMoneyButton : A3A_Button
             {
               idc = A3A_IDC_FACTIONMONEYBUTTON;
-              text = "Take";
+              text = "Take"; // TODO: localize
               x = 60 * GRID_W;
               y = 19 * GRID_H;
               w = 22 * GRID_W;
@@ -626,7 +626,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class RestLabel : A3A_SectionLabelRight
             {
               idc = -1;
-              text = "Rest & Environment";
+              text = "Rest & Environment"; // TODO: localize
               x = 0 * GRID_W;
               y = 0 * GRID_H;
               w = 90 * GRID_W;
@@ -666,7 +666,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class RestButton : A3A_Button
             {
               idc = -1;
-              text = "Rest";
+              text = "Rest"; // TODO: localize
               onButtonClick = "[""debugChangeTime""] spawn A3A_fnc_hqDialog;";
               x = 41 * GRID_W; // 108
               y = 20 * GRID_H;
@@ -677,7 +677,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ClearFogButton : A3A_Button
             {
               idc = -1;
-              text = "Clear Fog";
+              text = "Clear Fog"; // TODO: localize
               x = 60 * GRID_W;
               y = 7 * GRID_H;
               w = 22 * GRID_W;
@@ -688,7 +688,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               onButtonClick = "[] call A3A_fnc_stopRain";
-              text = "Stop Rain";
+              text = "Stop Rain"; // TODO: localize
               x = 60 * GRID_W;
               y = 18 * GRID_H;
               w = 22 * GRID_W;
@@ -763,7 +763,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class RiflemanLabel : A3A_Text
             {
               idc = -1;
-              text = "Rifleman";
+              text = "Rifleman"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 0 * GRID_H;
@@ -824,7 +824,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class SquadleaderLabel : A3A_Text
             {
               idc = -1;
-              text = "SquadLeader";
+              text = "SquadLeader"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 5 * GRID_H;
@@ -885,7 +885,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class AutoriflemanLabel : A3A_Text
             {
               idc = -1;
-              text = "Autorifleman";
+              text = "Autorifleman"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 10 * GRID_H;
@@ -946,7 +946,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class GrenadierLabel : A3A_Text
             {
               idc = -1;
-              text = "Grenadier";
+              text = "Grenadier"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 15 * GRID_H;
@@ -1007,7 +1007,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class MedicLabel : A3A_Text
             {
               idc = -1;
-              text = "Medic";
+              text = "Medic"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 20 * GRID_H;
@@ -1068,7 +1068,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class MortarLabel : A3A_Text
             {
               idc = -1;
-              text = "Mortar";
+              text = "Mortar"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 25 * GRID_H;
@@ -1129,7 +1129,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class MarksmanLabel : A3A_Text
             {
               idc = -1;
-              text = "Marksman";
+              text = "Marksman"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 30 * GRID_H;
@@ -1190,7 +1190,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class AtLabel : A3A_Text
             {
               idc = -1;
-              text = "AT";
+              text = "AT"; // TODO: localize
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 35 * GRID_H;
@@ -1253,7 +1253,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class RebuildButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Rebuild Assets";
+          text = "Rebuild Assets"; // TODO: localize
           x = 14 * GRID_W;
           y = 60 * GRID_H;
           w = 22 * GRID_W;
@@ -1263,7 +1263,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class DismissGarrisonButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Dismiss Garrison";
+          text = "Dismiss Garrison"; // TODO: localize
           x = 38 * GRID_W;
           y = 60 * GRID_H;
           w = 22 * GRID_W;
@@ -1273,7 +1273,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class BuildOutpostButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Build Outpost";
+          text = "Build Outpost"; // TODO: localize
           x = 14 * GRID_W;
           y = 78 * GRID_H;
           w = 22 * GRID_W;
@@ -1283,7 +1283,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class RemoveOutpostButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Remove Outpost";
+          text = "Remove Outpost"; // TODO: localize
           x = 38 * GRID_W;
           y = 78 * GRID_H;
           w = 22 * GRID_W;
@@ -1302,7 +1302,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         {
           idc = -1;
           style = ST_CENTER;
-          text = "Deploy Minefield:";
+          text = "Deploy Minefield:"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 50 * GRID_W;
           y = 16 * GRID_H;
@@ -1323,7 +1323,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class DeployApersMinefieldButton : A3A_Button
         {
           idc = -1;
-          text = "APERS Mines";
+          text = "APERS Mines"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 54 * GRID_H;
@@ -1345,7 +1345,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class DeployAtMinefieldButton : A3A_Button
         {
           idc = -1;
-          text = "AT Mines";
+          text = "AT Mines"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 84 * GRID_W;
           y = 54 * GRID_H;
@@ -1356,7 +1356,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class RemoveMinefieldButton : A3A_Button
         {
           idc = -1;
-          text = "Remove Minefield";
+          text = "Remove Minefield"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 52 * GRID_W;
           y = 80 * GRID_H;

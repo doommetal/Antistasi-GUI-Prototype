@@ -8,7 +8,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
     class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = "Recruit Units";
+      text = "Recruit Units"; // TODO: localize
       x = DIALOG_X;
       y = DIALOG_Y - 4 * GRID_H;
       w = DIALOG_W * GRID_W;
@@ -48,7 +48,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class RiflemanButton : A3A_Button
         {
           idc = -1;
-          text = "Rifleman";
+          text = "Rifleman"; // TODO: localize
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 11 * GRID_H;
@@ -82,7 +82,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class AutoriflemanButton : A3A_Button
         {
           idc = -1;
-          text = "Autorifleman";
+          text = "Autorifleman"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 32 * GRID_H;
@@ -116,7 +116,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class GrenadierButton : A3A_Button
         {
           idc = -1;
-          text = "Grenadier";
+          text = "Grenadier"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 53 * GRID_H;
@@ -150,7 +150,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class AtButton : A3A_Button
         {
           idc = -1;
-          text = "AT";
+          text = "AT"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 74 * GRID_H;
@@ -184,7 +184,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class MedicButton : A3A_Button
         {
           idc = -1;
-          text = "Medic";
+          text = "Medic"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 11 * GRID_H;
@@ -218,7 +218,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class MarksmanButton : A3A_Button
         {
           idc = -1;
-          text = "Marksman";
+          text = "Marksman"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 32 * GRID_H;
@@ -252,7 +252,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class EngineerButton : A3A_Button
         {
           idc = -1;
-          text = "Engineer";
+          text = "Engineer"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 53 * GRID_H;
@@ -286,7 +286,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class BombSpecialistButton : A3A_Button
         {
           idc = -1;
-          text = "Bomb Specialist";
+          text = "Bomb Specialist"; // TODO: localize
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 74 * GRID_H;
