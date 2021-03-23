@@ -4,6 +4,14 @@ class A3A
   {
     // Dialog functions
     class mainDialog {};
+    class playerTab {};
+    class commanderTab {};
+    class adminTab {};
+    class constructTab {};
+    class aiManagementTab {};
+    class donateTab {};
+    class airSupportTab {};
+    class playerManagementTab {};
     class hqDialog {};
     class buyVehicleDialog {};
 

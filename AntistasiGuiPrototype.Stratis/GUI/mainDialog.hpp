@@ -490,7 +490,7 @@ class A3A_MainDialog : A3A_TabbedDialog
     class CommanderMap : A3A_MapControl
     {
       idc = A3A_IDC_COMMANDERMAP;
-      onMouseButtonClick = "[""commanderMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_mainDialog";
+      onMouseButtonClick = "[""commanderMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_commanderTab";
       x = CENTER_X(DIALOG_W) + 68 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
       w = 84 * GRID_W;
@@ -564,7 +564,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               idc = A3A_IDC_HCGROUPNAME;
               text = "";
               // TODO: Get rid of hardcoded IDCS here
-              onButtonClick = "(findDisplay 7000 displayCtrl 7201) setVariable [""selectedGroup"", grpNull]; [""updateCommanderTab""] call A3A_fnc_mainDialog";
+              onButtonClick = "(findDisplay 7000 displayCtrl 7201) setVariable [""selectedGroup"", grpNull]; [""update""] call A3A_fnc_commanderTab";
               x = 0;
               y = 0;
               w = 48 * GRID_W;
@@ -683,7 +683,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_HCFIREMISSIONBUTTON;
               text = "Fire Mission";
-              onButtonClick = "[""updateFireMissionView""] call A3A_fnc_mainDialog;";
+              onButtonClick = "[""updateFireMissionView""] call A3A_fnc_commanderTab;";
               // onButtonClick = "findDisplay 7000 displayCtrl 7203 ctrlShow false; findDisplay 7000 displayCtrl 7210 ctrlShow true;";
               x = 28 * GRID_W;
               y = 28 * GRID_H;
@@ -752,7 +752,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               text = "Fire mission";
-              onButtonClick = "[""updateCommanderTab""] call A3A_fnc_mainDialog;";
+              onButtonClick = "[""update""] call A3A_fnc_commanderTab;";
               x = 0;
               y = 0;
               w = 54 * GRID_W;
@@ -850,7 +850,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = A3A_IDC_HEBUTTON;
                   text = "HE";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""he""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""he""]] call A3A_fnc_commanderTab;";
                   x = 20 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -867,7 +867,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = A3A_IDC_SMOKEBUTTON;
                   text = "Smoke";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""smoke""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""smoke""]] call A3A_fnc_commanderTab;";
                   x = 35 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -906,7 +906,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = A3A_IDC_POINTSTRIKEBUTTON;
                   text = "Point";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""point""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""point""]] call A3A_fnc_commanderTab;";
                   x = 20 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -922,7 +922,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = A3A_IDC_BARRAGEBUTTON;
                   text = "Barrage";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""barrage""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""barrage""]] call A3A_fnc_commanderTab;";
                   x = 35 * GRID_W;
                   y = 0 * GRID_H;
                   w = 15 * GRID_W;
@@ -975,7 +975,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = A3A_IDC_ADDROUNDSBUTTON;
                   text = "+";
                   // sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""addround""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""addround""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
                   y = 0 * GRID_H;
                   w = 4 * GRID_W;
@@ -987,7 +987,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = A3A_IDC_SUBROUNDSBUTTON;
                   text = "-";
                   // sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""subround""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""subround""]] call A3A_fnc_commanderTab;";
                   x = 46 * GRID_W;
                   y = 0 * GRID_H;
                   w = 4 * GRID_W;
@@ -1037,7 +1037,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = -1;
                   text = "Set";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""setstart""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""setstart""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
                   y = 0 * GRID_H;
                   w = 8 * GRID_W;
@@ -1087,7 +1087,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   idc = -1;
                   text = "Set";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
-                  onButtonClick = "[""fireMissionSelectionChanged"",[""setend""]] call A3A_fnc_mainDialog;";
+                  onButtonClick = "[""fireMissionSelectionChanged"",[""setend""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
                   y = 0 * GRID_H;
                   w = 8 * GRID_W;
@@ -1129,7 +1129,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_GARBAGECLEANBUTTON;
           text = "Garbage Clean";
-          onButtonclick = "[""showGarbageCleanOptions""] call A3A_fnc_mainDialog";
+          onButtonclick = "[""showGarbageCleanOptions""] call A3A_fnc_commanderTab";
           x = 36 * GRID_W;
           y = 80 * GRID_H;
           w = 24 * GRID_W;
@@ -1268,7 +1268,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 16 * GRID_H;
           w = 40 * GRID_W;
           h = 4 * GRID_H;
-          onSliderPosChanged = "[""civLimitSliderChanged""] spawn A3A_fnc_mainDialog";
+          onSliderPosChanged = "[""civLimitSliderChanged""] spawn A3A_fnc_adminTab";
         };
 
         class CivLimitEditBox : A3A_Edit
@@ -1281,7 +1281,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 16 * GRID_H;
           w = 12 * GRID_W;
           h = 4 * GRID_H;
-          onChar = "[""civLimitEditBoxChanged""] spawn A3A_fnc_mainDialog";
+          onChar = "[""civLimitEditBoxChanged""] spawn A3A_fnc_adminTab";
         };
 
         class SpawnDistanceLabel : A3A_Text
@@ -1302,7 +1302,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 22 * GRID_H;
           w = 40 * GRID_W;
           h = 4 * GRID_H;
-          onSliderPosChanged = "[""spawnDistanceSliderChanged""] spawn A3A_fnc_mainDialog";
+          onSliderPosChanged = "[""spawnDistanceSliderChanged""] spawn A3A_fnc_adminTab";
         };
 
         class SpawnDistanceEditBox : A3A_Edit
@@ -1315,7 +1315,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 22 * GRID_H;
           w = 12 * GRID_W;
           h = 4 * GRID_H;
-          onChar = "[""spawnDistanceEditBoxChanged""] spawn A3A_fnc_mainDialog";
+          onChar = "[""spawnDistanceEditBoxChanged""] spawn A3A_fnc_adminTab";
         };
 
         class AiLimiterLabel : A3A_Text
@@ -1336,7 +1336,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 28 * GRID_H;
           w = 40 * GRID_W;
           h = 4 * GRID_H;
-          onSliderPosChanged = "[""aiLimiterSliderChanged""] spawn A3A_fnc_mainDialog";
+          onSliderPosChanged = "[""aiLimiterSliderChanged""] spawn A3A_fnc_adminTab";
         };
 
         class AiLimiterEditBox : A3A_Edit
@@ -1349,7 +1349,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 28 * GRID_H;
           w = 12 * GRID_W;
           h = 4 * GRID_H;
-          onChar = "[""aiLimiterEditBoxChanged""] spawn A3A_fnc_mainDialog";
+          onChar = "[""aiLimiterEditBoxChanged""] spawn A3A_fnc_adminTab";
         };
 
         class AiSectionWarningBackground : A3A_Background
@@ -1389,7 +1389,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_COMMITAIBUTTON;
           text = "Commit";
-          onButtonClick = "[""confirmAILimit""] call A3A_fnc_mainDialog;"; // TODO: Placeholder
+          onButtonClick = "[""confirmAILimit""] call A3A_fnc_adminTab;"; // TODO: Placeholder
           x = 132 * GRID_W;
           y = 36 * GRID_H;
           w = 20 * GRID_W;
@@ -1528,7 +1528,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           sizeEx = GUI_TEXT_SIZE_SMALL;
           text = "CLEAR";
           tooltip = "Clears list selection";
-          onButtonClick = "[""clearAIListboxSelection""] call A3A_fnc_mainDialog;";
+          onButtonClick = "[""clearAIListboxSelection""] call A3A_fnc_aiManagementTab;";
           x = 85 * GRID_W;
           y = 14 * GRID_H;
           w = 8 * GRID_W;
@@ -1538,7 +1538,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AIListBox : A3A_ListBoxMulti
         {
           idc = A3A_IDC_AILISTBOX;
-          onLBSelChanged = "[""aiListBoxSelectionChanged""] spawn A3A_fnc_MainDialog";
+          onLBSelChanged = "[""aiListBoxSelectionChanged""] spawn A3A_fnc_aiManagementTab";
           x = 15 * GRID_W;
           y = 18 * GRID_H;
           w = 78 * GRID_W;
@@ -1702,7 +1702,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 40 * GRID_H;
           w = 16 * GRID_W;
           h = 6 * GRID_H;
-          onChar = "[""moneyEditBoxChanged""] spawn A3A_fnc_mainDialog";
+          onChar = "[""moneyEditBoxChanged""] spawn A3A_fnc_donateTab";
         };
 
         class EuroLabel : A3A_Text
@@ -1721,7 +1721,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           textureNoShortcut = A3A_Tex_ArrowEmpty_3L;
-          onButtonClick = "[""donationAdd"", [-1000]] spawn A3A_fnc_mainDialog";
+          onButtonClick = "[""donationAdd"", [-1000]] spawn A3A_fnc_donateTab";
           x = 74 * GRID_W;
           y = 53 * GRID_H;
           w = 6 * GRID_W;
@@ -1740,7 +1740,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           textureNoShortcut = A3A_Tex_ArrowEmpty_2L;
-          onButtonClick = "[""donationAdd"", [-100]] spawn A3A_fnc_mainDialog";
+          onButtonClick = "[""donationAdd"", [-100]] spawn A3A_fnc_donateTab";
           x = 81 * GRID_W;
           y = 53 * GRID_H;
           w = 6 * GRID_W;
@@ -1765,14 +1765,14 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 53 * GRID_H;
           w = 50 * GRID_W;
           h = 6 * GRID_H;
-          onSliderPosChanged = "[""moneySliderChanged""] spawn A3A_fnc_mainDialog";
+          onSliderPosChanged = "[""moneySliderChanged""] spawn A3A_fnc_donateTab";
         };
 
         class Add100Button : A3A_ShortcutButton
         {
           idc = -1;
           textureNoShortcut = A3A_Tex_ArrowEmpty_2R;
-          onButtonClick = "[""donationAdd"", [100]] spawn A3A_fnc_mainDialog";
+          onButtonClick = "[""donationAdd"", [100]] spawn A3A_fnc_donateTab";
           x = 139 * GRID_W;
           y = 53 * GRID_H;
           w = 6 * GRID_W;
@@ -1791,7 +1791,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           textureNoShortcut = A3A_Tex_ArrowEmpty_3R;
-          onButtonClick = "[""donationAdd"", [1000]] spawn A3A_fnc_mainDialog";
+          onButtonClick = "[""donationAdd"", [1000]] spawn A3A_fnc_donateTab";
           x = 146 * GRID_W;
           y = 53 * GRID_H;
           w = 6 * GRID_W;
@@ -1991,7 +1991,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           y = 12 * GRID_H;
           w = 106 * GRID_W;
           h = 82 * GRID_H;
-          onLBSelChanged = "[""playerLbSelectionChanged""] spawn A3A_fnc_maindialog";
+          onLBSelChanged = "[""playerLbSelectionChanged""] spawn A3A_fnc_playerManagementTab";
 
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           rowHeight = 4 * GRID_H;
@@ -2002,7 +2002,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_ADDMEMBERBUTTON;
           text = "Add Member";
-          onButtonClick = "[""adminAddMember""] spawn A3A_fnc_maindialog";
+          onButtonClick = "[""adminAddMember""] spawn A3A_fnc_playerManagementTab";
           show = false;
           x = 120 * GRID_W;
           y = 7 * GRID_H;
@@ -2014,7 +2014,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_REMOVEMEMBERBUTTON;
           text = "Remove Member";
-          onButtonClick = "[""adminRemoveMember""] spawn A3A_fnc_maindialog";
+          onButtonClick = "[""adminRemoveMember""] spawn A3A_fnc_playerManagementTab";
           show = false;
           x = 120 * GRID_W;
           y = 7 * GRID_H;

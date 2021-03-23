@@ -60,6 +60,7 @@ playerIsAdmin = true;
 // if (player == A3A_admin)
 // if (player == [] call A3A_fnc_getAdmin)
 // call BIS_fnc_admin > 0
+// (isServer && hasInterface) || {admin owner _this > 0} // <- correct way?
 
 // Aggro
 // [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString
