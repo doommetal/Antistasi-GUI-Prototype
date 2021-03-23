@@ -45,8 +45,14 @@ canGoUndercover = false; // TODO: Replace with A3A_fnc_canGoUndercover
 // isUndercover = (captive _player) and !(_player getVariable ["incapacitated",false]);
 canFastTravel = true; // TODO: Replace with A3A_fnc_canFastTravel
 canConstruct = true; // check for engineer in squad
-factionMoney = 10000; // server getVariable "resourcesFIA"
-// server getVariable "hr"
+
+// Faction resources
+skillFia = 1; // AI skill level
+server setVariable ["resourcesFIA", 1000];
+// factionMoney = 10000; // server getVariable "resourcesFIA"
+server setVariable ["hr", 10];
+
+
 playerIsCommander = true;
 // theBoss == player
 // player getVariable "eligible"

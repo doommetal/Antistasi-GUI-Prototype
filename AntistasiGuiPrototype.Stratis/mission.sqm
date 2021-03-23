@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=142;
+		nextID=143;
 	};
 	class MarkerIDProvider
 	{
@@ -45,7 +45,8 @@ addons[]=
 	"A3_Weapons_F_Rifles_TRG20",
 	"A3_Weapons_F_Exp",
 	"A3_Weapons_F_Launchers_Titan",
-	"A3_Static_F_HMG_02"
+	"A3_Static_F_HMG_02",
+	"A3_Modules_F"
 };
 class AddonsMetaData
 {
@@ -547,7 +548,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=33;
+		items=34;
 		class Item0
 		{
 			dataType="Object";
@@ -7129,6 +7130,18 @@ class Mission
 			id=141;
 			type="HighCommandSubordinate";
 			atlOffset=-3.8146973e-006;
+		};
+		class Item33
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4085.6343,216.80971,4554.9268};
+				angles[]={6.213964,5.5529599,0.045301005};
+			};
+			name="server";
+			id=142;
+			type="Logic";
 		};
 	};
 	class Connections

@@ -215,22 +215,22 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             // Controlled sites
 
-            class ControlledTownsIcon : A3A_Picture
+            class ControlledCitiesIcon : A3A_Picture
             {
-              idc = A3A_IDC_CONTROLLEDTOWNSICON;
+              idc = A3A_IDC_CONTROLLEDCITIESICON;
               text = A3A_Tex_Icon_Town;
-              tooltip = "Controlled towns";
+              tooltip = "Controlled cities";
               x = 32 * GRID_W;
               y = 6 * GRID_H;
               w = 4 * GRID_W;
               h = 4 * GRID_H;
             };
 
-            class ControlledTownsText : A3A_Text
+            class ControlledCitiesText : A3A_Text
             {
-              idc = A3A_IDC_CONTROLLEDTOWNSTEXT;
+              idc = A3A_IDC_CONTROLLEDCITIESTEXT;
               text = "3/48";
-              tooltip = "Controlled towns";
+              tooltip = "Controlled cities";
               x = 36 * GRID_W;
               y = 6 * GRID_H;
               w = 12 * GRID_W;
@@ -506,9 +506,9 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class FactionHRText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_FACTIONHRTEXT;
               style = ST_RIGHT;
-              text = "42";
+              text = "0";
               x = 41 * GRID_W;
               y = 7 * GRID_H;
               w = 16 * GRID_W;
@@ -527,9 +527,9 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class FactionTrainingText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_FACTIONTRAININGTEXT;
               style = ST_RIGHT;
-              text = "5 / 20";
+              text = "0 / 20";
               x = 41 * GRID_W;
               y = 12 * GRID_H;
               w = 16 * GRID_W;
@@ -567,9 +567,9 @@ class A3A_HqDialog : A3A_DefaultDialog
 
             class FactionMoneyText : A3A_Text
             {
-              idc = -1;
+              idc = A3A_IDC_FACTIONMONEYTEXT;
               style = ST_RIGHT;
-              text = "10000 £"; // TODO: Switch to euros
+              text = "0";
               x = 41 * GRID_W;
               y = 19 * GRID_H;
               w = 16 * GRID_W;

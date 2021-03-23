@@ -58,7 +58,8 @@ switch (_mode) do
 
     // Faction money section setup
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
-    _factionMoneySlider sliderSetRange [0,factionMoney];
+    private _factionMoney = server getVariable ["resourcesFIA", 0];
+    _factionMoneySlider sliderSetRange [0,_factionMoney];
     _factionMoneySlider sliderSetSpeed [100, 100];
     _factionMoneySlider sliderSetPosition 0;
 
@@ -226,13 +227,51 @@ switch (_mode) do
   {
     _display = findDisplay A3A_IDD_HqDialog;
 
-    // TODO: Update campaign status section
+    // Update campaign status section
+    // TODO: Get actual values here, placeholder totals from Altis
+    private _controlledCities = 5;
+    private _totalCities = 48;
+    private _controlledOutposts = 4;
+    private _totalOutposts = 44;
+    private _controlledAirbases = 3;
+    private _totalAirbases = 6;
+    private _controlledResources = 2;
+    private _totalResources = 8;
+    private _controlledFactories = 1;
+    private _totalFactories = 12;
+    private _controlledPorts = 0;
+    private _totalPorts = 5;
 
-    // Update population status bar
-    private _totalPopulation = totalPopulation;
+    private _totalPopulation = totalPopulation; // TODO: replace with something like A3A_fnc_resourceCheck
     private _rebelPopulation = rebelPopulation;
     private _deadPopulation = deadPopulation;
 
+    // TODO: Loop through map sites here (citiesX, airportsX, wtfAreOutpostsCalledAgain?, resourcesX, factories, seaports)
+
+    // If we aren't changing tooltips runtime we don't need to get the icons here
+    /* _controlledCitiesIcon = _display displayCtrl A3A_IDC_CONTROLLEDCITIESICON;
+    _controlledOutpostsIcon = _display displayCtrl A3A_IDC_CONTROLLEDOUTPOSTSICON;
+    _controlledAirbasesIcon = _display displayCtrl A3A_IDC_CONTROLLEDAIRBASESICON;
+    _controlledResourcesIcon = _display displayCtrl A3A_IDC_CONTROLLEDRESOURCESICON;
+    _controlledFactoriesIcon = _display displayCtrl A3A_IDC_CONTROLLEDFACTORIESICON;
+    _controlledPortsIcon = _display displayCtrl A3A_IDC_CONTROLLEDPORTSICON; */
+
+    _controlledCitiesText = _display displayCtrl A3A_IDC_CONTROLLEDCITIESTEXT;
+    _controlledOutpostsText = _display displayCtrl A3A_IDC_CONTROLLEDOUTPOSTSTEXT;
+    _controlledAirbasesText = _display displayCtrl A3A_IDC_CONTROLLEDAIRBASESTEXT;
+    _controlledResourcesText = _display displayCtrl A3A_IDC_CONTROLLEDRESOURCESTEXT;
+    _controlledFactoriesText = _display displayCtrl A3A_IDC_CONTROLLEDFACTORIESTEXT;
+    _controlledPortsText = _display displayCtrl A3A_IDC_CONTROLLEDPORTSTEXT;
+
+    _controlledCitiesText ctrlSetText format ["%1/%2", _controlledCities, _totalCities];
+    _controlledOutpostsText ctrlSetText format ["%1/%2", _controlledOutposts, _totalOutposts];
+    _controlledAirbasesText ctrlSetText format ["%1/%2", _controlledAirbases, _totalAirbases];
+    _controlledResourcesText ctrlSetText format ["%1/%2", _controlledResources, _totalResources];
+    _controlledFactoriesText ctrlSetText format ["%1/%2", _controlledFactories, _totalFactories];
+    _controlledPortsText ctrlSetText format ["%1/%2", _controlledPorts, _totalPorts];
+
+
+    // Update population status bar
     private _statusBarRebels = _display displayCtrl A3A_IDC_POPSTATUSBARREB;
     private _statusBarDead = _display displayCtrl A3A_IDC_POPSTATUSBARDEAD;
 
@@ -250,7 +289,6 @@ switch (_mode) do
     _rebText ctrlSetText (str _rebPercentage) + "%";
     _deadText ctrlSetText (str _deadPercentage) + "%";
 
-
     _statusBarRebels ctrlSetPosition [0, 0, _rebelsBarWidth, 6 * GRID_H];
     _statusBarRebels ctrlCommit 0;
 
@@ -258,7 +296,18 @@ switch (_mode) do
     _statusBarDead ctrlCommit 0;
 
 
-    // TODO: Update faction resources section
+    // Update faction resources section
+    private _hr = server getVariable ["hr", 0];
+    private _trainingLevel = skillFIA;
+    private _hrText = _display displayCtrl A3A_IDC_FACTIONHRTEXT;
+    private _trainingText = _display displayCtrl A3A_IDC_FACTIONTRAININGTEXT;
+    _hrText ctrlSetText str _hr;
+    _trainingText ctrlSetText format ["%1 / 20", _trainingLevel];
+
+    private _factionMoney = server getVariable ["resourcesFIA", 0];
+    private _factionMoneyText = _display displayCtrl A3A_IDC_FACTIONMONEYTEXT;
+    _factionMoneyText ctrlSetText format ["%1 €"];
+
 
     // TODO: Update rest section with current ingame time
   };
@@ -346,9 +395,10 @@ switch (_mode) do
     private _factionMoneyEditBox = _display displayCtrl A3A_IDC_FACTIONMONEYEDITBOX;
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
     private _factionMoneyEditBoxValue = floor parseNumber ctrlText _factionMoneyEditBox;
+    private _factionMoney = server getVariable ["resourcesFIA", 0];
     _factionMoneySlider sliderSetPosition _factionMoneyEditBoxValue;
     if (_factionMoneyEditBoxValue < 0) then {_factionMoneyEditBox ctrlSetText str 0};
-    if (_factionMoneyEditBoxValue > factionMoney) then {_factionMoneyEditBox ctrlSetText str factionMoney};
+    if (_factionMoneyEditBoxValue > _factionMoney) then {_factionMoneyEditBox ctrlSetText str _factionMoney};
   };
 
   case ("garrisonMapClicked"):
