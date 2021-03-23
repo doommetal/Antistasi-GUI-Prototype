@@ -1718,7 +1718,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           h = 6 * GRID_H;
         };
 
-        class Sub1000Button : A3A_ShortcutButton// Was: RscButtonMenu
+        class Sub1000Button : A3A_ShortcutButton
         {
           idc = -1;
           textureNoShortcut = A3A_Tex_ArrowEmpty_3L;

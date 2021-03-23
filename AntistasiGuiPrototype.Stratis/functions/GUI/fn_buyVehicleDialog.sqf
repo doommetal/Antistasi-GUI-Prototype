@@ -103,7 +103,7 @@ switch (_mode) do
       private _crewCountYpos = 24 * GRID_H - _crewCountHeight;
 
       // Using an inner controlsGroup here so the coordinate calculations don't get completely unreadable
-      private _crewControlsGroup = _display ctrlCreate ["RscControlsGroupNoScrollbars", -1, _itemControlsGroup]; // TODO: Fix Rsc control
+      private _crewControlsGroup = _display ctrlCreate ["A3A_ControlsGroupNoScrollbars", -1, _itemControlsGroup];
       _crewControlsGroup ctrlSetPosition[1 * GRID_W, _crewCountYpos, 20 * GRID_W, _crewCountHeight];
       _crewControlsGroup ctrlCommit 0;
 
