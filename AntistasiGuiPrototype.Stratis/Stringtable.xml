@@ -2,7 +2,7 @@
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi Mission">
     <Container name="dialog_recruit_units">
-      <Key ID="STR_antistasi_dialogs_recruit_units_titlebar_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_titlebar">
         <Original>Recruit Units</Original>
         <English>Recruit Units</English>
         <Czech />
@@ -14,7 +14,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_militiaman_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_militiaman">
         <Original>Militiaman</Original>
         <English>Militiaman</English>
         <Czech />
@@ -26,7 +26,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_autorifleman_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_autorifleman">
         <Original>Autorifleman</Original>
         <English>Autorifleman</English>
         <Czech />
@@ -38,7 +38,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_medic_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_medic">
         <Original>Medic</Original>
         <English>Medic</English>
         <Czech />
@@ -50,7 +50,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_engineer_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_engineer">
         <Original>Engineer</Original>
         <English>Engineer</English>
         <Czech />
@@ -62,7 +62,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_bomb_specialist_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_bomb_specialist">
         <Original>Bomb Specialist</Original>
         <English>Bomb Specialist</English>
         <Czech />
@@ -74,7 +74,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_grenadier_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_grenadier">
         <Original>Grenadier</Original>
         <English>Grenadier</English>
         <Czech />
@@ -86,7 +86,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_marksman_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_marksman">
         <Original>Marksman</Original>
         <English>Marksman</English>
         <Czech />
@@ -98,7 +98,7 @@
         <Russian />
         <German />
       </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_antitank_text">
+      <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
         <Original>Antitank</Original>
         <English>Antitank</English>
         <Czech />
@@ -112,17 +112,59 @@
       </Key>
     </Container>
     <Container name="dialog_main">
-      <Key ID="STR_antistasi_dialogs_main_titlebar_text">
+      <Key ID="STR_antistasi_dialogs_main_titlebar">
         <Original>Battle Options</Original>
         <English>Battle Options</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_text">
+      <Key ID="STR_antistasi_dialogs_main_fast_travel">
         <Original>Fast Travel</Original>
         <English>Fast Travel</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip_text">
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
         <Original>This is a placeholder</Original>
         <English>This is a placeholder</English>
+      </Key>
+    </Container>
+    <Container name="dialog_recruit_squad">
+      <Key ID="STR_antistasi_dialogs_recruit_squad_titlebar_text">
+        <Original>Recruit Squad</Original>
+        <English>Recruit Squad</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_inf_squad">
+        <Original>Inf. Squad</Original>
+        <English>Inf. Squad</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_inf_team">
+        <Original>Inf. Team</Original>
+        <English>Inf. Team</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_at_team">
+        <Original>AT Team</Original>
+        <English>AT Team</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_mg_team">
+        <Original>MG Team</Original>
+        <English>MG Team</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_mortar_team">
+        <Original>Mortar Team</Original>
+        <English>Mortar Team</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_sniper_team">
+        <Original>Sniper Team</Original>
+        <English>Sniper Team</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_at_car">
+        <Original>AT Car</Original>
+        <English>AT Car</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_aa_truck">
+        <Original>AA Truck</Original>
+        <English>AA Truck</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_recruit_squad_include_vehicle_label">
+        <Original>Include vehicle</Original>
+        <English>Include vehicle</English>
       </Key>
     </Container>
   </Package>

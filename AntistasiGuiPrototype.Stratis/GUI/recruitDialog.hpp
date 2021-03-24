@@ -8,7 +8,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
     class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = $STR_antistasi_dialogs_recruit_units_titlebar_text;
+      text = $STR_antistasi_dialogs_recruit_units_titlebar;
       x = DIALOG_X;
       y = DIALOG_Y - 4 * GRID_H;
       w = DIALOG_W * GRID_W;
@@ -48,7 +48,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class MilitiamanButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_militiaman_text;
+          text = $STR_antistasi_dialogs_recruit_units_militiaman;
           x = 36 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
@@ -81,7 +81,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class AutoriflemanButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_autorifleman_text;
+          text = $STR_antistasi_dialogs_recruit_units_autorifleman;
           x = 36 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
@@ -114,7 +114,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class GrenadierButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_grenadier_text;
+          text = $STR_antistasi_dialogs_recruit_units_grenadier;
           x = 36 * GRID_W;
           y = 53 * GRID_H;
           w = 36 * GRID_W;
@@ -147,7 +147,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class AntitankButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_antitank_text;
+          text = $STR_antistasi_dialogs_recruit_units_antitank;
           x = 36 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;
@@ -180,7 +180,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class MedicButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_medic_text;
+          text = $STR_antistasi_dialogs_recruit_units_medic;
           x = 88 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
@@ -213,7 +213,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class MarksmanButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_marksman_text;
+          text = $STR_antistasi_dialogs_recruit_units_marksman;
           x = 88 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
@@ -246,7 +246,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class EngineerButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_engineer_text;
+          text = $STR_antistasi_dialogs_recruit_units_engineer;
           x = 88 * GRID_W;
           y = 53 * GRID_H;
           w = 36 * GRID_W;
@@ -279,7 +279,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class BombSpecialistButton : A3A_Button
         {
           idc = -1;
-          text = $STR_antistasi_dialogs_recruit_units_bomb_specialist_text;
+          text = $STR_antistasi_dialogs_recruit_units_bomb_specialist;
           x = 88 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;

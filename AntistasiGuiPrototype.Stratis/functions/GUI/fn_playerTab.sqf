@@ -63,7 +63,7 @@ switch (_mode) do
     if (canFastTravel) then
     {
       _fastTravelButton ctrlEnable true;
-      _fastTravelButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_fast_travel_tooltip_text";
+      _fastTravelButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_fast_travel_tooltip";
       _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _fastTravelButton ctrlEnable false;
