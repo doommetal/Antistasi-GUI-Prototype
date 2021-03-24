@@ -1,3 +1,4 @@
 TODO-LIST:
 - localize strings
 - remove borders on ai management list
+- update routines for prices in recruit dialogs

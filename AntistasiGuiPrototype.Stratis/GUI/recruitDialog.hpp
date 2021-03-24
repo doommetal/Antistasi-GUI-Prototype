@@ -8,7 +8,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
     class TitlebarText : A3A_Text
     {
       idc = -1;
-      text = "Recruit Units"; // TODO: localize
+      text = $STR_antistasi_dialogs_recruit_units_titlebar_text;
       x = DIALOG_X;
       y = DIALOG_Y - 4 * GRID_H;
       w = DIALOG_W * GRID_W;
@@ -22,7 +22,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
 
       class Controls
       {
-        class RiflemanIcon : A3A_Picture
+        class MilitiamanIcon : A3A_Picture
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
@@ -33,7 +33,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
           h = 8 * GRID_H;
         };
 
-        class RiflemanPriceText : A3A_Text
+        class MilitiamanPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
@@ -45,11 +45,10 @@ class A3A_RecruitDialog : A3A_DefaultDialog
           h = 4 * GRID_H;
         };
 
-        class RiflemanButton : A3A_Button
+        class MilitiamanButton : A3A_Button
         {
           idc = -1;
-          text = "Rifleman"; // TODO: localize
-          sizeEx = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_militiaman_text;
           x = 36 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
@@ -82,8 +81,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class AutoriflemanButton : A3A_Button
         {
           idc = -1;
-          text = "Autorifleman"; // TODO: localize
-          size = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_autorifleman_text;
           x = 36 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
@@ -116,15 +114,14 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class GrenadierButton : A3A_Button
         {
           idc = -1;
-          text = "Grenadier"; // TODO: localize
-          size = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_grenadier_text;
           x = 36 * GRID_W;
           y = 53 * GRID_H;
           w = 36 * GRID_W;
           h = 12 * GRID_H;
         };
 
-        class AtIcon : A3A_Picture
+        class AntitankIcon : A3A_Picture
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
@@ -135,7 +132,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
           h = 8 * GRID_H;
         };
 
-        class AtPriceText : A3A_Text
+        class AntitankPriceText : A3A_Text
         {
           idc = -1;
           style = ST_CENTER;
@@ -147,11 +144,10 @@ class A3A_RecruitDialog : A3A_DefaultDialog
           h = 4 * GRID_H;
         };
 
-        class AtButton : A3A_Button
+        class AntitankButton : A3A_Button
         {
           idc = -1;
-          text = "AT"; // TODO: localize
-          size = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_antitank_text;
           x = 36 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;
@@ -184,8 +180,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class MedicButton : A3A_Button
         {
           idc = -1;
-          text = "Medic"; // TODO: localize
-          size = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_medic_text;
           x = 88 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
@@ -218,8 +213,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class MarksmanButton : A3A_Button
         {
           idc = -1;
-          text = "Marksman"; // TODO: localize
-          size = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_marksman_text;
           x = 88 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
@@ -252,8 +246,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class EngineerButton : A3A_Button
         {
           idc = -1;
-          text = "Engineer"; // TODO: localize
-          size = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_engineer_text;
           x = 88 * GRID_W;
           y = 53 * GRID_H;
           w = 36 * GRID_W;
@@ -286,8 +279,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         class BombSpecialistButton : A3A_Button
         {
           idc = -1;
-          text = "Bomb Specialist"; // TODO: localize
-          size = GUI_TEXT_SIZE_LARGE;
+          text = $STR_antistasi_dialogs_recruit_units_bomb_specialist_text;
           x = 88 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;

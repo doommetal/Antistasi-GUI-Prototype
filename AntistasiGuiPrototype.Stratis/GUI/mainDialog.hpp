@@ -15,7 +15,7 @@ class A3A_MainDialog : A3A_TabbedDialog
     class TitlebarText : A3A_Text
     {
       idc = A3A_IDC_MainDialogTitleBar;
-      text = $STR_antistasi_dialogs_radio_comm; // TODO: localize
+      text = $STR_antistasi_dialogs_main_titlebar_text;
       x = DIALOG_X;
       y = DIALOG_Y - 8 * GRID_H;
       w = DIALOG_W * GRID_W;
@@ -118,9 +118,9 @@ class A3A_MainDialog : A3A_TabbedDialog
         class FastTravelButton : A3A_Button
         {
           idc = A3A_IDC_FASTTRAVELBUTTON;
-          text = $STR_antistasi_dialogs_radio_comm_fast_travel; // TODO: localize
-          tooltip = $STR_antistasi_dialogs_radio_comm_fast_travel_tooltip; // TODO: localize
-          onButtonClick = "closeDialog 2"; // TODO: fasttravel function
+          text = $STR_antistasi_dialogs_main_fast_travel_text;
+          tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip_text;
+          onButtonClick = "closeDialog 2"; // TODO: hook up to fasttravel function
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 32 * GRID_H;
