@@ -1,4 +1,5 @@
 TODO-LIST:
 - localize strings
+- figure out wtf is going on with the mission dialog nowadays
 - remove borders on ai management list
 - update routines for prices in recruit dialogs

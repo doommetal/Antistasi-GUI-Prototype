@@ -12,7 +12,7 @@ class A3A_LoadDialog
     class TitlebarText : A3A_Text
     {
       idc = 7001;
-      text = "Load last save?"; // TODO: localize
+      text = $STR_antistasi_dialogs_load_last_save_titlebar;
       sizeEx = GUI_TEXT_SIZE_LARGE;
       x = DIALOG_X;
       y = DIALOG_Y - 6 * GRID_H;
@@ -35,7 +35,7 @@ class A3A_LoadDialog
         class YesButton : A3A_Button
         {
           idc = -1;
-          text = "Yes"; // TODO: localize
+          text = $STR_antistasi_dialogs_generic_yes;
           sizeEx = GUI_TEXT_SIZE_LARGE;
 					x = 10 * GRID_W;
 					y = 8 * GRID_H;
@@ -46,7 +46,7 @@ class A3A_LoadDialog
         class NoButton : A3A_Button
         {
           idc = -1;
-          text = "No"; // TODO: localize
+          text = $STR_antistasi_dialogs_generic_no;
           sizeEx = GUI_TEXT_SIZE_LARGE;
 					x = 35 * GRID_W;
 					y = 8 * GRID_H;

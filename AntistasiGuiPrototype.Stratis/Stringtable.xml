@@ -167,5 +167,21 @@
         <English>Include vehicle</English>
       </Key>
     </Container>
+    <Container name="dialogs_generic">
+      <Key ID="STR_antistasi_dialogs_generic_yes">
+        <Original>Yes</Original>
+        <English>Yes</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_no">
+        <Original>No</Original>
+        <English>No</English>
+      </Key>
+    </Container>
+    <Container name="dialog_load_last_save">
+      <Key ID="STR_antistasi_dialogs_load_last_save_titlebar">
+        <Original>Load last save?</Original>
+        <English>Load last save?</English>
+      </Key>
+    </Container>
   </Package>
 </Project>
