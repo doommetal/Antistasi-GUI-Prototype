@@ -497,5 +497,39 @@
         <English>Remaining Air Support points</English>
       </Key>
     </Container>
+    <Container name="dialog_mission_request">
+      <Key ID="STR_antistasi_dialogs_mission_request_conquest">
+        <Original>Conquest</Original>
+        <English>Conquest</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mission_request_destroy">
+        <Original>Destroy</Original>
+        <English>Destroy</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mission_request_assassination">
+        <Original>Assassination</Original>
+        <English>Assassination</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mission_request_convoy">
+        <Original>Convoy Ambush</Original>
+        <English>Convoy Ambush</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mission_request_rescue">
+        <Original>Rescue</Original>
+        <English>Rescue</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mission_request_logistics">
+        <Original>Logistics</Original>
+        <English>Logistics</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mission_request_support">
+        <Original>Support</Original>
+        <English>Support</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mission_request_titlebar">
+        <Original>Request Mission</Original>
+        <English>Request Mission</English>
+      </Key>
+    </Container>
   </Package>
 </Project>
