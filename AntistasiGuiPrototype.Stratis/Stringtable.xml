@@ -183,5 +183,39 @@
         <English>Load last save?</English>
       </Key>
     </Container>
+    <Container name="dialog_buy_vehicle">
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_titlebar">
+        <Original>Buy Vehicle</Original>
+        <English>Buy Vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_undercover_tooltip">
+        <Original>This vehicle can go undercover</Original>
+        <English>This vehicle can go undercover</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_driver_tooltip">
+        <Original>Driver / Pilot</Original>
+        <English>Driver / Pilot</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_copilot_tooltip">
+        <Original>Co-Pilot</Original>
+        <English>Co-Pilot</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_commander_tooltip">
+        <Original>Commander</Original>
+        <English>Commander</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_tooltip">
+        <Original>Gunner</Original>
+        <English>Gunner</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip">
+        <Original>Passenger seats</Original>
+        <English>Passenger seats</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
+        <Original>FFV seats</Original>
+        <English>FFV seats</English>
+      </Key>
+    </Container>
   </Package>
 </Project>
