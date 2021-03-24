@@ -301,5 +301,201 @@
         <English>Donate to Faction</English>
       </Key>
     </Container>
+    <Container name="dialog_main_commander">
+      <Key ID="STR_antistasi_dialogs_main_hc_groups_label">
+        <Original>High Command Groups</Original>
+        <English>High Command Groups</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_remote_control_tooltip">
+        <Original>Remote control group leader</Original>
+        <English>Remote control group leader</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_unit_count_tooltip">
+        <Original>Number of units in the group\nAble to combat / Total number of units</Original>
+        <English>Number of units in the group\nAble to combat / Total number of units</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_combat_mode">
+        <Original>Combat mode</Original>
+        <English>Combat mode</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_button">
+        <Original>Fire Mission</Original>
+        <English>Fire Mission</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_mount">
+        <Original>Mount</Original>
+        <English>Mount</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_dismount">
+        <Original>Dismount</Original>
+        <English>Dismount</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_add_vehicle">
+        <Original>Add Vehicle</Original>
+        <English>Add Vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_garrison">
+        <Original>Garrison</Original>
+        <English>Garrison</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_dismiss">
+        <Original>Dismiss</Original>
+        <English>Dismiss</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_label">
+        <Original>Fire mission</Original>
+        <English>Fire mission</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo">
+        <Original>Ammo</Original>
+        <English>Ammo</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_he">
+        <Original>HE</Original>
+        <English>HE</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_smoke">
+        <Original>Smoke</Original>
+        <English>Smoke</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_label">
+        <Original>Shell type</Original>
+        <English>Shell type</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_he">
+        <Original>HE</Original>
+        <English>HE</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_smoke">
+        <Original>Smoke</Original>
+        <English>Smoke</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_label">
+        <Original>Mission type</Original>
+        <English>Mission type</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_point">
+        <Original>Point</Original>
+        <English>Point</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_barrage">
+        <Original>Barrage</Original>
+        <English>Barrage</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_label">
+        <Original>Rounds</Original>
+        <English>Rounds</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_label">
+        <Original>Position</Original>
+        <English>Position</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_set">
+        <Original>SET</Original>
+        <English>Set</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_end_label">
+        <Original>End</Original>
+        <English>End</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_fire_button">
+        <Original>Fire</Original>
+        <English>Fire</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_air_support_button">
+        <Original>Air Support</Original>
+        <English>Air Support</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_garbage_clean_button">
+        <Original>Garbage Clean</Original>
+        <English>Garbage Clean</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_garbage_clean_all">
+        <Original>Garbage Clean All</Original>
+        <English>Garbage Clean All</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_garbage_clean_hq">
+        <Original>Garbage Clean HQ</Original>
+        <English>Garbage Clean HQ</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_deployed_tooltip">
+        <Original>Unable to fire. Mortar is not deployed.</Original>
+        <English>Unable to fire. Mortar is not deployed.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_has_medic">
+        <Original>Has operative medic</Original>
+        <English>Has operative medic</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_has_at">
+        <Original>Has AT capability</Original>
+        <English>Has AT capability</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_has_aa">
+        <Original>Has AA capability</Original>
+        <English>Has AA capability</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_deployed">
+        <Original>Mortar is deployed</Original>
+        <English>Mortar is deployed</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_not_deployed">
+        <Original>Mortar is not deployed</Original>
+        <English>Mortar is not deployed</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_deployed">
+        <Original>Static weapon is deployed</Original>
+        <English>Static weapon is deployed</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed">
+        <Original>Static weapon is not deployed</Original>
+        <English>Static weapon is not deployed</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_no_groups">
+        <Original>&amp;lt;t align='center'&amp;gt;You have no high command groups.&amp;lt;/t&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;t align='center'&amp;gt;You can recruit them at the flag.&amp;lt;/t&amp;gt;</Original>
+        <English>&amp;lt;t align='center'&amp;gt;You have no high command groups.&amp;lt;/t&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;t align='center'&amp;gt;You can recruit them at the flag.&amp;lt;/t&amp;gt;</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_start_label">
+        <Original>Start</Original>
+        <English>Start</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_barrage_tooltip">
+        <Original>Number of rounds set by barrage length</Original>
+        <English>Number of rounds set by barrage length</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_click_map">
+        <Original>CLICK MAP</Original>
+        <English>Click Map</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_set">
+        <Original>NOT SET</Original>
+        <English>Not Set</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_not_set_tooltip">
+        <Original>Strike position not set</Original>
+        <English>Strike position not set</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_misison_no_ammo_tooltip">
+        <Original>Not enough ammo</Original>
+        <English>Not enough ammo</English>
+      </Key>
+    </Container>
+    <Container name="dialog_main_air_support">
+      <Key ID="STR_antistasi_dialogs_main_air_support_he_bombs">
+        <Original>HE Bombs</Original>
+        <English>HE Bombs</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_air_support_carpet_bombing">
+        <Original>Carpet Bombing</Original>
+        <English>Carpet Bombing</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_air_support_napalm">
+        <Original>Napalm Bomb</Original>
+        <English>Napalm Bomb</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_air_support_remaining_points">
+        <Original>Remaining Air Support points</Original>
+        <English>Remaining Air Support points</English>
+      </Key>
+    </Container>
   </Package>
 </Project>

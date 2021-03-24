@@ -532,7 +532,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class MultipleGroupsLabel : A3A_SectionLabelRight
         {
-          text = "High command groups"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_hc_groups_label;
           idc = A3A_IDC_HCMULTIPLEGROUPSLABEL;
           x = 8 * GRID_W;
           y = 8 * GRID_H;
@@ -577,7 +577,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               textureNoShortcut = A3A_Tex_Icon_Remotecontrol;
-              tooltip = "Remote control group leader"; // TODO: localize<
+              tooltip = $STR_antistasi_dialogs_main_remote_control_tooltip;
               onButtonClick = "hint ""Totally controlling this dude now""";
               x = 48 * GRID_W;
               y = 0 * GRID_H;
@@ -617,7 +617,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
-              tooltip = "Number of units in the group\nAble to combat / Total number of units"; // TODO: localize
+              tooltip = $STR_antistasi_dialogs_main_hc_unit_count_tooltip;
               x = 2 * GRID_W;
               y = 8 * GRID_H;
               w = 4 * GRID_W;
@@ -628,7 +628,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_HCGROUPCOUNT;
               text = "10 / 10";
-              tooltip = "Number of units in the group\nAble to combat / Total number of units"; // TODO: localize
+              tooltip = $STR_antistasi_dialogs_main_hc_unit_count_tooltip;
               x = 6 * GRID_W;
               y = 8 * GRID_H;
               w = 16 * GRID_W;
@@ -638,7 +638,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupTaskLabel : A3A_Text
             {
               idc = -1;
-              text = "Current task:";
+              text = "Current task:"; // TODO: localize, or not? maybe going away?
               sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 0;
               y = 14 * GRID_H;
@@ -661,7 +661,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupCombatModeLabel : A3A_Text
             {
               idc = -1;
-              text = "Combat mode:"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_combat_mode;
               sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 0;
               y = 20 * GRID_H;
@@ -684,7 +684,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class FireMissionButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_HCFIREMISSIONBUTTON;
-              text = "Fire Mission"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_fire_mission_button;
               onButtonClick = "[""updateFireMissionView""] call A3A_fnc_commanderTab;";
               // onButtonClick = "findDisplay 7000 displayCtrl 7203 ctrlShow false; findDisplay 7000 displayCtrl 7210 ctrlShow true;";
               x = 28 * GRID_W;
@@ -693,10 +693,10 @@ class A3A_MainDialog : A3A_TabbedDialog
               h = 8 * GRID_H;
             };
 
-            class MountButton : A3A_ShortcutButton
+            class MountButton : A3A_Button
             {
               idc = -1;
-              text = "Mount / Dismount"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_mount; // Todo: update on mount status
               x = 2 * GRID_H;
               y = 40 * GRID_H;
               w = 24 * GRID_W;
@@ -706,7 +706,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AddVehicleButton : A3A_Button
             {
               idc = -1;
-              text = "Add Vehicle"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_add_vehicle;
               x = 2 * GRID_H;
               y = 54 * GRID_H;
               w = 24 * GRID_W;
@@ -716,7 +716,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarrisonButton : A3A_Button
             {
               idc = -1;
-              text = "Garrison"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_garrison;
               x = 28 * GRID_W;
               y = 40 * GRID_H;
               w = 24 * GRID_W;
@@ -726,7 +726,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class DismissButton : A3A_Button
             {
               idc = -1;
-              text = "Dismiss"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_dismiss;
               x = 28 * GRID_W;
               y = 54 * GRID_H;
               w = 24 * GRID_W;
@@ -753,7 +753,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class FireMissionLabel : A3A_Button_Left
             {
               idc = -1;
-              text = "Fire mission"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_fire_mission_label;
               onButtonClick = "[""update""] call A3A_fnc_commanderTab;";
               x = 0;
               y = 0;
@@ -773,7 +773,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AmmoLabel : A3A_SectionLabelRight
             {
               idc = -1;
-              text = "Ammo"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_fire_mission_ammo;
               x = 2 * GRID_W;
               y = 8 * GRID_H;
               w = 50 * GRID_W;
@@ -783,7 +783,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class HeRoundsCountLabel : A3A_Text
             {
               idc = -1;
-              text = "HE:"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_fire_mission_ammo_he;
               colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 2 * GRID_W;
               y = 13 * GRID_H;
@@ -806,7 +806,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class SmokeRoundsCountLabel : A3A_Text
             {
               idc = -1;
-              text = "Smoke:"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_fire_mission_ammo_smoke;
               colorBackground[] = A3A_COLOR_BACKGROUND;
               x = 2 * GRID_W;
               y = 18 * GRID_H;
@@ -839,7 +839,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class ShellTypeLabel : A3A_Text
                 {
                   idc = -1;
-                  text = "Shell type:"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_shell_type_label;
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -850,7 +850,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class HeButton : A3A_Button
                 {
                   idc = A3A_IDC_HEBUTTON;
-                  text = "HE"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_shell_type_he;
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""he""]] call A3A_fnc_commanderTab;";
                   x = 20 * GRID_W;
@@ -867,7 +867,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class SmokeButton : A3A_Button
                 {
                   idc = A3A_IDC_SMOKEBUTTON;
-                  text = "Smoke"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_shell_type_smoke;
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""smoke""]] call A3A_fnc_commanderTab;";
                   x = 35 * GRID_W;
@@ -895,7 +895,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class MissionTypeLabel : A3A_Text
                 {
                   idc = -1;
-                  text = "Mission type:"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_type_label;
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -906,7 +906,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class PointStrikeButton : A3A_Button
                 {
                   idc = A3A_IDC_POINTSTRIKEBUTTON;
-                  text = "Point"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_type_point;
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""point""]] call A3A_fnc_commanderTab;";
                   x = 20 * GRID_W;
@@ -922,7 +922,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class BarrageButton : A3A_Button
                 {
                   idc = A3A_IDC_BARRAGEBUTTON;
-                  text = "Barrage"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_type_barrage;
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""barrage""]] call A3A_fnc_commanderTab;";
                   x = 35 * GRID_W;
@@ -951,7 +951,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class RoundsLabel : A3A_Text
                 {
                   idc = -1;
-                  text = "Rounds:"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_rounds_label;
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -1012,7 +1012,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class StartPositionLabel : A3A_Text
                 {
                   idc = A3A_IDC_STARTPOSITIONLABEL;
-                  text = "Position:"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_position_label;
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -1037,7 +1037,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class SetStartPositionButton : A3A_Button
                 {
                   idc = -1;
-                  text = "Set"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_set;
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""setstart""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
@@ -1062,7 +1062,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class EndPositionLabel : A3A_Text
                 {
                   idc = A3A_IDC_ENDPOSITIONLABEL;
-                  text = "End:"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_position_end_label;
                   colorBackground[] = A3A_COLOR_BACKGROUND;
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
@@ -1073,7 +1073,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class EndPositionEditbox : A3A_Edit
                 {
                   idc = A3A_IDC_ENDPOSITIONEDITBOX;
-                  text = "039 047";
+                  text = "";
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   style = ST_RIGHT + ST_NO_RECT;
                   onLoad = "_this#0 ctrlEnable false";
@@ -1087,7 +1087,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class SetEndPositionButton : A3A_Button
                 {
                   idc = -1;
-                  text = "Set"; // TODO: localize
+                  text = $STR_antistasi_dialogs_main_hc_fire_mission_set;
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""setend""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
@@ -1102,7 +1102,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class FireButton : A3A_Button
             {
               idc = A3A_IDC_FIREBUTTON;
-              text = "Fire"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_fire_mission_fire_button;
               x = 17 * GRID_W;
               y = 56 * GRID_H;
               w = 20 * GRID_W;
@@ -1119,7 +1119,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AirSupportButton : A3A_Button
         {
           idc = A3A_IDC_AIRSUPPORTBUTTON;
-          text = "Air Support"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_air_support_button;
           onButtonClick = "[""switchTab"", [""airsupport""]] call A3A_fnc_mainDialog;";
           x = 10 * GRID_W;
           y = 80 * GRID_H;
@@ -1130,7 +1130,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class GarbageCleanButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_GARBAGECLEANBUTTON;
-          text = "Garbage Clean"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_garbage_clean_button;
           onButtonclick = "[""showGarbageCleanOptions""] call A3A_fnc_commanderTab";
           x = 36 * GRID_W;
           y = 80 * GRID_H;
@@ -1151,7 +1151,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarbageCleanMapButton : A3A_ShortcutButton
             {
               idc = -1;
-              text = "Garbage Clean All"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_garbage_clean_all;
               onButtonClick = "hint ""Garbage cleaning entire map""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
               x = 0 * GRID_W;
               y = 0 * GRID_H;
@@ -1162,7 +1162,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarbageCleanHQButton : A3A_ShortcutButton
             {
               idc = -1;
-              text = "Garbage Clean HQ"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_garbage_clean_hq;
               onButtonClick = "hint ""Garbage cleaning HQ""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
               x = 26 * GRID_W;
               y = 0 * GRID_H;
@@ -1842,7 +1842,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           style = ST_CENTER;
-          text = "Remaining Air Support points: 12"; // TODO: Update in updateAirSupportTab
+          text = $STR_antistasi_dialogs_main_air_support_remaining_points; // TODO: Update in updateAirSupportTab
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 52 * GRID_W;
           y = 10 * GRID_H;
@@ -1885,7 +1885,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class HeBombsButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "HE Bombs"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_air_support_he_bombs;
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 16 * GRID_W;
           y = 70 * GRID_H;
@@ -1907,7 +1907,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CarpetBombingButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Carpet Bombing"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_air_support_carpet_bombing;
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 64 * GRID_W;
           y = 70 * GRID_H;
@@ -1929,7 +1929,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class NapalmBombButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Napalm Bomb"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_air_support_napalm;
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 112 * GRID_W;
           y = 70 * GRID_H;
