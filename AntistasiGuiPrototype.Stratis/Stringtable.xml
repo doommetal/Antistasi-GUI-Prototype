@@ -116,13 +116,21 @@
         <Original>Battle Options</Original>
         <English>Battle Options</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel">
-        <Original>Fast Travel</Original>
-        <English>Fast Travel</English>
+      <Key ID="STR_antistasi_dialogs_main_player_tab_button">
+        <Original>Player</Original>
+        <English>Player</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
-        <Original>This is a placeholder</Original>
-        <English>This is a placeholder</English>
+      <Key ID="STR_antistasi_dialogs_main_commander_tab_button">
+        <Original>Commander</Original>
+        <English>Commander</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tab_button">
+        <Original>Admin</Original>
+        <English>Admin</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_tab_disabled_tooltip">
+        <Original>Only the commander can access the commander tab</Original>
+        <English>Only the commander can access the commander tab</English>
       </Key>
     </Container>
     <Container name="dialog_recruit_squad">
@@ -215,6 +223,82 @@
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
         <Original>FFV seats</Original>
         <English>FFV seats</English>
+      </Key>
+    </Container>
+    <Container name="dialog_main_player">
+      <Key ID="STR_antistasi_dialogs_main_fast_travel">
+        <Original>Fast Travel</Original>
+        <English>Fast Travel</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
+        <Original>This is a placeholder</Original>
+        <English>This is a placeholder</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_undercover">
+        <Original>Go Undercover</Original>
+        <English>Go Undercover</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_construct">
+        <Original>Construct</Original>
+        <English>Construct</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management">
+        <Original>AI Management</Original>
+        <English>AI Management</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_donate">
+        <Original>Donate Money</Original>
+        <English>Donate Money</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hide_top_bar">
+        <Original>Hide top bar</Original>
+        <English>Hide top bar</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_vehicles">
+        <Original>Vehicles</Original>
+        <English>Vehicles</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_garage_vehicle">
+        <Original>Garage</Original>
+        <English>Garage</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_unlock_vehicle">
+        <Original>Unlock</Original>
+        <English>Unlock</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_lock_vehicle">
+        <Original>Lock</Original>
+        <English>Lock</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_sell_vehicle">
+        <Original>Sell</Original>
+        <English>Sell</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_add_to_air_support">
+        <Original>Add to air support</Original>
+        <English>Add to air support</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_no_vehicle">
+        <Original>No vehicle detected</Original>
+        <English>No vehicle detected</English>
+      </Key>
+    </Container>
+    <Container name="dialog_main_donate">
+      <Key ID="STR_antistasi_dialogs_main_current_money">
+        <Original>Current money</Original>
+        <English>Current money</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_donate_label">
+        <Original>Donate</Original>
+        <English>Donate</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_donate_player">
+        <Original>Donate to Player</Original>
+        <English>Donate to Player</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_donate_faction">
+        <Original>Donate to Faction</Original>
+        <English>Donate to Faction</English>
       </Key>
     </Container>
   </Package>

@@ -35,7 +35,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class PlayerTabButton : A3A_Button
         {
           idc = A3A_IDC_PlayerTabButton;
-          text = "Player"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_player_tab_button;
           onButtonClick = "[""switchTab"", [""player""]] call A3A_fnc_mainDialog;";
           x = 0;
           y = 0;
@@ -46,7 +46,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CommanderTabButton : A3A_Button
         {
           idc = A3A_IDC_CommanderTabButton;
-          text = "Commander"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_commander_tab_button;
           onButtonClick = "[""switchTab"", [""commander""]] call A3A_fnc_mainDialog;";
           x = 30 * GRID_W;
           y = 0;
@@ -57,7 +57,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AdminTabButton : A3A_Button
         {
           idc = A3A_IDC_AdminTabButton;
-          text = "Admin"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tab_button;
           onButtonClick = "[""switchTab"", [""admin""]] call A3A_fnc_mainDialog;";
           x = 60 * GRID_W;
           y = 0;
@@ -95,7 +95,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class UndercoverButton : A3A_Button
         {
           idc = A3A_IDC_UNDERCOVERBUTTON;
-          text = "Go Undercover"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_undercover;
           onButtonClick = "closeDialog 2"; // TODO: undercover function
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
@@ -142,7 +142,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class ConstructButton : A3A_Button
         {
           idc = A3A_IDC_CONSTRUCTBUTTON;
-          text = "Construct"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_construct;
           onButtonClick = "[""switchTab"", [""construct""]] call A3A_fnc_mainDialog;";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
@@ -165,7 +165,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AIManagementButton : A3A_Button
         {
           idc = A3A_IDC_AIMANAGEMENTBUTTON;
-          text = "AI Management"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_ai_management;
           onButtonClick = "[""switchTab"", [""aimanagement""]] call A3A_fnc_mainDialog;";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
@@ -178,6 +178,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         // Right side content
 
         // Player info area
+        // TODO: localize, hold off on localizing this section until all the parts are final
         class PlayerNameText : A3A_Text
         {
           idc = A3A_IDC_PLAYERNAMETEXT;
@@ -338,7 +339,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DonateButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_DONATEBUTTON;
-          text = "Donate Money"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_donate;
           onButtonClick = "[""switchTab"", [""donate""]] call A3A_fnc_mainDialog;";
           x = 130 * GRID_W;
           y = 34 * GRID_H;
@@ -350,7 +351,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class HideTopBarLabel : A3A_Text
         {
           idc = -1;
-          text = "Hide top bar:"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_hide_top_bar;
           x = 98 * GRID_W;
           y = 47 * GRID_H;
           w = 26 * GRID_W;
@@ -370,7 +371,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class VehicleSectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "Vehicles"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_vehicles;
           x = 70 * GRID_W;
           y = 53 * GRID_H;
           w = 90 * GRID_W;
@@ -390,7 +391,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_NOVEHICLETEXT;
               style = ST_CENTER;
-              text = "No vehicle detected"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_no_vehicle;
               colorText[] = {0.7,0.7,0.7,1};
               colorBackground[] = {0,0,0,0.5};
               x = 0;
@@ -443,7 +444,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GarageVehicleButton : A3A_Button
             {
               idc = A3A_IDC_GARAGEVEHICLEBUTTON;
-              text = "Garage"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_garage_vehicle;
               onButtonClick = ""; // TODO: garage this shit
               x = 32 * GRID_W;
               y = 0 * GRID_H;
@@ -454,7 +455,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class UnlockVehicleButton : A3A_Button
             {
               idc = A3A_IDC_UNLOCKVEHICLEBUTTON;
-              text = "Unlock"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_unlock_vehicle; // Same exists for unlock
               x = 32 * GRID_W;
               y = 14 * GRID_H;
               w = 22 * GRID_W;
@@ -464,7 +465,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class SellVehicleButton : A3A_Button
             {
               idc = A3A_IDC_SELLVEHICLEBUTTON;
-              text = "Sell"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_sell_vehicle;
               x = 56 * GRID_W;
               y = 0 * GRID_H;
               w = 22 * GRID_W;
@@ -474,7 +475,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AddToAirSuportButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_ADDTOAIRSUPPORTBUTTON;
-              text = "Add to Air Support"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_add_to_air_support;
               x = 56 * GRID_W;
               y = 14 * GRID_H;
               w = 22 * GRID_W;
@@ -1661,7 +1662,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           style = ST_LEFT;
-          text = "Current money:"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_current_money;
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 83 * GRID_W;
           y = 30 * GRID_H;
@@ -1685,7 +1686,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           style = ST_LEFT;
-          text = "Donate:"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_donate_label;
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 83 * GRID_W;
           y = 40 * GRID_H;
@@ -1810,7 +1811,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DonatePlayerButton : A3A_Button
         {
           idc = A3A_IDC_DONATEPLAYERBUTTON;
-          text = "Donate to Player"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_donate_player;
           // TODO: Hook up to donate function
           x = 74 * GRID_W;
           y = 63 * GRID_H;
@@ -1821,7 +1822,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DonateFactionButton : A3A_Button
         {
           idc = A3A_IDC_DONATEFACTIONBUTTON;
-          text = "Donate to Faction"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_donate_faction;
           // TODO: Hook up to donate function
           x = 116 * GRID_W;
           y = 63 * GRID_H;
