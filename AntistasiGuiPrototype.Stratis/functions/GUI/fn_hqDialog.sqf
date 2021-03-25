@@ -54,7 +54,7 @@ switch (_mode) do
     _moveHqIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     private _moveHqButton = _display displayCtrl A3A_IDC_MOVEHQBUTTON;
     _moveHqButton ctrlEnable false;
-    _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first"; // TODO: localize
+    _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first"; // TODO: localize when no move reasons are ready
 
     // Faction money section setup
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
@@ -221,7 +221,7 @@ switch (_mode) do
     private _totalResources = 8;
     private _controlledFactories = 1;
     private _totalFactories = 12;
-    private _controlledPorts = 0;
+    private _controlledSeaPorts = 0;
     private _totalPorts = 5;
 
     private _totalPopulation = totalPopulation; // TODO: replace with something like A3A_fnc_resourceCheck
@@ -236,21 +236,21 @@ switch (_mode) do
     _controlledAirbasesIcon = _display displayCtrl A3A_IDC_CONTROLLEDAIRBASESICON;
     _controlledResourcesIcon = _display displayCtrl A3A_IDC_CONTROLLEDRESOURCESICON;
     _controlledFactoriesIcon = _display displayCtrl A3A_IDC_CONTROLLEDFACTORIESICON;
-    _controlledPortsIcon = _display displayCtrl A3A_IDC_CONTROLLEDPORTSICON; */
+    _controlledSeaPortsIcon = _display displayCtrl A3A_IDC_CONTROLLEDSEAPORTSICON; */
 
     _controlledCitiesText = _display displayCtrl A3A_IDC_CONTROLLEDCITIESTEXT;
     _controlledOutpostsText = _display displayCtrl A3A_IDC_CONTROLLEDOUTPOSTSTEXT;
     _controlledAirbasesText = _display displayCtrl A3A_IDC_CONTROLLEDAIRBASESTEXT;
     _controlledResourcesText = _display displayCtrl A3A_IDC_CONTROLLEDRESOURCESTEXT;
     _controlledFactoriesText = _display displayCtrl A3A_IDC_CONTROLLEDFACTORIESTEXT;
-    _controlledPortsText = _display displayCtrl A3A_IDC_CONTROLLEDPORTSTEXT;
+    _controlledSeaPortsText = _display displayCtrl A3A_IDC_CONTROLLEDSEAPORTSTEXT;
 
     _controlledCitiesText ctrlSetText format ["%1/%2", _controlledCities, _totalCities];
     _controlledOutpostsText ctrlSetText format ["%1/%2", _controlledOutposts, _totalOutposts];
     _controlledAirbasesText ctrlSetText format ["%1/%2", _controlledAirbases, _totalAirbases];
     _controlledResourcesText ctrlSetText format ["%1/%2", _controlledResources, _totalResources];
     _controlledFactoriesText ctrlSetText format ["%1/%2", _controlledFactories, _totalFactories];
-    _controlledPortsText ctrlSetText format ["%1/%2", _controlledPorts, _totalPorts];
+    _controlledSeaPortsText ctrlSetText format ["%1/%2", _controlledSeaPorts, _totalPorts];
 
 
     // Update population status bar
@@ -341,15 +341,15 @@ switch (_mode) do
     private _restTimeString = "";
     // correct grammar up in this motherfucker
     if (_hours == 1 and _minutes == 1) then {
-      _restTimeString = format ["%1 hour, %1 minute", _hours, _minutes]; // TODO: localize
+      _restTimeString = format [localize "STR_antistasi_dialogs_hq_hour_minute", _hours, _minutes];
     } else {
       if (_hours == 1) then {
-        _restTimeString = format ["%1 hour, %2 minutes", _hours, _minutes]; // TODO: localize
+        _restTimeString = format [localize "STR_antistasi_dialogs_hq_hour_minutes", _hours, _minutes];
       } else {
         if (_minutes == 1) then {
-          _restTimeString = format ["%1 hours, %2 minute", _hours, _minutes]; // TODO: localize
+          _restTimeString = format [localize "STR_antistasi_dialogs_hq_hours_minute", _hours, _minutes];
         } else {
-          _restTimeString = format ["%1 hours, %2 minutes", _hours, _minutes]; // TODO: localize
+          _restTimeString = format [localize "STR_antistasi_dialogs_hq_hours_minutes", _hours, _minutes];
         };
       };
     };
@@ -358,7 +358,7 @@ switch (_mode) do
       _postRestTime = _postRestTime - 24;
     };
     private _postRestTimeString = [_postRestTime, "HH:MM"] call BIS_fnc_timeToString;
-    private _message = format ["Rest for %1.<br />Time will be %2 when you wake up.", _restTimeString, _postRestTimeString]; // TODO: localize
+    private _message = format [localize "STR_antistasi_dialogs_hq_rest_text" + "<br />" + localize "STR_antistasi_dialogs_hq_wakeup_text", _restTimeString, _postRestTimeString];
     _restText ctrlSetStructuredText parseText _message;
   };
 

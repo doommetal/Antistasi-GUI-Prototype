@@ -531,5 +531,207 @@
         <English>Request Mission</English>
       </Key>
     </Container>
+    <Container name="dialog_hq">
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_button">
+        <Original>Garrisons</Original>
+        <English>Garrisons</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_minefields_button">
+        <Original>Minefields</Original>
+        <English>Minefields</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_move_hq_button">
+        <Original>Move HQ</Original>
+        <English>Move HQ</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_clear_trees_button">
+        <Original>Clear Trees</Original>
+        <English>Clear Trees</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_campaign_status">
+        <Original>Campaign Status</Original>
+        <English>Campaign Status</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_war_level">
+        <Original>War level:</Original>
+        <English>War level:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_aggression">
+        <Original>Aggression:</Original>
+        <English>Aggression:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_occupants_aggression">
+        <Original>Occupants aggression</Original>
+        <English>Occupants aggression</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_invader_aggression">
+        <Original>Invader aggression</Original>
+        <English>Invader aggression</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_controlled_cities">
+        <Original>Controlled cities</Original>
+        <English>Controlled cities</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_controlled_outposts">
+        <Original>Controlled outposts</Original>
+        <English>Controlled outposts</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_controlled_airbases">
+        <Original>Controlled airbases</Original>
+        <English>Controlled airbases</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_controlled_resources">
+        <Original>Controlled resources</Original>
+        <English>Controlled resources</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_controlled_factories">
+        <Original>Controlled factories</Original>
+        <English>Controlled factories</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_controlled_seaports">
+        <Original>Controlled seaports</Original>
+        <English>Controlled seaports</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_popular_support_tooltip">
+        <Original>Popular support\nYou need 50% to win</Original>
+        <English>Popular support\nYou need 50% to win</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_dead_population_tooltip">
+        <Original>Dead population\nYou lose when this hits 33%</Original>
+        <English>Dead population\nYou lose when this hits 33%</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_faction_resources">
+        <Original>Faction Resources</Original>
+        <English>Faction Resources</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_hr_label">
+        <Original>HR:</Original>
+        <English>HR:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_training_level_label">
+        <Original>Training level:</Original>
+        <English>Training level:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_train_button">
+        <Original>Train</Original>
+        <English>Train</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_faction_money_label">
+        <Original>Faction money:</Original>
+        <English>Faction money:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_take_money_button">
+        <Original>Take</Original>
+        <English>Take</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_rest_environment">
+        <Original>Rest &amp; Environment</Original>
+        <English>Rest &amp; Environment</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_rest_button">
+        <Original>Rest</Original>
+        <English>Rest</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_clear_fog_button">
+        <Original>Clear Fog</Original>
+        <English>Clear Fog</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_stop_rain_button">
+        <Original>Stop Rain</Original>
+        <English>Stop Rain</English>
+      </Key>
+    </Container>
+    <Container name="dialog_hq_garrisons">
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_rifleman">
+        <Original>Rifleman</Original>
+        <English>Rifleman</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_squad_leader">
+        <Original>Squad Leader</Original>
+        <English>Squad Leader</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_autorifleman">
+        <Original>Autorifleman</Original>
+        <English>Autorifleman</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_grenadier">
+        <Original>Grenadier</Original>
+        <English>Grenadier</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_medic">
+        <Original>Medic</Original>
+        <English>Medic</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_mortar">
+        <Original>Mortar</Original>
+        <English>Mortar</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_marksman">
+        <Original>Marksman</Original>
+        <English>Marksman</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_at">
+        <Original>AT</Original>
+        <English>AT</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_rebuild_assets_button">
+        <Original>Rebuild Assets</Original>
+        <English>Rebuild Assets</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_dismiss_garrison_button">
+        <Original>Dismiss Garrison</Original>
+        <English>Dismiss Garrison</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_build_outpost_button">
+        <Original>Build Outpost</Original>
+        <English>Build Outpost</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_remove_outpost_button">
+        <Original>Remove Outpost</Original>
+        <English>Remove Outpost</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_hour_minute">
+        <Original>%1 hour, %1 minute</Original>
+        <English>%1 hour, %1 minute</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_hour_minutes">
+        <Original>%1 hour, %2 minutes</Original>
+        <English>%1 hour, %2 minutes</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_hours_minute">
+        <Original>%1 hours, %2 minute</Original>
+        <English>%1 hours, %2 minute</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_hours_minutes">
+        <Original>%1 hours, %2 minutes</Original>
+        <English>%1 hours, %2 minutes</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_rest_text">
+        <Original>Rest for %1.</Original>
+        <English>Rest for %1.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_wakeup_text">
+        <Original>Time will be %2 when you wake up.</Original>
+        <English>Time will be %2 when you wake up.</English>
+      </Key>
+    </Container>
+    <Container name="dialog_hq_minefields">
+      <Key ID="STR_antistasi_dialogs_hq_minefields_deploy_minefields_label">
+        <Original>Deploy Minefield:</Original>
+        <English>Deploy Minefield:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_minefields_apers_mines_button">
+        <Original>APERS Mines</Original>
+        <English>APERS Mines</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_minefields_at_mines_button">
+        <Original>AT Mines</Original>
+        <English>AT Mines</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_minefields_remove_minefield_button">
+        <Original>Remove Minefield</Original>
+        <English>Remove Minefield</English>
+      </Key>
+    </Container>
   </Package>
 </Project>
