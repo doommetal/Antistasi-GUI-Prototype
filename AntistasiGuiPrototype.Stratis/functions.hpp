@@ -14,6 +14,7 @@ class A3A
     class playerManagementTab {};
     class hqDialog {};
     class buyVehicleDialog {};
+    class requestMissionDialog {};
 
     // Map drawing event handlers
     class fireMissionEH {};

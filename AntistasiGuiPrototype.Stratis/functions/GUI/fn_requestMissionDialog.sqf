@@ -80,6 +80,10 @@ switch (_mode) do
       {
         hint "Placeholder: Requesting Rescue mission";
       };
+
+      default {
+        Error_1("Mission type does not exist: %1", _type);
+      };
     };
 
   };
