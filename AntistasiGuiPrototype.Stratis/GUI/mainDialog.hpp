@@ -178,7 +178,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         // Right side content
 
         // Player info area
-        // TODO: localize, hold off on localizing this section until all the parts are final
+        // TODO: localize later, hold off on localizing this section until all the parts are final
         class PlayerNameText : A3A_Text
         {
           idc = A3A_IDC_PLAYERNAMETEXT;
@@ -327,8 +327,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class MoneyText : A3A_TextMulti
         {
           idc = A3A_IDC_MONEYTEXT;
-          text = "Current money:\n€ 0"; // TODO: localize
-          // font = "PuristaLight";
+          text = "";
           colorBackground[] = {0,0,0,0.5};
           x = 98 * GRID_W;
           y = 34 * GRID_H;
@@ -638,7 +637,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupTaskLabel : A3A_Text
             {
               idc = -1;
-              text = "Current task:"; // TODO: localize, or not? maybe going away?
+              text = "Current task:"; // TODO: localize later, not final yet
               sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 0;
               y = 14 * GRID_H;
@@ -1862,7 +1861,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AirSupportInfoText : A3A_TextMulti
         {
           idc = -1;
-          text = "Aircraft used: Antonov An-2\n\nAdd aircraft to the air support pool by using the thing in the other menu and things.\nMore lines."; // TODO: localize
+          text = "Aircraft used: Antonov An-2\n\nAdd aircraft to the air support pool by using the thing in the other menu and things.\nMore lines."; // TODO: localize later, not final yet
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           colorText[] = {0.7,0.7,0.7,1}; // TODO: Use colors from defines
           x = 40 * GRID_W;

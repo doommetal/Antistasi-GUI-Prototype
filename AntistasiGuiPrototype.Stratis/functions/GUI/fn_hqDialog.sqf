@@ -54,7 +54,7 @@ switch (_mode) do
     _moveHqIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     private _moveHqButton = _display displayCtrl A3A_IDC_MOVEHQBUTTON;
     _moveHqButton ctrlEnable false;
-    _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first"; // TODO: localize when no move reasons are ready
+    _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first"; // TODO: localize later, not final yet
 
     // Faction money section setup
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;

@@ -77,7 +77,7 @@ switch (_mode) do
     private _countCiv = 4096;
     private _destroyedVehicles = 2;
 
-    // TODO: localize
+    // TODO: localize later, not final yet
     private _formattedString = format [
 "<t font='EtelkaMonospacePro' size='0.8'>
 <t>Mission time:</t><t align='right'>%1</t><br />

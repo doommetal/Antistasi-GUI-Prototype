@@ -282,6 +282,30 @@
         <Original>No vehicle detected</Original>
         <English>No vehicle detected</English>
       </Key>
+      <Key ID="STR_antistasi_dialogs_main_not_eligible_vehicle_tooltip">
+        <Original>Not eligible vehicle</Original>
+        <English>Not eligible vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_only_tooltip">
+        <Original>Commander only</Original>
+        <English>Commander only</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_members_only">
+        <Original>Members only function</Original>
+        <English>Members only function</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_player_money_text">
+        <Original>Current money:\n€ %1</Original>
+        <English>Current money:\n€ %1</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_sl_tooltip">
+        <Original>Only available to squad leaders</Original>
+        <English>Only available to squad leaders</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_tooltip">
+        <Original>Needs AI group members\nYou can recruit them at the flag</Original>
+        <English>Needs AI group members\nYou can recruit them at the flag</English>
+      </Key>
     </Container>
     <Container name="dialog_main_donate">
       <Key ID="STR_antistasi_dialogs_main_current_money">

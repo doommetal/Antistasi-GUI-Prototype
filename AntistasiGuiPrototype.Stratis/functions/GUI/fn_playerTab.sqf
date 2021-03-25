@@ -52,7 +52,7 @@ switch (_mode) do
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _undercoverButton ctrlEnable false;
-      _undercoverButton ctrlSetTooltip "Can't go undercover\n\nIllegal items visible\nYou have been reported by the enemy"; // TODO: localize
+      _undercoverButton ctrlSetTooltip "Can't go undercover\n\nIllegal items visible\nYou have been reported by the enemy"; // TODO: localize later, not final yet
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
@@ -82,7 +82,7 @@ switch (_mode) do
       _constructIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _constructButton ctrlEnable false;
-      _constructButton ctrlSetTooltip "Can't make constructions\n\nYou need an engineer in your squad"; // TODO: localize
+      _constructButton ctrlSetTooltip "Can't make constructions\n\nYou need an engineer in your squad"; // TODO: localize later, not final yet
       _constructIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
@@ -95,12 +95,12 @@ switch (_mode) do
     {
       case !(leader player == player):
       {
-        _aiManagementTooltipText = "Only available to squad leaders"; // TODO: localize
+        _aiManagementTooltipText = localize "STR_antistasi_dialogs_main_ai_management_sl_tooltip";
       };
 
       case ({!isPlayer _x} count units group player < 1):
       {
-        _aiManagementTooltipText = "Needs AI group members\nYou can recruit them at the flag"; // TODO: localize
+        _aiManagementTooltipText = localize "STR_antistasi_dialogs_main_ai_management_no_ai_tooltip";
       };
 
       default
@@ -147,7 +147,7 @@ switch (_mode) do
     private _days = floor (_time / 86400);
     private _hours = floor ((_time - _days * 86400) / 3600);
     private _minutes = floor (((_time - _days * 86400) - _hours * 3600) / 60);
-    _aliveText ctrlSetText format ["%1d %2h %3m", _days, _hours, _minutes]; // TODO: localize
+    _aliveText ctrlSetText format ["%1d %2h %3m", _days, _hours, _minutes]; // TODO: localize later, not final yet
 
     // TODO: Make function for getting num of completed missions
     private _missions = player getVariable "missionsCompleted";
@@ -160,7 +160,7 @@ switch (_mode) do
     // TODO: Update commander icon/button
 
     private _money = player getVariable "moneyX"; // player getVariable moneyX
-    _moneyText ctrlSetText format["Current money:\n€ %1", _money]; // TODO: localize
+    _moneyText ctrlSetText format[localize "STR_antistasi_dialogs_main_player_money_text", _money];
 
     // Vehicle section
     private _vehicleGroup = _display displayCtrl A3A_IDC_PLAYERVEHICLEGROUP;
@@ -199,16 +199,16 @@ switch (_mode) do
             if !(_vehicle isKindOf "Air") then {
               private _addToAirSupportButton = _display displayCtrl A3A_IDC_ADDTOAIRSUPPORTBUTTON;
               _addToAirSupportButton ctrlEnable false;
-              _addToAirSupportButton ctrlSetTooltip "Not eligible vehicle"; // TODO: localize
+              _addToAirSupportButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_not_eligible_vehicle_tooltip";
             };
           } else {
             // Enable only "garage" and "lock/unlock" buttons to regular players
             private _sellVehicleButton = _display displayCtrl A3A_IDC_SELLVEHICLEBUTTON;
             _sellVehicleButton ctrlEnable false;
-            _sellVehicleButton ctrlSetTooltip "Commander only"; // TODO: localize
+            _sellVehicleButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_commander_only_tooltip";
             private _addToAirSupportButton = _display displayCtrl A3A_IDC_ADDTOAIRSUPPORTBUTTON;
             _addToAirSupportButton ctrlEnable false;
-            _addToAirSupportButton ctrlSetTooltip "Commander only"; // TODO: localize
+            _addToAirSupportButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_commander_only_tooltip";
           };
           // Show vehicle group
           _noVehicleGroup ctrlShow false;
@@ -228,7 +228,7 @@ switch (_mode) do
       _vehicleGroup ctrlShow false;
       _noVehicleGroup ctrlShow true;
       private _noVehicleText = _display displayCtrl A3A_IDC_NOVEHICLETEXT;
-      _noVehicleText ctrlSetText "Members only function."; // TODO: localize
+      _noVehicleText ctrlSetText localize "STR_antistasi_dialogs_main_members_only";
     };
   };
 
