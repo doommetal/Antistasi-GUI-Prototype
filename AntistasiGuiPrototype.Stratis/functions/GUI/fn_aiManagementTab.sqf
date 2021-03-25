@@ -125,7 +125,7 @@ switch (_mode) do
       _aiControlIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _aiControlButton ctrlEnable false;
-      _aiControlButton ctrlSetTooltip "You can only remote control single units\nSelect exactly one AI in the list"; // TODO: localize
+      _aiControlButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip";
       _aiControlIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
 
@@ -149,13 +149,13 @@ switch (_mode) do
       _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
     } else {
       _aiDismissButton ctrlEnable false;
-      _aiDismissButton ctrlSetTooltip "Select AI in the list"; // TODO: localize
+      _aiDismissButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_select_ai_tooltip";
       _aiDismissIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
       _aiAutoLootButton ctrlEnable false;
-      _aiAutoLootButton ctrlSetTooltip "Select AI in the list"; // TODO: localize
+      _aiAutoLootButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_select_ai_tooltip";
       _aiAutoLootIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
       _aiAutoHealButton ctrlEnable false;
-      _aiAutoHealButton ctrlSetTooltip "Select AI in the list"; // TODO: localize
+      _aiAutoHealButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_ai_management_select_ai_tooltip";
       _aiAutoHealIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     };
   };

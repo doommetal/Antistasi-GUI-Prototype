@@ -1517,10 +1517,10 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AIListLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "AI Group members"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_ai_management_ai_list_label;
           x = 15 * GRID_W;
           y = 14 * GRID_H;
-          w = 70 * GRID_W;
+          w = 68 * GRID_W;
           h = 4 * GRID_H;
         };
 
@@ -1528,12 +1528,12 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           sizeEx = GUI_TEXT_SIZE_SMALL;
-          text = "CLEAR"; // TODO: localize
-          tooltip = "Clears list selection"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_ai_management_clear_button;
+          tooltip = $STR_antistasi_dialogs_main_ai_management_clear_tooltip;
           onButtonClick = "[""clearAIListboxSelection""] call A3A_fnc_aiManagementTab;";
-          x = 85 * GRID_W;
+          x = 83 * GRID_W;
           y = 14 * GRID_H;
-          w = 8 * GRID_W;
+          w = 10 * GRID_W;
           h = 4 * GRID_H;
         };
 
@@ -1560,7 +1560,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AiControlButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AICONTROLBUTTON;
-              text = "Temp. AI Control"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_ai_management_temp_ai_control_button;
               x = 0 * GRID_W;
               y = 0 * GRID_H;
               w = 32 * GRID_W;
@@ -1580,7 +1580,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class DismissButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AIDISMISSBUTTON;
-              text = "Dismiss Unit(s)"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_ai_management_dismiss_button;
               x = 0 * GRID_W;
               y = 20 * GRID_H;
               w = 32 * GRID_W;
@@ -1600,7 +1600,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AutoLootButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AIAUTOLOOTBUTTON;
-              text = "Auto Rearm / Loot"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_ai_management_auto_rearm_button;
               x = 0 * GRID_W;
               y = 40 * GRID_H;
               w = 32 * GRID_W;
@@ -1620,7 +1620,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AutoHealButton : A3A_ShortcutButton
             {
               idc = A3A_IDC_AIAUTOHEALBUTTON;
-              text = "Auto Heal"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_ai_management_auto_heal_button;
               x = 0 * GRID_W;
               y = 60 * GRID_H;
               w = 32 * GRID_W;

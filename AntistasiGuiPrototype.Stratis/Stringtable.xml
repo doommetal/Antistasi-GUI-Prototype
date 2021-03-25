@@ -843,5 +843,43 @@
         <English>Copy UID to Clipboard</English>
       </Key>
     </Container>
+    <Container name="dialog_main_ai_management">
+      <Key ID="STR_antistasi_dialogs_main_ai_management_ai_list_label">
+        <Original>AI Group members</Original>
+        <English>AI Group members</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_clear_button">
+        <Original>Clear</Original>
+        <English>Clear</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_clear_tooltip">
+        <Original>Clears list selection</Original>
+        <English>Clears list selection</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_temp_ai_control_button">
+        <Original>Temp. AI Control</Original>
+        <English>Temp. AI Control</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_dismiss_button">
+        <Original>Dismiss Unit(s)</Original>
+        <English>Dismiss Unit(s)</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_auto_rearm_button">
+        <Original>Auto Rearm / Loot</Original>
+        <English>Auto Rearm / Loot</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_auto_heal_button">
+        <Original>Auto Heal</Original>
+        <English>Auto Heal</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip">
+        <Original>You can only remote control single units\nSelect exactly one AI in the list</Original>
+        <English>You can only remote control single units\nSelect exactly one AI in the list</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_ai_management_select_ai_tooltip">
+        <Original>Select AI in the list</Original>
+        <English>Select AI in the list</English>
+      </Key>
+    </Container>
   </Package>
 </Project>
