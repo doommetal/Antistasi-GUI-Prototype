@@ -733,5 +733,115 @@
         <English>Remove Minefield</English>
       </Key>
     </Container>
+    <Container name="dialog_main_admin">
+      <Key ID="STR_antistasi_dialogs_main_admin_debug_info_label">
+        <Original>Debug info</Original>
+        <English>Debug info</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_reset_hq_button">
+        <Original>Reset HQ</Original>
+        <English>Reset HQ</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_ai_options_label">
+        <Original>AI Options</Original>
+        <English>AI Options</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_civ_limit_label">
+        <Original>Civ Limit</Original>
+        <English>Civ Limit</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_spawn_distance_label">
+        <Original>Spawn Distance</Original>
+        <English>Spawn Distance</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_ai_limiter_label">
+        <Original>AI Limiter</Original>
+        <English>AI Limiter</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_ai_section_warning">
+        <Original>BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.</Original>
+        <English>BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_ai_commit_button">
+        <Original>Commit</Original>
+        <English>Commit</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_petros_button">
+        <Original>Petros</Original>
+        <English>Petros</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_arsenal_box_button">
+        <Original>Arsenal Box</Original>
+        <English>Arsenal Box</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_vehicle_box_button">
+        <Original>Vehicle Box</Original>
+        <English>Vehicle Box</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_flag_button">
+        <Original>Flag</Original>
+        <English>Flag</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_tent_button">
+        <Original>Tent</Original>
+        <English>Tent</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_map_button">
+        <Original>Map</Original>
+        <English>Map</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_player_management_button">
+        <Original>Player Management</Original>
+        <English>Player Management</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_ai_confirm_button">
+        <Original>Confirm</Original>
+        <English>Confirm</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_label">
+        <Original>Teleport HQ assets to your position</Original>
+        <English>Teleport HQ assets to your position</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_player_name_label">
+        <Original>Name</Original>
+        <English>Name</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_player_distance_label">
+        <Original>Distance</Original>
+        <English>Distance</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_player_uid_label">
+        <Original>PlayerUID</Original>
+        <English>PlayerUID</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_add_member_button">
+        <Original>Add Member</Original>
+        <English>Add Member</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_remove_member_button">
+        <Original>Remove Member</Original>
+        <English>Remove Member</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_to_player_button">
+        <Original>Teleport to Player</Original>
+        <English>Teleport to Player</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_tp_player_to_me_button">
+        <Original>Teleport Player to Me</Original>
+        <English>Teleport Player to Me</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_kick_player_button">
+        <Original>Kick Player</Original>
+        <English>Kick Player</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_ban_player_button">
+        <Original>Ban Player</Original>
+        <English>Ban Player</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_admin_copy_uid_button">
+        <Original>Copy UID to Clipboard</Original>
+        <English>Copy UID to Clipboard</English>
+      </Key>
+    </Container>
   </Package>
 </Project>

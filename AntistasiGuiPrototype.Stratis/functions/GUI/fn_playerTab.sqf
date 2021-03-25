@@ -139,43 +139,8 @@ switch (_mode) do
 
     _playerNameText ctrlSetText name player;
 
-    private _playerRank = rank player;
-    switch (_playerRank) do {
-      case ("PRIVATE"): {
-        _playerRankText ctrlSetText "Private"; // TODO: localize
-        _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\private_gs.paa";
-      };
-
-      case ("CORPORAL"): {
-        _playerRankText ctrlSetText "Corporal"; // TODO: localize
-        _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\corporal_gs.paa";
-      };
-
-      case ("SERGEANT"): {
-        _playerRankText ctrlSetText "Sergeant"; // TODO: localize
-        _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
-      };
-
-      case ("LIEUTENANT"): {
-        _playerRankText ctrlSetText "Lieutenant"; // TODO: localize
-        _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\lieutenant_gs.paa";
-      };
-
-      case ("CAPTAIN"): {
-        _playerRankText ctrlSetText "Captain"; // TODO: localize
-        _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\captain_gs.paa";
-      };
-
-      case ("MAJOR"): {
-        _playerRankText ctrlSetText "Major"; // TODO: localize
-        _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\major_gs.paa";
-      };
-
-      case ("COLONEL"): {
-        _playerRankText ctrlSetText "Colonel"; // TODO: localize
-        _playerRankPicture ctrlSetText "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa";
-      };
-    };
+    _playerRankText ctrlSetText ([player, "displayName"] call BIS_fnc_rankParams);
+    _playerRankPicture ctrlSetText ([player, "texture"] call BIS_fnc_rankParams);
 
     // TODO: Make function for getting time alive
     private _time = time;

@@ -181,7 +181,7 @@ switch (_mode) do
     private _display = findDisplay A3A_IDD_MainDialog;
     private _commitAiButton = _display displayCtrl A3A_IDC_COMMITAIBUTTON;
     _commitAiButton ctrlRemoveAllEventHandlers "ButtonClick";
-    _commitAiButton ctrlSetText "Confirm";
+    _commitAiButton ctrlSetText localize "STR_antistasi_dialogs_main_admin_ai_confirm_button";
     _commitAiButton ctrlAddEventHandler ["ButtonClick", {
       Trace("Confirmed AI Settings");
       hint "Oh no you broke the server :(";

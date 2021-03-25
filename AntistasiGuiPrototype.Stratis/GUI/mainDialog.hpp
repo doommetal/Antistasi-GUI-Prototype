@@ -1186,7 +1186,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class DebugSectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "Debug info"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_debug_info_label;
           x = 8 * GRID_W;
           y = 8 * GRID_H;
           w = 48 * GRID_W;
@@ -1206,7 +1206,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class PlayerManagementButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_PLAYERMANAGEMENTBUTTON;
-          text = "Player Management";
+          text = $STR_antistasi_dialogs_main_admin_player_management_button;
           onButtonClick = "[""switchTab"", [""playermanagement""]] call A3A_fnc_mainDialog;";
           x = 8 * GRID_W;
           y = 64 * GRID_H;
@@ -1226,7 +1226,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class ResetHqButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_RESETHQBUTTON;
-          text = "RESET HQ"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_reset_hq_button;
           x = 8 * GRID_W;
           y = 80 * GRID_H;
           w = 48 * GRID_W;
@@ -1245,7 +1245,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiSectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "AI Options"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_ai_options_label;
           x = 70 * GRID_W;
           y = 8 * GRID_H;
           w = 90 * GRID_W;
@@ -1255,7 +1255,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CivLimitLabel : A3A_Text
         {
           idc = -1;
-          text = "Civ Limit"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_civ_limit_label;
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 74 * GRID_W;
           y = 16 * GRID_H;
@@ -1289,7 +1289,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class SpawnDistanceLabel : A3A_Text
         {
           idc = -1;
-          text = "Spawn Distance"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_spawn_distance_label;
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 74 * GRID_W;
           y = 22 * GRID_H;
@@ -1323,7 +1323,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiLimiterLabel : A3A_Text
         {
           idc = -1;
-          text = "AI Limiter"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_ai_limiter_label;
           sizeEx = GUI_TEXT_SIZE_MEDIUM;
           x = 74 * GRID_W;
           y = 28 * GRID_H;
@@ -1378,7 +1378,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiSectionWarning : A3A_TextMulti
         {
           idc = -1;
-          text = "BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME."; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_ai_section_warning;
           sizeEx = GUI_TEXT_SIZE_SMALL;
           font = "PuristaLight";
           x = 85 * GRID_W;
@@ -1390,7 +1390,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CommitAiButton : A3A_Button
         {
           idc = A3A_IDC_COMMITAIBUTTON;
-          text = "Commit";
+          text = $STR_antistasi_dialogs_main_admin_ai_commit_button;
           onButtonClick = "[""confirmAILimit""] call A3A_fnc_adminTab;"; // TODO: Placeholder
           x = 132 * GRID_W;
           y = 36 * GRID_H;
@@ -1409,7 +1409,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpSectionLabel : A3A_SectionLabelRight
         {
           idc = -1;
-          text = "Teleport HQ assets to your position";
+          text = $STR_antistasi_dialogs_main_admin_tp_label;
           x = 70 * GRID_W;
           y = 56 * GRID_H;
           w = 90 * GRID_W;
@@ -1419,7 +1419,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpPetrosButton : A3A_Button
         {
           idc = -1;
-          text = "Petros"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_petros_button;
           onButtonClick = "petros setPos getPos player;";
           x = 74 * GRID_W;
           y = 64 * GRID_H;
@@ -1430,7 +1430,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpArsenalBoxButton : A3A_Button
         {
           idc = -1;
-          text = "Arsenal Box"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_arsenal_box_button;
           onButtonClick = "boxX setPos getPos player;";
           x = 103 * GRID_W;
           y = 64 * GRID_H;
@@ -1441,7 +1441,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpVehicleBoxButton : A3A_Button
         {
           idc = -1;
-          text = "Vehicle Box"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_vehicle_box_button;
           onButtonClick = "vehicleBox setPos getPos player;";
           x = 132 * GRID_W;
           y = 64 * GRID_H;
@@ -1452,7 +1452,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpFlagButton : A3A_Button
         {
           idc = -1;
-          text = "Flag"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_flag_button;
           onButtonClick = "flagX setPos getPos player;";
           x = 74 * GRID_W;
           y = 80 * GRID_H;
@@ -1463,7 +1463,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpTentButton : A3A_Button
         {
           idc = -1;
-          text = "Tent"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_tent_button;
           onButtonClick = "fireX setPos getPos player;";
           x = 103 * GRID_W;
           y = 80 * GRID_H;
@@ -1474,7 +1474,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TpMapButton : A3A_Button
         {
           idc = -1;
-          text = "Map"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_map_button;
           onButtonClick = "mapX setPos getPos player;";
           x = 132 * GRID_W;
           y = 80 * GRID_H;
@@ -1957,7 +1957,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class NameLabel : A3A_Text
         {
-          text = "Name"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_player_name_label;
           x = 9 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
@@ -1967,7 +1967,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class DistanceLabel : A3A_Text
         {
-          text = "Distance"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_player_distance_label;
           x = 71 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
@@ -1977,7 +1977,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class UIDLabel : A3A_Text
         {
-          text = "PlayerUID"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_player_uid_label;
           x = 85 * GRID_W;
           y = 8 * GRID_H;
           w = 16 * GRID_W;
@@ -2002,8 +2002,8 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AddMemberButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_ADDMEMBERBUTTON;
-          text = "Add Member"; // TODO: localize
-          onButtonClick = "[""adminAddMember""] spawn A3A_fnc_playerManagementTab";
+          text = $STR_antistasi_dialogs_main_admin_add_member_button;
+          onButtonClick = "[""adminAddMember""] call A3A_fnc_playerManagementTab";
           show = false;
           x = 120 * GRID_W;
           y = 7 * GRID_H;
@@ -2014,8 +2014,8 @@ class A3A_MainDialog : A3A_TabbedDialog
         class RemoveMemberButton : A3A_ShortcutButton
         {
           idc = A3A_IDC_REMOVEMEMBERBUTTON;
-          text = "Remove Member"; // TODO: localize
-          onButtonClick = "[""adminRemoveMember""] spawn A3A_fnc_playerManagementTab";
+          text = $STR_antistasi_dialogs_main_admin_remove_member_button;
+          onButtonClick = "[""adminRemoveMember""] call A3A_fnc_playerManagementTab";
           show = false;
           x = 120 * GRID_W;
           y = 7 * GRID_H;
@@ -2026,7 +2026,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TeleportToPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Teleport to Player"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_to_player_button;
           x = 120 * GRID_W;
           y = 22 * GRID_H;
           w = 32 * GRID_W;
@@ -2036,7 +2036,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class TeleportPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Teleport Player to Me"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_tp_player_to_me_button;
           x = 120 * GRID_W;
           y = 37 * GRID_H;
           w = 32 * GRID_W;
@@ -2046,7 +2046,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class KickPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Kick Player"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_kick_player_button;
           x = 120 * GRID_W;
           y = 52 * GRID_H;
           w = 32 * GRID_W;
@@ -2056,7 +2056,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class BanPlayerButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Ban Player"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_ban_player_button;
           x = 120 * GRID_W;
           y = 67 * GRID_H;
           w = 32 * GRID_W;
@@ -2066,7 +2066,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CopyIdButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = "Copy UID to Clipboard"; // TODO: localize
+          text = $STR_antistasi_dialogs_main_admin_copy_uid_button;
           x = 120 * GRID_W;
           y = 82 * GRID_H;
           w = 32 * GRID_W;

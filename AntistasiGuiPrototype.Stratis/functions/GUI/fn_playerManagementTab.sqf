@@ -94,7 +94,7 @@ switch (_mode) do
     private _index = lbCurSel _listBox;
     _listBox lnbSetColor [[_index,0], [0.2,0.6,0.2,1]];
     fakePlayers select _index setVariable ["isMember", true];
-    ["listBoxSelectionChanged"] spawn A3A_fnc_mainDialog;
+    ["playerLbSelectionChanged"] spawn A3A_fnc_playerManagementTab;
   };
 
   case ("adminRemoveMember"):
@@ -104,7 +104,7 @@ switch (_mode) do
     private _index = lbCurSel _listBox;
     _listBox lnbSetColor [[_index,0], [0.7,0.7,0.7,1]];
     fakePlayers select _index setVariable ["isMember", false];
-    ["listBoxSelectionChanged"] spawn A3A_fnc_mainDialog;
+    ["playerLbSelectionChanged"] spawn A3A_fnc_playerManagementTab;
   };
 
   default {
