@@ -75,33 +75,33 @@ _strSecondsShort = localize "STR_antistasi_dialogs_generic_seconds_short";
 private _timeString = "";
 switch (_format) do
 {
-  // dhms
+  // Short form: days hours mintues seconds
   case ("dhms"):
   {
     _timeString = [str _days + _strDaysShort, str _hours + _strHoursShort, str _minutes + _strMinutesShort, str _seconds + _strSecondsShort] joinString " ";
   };
 
-  // dhm
+  // Short form: days hours minutes
   case ("dhm"):
   {
     _timeString = [str _days + _strDaysShort, str _hours + _strHoursShort, str _minutes + _strMinutesShort] joinString " ";
   };
 
-  // hms
+  // Short form: hours minutes seconds
   case ("hms"):
   {
     _hours = _hours + _days * 24;
     _timeString = [str _hours + _strHoursShort, str _minutes + _strMinutesShort, str _seconds + _strSecondsShort] joinString " ";
   };
 
-  // hm
+  // Short form: hours minutes
   case ("hm"):
   {
     _hours = _hours + _days * 24;
     _timeString = [str _hours + _strHoursShort, str _minutes + _strMinutesShort] joinString " ";
   };
 
-  // ms
+  // Short form: minutes seconds
   case ("ms"):
   {
     _hours = _hours + _days * 24;
@@ -109,7 +109,7 @@ switch (_format) do
     _timeString = [str _minutes + _strMinutesShort, str _seconds + _strSecondsShort] joinString " ";
   };
 
-  // s
+  // Short form: seconds
   case ("s"):
   {
     _hours = _hours + _days * 24;
@@ -118,33 +118,33 @@ switch (_format) do
     _timeString = str _seconds + _strSecondsShort;
   };
 
-  // DHMS
+  // Long form: Days Hours Minutes Seconds
   case ("DHMS"):
   {
     _timeString = [_days, _strDays, _hours, _strHours, _minutes, _strMinutes, _seconds, _strSeconds] joinString " ";
   };
 
-  // DHM
+  // Long form: Days Hours Minutes
   case ("DHM"):
   {
     _timeString = [_days, _strDays, _hours, _strHours, _minutes, _strMinutes] joinString " ";
   };
 
-  // HMS
+  // Long form: Hours Minutes Seconds
   case ("HMS"):
   {
     _hours = _hours + _days * 24;
     _timeString = [_hours, _strHours, _minutes, _strMinutes, _seconds, _strSeconds] joinString " ";
   };
 
-  // HM
+  // Long form: Hours Minutes
   case ("HM"):
   {
     _hours = _hours + _days * 24;
     _timeString = [_hours, _strHours, _minutes, _strMinutes] joinString " ";
   };
 
-  // MS
+  // Long form: Minutes Seconds
   case ("MS"):
   {
     _hours = _hours + _days * 24;
@@ -152,7 +152,7 @@ switch (_format) do
     _timeString = [_minutes, _strMinutes, _seconds, _strSeconds] joinString " ";
   };
 
-  // S
+  // Long form: Seconds
   case ("S"):
   {
     _hours = _hours + _days * 24;
