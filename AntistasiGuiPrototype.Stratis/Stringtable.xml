@@ -504,6 +504,18 @@
       </Key>
     </Container>
     <Container name="dialog_main_air_support">
+      <Key ID="STR_antistasi_dialogs_main_air_support_remaining_points">
+        <Original>Air Support points:</Original>
+        <English>Air Support points:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_air_support_aircraft_used">
+        <Original>Aircraft used:</Original>
+        <English>Aircraft used:</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_air_support_info">
+        <Original>Get more air support points using the 'Add to Air Support' button in the vehicle section on the player tab.</Original>
+        <English>Get more air support points using the 'Add to Air Support' button in the vehicle section on the player tab.</English>
+      </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_he_bombs">
         <Original>HE Bombs</Original>
         <English>HE Bombs</English>
@@ -516,9 +528,9 @@
         <Original>Napalm Bomb</Original>
         <English>Napalm Bomb</English>
       </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_remaining_points">
-        <Original>Remaining Air Support points</Original>
-        <English>Remaining Air Support points</English>
+      <Key ID="STR_antistasi_dialogs_main_air_support_no_points_tooltip">
+        <Original>You have no air support points</Original>
+        <English>You have no air support points</English>
       </Key>
     </Container>
     <Container name="dialog_mission_request">

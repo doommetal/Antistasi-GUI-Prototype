@@ -69,6 +69,9 @@ playerIsAdmin = true;
 // War level
 // tierWar
 
+// Air Support Points
+bombRuns = 0; // Same as in antistasi now, should probably publicVariable this thing on merge
+
 // TODO: Replace this with A3A_fnc_HQGameOptions
 //civLimit = 40; // missionNamespace getVariable ["civPerc",0];
 missionNamespace setVariable ["civPerc", 40, true];
@@ -88,10 +91,14 @@ rebelPopulation = 100;
 deadPopulation = 75;
 
 // Template stuff
+
 // Needed for AI/A3A_fn_typeOfSoldier.sqf to work
 // Most left empty as it shouldn't matter for the GUI testing
 allMachineGuns = [];
 allSniperRifles = [];
+
+// Air Support aircraft
+vehSDKPlane = "I_C_Plane_Civil_01_F";
 
 // List of stuff to choose from in the Construct menu
 // [classname, price, buildtime]

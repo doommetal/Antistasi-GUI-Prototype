@@ -1837,101 +1837,134 @@ class A3A_MainDialog : A3A_TabbedDialog
       show = false;
 
       class controls {
-        class AirSupportText : A3A_Text
-        {
-          idc = -1;
-          style = ST_CENTER;
-          text = $STR_antistasi_dialogs_main_air_support_remaining_points; // TODO: Update in updateAirSupportTab
-          sizeEx = GUI_TEXT_SIZE_LARGE;
-          x = 52 * GRID_W;
-          y = 10 * GRID_H;
-          w = 56 * GRID_W;
-          h = 6 * GRID_H;
-        };
-
         class AirSupportInfoBackground : A3A_Background
         {
           idc = -1;
           x = 38 * GRID_W;
-          y = 18 * GRID_H;
+          y = 8 * GRID_H;
           w = 84 * GRID_W;
-          h = 28 * GRID_H;
+          h = 38 * GRID_H;
+        };
+
+        class RemainingPointsLabel : A3A_Text
+        {
+          idc = -1;
+          text = $STR_antistasi_dialogs_main_air_support_remaining_points;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 40 * GRID_W;
+          y = 10 * GRID_H;
+          w = 60 * GRID_W;
+          h = 6 * GRID_H;
+        };
+
+        class RemainingPointsText : A3A_Text
+        {
+          idc = A3A_IDC_AIRSUPPORTPOINTSTEXT;
+          style = ST_RIGHT;
+          text = "0"; // TODO: Update in updateAirSupportTab
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 100 * GRID_W;
+          y = 10 * GRID_H;
+          w = 20 * GRID_W;
+          h = 6 * GRID_H;
+        };
+
+        class AirSupportAircraftLabel : A3A_Text
+        {
+          idc = -1;
+          text = $STR_antistasi_dialogs_main_air_support_aircraft_used;
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 40 * GRID_W;
+          y = 18 * GRID_H;
+          w = 40 * GRID_W;
+          h = 6 * GRID_H;
+        };
+
+        class AirSupportAircraftText : A3A_Text
+        {
+          idc = A3A_IDC_AIRSUPPORTAIRCRAFTTEXT;
+          text = "Antonov An-2";
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          style = ST_RIGHT;
+          x = 80 * GRID_W;
+          y = 18 * GRID_H;
+          w = 40 * GRID_W;
+          h = 6 * GRID_H;
         };
 
         class AirSupportInfoText : A3A_TextMulti
         {
           idc = -1;
-          text = "Aircraft used: Antonov An-2\n\nAdd aircraft to the air support pool by using the thing in the other menu and things.\nMore lines."; // TODO: localize later, not final yet
-          sizeEx = GUI_TEXT_SIZE_MEDIUM;
+          text = $STR_antistasi_dialogs_main_air_support_info;
           colorText[] = {0.7,0.7,0.7,1}; // TODO: Use colors from defines
-          x = 40 * GRID_W;
-          y = 20 * GRID_H;
-          w = 80 * GRID_W;
-          h = 24 * GRID_H;
+          x = 44 * GRID_W;
+          y = 28 * GRID_H;
+          w = 72 * GRID_W;
+          h = 14 * GRID_H;
         };
 
         class HeBombsIcon : A3A_Picture
         {
-          idc = -1;
+          idc = A3A_IDC_AIRSUPPORTHEICON;
           colorBackground[] = {0,0,0,0};
           text = "GUI\textures\icon_he_bombs.paa";
           x = 24 * GRID_W;
-          y = 50 * GRID_H;
+          y = 54 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
         class HeBombsButton : A3A_ShortcutButton
         {
-          idc = -1;
+          idc = A3A_IDC_AIRSUPPORTHEBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_he_bombs;
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 16 * GRID_W;
-          y = 70 * GRID_H;
+          y = 74 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
 
         class CarpetBombingIcon : A3A_Picture
         {
-          idc = -1;
+          idc = A3A_IDC_AIRSUPPORTCARPETICON;
           colorBackground[] = {0,0,0,0};
           text = "GUI\textures\icon_carpet_bombing.paa";
           x = 72 * GRID_W;
-          y = 50 * GRID_H;
+          y = 54 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
         class CarpetBombingButton : A3A_ShortcutButton
         {
-          idc = -1;
+          idc = A3A_IDC_AIRSUPPORTCARPETBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_carpet_bombing;
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 64 * GRID_W;
-          y = 70 * GRID_H;
+          y = 74 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };
 
         class NapalmBombIcon : A3A_Picture
         {
-          idc = -1;
+          idc = A3A_IDC_AIRSUPPORTNAPALMICON;
           colorBackground[] = {0,0,0,0};
           text = "GUI\textures\icon_napalm_bomb.paa";
           x = 120 * GRID_W;
-          y = 50 * GRID_H;
+          y = 54 * GRID_H;
           w = 16 * GRID_W;
           h = 16 * GRID_H;
         };
 
         class NapalmBombButton : A3A_ShortcutButton
         {
-          idc = -1;
+          idc = A3A_IDC_AIRSUPPORTNAPALMBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_napalm;
           size = GUI_TEXT_SIZE_MEDIUM;
           x = 112 * GRID_W;
-          y = 70 * GRID_H;
+          y = 74 * GRID_H;
           w = 32 * GRID_W;
           h = 12 * GRID_H;
         };

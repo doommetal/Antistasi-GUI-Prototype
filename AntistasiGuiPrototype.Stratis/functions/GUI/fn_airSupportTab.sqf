@@ -46,8 +46,44 @@ switch (_mode) do
     }];
     _backButton ctrlShow true;
 
-    // TODO: Display remaining air support points
-    // TODO: Display plane used for air support
+    // Display remaining air support points
+    private _airSupportPoints = bombRuns;
+    private _airSupportPointsText = _display displayCtrl A3A_IDC_AIRSUPPORTPOINTSTEXT;
+    _airSupportPointsText ctrlSetText str _airSupportPoints;
+
+    // Display name of aircraft used
+    private _aircraftName = getText (configFile >> "CfgVehicles" >> vehSDKPlane >> "displayName");
+    private _airSupportAircraftText = _display displayCtrl A3A_IDC_AIRSUPPORTAIRCRAFTTEXT;
+    _airSupportAircraftText ctrlSetText _aircraftName;
+
+    // If there are 0 air support points, disable buttons and set tooltip
+    private _heIcon = _display displayCtrl A3A_IDC_AIRSUPPORTHEICON;
+    private _heButton = _display displayCtrl A3A_IDC_AIRSUPPORTHEBUTTON;
+    private _carpetIcon = _display displayCtrl A3A_IDC_AIRSUPPORTCARPETICON;
+    private _carpetButton = _display displayCtrl A3A_IDC_AIRSUPPORTCARPETBUTTON;
+    private _napalmIcon = _display displayCtrl A3A_IDC_AIRSUPPORTNAPALMICON;
+    private _napalmButton = _display displayCtrl A3A_IDC_AIRSUPPORTNAPALMBUTTON;
+
+    // Check if there are enough air support points
+    if (_airSupportPoints < 1) then
+    {
+      Trace("No air support points, disabling buttons");
+      _heIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+      _heIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
+      _heButton ctrlEnable false;
+      _heButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
+      _carpetIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+      _carpetIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
+      _carpetButton ctrlEnable false;
+      _carpetButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
+      _napalmIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+      _napalmIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
+      _napalmButton ctrlEnable false;
+      _napalmButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
+    };
+
+    // TODO: Check for controlled airbases
+    // {sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0
   };
 
   default {

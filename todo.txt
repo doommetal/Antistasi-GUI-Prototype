@@ -4,3 +4,4 @@ TODO-LIST:
 - update routines for prices in recruit dialogs
 - get tooltip text for disabled buttons: undercover, construct, move hq
 - better time to string function(s)
+- add check for radio in commander tab
