@@ -1112,6 +1112,52 @@ class A3A_MainDialog : A3A_TabbedDialog
           };
         };
 
+        class NoRadioControlsGroup : A3A_ControlsGroupNoScrollbars
+        {
+          idc = A3A_IDC_NORADIOCONTROLSGROUP;
+          colorBackground[] = A3A_COLOR_BACKGROUND;
+          x = 8 * GRID_W;
+          y = 8 * GRID_H;
+          w = 54 * GRID_W;
+          h = 68 * GRID_H;
+
+          class controls
+          {
+            class NoRadioBackground : A3A_Background
+            {
+              idc = -1;
+              x = 0 * GRID_W;
+              y = 0 * GRID_H;
+              w = 54 * GRID_W;
+              h = 68 * GRID_H;
+            };
+
+            class NoRadioIcon : A3A_Picture
+            {
+              idc = -1;
+              text = A3A_Tex_Icon_AT_Minefield;
+              colorText[] = A3A_COLOR_BUTTON_BACKGROUND_DISABLED;
+              x = 15 * GRID_W;
+              y = 15 * GRID_H;
+              w = 24 * GRID_W;
+              h = 24 * GRID_H;
+            };
+
+            class NoRadioText : A3A_Text
+            {
+              idc = -1;
+              style = ST_CENTER;
+              text = $STR_antistasi_dialogs_main_commander_no_radio;
+              colorText[] = A3A_COLOR_BUTTON_BACKGROUND_DISABLED;
+              sizeEx = GUI_TEXT_SIZE_LARGE;
+              x = 0 * GRID_W;
+              y = 39 * GRID_H;
+              w = 54 * GRID_W;
+              h = 6 * GRID_H;
+            };
+          };
+        };
+
 
         // Bottom buttons
 

@@ -62,6 +62,9 @@ playerIsAdmin = true;
 // call BIS_fnc_admin > 0
 // (isServer && hasInterface) || {admin owner _this > 0} // <- correct way?
 
+// Fake functions stuff
+playerHasRadio = true;
+
 // Aggro
 // [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString
 // [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString

@@ -550,6 +550,10 @@
         <Original>Not enough ammo</Original>
         <English>Not enough ammo</English>
       </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_no_radio">
+        <Original>No radio</Original>
+        <English>No radio</English>
+      </Key>
     </Container>
     <Container name="dialog_main_air_support">
       <Key ID="STR_antistasi_dialogs_main_air_support_remaining_points">

@@ -43,43 +43,50 @@ switch (_mode) do
     private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
     if (!ctrlShown _commanderMap) then {_commanderMap ctrlShow true;};
 
-    // Hide both group views initially
+    // Hide all views initially
+    // TODO: foreach for readablity?
     private _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
     private _multipleGroupsBackground = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSBACKGROUND;
     private _multipleGroupsLabel = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSLABEL;
     private _singleGroupView = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
+    private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
+    private _noRadioControlsGroup = _display displayCtrl A3A_IDC_NORADIOCONTROLSGROUP;
+    private _garbageCleanControlsGroup = _display displayCtrl A3A_IDC_GARBAGECLEANCONTROLSGROUP;
+    private _airSupportButton = _display displayCtrl A3A_IDC_AIRSUPPORTBUTTON;
     _multipleGroupsView ctrlShow false;
     _multipleGroupsBackground ctrlShow false;
-    _multipleGroupsView ctrlShow false;
+    _multipleGroupsLabel ctrlShow false;
     _singleGroupView ctrlShow false;
-
-    // Hide fire mission controlsGroup initially
-    private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
     _fireMissionControlsGroup ctrlShow false;
+    _noRadioControlsGroup ctrlShow false;
+    _garbageCleanControlsGroup ctrlShow false;
+
+    // Check for radio, most of this isn't usable without one
+    if !([player] call A3A_fnc_hasRadio) exitWith
+    {
+      _noRadioControlsGroup ctrlShow true;
+      _airSupportButton ctrlEnable false;
+      _airSupportButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_commander_no_radio";
+    };
 
     // Initialize fire mission vars
     _fireMissionControlsGroup setVariable ["heSelected", true];
     _fireMissionControlsGroup setVariable ["pointSelected", true];
     _fireMissionControlsGroup setVariable ["roundsNumber", 1];
-
-    // TODO: This should be moved to where we select a group, here atm for debugging purposes
     _fireMissionControlsGroup setVariable ["availableHeRounds", 0];
     _fireMissionControlsGroup setVariable ["availableSmokeRounds", 0];
-
-    // Initialize position to nil
     _fireMissionControlsGroup setVariable ["startPos", nil];
     _fireMissionControlsGroup setVariable ["endPos", nil];
 
-    // Make sure commander map is in group selection mode
+    // Set map to group selection mode
     _commanderMap setVariable ["selectFireMissionPos", false];
     _commanderMap setVariable ["selectFireMissionEndPos", false];
-
 
     // Check for selected groups
     private _selectedGroup = _commanderMap getVariable ["selectedGroup", grpNull];
     if !(_selectedGroup isEqualTo grpNull) then
     {
-      // If exactly 1 HC group is selected show the single group view
+      // If a group is selected show the single group view
       _multipleGroupsView ctrlShow false;
       _multipleGroupsBackground ctrlShow false;
       _multipleGroupsLabel ctrlShow false;
@@ -216,7 +223,7 @@ switch (_mode) do
       ctrlMapAnimCommit _commanderMap;
 
     } else {
-      // If 0 or multiple groups are selected show the multiple groups view
+      // If no group is selected show the multiple groups view
       _singleGroupView ctrlShow false;
       _multipleGroupsView ctrlShow true;
       _multipleGroupsBackground ctrlShow true;
@@ -391,10 +398,6 @@ switch (_mode) do
       };
 
     };
-
-    // Hide garbage clean controlsGroup group initially
-    _garbageCleanControlsGroup = _display displayCtrl A3A_IDC_GARBAGECLEANCONTROLSGROUP;
-    _garbageCleanControlsGroup ctrlShow false;
   };
 
   case ("updateFireMissionView"):
@@ -646,7 +649,7 @@ switch (_mode) do
     private _selection = _params select 0;
     Trace_1("Fire Mission selection changed: %1", _selection);
 
-    _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MainDialog;
     _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
 
 
@@ -751,15 +754,15 @@ switch (_mode) do
   case ("showGarbageCleanOptions"):
   {
     Trace("Showing garbage clean options");
-    _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MainDialog;
 
     // Hide overlapping buttons
-    _airSupportButton = _display displayCtrl A3A_IDC_AIRSUPPORTBUTTON;
-    _garbageCleanButton = _display displayCtrl A3A_IDC_GARBAGECLEANBUTTON;
+    private _airSupportButton = _display displayCtrl A3A_IDC_AIRSUPPORTBUTTON;
+    private _garbageCleanButton = _display displayCtrl A3A_IDC_GARBAGECLEANBUTTON;
     _airSupportButton ctrlShow false;
     _garbageCleanButton ctrlShow false;
     // Show garbage clean controlsGroup
-    _garbageCleanControlsGroup = _display displayCtrl A3A_IDC_GARBAGECLEANCONTROLSGROUP;
+    private _garbageCleanControlsGroup = _display displayCtrl A3A_IDC_GARBAGECLEANCONTROLSGROUP;
     _garbageCleanControlsGroup ctrlShow true;
   };
 
