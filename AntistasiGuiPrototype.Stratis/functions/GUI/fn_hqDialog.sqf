@@ -336,9 +336,7 @@ switch (_mode) do
     private _time = sliderPosition _restSlider;
     private _restTimeString = [_time, "HM", true] call A3A_fnc_formatTime;
     private _postRestTime = daytime + _time;
-    if (_postRestTime > 24) then {
-      _postRestTime = _postRestTime - 24;
-    };
+    if (_postRestTime > 24) then {_postRestTime = _postRestTime - 24};
     private _postRestTimeString = [_postRestTime, "HH:MM"] call BIS_fnc_timeToString;
     private _message = format [localize "STR_antistasi_dialogs_hq_rest_text" + "<br />" + localize "STR_antistasi_dialogs_hq_wakeup_text", _restTimeString, _postRestTimeString];
     _restText ctrlSetStructuredText parseText _message;

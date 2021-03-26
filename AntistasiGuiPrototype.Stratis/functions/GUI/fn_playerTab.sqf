@@ -142,12 +142,8 @@ switch (_mode) do
     _playerRankText ctrlSetText ([player, "displayName"] call BIS_fnc_rankParams);
     _playerRankPicture ctrlSetText ([player, "texture"] call BIS_fnc_rankParams);
 
-    // TODO: Make function for getting time alive
-    private _time = time;
-    private _days = floor (_time / 86400);
-    private _hours = floor ((_time - _days * 86400) / 3600);
-    private _minutes = floor (((_time - _days * 86400) - _hours * 3600) / 60);
-    _aliveText ctrlSetText format [[_time] call A3A_fnc_formatTime]; // TODO: localize later, not final yet
+    private _time = time; // TODO: get time at session start, not mission start, aka after you've loaded in, and on respawns etc...
+    _aliveText ctrlSetText format [[_time] call A3A_fnc_formatTime];
 
     // TODO: Make function for getting num of completed missions
     private _missions = player getVariable "missionsCompleted";

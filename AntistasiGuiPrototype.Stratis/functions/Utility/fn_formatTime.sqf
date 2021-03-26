@@ -17,12 +17,12 @@ Dependencies:
     <STRING> STR_antistasi_dialogs_generic_<day, days, hour, hours etc...>
 
 Example:
-    // No format specified:
-    [150] call A3A_fnc_formatTime; // "2m 30s"
-    [98765.52] call A3A_fnc_formatTime; // "1d 3h 26m"
-    // With format specified:
-    [15.63, "HM", true] call A3A_fnc_formatTime; // "15 hours 37 minutes"
-    [28.63, "DHMS", true] call A3A_fnc_formatTime; // "1 day 4 hours 37 minutes 48 seconds"
+    No format specified:
+        [150] call A3A_fnc_formatTime; // "2m 30s"
+        [98765.52] call A3A_fnc_formatTime; // "1d 3h 26m"
+    With format specified:
+        [15.63, "HM", true] call A3A_fnc_formatTime; // "15 hours 37 minutes"
+        [28.63, "DHMS", true] call A3A_fnc_formatTime; // "1 day 4 hours 37 minutes 48 seconds"
 */
 
 // Logging
@@ -30,6 +30,9 @@ Example:
 #define Log_Error true
 #define Log_Trace true
 #include "..\..\LogMacros.inc"
+#include "..\..\performance.inc"
+startBatch("formatTime");
+startCounter("formatTime");
 
 params [["_time", 0], ["_format", ""], ["_inHours", false]];
 
@@ -41,6 +44,7 @@ _days = floor (_time / 86400);
 _hours = floor ((_time - _days * 86400) / 3600);
 _minutes = floor ((_time - _days * 86400 - _hours * 3600) / 60);
 _seconds = floor (_time - _days * 86400 - _hours * 3600 - _minutes * 60);
+markBatch("formatTime", "split");
 
 // If format is not specified select one that hopefully makes sense
 if (_format isEqualTo "") then {
@@ -58,6 +62,7 @@ if (_format isEqualTo "") then {
     _format = "dhm";
   };
 };
+markBatch("formatTime", "format selection");
 
 // Okay, I know this looks silly but hear me out; Not all languages can make words plural by just appending a character
 // In English you can just add an 's', but in for example in Czech you have "1 minute" = "1 minuta" but "3 minutes" = "3 minuty"
@@ -70,6 +75,7 @@ _strDaysShort = localize "STR_antistasi_dialogs_generic_days_short";
 _strHoursShort = localize "STR_antistasi_dialogs_generic_hours_short";
 _strMinutesShort = localize "STR_antistasi_dialogs_generic_minutes_short";
 _strSecondsShort = localize "STR_antistasi_dialogs_generic_seconds_short";
+markBatch("formatTime", "localization");
 
 // Format selection
 private _timeString = "";
@@ -167,4 +173,8 @@ switch (_format) do
   };
 };
 
+markBatch("formatTime", "mad-ass switch");
+stopCounter("formatTime");
+
+stopBatch("formatTime");
 _timeString;
