@@ -184,6 +184,54 @@
         <Original>No</Original>
         <English>No</English>
       </Key>
+      <Key ID="STR_antistasi_dialogs_generic_days">
+        <Original>days</Original>
+        <English>days</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_hours">
+        <Original>hours</Original>
+        <English>hours</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_minutes">
+        <Original>minutes</Original>
+        <English>minutes</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_seconds">
+        <Original>seconds</Original>
+        <English>seconds</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_day">
+        <Original>day</Original>
+        <English>day</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_hour">
+        <Original>hour</Original>
+        <English>hour</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_minute">
+        <Original>minute</Original>
+        <English>minute</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_second">
+        <Original>second</Original>
+        <English>second</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_days_short">
+        <Original>d</Original>
+        <English>d</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_hours_short">
+        <Original>h</Original>
+        <English>h</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_minutes_short">
+        <Original>m</Original>
+        <English>m</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_seconds_short">
+        <Original>s</Original>
+        <English>s</English>
+      </Key>
     </Container>
     <Container name="dialog_load_last_save">
       <Key ID="STR_antistasi_dialogs_load_last_save_titlebar">

@@ -63,8 +63,7 @@ switch (_mode) do
     // Get Debug info
     // TODO, change this to get server values instead when merging
     private _debugText = _display displayCtrl A3A_IDC_DEBUGINFO;
-    private _time = [time / 3600, "ARRAY"] call BIS_fnc_timeToString;
-    private _missionTime = format["%1h%2m%3s", _time # 0, _time # 1, _time # 2];
+    private _missionTime = [time] call A3A_fnc_formatTime;
     private _serverFps = (round (diag_fps * 10)) / 10;
     private _connectedHCs = 0;
     private _players = 0;

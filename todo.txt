@@ -5,3 +5,4 @@ TODO-LIST:
 - get tooltip text for disabled buttons: undercover, construct, move hq
 - better time to string function(s)
 - add check for radio in commander tab
+- make admin tp hq assets put things in front of you, not behind you // _asset setPos (player modelToWorld [0,1,0]);

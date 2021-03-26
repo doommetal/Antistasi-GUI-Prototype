@@ -41,12 +41,17 @@ class A3A
   class AI
   {
     class getGroupInfo {};
-    class typeOfSoldier {}; // TODO: Already in antistasi, don't merge
-    class canFight {}; // TODO: Already in antistasi, don't merge
+    class typeOfSoldier {}; // Already in antistasi, don't merge
+    class canFight {}; // Already in antistasi, don't merge
   };
 
   class Revive
   {
-    class isMedic {}; // TODO: Already in antistasi, don't merge
+    class isMedic {}; // Already in antistasi, don't merge
+  };
+
+  class Utility
+  {
+    class formatTime {};
   };
 };

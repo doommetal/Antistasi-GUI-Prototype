@@ -334,25 +334,7 @@ switch (_mode) do
     private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
     private _restText = _display displayCtrl A3A_IDC_RESTTEXT;
     private _time = sliderPosition _restSlider;
-    private _timeArray = [_time, "ARRAY"] call BIS_fnc_timeToString;
-    // timeToString is 0 padded so we remove that
-    private _hours = parseNumber( _timeArray select 0);
-    private _minutes = parseNumber (_timeArray select 1);
-    private _restTimeString = "";
-    // correct grammar up in this motherfucker
-    if (_hours == 1 and _minutes == 1) then {
-      _restTimeString = format [localize "STR_antistasi_dialogs_hq_hour_minute", _hours, _minutes];
-    } else {
-      if (_hours == 1) then {
-        _restTimeString = format [localize "STR_antistasi_dialogs_hq_hour_minutes", _hours, _minutes];
-      } else {
-        if (_minutes == 1) then {
-          _restTimeString = format [localize "STR_antistasi_dialogs_hq_hours_minute", _hours, _minutes];
-        } else {
-          _restTimeString = format [localize "STR_antistasi_dialogs_hq_hours_minutes", _hours, _minutes];
-        };
-      };
-    };
+    private _restTimeString = [_time, "HM", true] call A3A_fnc_formatTime;
     private _postRestTime = daytime + _time;
     if (_postRestTime > 24) then {
       _postRestTime = _postRestTime - 24;
