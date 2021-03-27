@@ -3,4 +3,3 @@ TODO-LIST:
 - remove borders on ai management list
 - update routines for prices in recruit dialogs
 - get tooltip text for disabled buttons: undercover, construct, move hq
-- fix air support/garbage clean buttons disappearing if you are in GC select and go from single group view to list view

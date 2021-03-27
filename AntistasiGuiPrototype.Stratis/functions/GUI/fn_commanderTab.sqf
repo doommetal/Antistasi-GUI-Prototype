@@ -53,6 +53,7 @@ switch (_mode) do
     private _noRadioControlsGroup = _display displayCtrl A3A_IDC_NORADIOCONTROLSGROUP;
     private _garbageCleanControlsGroup = _display displayCtrl A3A_IDC_GARBAGECLEANCONTROLSGROUP;
     private _airSupportButton = _display displayCtrl A3A_IDC_AIRSUPPORTBUTTON;
+    private _garbageCleanButton = _display displayCtrl A3A_IDC_GARBAGECLEANBUTTON;
     _multipleGroupsView ctrlShow false;
     _multipleGroupsBackground ctrlShow false;
     _multipleGroupsLabel ctrlShow false;
@@ -60,6 +61,10 @@ switch (_mode) do
     _fireMissionControlsGroup ctrlShow false;
     _noRadioControlsGroup ctrlShow false;
     _garbageCleanControlsGroup ctrlShow false;
+
+    // Show Air Support and Garbage Clean buttons
+    _airSupportButton ctrlShow true;
+    _garbageCleanButton ctrlShow true;
 
     // Check for radio, most of this isn't usable without one
     if !([player] call A3A_fnc_hasRadio) exitWith
