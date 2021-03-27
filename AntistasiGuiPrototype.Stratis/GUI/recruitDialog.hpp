@@ -5,14 +5,14 @@ class A3A_RecruitDialog : A3A_DefaultDialog
 
   class Controls
   {
-    class TitlebarText : A3A_Text
+    class TitlebarText : A3A_TitlebarText
     {
       idc = -1;
       text = $STR_antistasi_dialogs_recruit_units_titlebar;
       x = DIALOG_X;
-      y = DIALOG_Y - 4 * GRID_H;
+      y = DIALOG_Y - 5 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
     };
 
     // Main content
@@ -292,8 +292,8 @@ class A3A_RecruitDialog : A3A_DefaultDialog
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
-      y = DIALOG_Y - 4 * GRID_H;
+      x = DIALOG_X + DIALOG_W * GRID_W - 5 * GRID_W;
+      y = DIALOG_Y - 5 * GRID_H;
     };
   };
 };

@@ -12,23 +12,23 @@ class A3A_MainDialog : A3A_TabbedDialog
 
   class Controls
   {
-    class TitlebarText : A3A_Text
+    class TitlebarText : A3A_TitlebarText
     {
       idc = A3A_IDC_MainDialogTitleBar;
       text = $STR_antistasi_dialogs_main_titlebar;
       x = DIALOG_X;
-      y = DIALOG_Y - 8 * GRID_H;
+      y = DIALOG_Y - 10 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
     };
 
     class TabButtons : A3A_ControlsGroupNoScrollbars
     {
       idc = A3A_IDC_MainDialogTabButtons;
       x = DIALOG_X;
-      y = DIALOG_Y - 4 * GRID_H;
+      y = DIALOG_Y - 5 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
 
       class Controls
       {
@@ -40,7 +40,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           x = 0;
           y = 0;
           w = 30 * GRID_W;
-          h = 4 * GRID_H;
+          h = 5 * GRID_H;
         };
 
         class CommanderTabButton : A3A_Button
@@ -51,7 +51,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           x = 30 * GRID_W;
           y = 0;
           w = 30 * GRID_W;
-          h = 4 * GRID_H;
+          h = 5 * GRID_H;
         };
 
         class AdminTabButton : A3A_Button
@@ -62,7 +62,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           x = 60 * GRID_W;
           y = 0;
           w = 30 * GRID_W;
-          h = 4 * GRID_H;
+          h = 5 * GRID_H;
         };
       };
     };
@@ -2158,15 +2158,15 @@ class A3A_MainDialog : A3A_TabbedDialog
     class BackButton : A3A_BackButton
     {
       idc = A3A_IDC_MainDialogBackButton;
-      x = DIALOG_X + DIALOG_W * GRID_W - 10 * GRID_W;
-      y = DIALOG_Y - 8 * GRID_H;
+      x = DIALOG_X + DIALOG_W * GRID_W - 12 * GRID_W;
+      y = DIALOG_Y - 10 * GRID_H;
     };
 
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
-      y = DIALOG_Y - 8 * GRID_H;
+      x = DIALOG_X + DIALOG_W * GRID_W - 5 * GRID_W;
+      y = DIALOG_Y - 10 * GRID_H;
     };
   };
 };

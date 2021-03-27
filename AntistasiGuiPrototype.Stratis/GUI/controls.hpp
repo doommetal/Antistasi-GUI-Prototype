@@ -85,6 +85,12 @@ class A3A_Edit : A3A_Text
 	colorSelection[] = A3A_COLOR_TITLEBAR_BACKGROUND;
 };
 
+class A3A_TitlebarText : A3A_Text
+{
+  font = A3A_TITLEBAR_FONT;
+  sizeEx = GUI_TEXT_SIZE_LARGE;
+};
+
 class A3A_SectionLabelLeft : A3A_Text
 {
   style = ST_RIGHT;
@@ -467,8 +473,8 @@ class A3A_CloseButton : A3A_ActivePicture
   text = A3A_Tex_Icon_Close;
   // Uses onMouseButtonClick to not be accidentally triggered by keyboard
   onMouseButtonClick = "closeDialog 2;";
-  w = 4 * GRID_W;
-  h = 4 * GRID_H;
+  w = 5 * GRID_W;
+  h = 5 * GRID_H;
 };
 
 class A3A_BackButton : A3A_CloseButton
@@ -1083,9 +1089,9 @@ class A3A_DefaultDialog
       moving = true;
       colorBackground[] = A3A_COLOR_TITLEBAR_BACKGROUND;
       x = DIALOG_X;
-      y = DIALOG_Y - 4 * GRID_H;
+      y = DIALOG_Y - 5 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
     };
 
     class Background : A3A_Background
@@ -1107,18 +1113,18 @@ class A3A_TabbedDialog : A3A_DefaultDialog
       moving = true;
       colorBackground[] = A3A_COLOR_TITLEBAR_BACKGROUND;
       x = DIALOG_X;
-      y = DIALOG_Y - 8 * GRID_H;
+      y = DIALOG_Y - 10 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
     };
 
     class TabsBackground : A3A_Background
     {
       colorBackground[] = A3A_COLOR_TABS_BACKGROUND;
       x = DIALOG_X;
-      y = DIALOG_Y - 4 * GRID_H;
+      y = DIALOG_Y - 5 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
     };
 
     class Background : A3A_Background

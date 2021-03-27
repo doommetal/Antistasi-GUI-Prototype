@@ -5,23 +5,23 @@ class A3A_TestTabbedDialog : A3A_TabbedDialog
 
   class Controls
   {
-    class TitlebarText : A3A_Text
+    class TitlebarText : A3A_TitlebarText
     {
       idc = 7001;
-      text = "Tabbed Dialog";
+      text = "TABBED DIALOG";
       x = DIALOG_X;
-      y = DIALOG_Y - 8 * GRID_H;
+      y = DIALOG_Y - 10 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
     };
 
     class TabButtons : A3A_ControlsGroupNoScrollbars
     {
       idc = 7002;
       x = DIALOG_X;
-      y = DIALOG_Y - 4 * GRID_H;
+      y = DIALOG_Y - 5 * GRID_H;
       w = DIALOG_W * GRID_W;
-      h = 4 * GRID_H;
+      h = 5 * GRID_H;
 
       class Controls
       {
@@ -265,8 +265,8 @@ class A3A_TestTabbedDialog : A3A_TabbedDialog
     class CloseButton : A3A_CloseButton
     {
       idc = -1;
-      x = DIALOG_X + DIALOG_W * GRID_W - 4 * GRID_W;
-      y = DIALOG_Y - 8 * GRID_H;
+      x = DIALOG_X + DIALOG_W * GRID_W - 5 * GRID_W;
+      y = DIALOG_Y - 10 * GRID_H;
     };
   };
 };

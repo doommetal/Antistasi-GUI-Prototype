@@ -169,3 +169,4 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 // Fonts
 #define A3A_DEFAULT_FONT "RobotoCondensed"
 #define A3A_BUTTON_FONT "PuristaLight"
+#define A3A_TITLEBAR_FONT "PuristaMedium"

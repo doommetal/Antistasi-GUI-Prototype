@@ -9,7 +9,7 @@ class A3A_LoadDialog
 
   class Controls
   {
-    class TitlebarText : A3A_Text
+    class TitlebarText : A3A_TitlebarText
     {
       idc = 7001;
       text = $STR_antistasi_dialogs_load_last_save_titlebar;

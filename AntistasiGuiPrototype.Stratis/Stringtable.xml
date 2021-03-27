@@ -3,8 +3,8 @@
   <Package name="A3-Antistasi Mission">
     <Container name="dialog_recruit_units">
       <Key ID="STR_antistasi_dialogs_recruit_units_titlebar">
-        <Original>Recruit Units</Original>
-        <English>Recruit Units</English>
+        <Original>RECRUIT UNITS</Original>
+        <English>RECRUIT UNITS</English>
         <Czech />
         <French />
         <Spanish />
@@ -113,8 +113,8 @@
     </Container>
     <Container name="dialog_main">
       <Key ID="STR_antistasi_dialogs_main_titlebar">
-        <Original>Battle Options</Original>
-        <English>Battle Options</English>
+        <Original>BATTLE OPTIONS</Original>
+        <English>BATTLE OPTIONS</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_player_tab_button">
         <Original>Player</Original>
@@ -135,8 +135,8 @@
     </Container>
     <Container name="dialog_recruit_squad">
       <Key ID="STR_antistasi_dialogs_recruit_squad_titlebar_text">
-        <Original>Recruit Squad</Original>
-        <English>Recruit Squad</English>
+        <Original>RECRUIT SQUAD</Original>
+        <English>RECRUIT SQUAD</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_inf_squad">
         <Original>Inf. Squad</Original>
@@ -235,14 +235,14 @@
     </Container>
     <Container name="dialog_load_last_save">
       <Key ID="STR_antistasi_dialogs_load_last_save_titlebar">
-        <Original>Load last save?</Original>
-        <English>Load last save?</English>
+        <Original>LOAD LAST SAVE?</Original>
+        <English>LOAD LAST SAVE?</English>
       </Key>
     </Container>
     <Container name="dialog_buy_vehicle">
       <Key ID="STR_antistasi_dialogs_buy_vehicle_titlebar">
-        <Original>Buy Vehicle</Original>
-        <English>Buy Vehicle</English>
+        <Original>BUY VEHICLE</Original>
+        <English>BUY VEHICLE</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_undercover_tooltip">
         <Original>This vehicle can go undercover</Original>
@@ -615,11 +615,15 @@
         <English>Support</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_titlebar">
-        <Original>Request Mission</Original>
-        <English>Request Mission</English>
+        <Original>REQUEST MISSION</Original>
+        <English>REQUEST MISSION</English>
       </Key>
     </Container>
     <Container name="dialog_hq">
+      <Key ID="STR_antistasi_dialogs_hq_titlebar">
+        <Original>HQ MANAGEMENT</Original>
+        <English>HQ MANAGEMENT</English>
+      </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_button">
         <Original>Garrisons</Original>
         <English>Garrisons</English>
@@ -777,22 +781,6 @@
       <Key ID="STR_antistasi_dialogs_hq_garrisons_remove_outpost_button">
         <Original>Remove Outpost</Original>
         <English>Remove Outpost</English>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_hour_minute">
-        <Original>%1 hour, %1 minute</Original>
-        <English>%1 hour, %1 minute</English>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_hour_minutes">
-        <Original>%1 hour, %2 minutes</Original>
-        <English>%1 hour, %2 minutes</English>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_hours_minute">
-        <Original>%1 hours, %2 minute</Original>
-        <English>%1 hours, %2 minute</English>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_hours_minutes">
-        <Original>%1 hours, %2 minutes</Original>
-        <English>%1 hours, %2 minutes</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_text">
         <Original>Rest for %1.</Original>
