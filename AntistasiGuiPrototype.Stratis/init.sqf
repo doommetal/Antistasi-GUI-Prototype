@@ -70,7 +70,9 @@ playerHasRadio = true;
 // [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString
 
 // War level
-// tierWar
+tierWar = 5;
+aggressionOccupants = 4;
+aggressionInvaders = 2;
 
 // Air Support Points
 bombRuns = 0; // Same as in antistasi now, should probably publicVariable this thing on merge

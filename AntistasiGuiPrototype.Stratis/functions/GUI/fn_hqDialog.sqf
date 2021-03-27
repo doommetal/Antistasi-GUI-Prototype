@@ -210,6 +210,14 @@ switch (_mode) do
     _display = findDisplay A3A_IDD_HqDialog;
 
     // Update campaign status section
+    // Uupdate war level & aggro
+    private _warLevelText = _display displayCtrl A3A_IDC_WARLEVELTEXT;
+    private _occupantsAggroText = _display displayCtrl A3A_IDC_OCCAGGROTEXT;
+    private _invadersAggroText = _display displayCtrl A3A_IDC_INVAGGROTEXT;
+    _warLevelText ctrlSetText str tierWar;
+    _occupantsAggroText ctrlSetText ([aggressionOccupants] call A3A_fnc_getAggroLevelString);
+    _invadersAggroText ctrlSetText ([aggressionInvaders] call A3A_fnc_getAggroLevelString);
+
     // TODO: Get actual values here, placeholder totals from Altis
     private _controlledCities = 5;
     private _totalCities = 48;

@@ -46,6 +46,11 @@ class A3A
     class hasRadio {}; // Already in antistasi, don't merge
   };
 
+  class Base
+  {
+    class getAggroLevelString {}; // Already in antistasi, don't merge
+  };
+
   class Revive
   {
     class isMedic {}; // Already in antistasi, don't merge

@@ -3,8 +3,4 @@ TODO-LIST:
 - remove borders on ai management list
 - update routines for prices in recruit dialogs
 - get tooltip text for disabled buttons: undercover, construct, move hq
-- add check for radio in commander tab
-- make admin tp hq assets put things in front of you, not behind you // _asset setPos (player modelToWorld [0,1,0]);
-
-NOW-LIST:
-- make STR_antistasi_dialogs_main_commander_no_radio_tooltip in stringtable
+- fix air support/garbage clean buttons disappearing if you are in GC select and go from single group view to list view
