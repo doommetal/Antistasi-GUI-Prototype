@@ -1,4 +1,22 @@
-// TODO: Add header
+/*
+Maintainer: DoomMetal
+    Event Handler for drawing outpost select markers to the commander map
+
+Arguments:
+    None
+
+Return Value:
+    None
+
+Scope: Internal
+Environment: Unscheduled
+Public: No
+Dependencies:
+    HQ Dialog must be open
+
+Example:
+    _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_outpostSelectEH"];
+*/
 
 private _garrisonMap = _this select 0;
 private _data = _garrisonMap getVariable "data";

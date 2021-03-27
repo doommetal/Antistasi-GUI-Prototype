@@ -1,4 +1,23 @@
-// TODO: Add header
+/*
+Maintainer: DoomMetal
+    Event Handler for drawing High Command group markers to the commander map
+
+Arguments:
+    None
+
+Return Value:
+    None
+
+Scope: Internal
+Environment: Unscheduled
+Public: No
+Dependencies:
+    Main Dialog must be open
+
+Example:
+    _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_hcGroupsEH"];
+*/
+
 #include "..\..\GUI\ids.inc"
 
 private _display = findDisplay A3A_IDD_MainDialog;

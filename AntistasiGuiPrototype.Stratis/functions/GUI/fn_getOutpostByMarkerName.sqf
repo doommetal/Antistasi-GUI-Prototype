@@ -1,3 +1,4 @@
+// Placeholder?, do not merge
 // param 0: STR - Marker
 // Returns: [Marker name (STR), Garrison (Array <int>)]]
 

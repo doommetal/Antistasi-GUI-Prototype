@@ -1,4 +1,23 @@
-// TODO: Add header
+/*
+Maintainer: DoomMetal
+    Event Handler for drawing outpost markers to the commander map
+
+Arguments:
+    None
+
+Return Value:
+    None
+
+Scope: Internal
+Environment: Unscheduled
+Public: No
+Dependencies:
+    HQ Dialog must be open
+
+Example:
+    _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_outpostMarkersEH"];
+*/
+
 #include "..\..\GUI\ids.inc"
 
 private _display = findDisplay A3A_IDD_HqDialog;
