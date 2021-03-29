@@ -314,13 +314,6 @@ switch (_mode) do
     _titleBar = _display displayCtrl A3A_IDC_HQDIALOGTITLEBAR;
     _titleBar ctrlSetText (localize "STR_antistasi_dialogs_hq_titlebar") + " > " + (localize "STR_antistasi_dialogs_hq_garrisons_titlebar");
 
-    // Show map if not already visible
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
-    if (!ctrlShown _garrisonMap) then {_garrisonMap ctrlShow true;};
-
-    // Simulate a map click event to select the garrison closest to the player
-    ["garrisonMapClicked", [getPos player select 0, getPos player select 1]] spawn A3A_fnc_hqDialog;
-
     // Show back button
     private _backButton = _display displayCtrl A3A_IDC_HQDIALOGBACKBUTTON;
     _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
@@ -328,6 +321,94 @@ switch (_mode) do
       ["switchTab", ["main"]] call A3A_fnc_hqDialog;
     }];
     _backButton ctrlShow true;
+
+    // Show map if not already visible
+    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
+    if (!ctrlShown _garrisonMap) then {_garrisonMap ctrlShow true;};
+
+    // Get outpost data
+    private _outposts = [];
+    {
+      _outposts pushBack _x # 0;
+    } forEach outposts;
+
+    // Get selected marker
+    private _selectedMarker = _garrisonMap getVariable ["selectedMarker", ""];
+
+    // If no marker is selected (as in you just opened the garrison tab),
+    // simulate a map click event to select the garrison closest to the player
+    if (_selectedMarker isEqualTo "") exitWith
+    {
+      Trace("No marker selected, selecting the closest one to the player");
+      ["garrisonMapClicked", [getPos player select 0, getPos player select 1]] spawn A3A_fnc_hqDialog;
+    };
+
+    // Get the data from the marker
+    private _position = getMarkerPos _selectedMarker;
+    private _garrisonName = markerText _selectedMarker;
+    private _outpostData = [_selectedMarker] call A3A_fnc_getOutpostByMarkerName;
+    private _type = _outpostData select 1;
+    private _garrison = _outpostData select 2;
+    _garrison params [
+      "_rifleman",
+      "_squadLeader",
+      "_autorifleman",
+      "_grenadier",
+      "_medic",
+      "_mortar",
+      "_marksman",
+      "_at"];
+
+    // Get the controls
+    private _display = findDisplay A3A_IDD_HqDialog;
+    private _garrisonTitle = _display displayCtrl A3A_IDC_GARRISONTITLE;
+    private _riflemanNumber = _display displayCtrl A3A_IDC_RIFLEMANNUMBER;
+    private _squadleaderNumber = _display displayCtrl A3A_IDC_SQUADLEADERNUMBER;
+    private _autoriflemanNumber = _display displayCtrl A3A_IDC_AUTORIFLEMANNUMBER;
+    private _grenadierNumber = _display displayCtrl A3A_IDC_GRENADIERNUMBER;
+    private _medicNumber = _display displayCtrl A3A_IDC_MEDICNUMBER;
+    private _mortarNumber = _display displayCtrl A3A_IDC_MORTARNUMBER;
+    private _marksmanNumber = _display displayCtrl A3A_IDC_MARKSMANNUMBER;
+    private _atNumber = _display displayCtrl A3A_IDC_ATNUMBER;
+    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
+
+    // Add currently selected marker to map, we need it later for... stuff...
+    _garrisonMap setVariable ["selectedMarker", _selectedMarker];
+
+    // Update controls
+    _garrisonTitle ctrlSetText _garrisonName;
+    _riflemanNumber ctrlSetText str _rifleman;
+    _squadleaderNumber ctrlSetText str _squadleader;
+    _autoriflemanNumber ctrlSetText str _autorifleman;
+    _grenadierNumber ctrlSetText str _grenadier;
+    _medicNumber ctrlSetText str _medic;
+    _mortarNumber ctrlSetText str _mortar;
+    _marksmanNumber ctrlSetText str _marksman;
+    _atNumber ctrlSetText str _at;
+
+    // Draw selection marker
+    private _radius = 64;
+    private _dir = 0;
+
+    // We need to save the position and animation state of the
+    // selection marker between frames, so we do this in the map control itself
+    _garrisonMap setVariable["data", [_position, _radius, _dir]];
+
+    // Delete any old selection marker if it exists
+    private _selectEH = _garrisonMap getVariable "selectEH";
+    if !(isNil "_selectEH") then {
+      _garrisonMap ctrlRemoveEventHandler ["Draw", _selectEH];
+    };
+
+    // Draw EH for the selection marker
+    _selectEH = _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_outpostSelectEH"];
+
+    // Save the selection Draw EH to the map control
+    _garrisonMap setVariable ["selectEH", _selectEH];
+
+    // Pan to location
+    _garrisonMap ctrlMapAnimAdd [0.2, ctrlMapScale _garrisonMap, _position];
+    ctrlMapAnimCommit _garrisonMap;
   };
 
   case ("updateMinefieldsTab"):
@@ -395,73 +476,11 @@ switch (_mode) do
     } forEach outposts;
     private _selectedMarker = [_outposts, _clickedPosition] call BIS_fnc_nearestPosition;
     Debug_1("Selected marker: %1", _selectedMarker);
-    private _position = getMarkerPos _selectedMarker;
-
-    // Get the data from the marker
-    private _garrisonName = markerText _selectedMarker;
-    private _outpostData = [_selectedMarker] call A3A_fnc_getOutpostByMarkerName;
-    private _type = _outpostData select 1;
-    private _garrison = _outpostData select 2;
-    _garrison params [
-      "_rifleman",
-      "_squadLeader",
-      "_autorifleman",
-      "_grenadier",
-      "_medic",
-      "_mortar",
-      "_marksman",
-      "_at"];
-
-    // Get the controls
     private _display = findDisplay A3A_IDD_HqDialog;
-    private _garrisonTitle = _display displayCtrl A3A_IDC_GARRISONTITLE;
-    private _riflemanNumber = _display displayCtrl A3A_IDC_RIFLEMANNUMBER;
-    private _squadleaderNumber = _display displayCtrl A3A_IDC_SQUADLEADERNUMBER;
-    private _autoriflemanNumber = _display displayCtrl A3A_IDC_AUTORIFLEMANNUMBER;
-    private _grenadierNumber = _display displayCtrl A3A_IDC_GRENADIERNUMBER;
-    private _medicNumber = _display displayCtrl A3A_IDC_MEDICNUMBER;
-    private _mortarNumber = _display displayCtrl A3A_IDC_MORTARNUMBER;
-    private _marksmanNumber = _display displayCtrl A3A_IDC_MARKSMANNUMBER;
-    private _atNumber = _display displayCtrl A3A_IDC_ATNUMBER;
     private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
-
-    // Add currently selected marker to map, we need it later for... stuff...
     _garrisonMap setVariable ["selectedMarker", _selectedMarker];
 
-    // Update controls
-    _garrisonTitle ctrlSetText _garrisonName;
-    _riflemanNumber ctrlSetText str _rifleman;
-    _squadleaderNumber ctrlSetText str _squadleader;
-    _autoriflemanNumber ctrlSetText str _autorifleman;
-    _grenadierNumber ctrlSetText str _grenadier;
-    _medicNumber ctrlSetText str _medic;
-    _mortarNumber ctrlSetText str _mortar;
-    _marksmanNumber ctrlSetText str _marksman;
-    _atNumber ctrlSetText str _at;
-
-    // Draw selection marker
-    private _radius = 64;
-    private _dir = 0;
-
-    // We need to save the position and animation state of the
-    // selection marker between frames, so we do this in the map control itself
-    _garrisonMap setVariable["data", [_position, _radius, _dir]];
-
-    // Delete any old selection marker if it exists
-    private _selectEH = _garrisonMap getVariable "selectEH";
-    if !(isNil "_selectEH") then {
-      _garrisonMap ctrlRemoveEventHandler ["Draw", _selectEH];
-    };
-
-    // Draw EH for the selection marker
-    _selectEH = _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_outpostSelectEH"];
-
-    // Save the selection Draw EH to the map control
-    _garrisonMap setVariable ["selectEH", _selectEH];
-
-    // Pan to location
-    _garrisonMap ctrlMapAnimAdd [0.2, ctrlMapScale _garrisonMap, _position];
-    ctrlMapAnimCommit _garrisonMap;
+    ["updateGarrisonTab"] call A3A_fnc_hqDialog;
   };
 
   // Updating the garrison numbers
