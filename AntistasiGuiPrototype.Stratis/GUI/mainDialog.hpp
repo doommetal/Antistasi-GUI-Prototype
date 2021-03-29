@@ -96,7 +96,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_UNDERCOVERBUTTON;
           text = $STR_antistasi_dialogs_main_undercover;
-          onButtonClick = "closeDialog 2"; // TODO: undercover function
+          onButtonClick = "closeDialog 2"; // TODO: on merge hook up to undercover function
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 11 * GRID_H;
@@ -120,7 +120,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_FASTTRAVELBUTTON;
           text = $STR_antistasi_dialogs_main_fast_travel;
           tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip;
-          onButtonClick = "closeDialog 2"; // TODO: hook up to fasttravel function
+          onButtonClick = "closeDialog 2"; // TODO: on merge hook up to fasttravel function
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 32 * GRID_H;

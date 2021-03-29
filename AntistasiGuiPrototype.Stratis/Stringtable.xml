@@ -734,6 +734,10 @@
       </Key>
     </Container>
     <Container name="dialog_hq_garrisons">
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_titlebar">
+        <Original>GARRISONS</Original>
+        <English>GARRISONS</English>
+      </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_rifleman">
         <Original>Rifleman</Original>
         <English>Rifleman</English>
@@ -792,6 +796,10 @@
       </Key>
     </Container>
     <Container name="dialog_hq_minefields">
+      <Key ID="STR_antistasi_dialogs_hq_minefields_titlebar">
+        <Original>MINEFIELDS</Original>
+        <English>MINEFIELDS</English>
+      </Key>
       <Key ID="STR_antistasi_dialogs_hq_minefields_deploy_minefields_label">
         <Original>Deploy Minefield:</Original>
         <English>Deploy Minefield:</English>

@@ -3,3 +3,5 @@ TODO-LIST:
 - remove borders on ai management list
 - update routines for prices in recruit dialogs
 - get tooltip text for disabled buttons: undercover, construct, move hq
+- add garrison under attack check for garrison management
+- move everything that isn't garrison selection logic out of garrisonMapClicked

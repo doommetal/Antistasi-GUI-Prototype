@@ -209,6 +209,10 @@ switch (_mode) do
   {
     _display = findDisplay A3A_IDD_HqDialog;
 
+    // Update titlebar
+    _titleBar = _display displayCtrl A3A_IDC_HQDIALOGTITLEBAR;
+    _titleBar ctrlSetText localize "STR_antistasi_dialogs_hq_titlebar";
+
     // Update campaign status section
     // Uupdate war level & aggro
     private _warLevelText = _display displayCtrl A3A_IDC_WARLEVELTEXT;
@@ -306,6 +310,10 @@ switch (_mode) do
   {
     _display = findDisplay A3A_IDD_HqDialog;
 
+    // Update titlebar
+    _titleBar = _display displayCtrl A3A_IDC_HQDIALOGTITLEBAR;
+    _titleBar ctrlSetText (localize "STR_antistasi_dialogs_hq_titlebar") + " > " + (localize "STR_antistasi_dialogs_hq_garrisons_titlebar");
+
     // Show map if not already visible
     private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     if (!ctrlShown _garrisonMap) then {_garrisonMap ctrlShow true;};
@@ -325,6 +333,10 @@ switch (_mode) do
   case ("updateMinefieldsTab"):
   {
     _display = findDisplay A3A_IDD_HqDialog;
+
+    // Update titlebar
+    _titleBar = _display displayCtrl A3A_IDC_HQDIALOGTITLEBAR;
+    _titleBar ctrlSetText (localize "STR_antistasi_dialogs_hq_titlebar") + " > " + (localize "STR_antistasi_dialogs_hq_minefields_titlebar");
 
     // Show back button
     private _backButton = _display displayCtrl A3A_IDC_HQDIALOGBACKBUTTON;
