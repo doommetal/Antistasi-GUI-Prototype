@@ -444,17 +444,36 @@ switch (_mode) do
     if (_marksman < 1) then {_marksmanSubButton ctrlEnable false};
     if (_at < 1) then {_atSubButton ctrlEnable false};
 
-    // Disable add buttons if faction is lacking the resources to recruit them (1HR + money)
-    // TODO: Placeholder prices
-    _riflemanPrice = 100;
+    // TODO: Placeholder prices, replace with server getVariable ["SDKx"] on merge
+    _riflemanPrice = 50;
     _squadLeaderPrice = 150;
-    _autoriflemanPrice = 125;
-    _grenadierPrice = 125;
-    _medicPrice = 150;
-    _mortarPrice = 800;
-    _marksmanPrice = 150;
-    _atPrice = 125;
+    _autoriflemanPrice = 75;
+    _grenadierPrice = 75;
+    _medicPrice = 100;
+    _mortarPrice = 650;
+    _marksmanPrice = 100;
+    _atPrice = 100;
 
+    // Update price labels
+    _riflemanPriceText = _display displayCtrl A3A_IDC_RIFLEMANPRICE;
+    _squadLeaderPriceText = _display displayCtrl A3A_IDC_SQUADLEADERPRICE;
+    _autoriflemanPriceText = _display displayCtrl A3A_IDC_AUTORIFLEMANPRICE;
+    _grenadierPriceText = _display displayCtrl A3A_IDC_GRENADIERPRICE;
+    _medicPriceText = _display displayCtrl A3A_IDC_MEDICPRICE;
+    _mortarPriceText = _display displayCtrl A3A_IDC_MORTARPRICE;
+    _marksmanPriceText = _display displayCtrl A3A_IDC_MARKSMANPRICE;
+    _atPriceText = _display displayCtrl A3A_IDC_ATPRICE;
+
+    _riflemanPriceText ctrlSetText str _riflemanPrice + "€";
+    _squadLeaderPriceText ctrlSetText str _squadLeaderPrice + "€";
+    _autoriflemanPriceText ctrlSetText str _autoriflemanPrice + "€";
+    _grenadierPriceText ctrlSetText str _grenadierPrice + "€";
+    _medicPriceText ctrlSetText str _medicPrice + "€";
+    _mortarPriceText ctrlSetText str _mortarPrice + "€";
+    _marksmanPriceText ctrlSetText str _marksmanPrice + "€";
+    _atPriceText ctrlSetText str _atPrice + "€";
+
+    // Disable add buttons if faction is lacking the resources to recruit them (1HR + money)
     _hr = server getVariable ["hr", 0];
     _factionMoney = server getVariable ["resourcesFIA", 0];
     if (_factionMoney < _riflemanPrice || _hr < 1) then {_riflemanAddButton ctrlEnable false; _riflemanAddButton ctrlSetTooltip "Not enough money/HR"}; // TODO: localize
@@ -467,7 +486,7 @@ switch (_mode) do
     if (_factionMoney < _atPrice || _hr < 1) then {_atAddButton ctrlEnable false; _atAddButton ctrlSetTooltip "Not enough money/HR"};
 
     // Disable any management buttons if garrison is under attack
-    // TODO: This is very placeholdery atm
+    // TODO: This is very placeholdery atm, replace with A3A_fnc_enemyNearCheck on merge
     private _garrisonUnderAttack = false;
     if (_selectedMarker isEqualTo "marker_outpost1") then {_garrisonUnderAttack = true};
     if (_garrisonUnderAttack) then {

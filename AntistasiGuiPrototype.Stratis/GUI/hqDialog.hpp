@@ -774,7 +774,20 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 0 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class RiflemanPrice : A3A_Text
+            {
+              idc = A3A_IDC_RIFLEMANPRICE;
+              style = ST_RIGHT;
+              text = "";
+              font = "RobotoCondensedLight";
+              colorText[] = A3A_COLOR_BUTTON_TEXT_DISABLED; // TODO: Replace color, needs it's own
+              x = 26 * GRID_W;
+              y = 0 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
@@ -835,7 +848,16 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 5 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class SquadleaderPrice : RiflemanPrice
+            {
+              idc = A3A_IDC_SQUADLEADERPRICE;
+              x = 26 * GRID_W;
+              y = 5 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
@@ -896,7 +918,16 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 10 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class AutoriflemanPrice : RiflemanPrice
+            {
+              idc = A3A_IDC_AUTORIFLEMANPRICE;
+              x = 26 * GRID_W;
+              y = 10 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
@@ -957,7 +988,16 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 15 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GrenadierPrice : RiflemanPrice
+            {
+              idc = A3A_IDC_GRENADIERPRICE;
+              x = 26 * GRID_W;
+              y = 15 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
@@ -1018,7 +1058,16 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 20 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MedicPrice : RiflemanPrice
+            {
+              idc = A3A_IDC_MEDICPRICE;
+              x = 26 * GRID_W;
+              y = 20 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
@@ -1079,7 +1128,16 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 25 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MortarPrice : RiflemanPrice
+            {
+              idc = A3A_IDC_MORTARPRICE;
+              x = 26 * GRID_W;
+              y = 25 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
@@ -1140,7 +1198,16 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 30 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class MarksmanPrice : RiflemanPrice
+            {
+              idc = A3A_IDC_MARKSMANPRICE;
+              x = 26 * GRID_W;
+              y = 30 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
@@ -1201,7 +1268,16 @@ class A3A_HqDialog : A3A_DefaultDialog
               font = "RobotoCondensedLight";
               x = 0 * GRID_W;
               y = 35 * GRID_H;
-              w = 30 * GRID_W;
+              w = 26 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class AtPrice : RiflemanPrice
+            {
+              idc = A3A_IDC_ATPRICE;
+              x = 26 * GRID_W;
+              y = 35 * GRID_H;
+              w = 8 * GRID_W;
               h = 4 * GRID_H;
             };
 
