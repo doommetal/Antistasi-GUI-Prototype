@@ -386,6 +386,102 @@ switch (_mode) do
     _marksmanNumber ctrlSetText str _marksman;
     _atNumber ctrlSetText str _at;
 
+    // Buttons
+    _riflemanAddButton = _display displayCtrl A3A_IDC_RIFLEMANADDBUTTON;
+    _riflemanSubButton = _display displayCtrl A3A_IDC_RIFLEMANSUBBUTTON;
+    _squadleaderAddButton = _display displayCtrl A3A_IDC_SQUADLEADERADDBUTTON;
+    _squadleaderSubButton = _display displayCtrl A3A_IDC_SQUADLEADERSUBBUTTON;
+    _autoriflemanAddButton = _display displayCtrl A3A_IDC_AUTORIFLEMANADDBUTTON;
+    _autoriflemanSubButton = _display displayCtrl A3A_IDC_AUTORIFLEMANSUBBUTTON;
+    _grenadierAddButton = _display displayCtrl A3A_IDC_GRENADIERADDBUTTON;
+    _grenadierSubButton = _display displayCtrl A3A_IDC_GRENADIERSUBBUTTON;
+    _medicAddButton = _display displayCtrl A3A_IDC_MEDICADDBUTTON;
+    _medicSubButton = _display displayCtrl A3A_IDC_MEDICSUBBUTTON;
+    _mortarAddButton = _display displayCtrl A3A_IDC_MORTARADDBUTTON;
+    _mortarSubButton = _display displayCtrl A3A_IDC_MORTARSUBBUTTON;
+    _marksmanAddButton = _display displayCtrl A3A_IDC_MARKSMANADDBUTTON;
+    _marksmanSubButton = _display displayCtrl A3A_IDC_MARKSMANSUBBUTTON;
+    _atAddButton = _display displayCtrl A3A_IDC_ATADDBUTTON;
+    _atSubButton = _display displayCtrl A3A_IDC_ATSUBBUTTON;
+
+    _rebuildGarrisonButton = _display displayCtrl A3A_IDC_REBUILDGARRISONBUTTON;
+    _dismissGarrisonButton = _display displayCtrl A3A_IDC_DISMISSGARRISONBUTTON;
+
+    private _addSubButtons = [
+      _riflemanAddButton,
+      _riflemanSubButton,
+      _squadleaderAddButton,
+      _squadleaderSubButton,
+      _autoriflemanAddButton,
+      _autoriflemanSubButton,
+      _grenadierAddButton,
+      _grenadierSubButton,
+      _medicAddButton,
+      _medicSubButton,
+      _mortarAddButton,
+      _mortarSubButton,
+      _marksmanAddButton,
+      _marksmanSubButton,
+      _atAddButton,
+      _atSubButton
+    ];
+
+    // Reset ctrlEnable for all management buttons
+    {_x ctrlEnable true; _x ctrlSetTooltip ""} forEach _addSubButtons;
+    _rebuildGarrisonButton ctrlEnable true; // TODO: Check if rebuild is available under attacks, probably shouldn't be?
+    _rebuildGarrisonButton ctrlSetTooltip "";
+    _dismissGarrisonButton ctrlEnable true;
+    _dismissGarrisonButton ctrlSetTooltip "";
+
+
+    // Disable subtract buttons if number is < 1
+    if (_rifleman < 1) then {_riflemanSubButton ctrlEnable false};
+    if (_squadLeader < 1) then {_squadleaderSubButton ctrlEnable false};
+    if (_autorifleman < 1) then {_autoriflemanSubButton ctrlEnable false};
+    if (_grenadier < 1) then {_grenadierSubButton ctrlEnable false};
+    if (_medic < 1) then {_medicSubButton ctrlEnable false};
+    if (_mortar < 1) then {_mortarSubButton ctrlEnable false};
+    if (_marksman < 1) then {_marksmanSubButton ctrlEnable false};
+    if (_at < 1) then {_atSubButton ctrlEnable false};
+
+    // Disable add buttons if faction is lacking the resources to recruit them (1HR + money)
+    // TODO: Placeholder prices
+    _riflemanPrice = 100;
+    _squadLeaderPrice = 150;
+    _autoriflemanPrice = 125;
+    _grenadierPrice = 125;
+    _medicPrice = 150;
+    _mortarPrice = 800;
+    _marksmanPrice = 150;
+    _atPrice = 125;
+
+    _hr = server getVariable ["hr", 0];
+    _factionMoney = server getVariable ["resourcesFIA", 0];
+    if (_factionMoney < _riflemanPrice || _hr < 1) then {_riflemanAddButton ctrlEnable false; _riflemanAddButton ctrlSetTooltip "Not enough money/HR"}; // TODO: localize
+    if (_factionMoney < _squadLeaderPrice || _hr < 1) then {_squadleaderAddButton ctrlEnable false; _squadleaderAddButton ctrlSetTooltip "Not enough money/HR"};
+    if (_factionMoney < _autoriflemanPrice || _hr < 1) then {_autoriflemanAddButton ctrlEnable false; _autoriflemanAddButton ctrlSetTooltip "Not enough money/HR"};
+    if (_factionMoney < _grenadierPrice || _hr < 1) then {_grenadierAddButton ctrlEnable false; _grenadierAddButton ctrlSetTooltip "Not enough money/HR"};
+    if (_factionMoney < _medicPrice || _hr < 1) then {_medicAddButton ctrlEnable false; _medicAddButton ctrlSetTooltip "Not enough money/HR"};
+    if (_factionMoney < _mortarPrice || _hr < 1) then {_mortarAddButton ctrlEnable false; _mortarAddButton ctrlSetTooltip "Not enough money/HR"};
+    if (_factionMoney < _marksmanPrice || _hr < 1) then {_marksmanAddButton ctrlEnable false; _marksmanAddButton ctrlSetTooltip "Not enough money/HR"};
+    if (_factionMoney < _atPrice || _hr < 1) then {_atAddButton ctrlEnable false; _atAddButton ctrlSetTooltip "Not enough money/HR"};
+
+    // Disable any management buttons if garrison is under attack
+    // TODO: This is very placeholdery atm
+    private _garrisonUnderAttack = false;
+    if (_selectedMarker isEqualTo "marker_outpost1") then {_garrisonUnderAttack = true};
+    if (_garrisonUnderAttack) then {
+      {
+        _x ctrlEnable false;
+        _x ctrlSetTooltip "Can't manage garrisons when outpost is under attack."; // TODO: localize
+      } forEach _addSubButtons;
+
+      _rebuildGarrisonButton ctrlEnable false;
+      _rebuildGarrisonButton ctrlSetTooltip "Can't manage garrisons when outpost is under attack.";
+      _dismissGarrisonButton ctrlEnable false;
+      _dismissGarrisonButton ctrlSetTooltip "Can't manage garrisons when outpost is under attack.";
+    };
+
     // Draw selection marker
     private _radius = 64;
     private _dir = 0;
@@ -545,6 +641,30 @@ switch (_mode) do
     };
 
     _text ctrlSetText str _newVal;
+
+    ["updateGarrisonTab"] call A3A_fnc_hqDialog;
+  };
+
+  case ("dismissGarrison"):
+  {
+    // TODO: on merge replace this with actual antistasi function
+    Trace("Dismissing garrison");
+    private _display = findDisplay A3A_IDD_HqDialog;
+    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
+    private _selectedMarker = _garrisonMap getVariable ["selectedMarker", ""];
+    if (_selectedMarker isEqualTo "") exitWith {Error("Dismiss garrison: No marker selected")};
+
+    // Set all garrison values to 0
+    {
+      if ((_x select 0) == _selectedMarker) then {
+        for "_i" from 0 to 7 do {
+          ((outposts select _forEachIndex) select 2) set [_i, 0];
+        };
+      };
+    } forEach outposts;
+
+    ["updateGarrisonTab"] call A3A_fnc_hqDialog;
+
   };
 
   // TODO: Remove placeholder mode
