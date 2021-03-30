@@ -82,7 +82,7 @@ switch (_mode) do
       private _button = _display ctrlCreate ["A3A_ShortcutButton", -1, _itemControlsGroup];
       _button ctrlSetPosition [0, 25 * GRID_H, 44 * GRID_W, 12 * GRID_H];
       _button ctrlSetText _displayName;
-      _button buttonSetAction "hint ""Imagine just building stuff."""; // TODO: Replace with ButtonClicked EH
+      _button ctrlAddEventHandler ["ButtonClick", {hint "Placeholder\nWill use A3A_fnc_build when merged"}]; // TODO: Replace placeholder when merging
       _button ctrlCommit 0;
       private _timeText = _display ctrlCreate ["A3A_InfoTextRight", -1, _itemControlsGroup]; // TODO: Add icon
       _timeText ctrlSetPosition[23 * GRID_W, 18 * GRID_H, 20 * GRID_W, 3 * GRID_H];

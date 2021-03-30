@@ -104,6 +104,7 @@ class A3A_HqDialog : A3A_DefaultDialog
           idc = -1;
           text = $STR_antistasi_dialogs_hq_clear_trees_button;
           sizeEx = GUI_TEXT_SIZE_LARGE;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_clearForest when merged"""; // TODO: Replace placeholder when merging
           x = 20 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;
@@ -540,6 +541,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = -1;
               text = $STR_antistasi_dialogs_hq_train_button;
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_FIAskillAdd when merged"""; // TODO: Replace placeholder when merging
               x = 60 * GRID_W;
               y = 7 * GRID_H;
               w = 22 * GRID_W;
@@ -602,6 +604,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_FACTIONMONEYBUTTON;
               text = $STR_antistasi_dialogs_hq_take_money_button;
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_theBossSteal when merged"""; // TODO: Replace placeholder when merging
               x = 60 * GRID_W;
               y = 19 * GRID_H;
               w = 22 * GRID_W;
@@ -1337,6 +1340,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         {
           idc = A3A_IDC_REBUILDGARRISONBUTTON;
           text = $STR_antistasi_dialogs_hq_garrisons_rebuild_assets_button;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_rebuildAssets when merged"""; // TODO: Replace placeholder when merging
           x = 10 * GRID_W;
           y = 60 * GRID_H;
           w = 22 * GRID_W;
@@ -1360,6 +1364,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_hq_garrisons_build_outpost_button;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_createOutpostsFIA when merged"""; // TODO: Replace placeholder when merging
           x = 10 * GRID_W;
           y = 80 * GRID_H;
           w = 22 * GRID_W;
@@ -1370,6 +1375,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_hq_garrisons_remove_outpost_button;
+          onButtonClick = "hint ""Placeholder\nWill use parts of A3A_fnc_outpostDialog when merged"""; // TODO: Replace placeholder when merging
           x = 38 * GRID_W;
           y = 80 * GRID_H;
           w = 22 * GRID_W;
@@ -1411,6 +1417,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_hq_minefields_apers_mines_button;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_buildMinefield when merged"""; // TODO: Replace placeholder when merging
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 54 * GRID_H;
@@ -1433,6 +1440,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_hq_minefields_at_mines_button;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_buildMinefield when merged"""; // TODO: Replace placeholder when merging
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 84 * GRID_W;
           y = 54 * GRID_H;
@@ -1444,6 +1452,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_hq_minefields_remove_minefield_button;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_mineSweep when merged"""; // TODO: Replace placeholder when merging
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 52 * GRID_W;
           y = 80 * GRID_H;

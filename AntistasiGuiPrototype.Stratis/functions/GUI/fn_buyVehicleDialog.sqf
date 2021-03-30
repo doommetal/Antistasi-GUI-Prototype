@@ -79,6 +79,7 @@ switch (_mode) do
       _button ctrlSetPosition [0, 25 * GRID_H, 44 * GRID_W, 12 * GRID_H];
       _button ctrlSetText _displayName;
       _button buttonSetAction "hint ""Imagine just buying stuff.""";
+      _button ctrlAddEventHandler ["ButtonClick", {hint "Placeholder\nWill use A3A_fnc_addFIAveh when merged"}]; // TODO: Replace placeholder when merging
       _button ctrlCommit 0;
 
       private _priceText = _display ctrlCreate ["A3A_InfoTextRight", -1, _itemControlsGroup];

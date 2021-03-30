@@ -49,6 +49,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_militiaman;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 36 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
@@ -82,6 +83,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_autorifleman;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 36 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
@@ -115,6 +117,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_grenadier;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 36 * GRID_W;
           y = 53 * GRID_H;
           w = 36 * GRID_W;
@@ -148,6 +151,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_antitank;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 36 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;
@@ -181,6 +185,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_medic;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 88 * GRID_W;
           y = 11 * GRID_H;
           w = 36 * GRID_W;
@@ -214,6 +219,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_marksman;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 88 * GRID_W;
           y = 32 * GRID_H;
           w = 36 * GRID_W;
@@ -247,6 +253,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_engineer;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 88 * GRID_W;
           y = 53 * GRID_H;
           w = 36 * GRID_W;
@@ -280,6 +287,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_units_bomb_specialist;
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_reinfPlayer when merged"""; // TODO: Replace placeholder when merging
           x = 88 * GRID_W;
           y = 74 * GRID_H;
           w = 36 * GRID_W;
