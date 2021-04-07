@@ -125,6 +125,9 @@ switch (_mode) do
 
       private _position = getPos leader _group;
 
+      // Update select marker
+      _commanderMap setVariable ["selectMarkerData", [_position, 48, 0]];
+
       // Update controls
       private _controlsGroup = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
       private _groupNameText = _display displayCtrl A3A_IDC_HCGROUPNAME;
@@ -269,6 +272,9 @@ switch (_mode) do
         ];
 
         private _position = getPos leader _group;
+
+        // Hide select marker
+        _commanderMap setVariable ["selectMarkerData", []];
 
         // Set up controls
         private _itemYpos = 16 * _forEachIndex * GRID_H;
@@ -630,6 +636,7 @@ switch (_mode) do
 
     if (count hcAllGroups player < 1) exitWith {
       Debug("CommanderMap clicked but there are no HC groups to select.");
+      _commanderMap setVariable ["selectedGroup", grpNull];
     };
 
     // Find closest HC squad to the clicked position
@@ -642,7 +649,6 @@ switch (_mode) do
       ["update"] call A3A_fnc_commanderTab;
     };
 
-    // Save selected group to map
     _commanderMap setVariable ["selectedGroup", _selectedGroup];
 
     // Update single group view

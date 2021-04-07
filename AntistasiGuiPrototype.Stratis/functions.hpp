@@ -25,6 +25,7 @@ class A3A
     class outpostSelectEH {};
     class fastTravelMapDrawEH {};
     class mapDrawOutpostsEH {};
+    class mapDrawHcGroupsEH {};
     class mapDrawSelectEH {};
 
     // Utility functions
