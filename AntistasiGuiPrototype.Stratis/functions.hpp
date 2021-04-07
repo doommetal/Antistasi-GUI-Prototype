@@ -23,6 +23,9 @@ class A3A
     class hcSelectEH {};
     class outpostMarkersEH {};
     class outpostSelectEH {};
+    class fastTravelMapDrawEH {};
+    class mapDrawOutpostsEH {};
+    class mapDrawSelectEH {};
 
     // Utility functions
     class configColorToArray {};

@@ -30,7 +30,7 @@ Example:
 #define Log_Trace true
 #include "..\..\LogMacros.inc"
 
-params[["_mode","onLoad"], ["_params",[]]];
+params[["_mode","update"], ["_params",[]]];
 
 switch (_mode) do
 {
@@ -48,25 +48,77 @@ switch (_mode) do
 
     // TODO: Update title bar
 
+    // Show map
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     _fastTravelMap ctrlShow true;
+    private _selectedMarker = _fastTravelMap getVariable ["selectedMarker", ""];
+    private _markerName = markerText _markerName;
 
-    // TODO: Check if location is set.
-    // Enable select location text if location is not set
-    _fastTravelSelectText = _display displayCtrl A3A_IDC_FASTTRAVELSELECTTEXT;
-    _fastTravelSelectText ctrlShow false;
+    private _hcMode = _fastTravelMap getVariable ["hcMode", false];
+    Trace_1("HC Mode active: %1", _hcMode);
 
-    // Disable button if location is not set
-    // _fastTravelCommitButton = _display displayCtrl A3A_IDC_FASTTRAVELCOMMITBUTTON;
-    // _fastTravelCommitButton ctrlEnable false;
+    // Draw selection markers
 
-    // Update info text
-    _fastTravelInfoText = _display displayCtrl A3A_IDC_FASTTRAVELLOCATIONGROUP;
-    _fastTravelInfoText ctrlSetStructuredText parseText "You will travel to:<br/>Placeholder Outpost<br/><br/>This will take 1m 5s.<br/><br/>You will bring your vehicle along as well as any cargo and passengers along with you.";
+    // Update other controls
+    private _fastTravelSelectText = _display displayCtrl A3A_IDC_FASTTRAVELSELECTTEXT;
+    private _fastTravelInfoText = _display displayCtrl A3A_IDC_FASTTRAVELLOCATIONGROUP;
+    private _fastTravelCommitButton = _display displayCtrl A3A_IDC_FASTTRAVELCOMMITBUTTON;
+
+    // Check if location is set.
+    if !(_selectedMarker isEqualTo "") then {
+      // Enable button
+      _fastTravelCommitButton ctrlEnable true;
+      // Hide select location text
+      _fastTravelSelectText ctrlShow false;
+      // Show info text
+      _fastTravelInfoText ctrlShow true;
+      // Update info text
+      _fastTravelInfoText ctrlSetStructuredText parseText format ["You will travel to:<br/>%1<br/><br/>This will take 1m 5s.<br/><br/>You will bring your vehicle along as well as any cargo and passengers along with you.", _markerName];
+    } else {
+      // Disable button
+      _fastTravelCommitButton ctrlEnable false;
+      // Enable select location text
+      _fastTravelSelectText ctrlShow true;
+      // Hide info text
+      _fastTravelInfoText ctrlShow false;
+    };
+
+  };
+
+  case ("mapClicked"):
+  {
+    Debug_1("Fast Travel map clicked: %1", _params);
+    // Find closest marker to the clicked position
+    private _clickedPosition = [_params select 0, _params select 1];
+    private _outposts = [];
+    {
+      _outposts pushBack _x # 0; // Get marker name from list
+    } forEach outposts;
+    private _selectedMarker = [_outposts, _clickedPosition] call BIS_fnc_nearestPosition;
+    Debug_1("Selected marker: %1", _selectedMarker);
+
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    _fastTravelMap setVariable ["selectedMarker", _selectedMarker];
+    private _position = getMarkerPos _selectedMarker;
+    _fastTravelMap setVariable ["selectMarkerData", [_position, 48, 0]];
+
+    ["update"] call A3A_fnc_fastTravelTab;
+  };
+
+  case ("commitButtonClicked"): // TODO: Placeholder, replace with actual FT function on merge
+  {
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    private _marker = _fastTravelMap getVariable ["selectedMarker", ""];
+    if !(_marker isEqualTo "") then {
+      player setPos getMarkerPos _marker;
+      closeDialog 0;
+    };
   };
 
   default {
-      // Log error if attempting to call a mode that doesn't exist
-      Error_1("Fast Travel tab mode does not exist: %1", _mode);
+    // Log error if attempting to call a mode that doesn't exist
+    Error_1("Fast Travel tab mode does not exist: %1", _mode);
   };
 };

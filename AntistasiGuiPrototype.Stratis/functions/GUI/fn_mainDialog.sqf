@@ -102,6 +102,15 @@ switch (_mode) do
     private _hcSelectEH = _commanderMap ctrlAddEventHandler ["Draw","call A3A_fnc_hcSelectEH"];
     Debug_1("Adding HC group selection Draw EH to commander map: %1", _hcSelectEH);
 
+    // Fast Travel map Draw EHs
+    // Outposts
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    private _fastTravelOutpostsEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
+    Debug_1("Adding Outposts Draw EH to Fast Travel map: %1", _fastTravelOutpostsEH);
+    private _fastTravelSelectEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawSelectEH"];
+    Debug_1("Adding Select Marker Draw EH to Fast Travel map: %1", _fastTravelSelectEH);
+
+
     Debug("MainDialog onLoad complete.");
   };
 
