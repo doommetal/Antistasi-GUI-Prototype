@@ -120,7 +120,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_FASTTRAVELBUTTON;
           text = $STR_antistasi_dialogs_main_fast_travel;
           tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_fastTravelRadio (or something similar) when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "[""switchTab"", [""fasttravel""]] call A3A_fnc_mainDialog;";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 32 * GRID_H;
@@ -1537,6 +1537,112 @@ class A3A_MainDialog : A3A_TabbedDialog
     /////////////
     // SUBTABS //
     /////////////
+
+    class FastTravelMap : A3A_MapControl
+    {
+      idc = A3A_IDC_FASTTRAVELMAP;
+      // onMouseButtonClick = "[""commanderMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_commanderTab";
+      x = CENTER_X(DIALOG_W) + 48 * GRID_W;
+      y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
+      w = 104 * GRID_W;
+      h = 84 * GRID_H;
+
+      // Fade satellite texture a bit
+      maxSatelliteAlpha = 0.75;
+      alphaFadeStartScale = 3.0;
+      alphaFadeEndScale = 3.0;
+
+      // Set zoom levels
+      scaleMin = 0.2; // 0.2 = Smallest scale showing the 100m grid
+      scaleDefault = 0.325; // 0.325 = Largest scale forests still are visible
+      scaleMax = 2; // 2 = Max zoom level
+    };
+
+    class FastTravelTab : A3A_DefaultControlsGroup
+    {
+      idc = A3A_IDC_FASTTRAVELTAB;
+      // Width set to smaller than usual to avoid an issue where
+      // pressing anything other than the map would (invisibly) cover up the
+      // map control, making it unclickable
+      w = 44 * GRID_W;
+      show = false;
+
+      class controls {
+
+        class FastTravelLabel : A3A_SectionLabelRight
+        {
+          idc = -1;
+          text = $STR_antistasi_dialogs_main_fast_travel;
+          x = 8 * GRID_W;
+          y = 8 * GRID_H;
+          w = 36 * GRID_W;
+          h = 4 * GRID_H;
+        };
+
+        class FastTravelBackground : A3A_Background
+        {
+          idc = -1;
+          x = 8 * GRID_W;
+          y = 12 * GRID_H;
+          w = 36 * GRID_W;
+          h = 68 * GRID_H;
+        };
+
+        class FastTravelSelectText : A3A_TextMulti
+        {
+          idc = A3A_IDC_FASTTRAVELSELECTTEXT;
+          text = "Click the map to select the location you want to fast travel to.";
+          x = 8 * GRID_W;
+          y = 14 * GRID_H;
+          w = 36 * GRID_W;
+          h = 16 * GRID_H;
+        };
+
+        class FastTravelInfoText : A3A_StructuredText
+        {
+          idc = A3A_IDC_FASTTRAVELLOCATIONGROUP;
+          x = 8 * GRID_W;
+          y = 14 * GRID_H;
+          w = 36 * GRID_W;
+          h = 60 * GRID_H;
+        };
+
+        /* class FastTravelLocationGroup : A3A_ControlsGroupNoScrollbars
+        {
+          idc = A3A_IDC_FASTTRAVELLOCATIONGROUP;
+          x = 8 * GRID_W;
+          y = 14 * GRID_H;
+          w = 36 * GRID_W;
+          h = 16 * GRID_H;
+
+          class controls
+          {
+            class FastTravelInfoText : A3A_TextMulti
+            {
+              idc = -1;
+              text = "Travel to some place. This will take x seconds";
+              x = 0;
+              y = 0;
+              w = 36 * GRID_W;
+              h = 8 * GRID_H;
+            };
+          };
+        }; */
+
+        class FastTravelCommitButton : A3A_Button
+        {
+          idc = A3A_IDC_FASTTRAVELCOMMITBUTTON;
+          text = $STR_antistasi_dialogs_main_fast_travel;
+          // tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip;
+          onButtonClick = "hint ""Placeholder\nWill use whatever function when merged"""; // TODO: Replace placeholder when merging
+          sizeEx = GUI_TEXT_SIZE_LARGE;
+          x = 8 * GRID_W;
+          y = 80 * GRID_H;
+          w = 36 * GRID_W;
+          h = 12 * GRID_H;
+        };
+      };
+    };
 
     class ConstructTab : A3A_DefaultControlsGroup
     {

@@ -7,6 +7,7 @@ class A3A
     class playerTab {};
     class commanderTab {};
     class adminTab {};
+    class fastTravelTab {};
     class constructTab {};
     class aiManagementTab {};
     class donateTab {};

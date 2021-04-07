@@ -152,6 +152,11 @@ switch (_mode) do
         };
       };
 
+      case ("fasttravel"):
+      {
+        _selectedTabIDC = A3A_IDC_FASTTRAVELTAB;
+      };
+
       case ("construct"):
       {
         _selectedTabIDC = A3A_IDC_ConstructTab;
@@ -187,18 +192,20 @@ switch (_mode) do
     private _display = findDisplay A3A_IDD_MainDialog;
 
     // Array of IDCs for all the tabs, including subtabs (like AI & player management)
-    // Commander map is also hidden here, and shown again in updateCommanderTab
+    // Commander and fast travel maps are also hidden here, and shown again in updateCommanderTab
     private _allTabs = [
       A3A_IDC_PlayerTab,
       A3A_IDC_CommanderTab,
       A3A_IDC_COMMANDERMAP,
       A3A_IDC_AdminTab,
+      A3A_IDC_FASTTRAVELTAB,
+      A3A_IDC_FASTTRAVELMAP,
       A3A_IDC_ConstructTab,
       A3A_IDC_AIManagementTab,
       A3A_IDC_DonateTab,
       A3A_IDC_AirSupportTab,
       A3A_IDC_PlayerManagementTab
-      ];
+    ];
 
     // Hide all tabs
     {
@@ -229,6 +236,11 @@ switch (_mode) do
       case ("admin"):
       {
         ["update"] call A3A_fnc_adminTab;
+      };
+
+      case ("fasttravel"):
+      {
+        ["update"] call A3A_fnc_fastTravelTab;
       };
 
       case ("construct"):
