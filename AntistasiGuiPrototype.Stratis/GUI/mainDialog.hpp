@@ -1636,7 +1636,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_FASTTRAVELCOMMITBUTTON;
           text = $STR_antistasi_dialogs_main_fast_travel;
           // tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip;
-          onButtonClick = "[""commitButtonClicked""] call A3A_fnc_fastTravelTab;"
+          onButtonClick = "[""commitButtonClicked""] call A3A_fnc_fastTravelTab;";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 8 * GRID_W;
           y = 80 * GRID_H;

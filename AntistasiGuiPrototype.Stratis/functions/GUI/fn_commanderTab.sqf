@@ -641,10 +641,16 @@ switch (_mode) do
 
     // Find closest HC squad to the clicked position
     private _selectedGroup = [hcAllGroups player, _clickedPosition] call BIS_fnc_nearestPosition;
+    private _selectedGroupMapPos = _commanderMap ctrlMapWorldToScreen getPos leader _selectedGroup;
+    private _clickedMapPos = _commanderMap ctrlMapWorldToScreen _clickedPosition;
+    private _maxDistance = 6 * GRID_W;
+    private _distance = _selectedGroupMapPos distance _clickedMapPos;
+    Trace_4("_selectedGroupMapPos %1, _clickedMapPos %2, _maxDistance %3, _distance %4", _selectedGroupMapPos, _clickedMapPos, _maxDistance, _distance);
 
     // If clicked position is nowhere near any hc groups, deselect all units
     // and show list view
-    if (leader _selectedGroup distance _clickedPosition > 100) exitWith {
+    if (_distance > _maxDistance) exitWith {
+      Debug("Distance too large, deselecting group");
       _commanderMap setVariable ["selectedGroup", grpNull];
       ["update"] call A3A_fnc_commanderTab;
     };
