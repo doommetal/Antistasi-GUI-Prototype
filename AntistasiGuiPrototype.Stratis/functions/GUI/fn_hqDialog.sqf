@@ -340,7 +340,7 @@ switch (_mode) do
     if (_selectedMarker isEqualTo "") exitWith
     {
       Trace("No marker selected, selecting the closest one to the player");
-      ["garrisonMapClicked", [getPos player select 0, getPos player select 1]] spawn A3A_fnc_hqDialog;
+      ["garrisonMapClicked", [[getPos player select 0, getPos player select 1]]] spawn A3A_fnc_hqDialog;
     };
 
     // Get the data from the marker
@@ -583,16 +583,28 @@ switch (_mode) do
   case ("garrisonMapClicked"):
   {
     Debug_1("Garrison map clicked: %1", _params);
+    private _display = findDisplay A3A_IDD_HqDialog;
+    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     // Find closest marker to the clicked position
-    private _clickedPosition = [_params select 0, _params select 1];
+    _params params ["_clickedPosition"];
+    private _clickedWorldPosition = _garrisonMap ctrlMapScreenToWorld _clickedPosition;
     private _outposts = [];
     {
       _outposts pushBack _x # 0;
     } forEach outposts;
-    private _selectedMarker = [_outposts, _clickedPosition] call BIS_fnc_nearestPosition;
+    private _selectedMarker = [_outposts, _clickedWorldPosition] call BIS_fnc_nearestPosition;
     Debug_1("Selected marker: %1", _selectedMarker);
-    private _display = findDisplay A3A_IDD_HqDialog;
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
+
+    _markerMapPosition = _garrisonMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
+    private _maxDistance = 6 * GRID_W; // TODO: Move somewhere else?
+    private _distance = _clickedPosition distance _markerMapPosition;
+    if (_distance > _maxDistance) exitWith
+    {
+      Debug("Distance too large, no selection change.");
+      // _garrisonMap setVariable ["selectedMarker", ""];
+      // _garrisonMap setVariable ["selectMarkerData", []];
+    };
+
     _garrisonMap setVariable ["selectedMarker", _selectedMarker];
 
     ["updateGarrisonTab"] call A3A_fnc_hqDialog;

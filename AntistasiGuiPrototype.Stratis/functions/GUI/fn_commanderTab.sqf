@@ -608,30 +608,34 @@ switch (_mode) do
 
   case ("commanderMapClicked"):
   {
+    Trace("Commander map clicked");
     // Get display and map control
     private _display = findDisplay A3A_IDD_MainDialog;
     private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
-    private _clickedPosition = [_params select 0, _params select 1];
+    _params params ["_clickedPosition"];
+    private _clickedWorldPosition = _commanderMap ctrlMapScreenToWorld _clickedPosition;
 
     // Special cases for selecting fire mission position(s)
     private _selectFireMissionPos = _commanderMap getVariable ["selectFireMissionPos", false];
     if (_selectFireMissionPos) exitWith
     {
+      Trace("Selecting fire mission position");
       private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
-      _fireMissionControlsGroup setVariable ["startPos", _clickedPosition];
+      _fireMissionControlsGroup setVariable ["startPos", _clickedWorldPosition];
       _commanderMap setVariable ["selectFireMissionPos", false];
       ["updateFireMissionView"] call A3A_fnc_commanderTab;
-      Trace_1("Set fire mission startPos: %1", _clickedPosition);
+      Trace_1("Set fire mission startPos: %1", _clickedWorldPosition);
     };
 
     private _selectFireMissionEndPos = _commanderMap getVariable ["selectFireMissionEndPos", false];
     if (_selectFireMissionEndPos) exitWith
     {
+      Trace("Selecting fire mission end position");
       private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
-      _fireMissionControlsGroup setVariable ["endPos", _clickedPosition];
+      _fireMissionControlsGroup setVariable ["endPos", _clickedWorldPosition];
       _commanderMap setVariable ["selectFireMissionEndPos", false];
       ["updateFireMissionView"] call A3A_fnc_commanderTab;
-      Trace_1("Set fire mission endPos: %1", _clickedPosition);
+      Trace_1("Set fire mission endPos: %1", _clickedWorldPosition);
     };
 
     if (count hcAllGroups player < 1) exitWith {
@@ -640,12 +644,13 @@ switch (_mode) do
     };
 
     // Find closest HC squad to the clicked position
-    private _selectedGroup = [hcAllGroups player, _clickedPosition] call BIS_fnc_nearestPosition;
+    Trace("Selecting HC group");
+    private _selectedGroup = [hcAllGroups player, _clickedWorldPosition] call BIS_fnc_nearestPosition;
+    Trace_1("_selectedGroup: %1", groupId _selectedGroup);
     private _selectedGroupMapPos = _commanderMap ctrlMapWorldToScreen getPos leader _selectedGroup;
-    private _clickedMapPos = _commanderMap ctrlMapWorldToScreen _clickedPosition;
-    private _maxDistance = 6 * GRID_W;
-    private _distance = _selectedGroupMapPos distance _clickedMapPos;
-    Trace_4("_selectedGroupMapPos %1, _clickedMapPos %2, _maxDistance %3, _distance %4", _selectedGroupMapPos, _clickedMapPos, _maxDistance, _distance);
+    private _maxDistance = 6 * GRID_W; // TODO: Move somewhere else?
+    private _distance = _selectedGroupMapPos distance _clickedPosition;
+    Trace_4("_selectedGroupMapPos %1, _clickedPosition %2, _maxDistance %3, _distance %4", _selectedGroupMapPos, _clickedPosition, _maxDistance, _distance);
 
     // If clicked position is nowhere near any hc groups, deselect all units
     // and show list view

@@ -88,17 +88,28 @@ switch (_mode) do
   case ("mapClicked"):
   {
     Debug_1("Fast Travel map clicked: %1", _params);
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     // Find closest marker to the clicked position
-    private _clickedPosition = [_params select 0, _params select 1];
+    _params params ["_clickedPosition"];
+    private _clickedWorldPosition = _fastTravelMap ctrlMapScreenToWorld _clickedPosition;
     private _outposts = [];
     {
       _outposts pushBack _x # 0; // Get marker name from list
     } forEach outposts;
-    private _selectedMarker = [_outposts, _clickedPosition] call BIS_fnc_nearestPosition;
+    private _selectedMarker = [_outposts, _clickedWorldPosition] call BIS_fnc_nearestPosition;
     Debug_1("Selected marker: %1", _selectedMarker);
 
-    private _display = findDisplay A3A_IDD_MainDialog;
-    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    _markerMapPosition = _fastTravelMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
+    private _maxDistance = 6 * GRID_W; // TODO: Move somewhere else?
+    private _distance = _clickedPosition distance _markerMapPosition;
+    if (_distance > _maxDistance) exitWith
+    {
+      Debug("Distance too large, deselecting");
+      _fastTravelMap setVariable ["selectedMarker", ""];
+      _fastTravelMap setVariable ["selectMarkerData", []];
+    };
+
     _fastTravelMap setVariable ["selectedMarker", _selectedMarker];
     private _position = getMarkerPos _selectedMarker;
     _fastTravelMap setVariable ["selectMarkerData", [_position, 48, 0]];

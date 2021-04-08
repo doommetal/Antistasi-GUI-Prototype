@@ -495,7 +495,7 @@ class A3A_MainDialog : A3A_TabbedDialog
     class CommanderMap : A3A_MapControl
     {
       idc = A3A_IDC_COMMANDERMAP;
-      onMouseButtonClick = "[""commanderMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_commanderTab";
+      onMouseButtonClick = "[""commanderMapClicked"", [[_this select 2, _this select 3]]] call A3A_fnc_commanderTab";
       x = CENTER_X(DIALOG_W) + 68 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
       w = 84 * GRID_W;
@@ -1562,7 +1562,7 @@ class A3A_MainDialog : A3A_TabbedDialog
     class FastTravelMap : A3A_MapControl
     {
       idc = A3A_IDC_FASTTRAVELMAP;
-      onMouseButtonClick = "[""mapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_fastTravelTab";
+      onMouseButtonClick = "[""mapClicked"", [[_this select 2, _this select 3]]] call A3A_fnc_fastTravelTab";
       x = CENTER_X(DIALOG_W) + 48 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
       w = 104 * GRID_W;

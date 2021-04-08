@@ -709,7 +709,7 @@ class A3A_HqDialog : A3A_DefaultDialog
     class GarrisonMap : A3A_MapControl
     {
       idc = A3A_IDC_GARRISONMAP;
-      onMouseButtonClick = "[""garrisonMapClicked"", _this select 0 ctrlMapScreenToWorld [_this select 2, _this select 3]] call A3A_fnc_hqDialog";
+      onMouseButtonClick = "[""garrisonMapClicked"", [[_this select 2, _this select 3]]] call A3A_fnc_hqDialog";
       x = CENTER_X(DIALOG_W) + 68 * GRID_W;
       y = CENTER_Y(DIALOG_H) + 8 * GRID_H;
       w = 84 * GRID_W;
