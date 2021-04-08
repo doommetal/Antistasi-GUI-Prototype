@@ -666,6 +666,25 @@ switch (_mode) do
     ["update"] call A3A_fnc_commanderTab;
   };
 
+  case ("groupNameLabelClicked"):
+  {
+    // This is here to prevent hardcoded IDCs in the configs
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
+    _commanderMap setVariable ["selectedGroup", grpNull];
+    ["update"] call A3A_fnc_commanderTab;
+  };
+
+  case ("groupFastTravelButtonClicked"):
+  {
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    private _selectedGroup = _commanderMap getVariable "selectedGroup";
+    ["setHcMode", [true, _selectedGroup]] call A3A_fnc_fastTravelTab;
+    ["switchTab", ["fasttravel"]] call A3A_fnc_mainDialog;
+  };
+
   case ("fireMissionSelectionChanged"):
   {
     private _selection = _params select 0;

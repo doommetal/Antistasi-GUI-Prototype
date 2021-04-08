@@ -120,6 +120,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_FASTTRAVELBUTTON;
           text = $STR_antistasi_dialogs_main_fast_travel;
           tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip;
+          // TODO: Get rid of hardcoded IDCs here
           onButtonClick = "findDisplay 7000 displayCtrl 7461 setVariable [""hcMode"", false]; [""switchTab"", [""fasttravel""]] call A3A_fnc_mainDialog";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
@@ -568,8 +569,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_HCGROUPNAME;
               text = "";
-              // TODO: Get rid of hardcoded IDCs here
-              onButtonClick = "(findDisplay 7000 displayCtrl 7201) setVariable [""selectedGroup"", grpNull]; [""update""] call A3A_fnc_commanderTab";
+              onButtonClick = "[""groupNameLabelClicked""] call A3A_fnc_commanderTab";
               x = 0;
               y = 0;
               w = 42 * GRID_W;
@@ -581,8 +581,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               idc = -1;
               textureNoShortcut = A3A_Tex_Icon_FastTravel;
               tooltip = "Fast Travel"; // TODO: Localize
-              // TODO: Get rid of hardcoded IDCs here
-              onButtonClick = " findDisplay 7000 displayCtrl 7461 setVariable [""hcMode"", true]; [""switchTab"", [""fasttravel""]] call A3A_fnc_mainDialog";
+              onButtonClick = "[""groupFastTravelButtonClicked""] call A3A_fnc_commanderTab";
               x = 42 * GRID_W;
               y = 0 * GRID_H;
               w = 6 * GRID_W;
@@ -1615,7 +1614,6 @@ class A3A_MainDialog : A3A_TabbedDialog
         class FastTravelSelectText : A3A_TextMulti
         {
           idc = A3A_IDC_FASTTRAVELSELECTTEXT;
-          text = "Click the map to select the location you want to fast travel to.";
           x = 8 * GRID_W;
           y = 14 * GRID_H;
           w = 36 * GRID_W;

@@ -248,6 +248,7 @@ switch (_mode) do
 
       case ("fasttravel"):
       {
+        ["clearSelectedLocation"] call A3A_fnc_fastTravelTab;
         ["update"] call A3A_fnc_fastTravelTab;
       };
 

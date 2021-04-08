@@ -40,24 +40,47 @@ switch (_mode) do
     // Show back button
     private _display = findDisplay A3A_IDD_MainDialog;
     private _backButton = _display displayCtrl A3A_IDC_MainDialogBackButton;
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    private _hcMode = _fastTravelMap getVariable ["hcMode", false];
     _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
-    _backButton ctrlAddEventHandler ["MouseButtonClick", {
-      ["switchTab", ["player"]] call A3A_fnc_mainDialog;
-    }];
+    if (_hcMode) then {
+      _backButton ctrlAddEventHandler ["MouseButtonClick", {
+        ["switchTab", ["commander"]] call A3A_fnc_mainDialog;
+      }];
+    } else {
+      _backButton ctrlAddEventHandler ["MouseButtonClick", {
+        ["switchTab", ["player"]] call A3A_fnc_mainDialog;
+      }];
+    };
     _backButton ctrlShow true;
 
     // TODO: Update title bar
 
     // Show map
-    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     _fastTravelMap ctrlShow true;
     private _selectedMarker = _fastTravelMap getVariable ["selectedMarker", ""];
-    private _markerName = markerText _markerName;
+    private _markerName = markerText _selectedMarker;
 
-    private _hcMode = _fastTravelMap getVariable ["hcMode", false];
-    Trace_1("HC Mode active: %1", _hcMode);
+    // Format info text
+    private _infoText = "";
 
-    // Draw selection markers
+    // Player/Group name + location name
+    if (_hcMode) then {
+      private _hcGroup = _fastTravelMap getVariable "hcGroup";
+      private _groupName = groupId _hcGroup;
+      _infoText = _infoText + _groupName + " will travel to:<br/>" + _markerName + "<br/><br/>"; // TODO: localize
+    } else {
+      _infoText = _infoText + "You will travel to:<br/>" + _markerName + "<br/><br/>"; // TODO: localize
+    };
+
+    // Time
+    _infoText = _infoText + "This will take 1m 5s.<br/><br/>"; // TODO: localize
+
+    // Vehicle
+    if (!_hcMode && vehicle player != player) then {
+      _infoText = _infoText + "You will bring your vehicle along as well as any cargo and passengers along with you."; // TODO: localize
+    };
+
 
     // Update other controls
     private _fastTravelSelectText = _display displayCtrl A3A_IDC_FASTTRAVELSELECTTEXT;
@@ -73,7 +96,7 @@ switch (_mode) do
       // Show info text
       _fastTravelInfoText ctrlShow true;
       // Update info text
-      _fastTravelInfoText ctrlSetStructuredText parseText format ["You will travel to:<br/>%1<br/><br/>This will take 1m 5s.<br/><br/>You will bring your vehicle along as well as any cargo and passengers along with you.", _markerName];
+      _fastTravelInfoText ctrlSetStructuredText parseText _infoText;
       // Pan to location
       private _position = (_fastTravelMap getVariable "selectMarkerData") # 0;
       _fastTravelMap ctrlMapAnimAdd [0.2, ctrlMapScale _fastTravelMap, _position];
@@ -83,6 +106,16 @@ switch (_mode) do
       _fastTravelCommitButton ctrlEnable false;
       // Enable select location text
       _fastTravelSelectText ctrlShow true;
+      // Set select hint text
+      _selectText = "";
+      if (_hcMode) then {
+        private _hcGroup = _fastTravelMap getVariable "hcGroup";
+        private _groupName = groupId _hcGroup;
+        _selectText = format ["Click the map to select the location you want %1 to fast travel to.", _groupName]; // TODO: localize
+      } else {
+        _selectText = "Click the map to select the location you want to fast travel to."; // TODO: localize
+      };
+      _fastTravelSelectText ctrlSetText _selectText;
       // Hide info text
       _fastTravelInfoText ctrlShow false;
     };
@@ -110,8 +143,8 @@ switch (_mode) do
     if (_distance > _maxDistance) exitWith
     {
       Debug("Distance too large, deselecting");
-      _fastTravelMap setVariable ["selectedMarker", ""];
-      _fastTravelMap setVariable ["selectMarkerData", []];
+      ["clearSelectedLocation"] call A3A_fnc_fastTravelTab;
+      ["update"] call A3A_fnc_fastTravelTab;
     };
 
     _fastTravelMap setVariable ["selectedMarker", _selectedMarker];
@@ -119,6 +152,24 @@ switch (_mode) do
     _fastTravelMap setVariable ["selectMarkerData", [_position, 48, 0]];
 
     ["update"] call A3A_fnc_fastTravelTab;
+  };
+
+  case ("clearSelectedLocation"):
+  {
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    _fastTravelMap setVariable ["selectedMarker", ""];
+    _fastTravelMap setVariable ["selectMarkerData", []];
+  };
+
+  case ("setHcMode"):
+  {
+    _params params [["_enableHcMode", false], ["_hcGroup", grpNull]];
+    private _display = findDisplay A3A_IDD_MainDialog;
+    private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
+    Trace_2("Set high command mode: %1, group: %2", _enableHcMode, _hcGroup);
+    _fastTravelMap setVariable ["hcMode", _enableHcMode];
+    _fastTravelMap setVariable ["hcGroup", _hcGroup];
   };
 
   case ("commitButtonClicked"): // TODO: Placeholder, replace with actual FT function on merge
