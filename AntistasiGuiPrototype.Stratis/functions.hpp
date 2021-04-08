@@ -19,11 +19,6 @@ class A3A
 
     // Map drawing event handlers
     class fireMissionEH {};
-    class hcGroupsEH {};
-    class hcSelectEH {};
-    class outpostMarkersEH {};
-    class outpostSelectEH {};
-    class fastTravelMapDrawEH {};
     class mapDrawOutpostsEH {};
     class mapDrawHcGroupsEH {};
     class mapDrawSelectEH {};
