@@ -53,6 +53,8 @@ switch (_mode) do
     private _moveHqIcon = _display displayCtrl A3A_IDC_MOVEHQICON;
     _moveHqIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
     private _moveHqButton = _display displayCtrl A3A_IDC_MOVEHQBUTTON;
+
+    // TODO: Check for hq move availability
     _moveHqButton ctrlEnable false;
     _moveHqButton ctrlSetTooltip "Can't move HQ\n\nRemove items from ammo box first"; // TODO: localize later, not final yet
 
@@ -70,41 +72,8 @@ switch (_mode) do
     _restSlider sliderSetPosition 0;
     ["restSliderChanged"] spawn A3A_fnc_hqDialog;
 
-
-    // Garrison tab
-
-    // Get the data we need [Outpost name, position, icon, color (side)]
-    private _outpostIconData = [];
-    {
-      _x params ["_marker", "_type", "_garrison"];
-      private _name = markerText _marker;
-      private _pos = getMarkerPos _marker;
-      private _color = [0.1,0.7,0.1,1];
-
-      private _icon = switch (_type) do {
-        case ("hq"): {
-          "\A3\ui_f\data\Map\Markers\Military\flag_CA.paa";
-        };
-
-        case ("outpost"): {
-          "\A3\ui_f\data\Map\MapControl\bunker_CA.paa";
-        };
-
-        default {
-          "\A3\ui_f\data\Map\MapControl\ruin_CA.paa.paa";
-        };
-      };
-
-      _outpostIconData pushBack [_name, _pos, _icon, _color];
-    } forEach outposts;
-
-    Debug_1("Outpost Icon Data: %1", _outpostIconData);
-
-    // Save the data to the map control to make it available in the draw EH
+    // Garrison tab map drawing EHs
     private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
-    _garrisonMap setVariable ["outpostIconData", _outpostIconData];
-
-    // Map drawing EHs
     // Select marker
     _garrisonMap ctrlAddEventHandler ["Draw", "_this call A3A_fnc_mapDrawSelectEH"];
     // Outposts
@@ -329,11 +298,11 @@ switch (_mode) do
     private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     if (!ctrlShown _garrisonMap) then {_garrisonMap ctrlShow true;};
 
-    // Get outpost data
+    /* // Get outpost data // TODO: Remove if not needed
     private _outposts = [];
     {
       _outposts pushBack _x # 0;
-    } forEach outposts;
+    } forEach markersX; */
 
     // Get selected marker
     private _selectedMarker = _garrisonMap getVariable ["selectedMarker", ""];
@@ -343,7 +312,7 @@ switch (_mode) do
     if (_selectedMarker isEqualTo "") exitWith
     {
       Trace("No marker selected, selecting HQ");
-      _hqMapPos = _garrisonMap ctrlMapWorldToScreen (getMarkerPos "marker_HQ");
+      _hqMapPos = _garrisonMap ctrlMapWorldToScreen (getMarkerPos "Synd_HQ");
       ["garrisonMapClicked", [_hqMapPos]] call A3A_fnc_hqDialog;
     };
 
@@ -351,8 +320,8 @@ switch (_mode) do
     private _position = getMarkerPos _selectedMarker;
     private _garrisonName = markerText _selectedMarker;
     private _outpostData = [_selectedMarker] call A3A_fnc_getOutpostByMarkerName;
-    private _type = _outpostData select 1;
-    private _garrison = _outpostData select 2;
+    // private _type = _outpostData select 1; // TODO: Remove if not needed
+    private _garrison = garrisons getVariable [_selectedMarker, []];
     _garrison params [
       "_rifleman",
       "_squadLeader",
@@ -361,7 +330,8 @@ switch (_mode) do
       "_medic",
       "_mortar",
       "_marksman",
-      "_at"];
+      "_at"
+    ];
 
     // Get the controls
     private _display = findDisplay A3A_IDD_HqDialog;
@@ -492,7 +462,7 @@ switch (_mode) do
     // Disable any management buttons if garrison is under attack
     // TODO: This is very placeholdery atm, replace with A3A_fnc_enemyNearCheck on merge
     private _garrisonUnderAttack = false;
-    if (_selectedMarker isEqualTo "marker_outpost1") then {_garrisonUnderAttack = true};
+    if (_selectedMarker isEqualTo "outpost_1") then {_garrisonUnderAttack = true};
     if (_garrisonUnderAttack) then {
       {
         _x ctrlEnable false;
@@ -572,11 +542,7 @@ switch (_mode) do
     // Find closest marker to the clicked position
     _params params ["_clickedPosition"];
     private _clickedWorldPosition = _garrisonMap ctrlMapScreenToWorld _clickedPosition;
-    private _outposts = [];
-    {
-      _outposts pushBack _x # 0;
-    } forEach outposts;
-    private _selectedMarker = [_outposts, _clickedWorldPosition] call BIS_fnc_nearestPosition;
+    private _selectedMarker = [markersX, _clickedWorldPosition] call BIS_fnc_nearestPosition;
     Debug_1("Selected marker: %1", _selectedMarker);
 
     _markerMapPosition = _garrisonMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
@@ -649,10 +615,13 @@ switch (_mode) do
     private _selectedMarker = _garrisonMap getVariable "selectedMarker";
     if (_typeIndex != -1) then {
       {
-        if ((_x select 0) == _selectedMarker) then {
-          ((outposts select _forEachIndex) select 2) set [_typeIndex, _newVal];
+        if (_x isEqualTo _selectedMarker) then {
+
+          private _garrison = garrisons getVariable [_selectedMarker, []];
+          _garrison set [_typeIndex, _newVal];
+          garrisons setVariable [_selectedMarker, _garrison];
         };
-      } forEach outposts;
+      } forEach markersX;
     };
 
     _text ctrlSetText str _newVal;
@@ -671,12 +640,10 @@ switch (_mode) do
 
     // Set all garrison values to 0
     {
-      if ((_x select 0) == _selectedMarker) then {
-        for "_i" from 0 to 7 do {
-          ((outposts select _forEachIndex) select 2) set [_i, 0];
-        };
+      if (_x == _selectedMarker) then {
+        garrisons setVariable [_x, [0,0,0,0,0,0,0,0]];
       };
-    } forEach outposts;
+    } forEach markersX;
 
     ["updateGarrisonTab"] call A3A_fnc_hqDialog;
 

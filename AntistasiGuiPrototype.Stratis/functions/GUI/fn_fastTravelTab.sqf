@@ -130,11 +130,7 @@ switch (_mode) do
     // Find closest marker to the clicked position
     _params params ["_clickedPosition"];
     private _clickedWorldPosition = _fastTravelMap ctrlMapScreenToWorld _clickedPosition;
-    private _outposts = [];
-    {
-      _outposts pushBack _x # 0; // Get marker name from list
-    } forEach outposts;
-    private _selectedMarker = [_outposts, _clickedWorldPosition] call BIS_fnc_nearestPosition;
+    private _selectedMarker = [markersX, _clickedWorldPosition] call BIS_fnc_nearestPosition;
     Debug_1("Selected marker: %1", _selectedMarker);
 
     _markerMapPosition = _fastTravelMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);

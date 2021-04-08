@@ -6,8 +6,8 @@ params ["_marker"];
 
 _outpost = [];
 {
-  if (_x select 0 == _marker) then {
+  if (_x  isEqualTo _marker) then {
     _outpost = _x;
   };
-} forEach outposts;
+} forEach markersX;
 _outpost;

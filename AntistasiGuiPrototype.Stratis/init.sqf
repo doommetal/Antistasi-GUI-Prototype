@@ -164,21 +164,34 @@ p1 setVariable ["isMember", true]; // player starts as member
 
 
 // Fake map places
-// markerName (str), type (str), garrison (array<int>)
-// TODO: D'oh, forgot to add side
 outposts = [
-  ["marker_outpost1", "outpost", [0,0,0,0,0,0,0,0]],
-  ["marker_outpost2", "outpost", [0,0,0,0,0,0,0,0]],
-  ["marker_outpost3", "outpost", [0,0,0,0,0,0,0,0]],
-  ["marker_outpost4", "outpost", [0,0,0,0,0,0,0,0]],
-  ["marker_outpost5", "outpost", [0,0,0,0,0,0,0,0]],
-  ["marker_HQ", "hq", [0,0,0,0,0,0,0,0]]
+  "outpost_1",
+  "outpost_2",
+  "outpost_3",
+  "outpost_4",
+  "outpost_5"
 ];
+airportsX = ["airport_1"];
+resourcesX = ["resource_1"];
+factories = ["factory_1"];
+seaports = ["seaport_1"];
+citiesX = ["AgiaMarina", "Girna"];
+markersX = airportsX + resourcesX + factories + outposts + seaports + citiesX + ["Synd_HQ"];
 
-// markerName (str), type (str), mines (array<obj>)
-/* minefields = [
-  ["minefield1", "ap", [] ];
-]; */
+// Set sides
+// Loop through all markers
+markersX apply {
+  // Set side to GUER
+  sidesX setVariable [_x, resistance];
+};
+// TODO: Set a few select ones to WEST or whatever
+
+// Set garrisons
+// Loop through all markers
+markersX apply {
+  // Set garrison to [0,0,0,0,0,0,0,0]
+  garrisons setVariable [_x, [0,0,0,0,0,0,0,0]];
+};
 
 
 // Init addActions for HQ assets

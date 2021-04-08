@@ -1,6 +1,6 @@
 /*
 Maintainer: DoomMetal
-    Draws outposts to map controls
+    Draws map markers to map controls
 
 Arguments:
     None
@@ -12,7 +12,7 @@ Scope: Internal
 Environment: Unscheduled
 Public: No
 Dependencies:
-    <ARRAY> outposts // TODO: Update on merge
+    <ARRAY> markersX // TODO: Probably needs update on merge
 
 Example:
     _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
@@ -23,7 +23,8 @@ params ["_map"];
 // Get marker data
 private _outpostIconData = [];
 {
-  _x params ["_marker", "_type", "_garrison"];
+  private _marker = _x;
+  private _type = "";
   private _name = markerText _marker;
   private _pos = getMarkerPos _marker;
   private _color = [0.1,0.7,0.1,1];
@@ -38,12 +39,12 @@ private _outpostIconData = [];
     };
 
     default {
-      "\A3\ui_f\data\Map\MapControl\ruin_CA.paa.paa";
+      "\A3\ui_f\data\Map\Markers\Military\flag_CA.paa";
     };
   };
 
   _outpostIconData pushBack [_name, _pos, _icon, _color];
-} forEach outposts;
+} forEach markersX;
 
 {
   _x params ["_name", "_pos", "_icon", "_color"];

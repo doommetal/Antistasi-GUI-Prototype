@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=68;
+		nextID=76;
 	};
 	class Camera
 	{
@@ -141,18 +141,16 @@ class AddonsMetaData
 		};
 	};
 };
-randomSeed=2378059;
+randomSeed=15750976;
 class ScenarioData
 {
 	author="DoomMetal";
 };
 class Mission
 {
-	assetType="Free";
 	class Intel
 	{
 		briefingName="Antistasi GUI Prototype";
-		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
@@ -171,7 +169,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=34;
+		items=42;
 		class Item0
 		{
 			dataType="Object";
@@ -961,7 +959,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={4091.7141,221.23,4596.2358};
-			name="marker_HQ";
+			name="synd_HQ";
 			text="HQ";
 			type="mil_flag";
 			colorName="ColorGUER";
@@ -970,19 +968,19 @@ class Mission
 		class Item12
 		{
 			dataType="Marker";
-			position[]={4356.4395,231.98193,3888.9429};
-			name="marker_outpost1";
+			position[]={4356.439,231.98199,3888.9431};
+			name="outpost_1";
 			text="FIA Outpost";
 			type="mil_flag";
 			colorName="ColorGUER";
 			id=17;
-			atlOffset=-2.2380676;
+			atlOffset=-2.2380066;
 		};
 		class Item13
 		{
 			dataType="Marker";
-			position[]={3351.4189,228.57608,2956.6697};
-			name="marker_outpost2";
+			position[]={3351.4189,228.576,2956.6699};
+			name="outpost_2";
 			text="FIA Outpost";
 			type="mil_flag";
 			colorName="ColorGUER";
@@ -992,7 +990,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={2980.27,171.39999,1871.579};
-			name="marker_outpost3";
+			name="outpost_3";
 			text="FIA Outpost";
 			type="mil_flag";
 			colorName="ColorGUER";
@@ -1002,7 +1000,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={6369.603,8.0839996,5329.27};
-			name="marker_outpost4";
+			name="outpost_4";
 			text="FIA Outpost";
 			type="mil_flag";
 			colorName="ColorGUER";
@@ -1013,7 +1011,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={5014.6992,208.537,5909.9609};
-			name="marker_outpost5";
+			name="outpost_5";
 			text="FIA Outpost";
 			type="mil_flag";
 			colorName="ColorGUER";
@@ -1950,6 +1948,85 @@ class Mission
 			name="server";
 			id=67;
 			type="Logic";
+		};
+		class Item34
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4087.1189,216.79596,4554.5791};
+				angles[]={6.2139654,5.5529571,0.045308746};
+			};
+			name="sidesX";
+			id=68;
+			type="Logic";
+		};
+		class Item35
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4088.4919,216.77925,4554.3799};
+				angles[]={6.2756805,5.5529571,6.2656798};
+			};
+			name="garrisons";
+			id=69;
+			type="Logic";
+		};
+		class Item36
+		{
+			dataType="Marker";
+			position[]={1850.0681,5.5,5703.311};
+			name="airport_1";
+			text="Airbase";
+			type="c_plane";
+			id=70;
+		};
+		class Item37
+		{
+			dataType="Marker";
+			position[]={3017.4189,3.3499999,6030.3701};
+			name="AgiaMarina";
+			type="loc_Ruin";
+			id=71;
+		};
+		class Item38
+		{
+			dataType="Marker";
+			position[]={2016.722,3.1719999,2721.395};
+			name="Girna";
+			type="loc_Ruin";
+			id=72;
+			atlOffset=0.00011754036;
+		};
+		class Item39
+		{
+			dataType="Marker";
+			position[]={4498.0591,106.024,6796.4482};
+			name="resource_1";
+			text="Resource";
+			type="loc_Rock";
+			id=73;
+			atlOffset=0.00048828125;
+		};
+		class Item40
+		{
+			dataType="Marker";
+			position[]={1976.965,2.6760001,3530.74};
+			name="factory_1";
+			text="Factory";
+			type="loc_Stack";
+			id=74;
+			atlOffset=-0.00047445297;
+		};
+		class Item41
+		{
+			dataType="Marker";
+			position[]={2827.0845,2.0951023,6108.5874};
+			name="seaport_1";
+			text="Seaport";
+			type="loc_Quay";
+			id=75;
 		};
 	};
 	class Connections
