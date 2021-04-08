@@ -18,13 +18,15 @@ Example:
     _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
 */
 
+#include "..\..\GUI\textures.inc"
+
 params ["_map"];
 
 // Get marker data
 private _outpostIconData = [];
 {
   private _marker = _x;
-  private _type = "";
+  private _type = _marker call A3A_fnc_getLocationMarkerType;
   private _name = markerText _marker;
   private _pos = getMarkerPos _marker;
   private _color = [0.1,0.7,0.1,1];
@@ -34,8 +36,28 @@ private _outpostIconData = [];
       "\A3\ui_f\data\Map\Markers\Military\flag_CA.paa";
     };
 
+    case ("city"): {
+      MISSION_ROOT + A3A_Tex_Icon_Town;
+    };
+
+    case ("factory"): {
+      MISSION_ROOT + A3A_Tex_Icon_Factory;
+    };
+
+    case ("resource"): {
+      MISSION_ROOT + A3A_Tex_Icon_Resource;
+    };
+
+    case ("seaport"): {
+      MISSION_ROOT + A3A_Tex_Icon_Seaport;
+    };
+
+    case ("airport"): {
+      MISSION_ROOT + A3A_Tex_Icon_Airbase;
+    };
+
     case ("outpost"): {
-      "\A3\ui_f\data\Map\MapControl\bunker_CA.paa";
+      MISSION_ROOT + A3A_Tex_Icon_Outpost;
     };
 
     default {

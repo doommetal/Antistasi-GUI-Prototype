@@ -298,12 +298,6 @@ switch (_mode) do
     private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     if (!ctrlShown _garrisonMap) then {_garrisonMap ctrlShow true;};
 
-    /* // Get outpost data // TODO: Remove if not needed
-    private _outposts = [];
-    {
-      _outposts pushBack _x # 0;
-    } forEach markersX; */
-
     // Get selected marker
     private _selectedMarker = _garrisonMap getVariable ["selectedMarker", ""];
 

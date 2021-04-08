@@ -48,6 +48,7 @@ class A3A
 
   class Base
   {
+    class getLocationMarkerType {};
     class getAggroLevelString {}; // Already in antistasi, don't merge
   };
 
