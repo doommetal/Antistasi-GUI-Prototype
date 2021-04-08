@@ -74,6 +74,10 @@ switch (_mode) do
       _fastTravelInfoText ctrlShow true;
       // Update info text
       _fastTravelInfoText ctrlSetStructuredText parseText format ["You will travel to:<br/>%1<br/><br/>This will take 1m 5s.<br/><br/>You will bring your vehicle along as well as any cargo and passengers along with you.", _markerName];
+      // Pan to location
+      private _position = (_fastTravelMap getVariable "selectMarkerData") # 0;
+      _fastTravelMap ctrlMapAnimAdd [0.2, ctrlMapScale _fastTravelMap, _position];
+      ctrlMapAnimCommit _fastTravelMap;
     } else {
       // Disable button
       _fastTravelCommitButton ctrlEnable false;
@@ -101,7 +105,7 @@ switch (_mode) do
     Debug_1("Selected marker: %1", _selectedMarker);
 
     _markerMapPosition = _fastTravelMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
-    private _maxDistance = 6 * GRID_W; // TODO: Move somewhere else?
+    private _maxDistance = 8 * GRID_W; // TODO: Move somewhere else?
     private _distance = _clickedPosition distance _markerMapPosition;
     if (_distance > _maxDistance) exitWith
     {

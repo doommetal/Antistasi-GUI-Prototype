@@ -104,8 +104,11 @@ switch (_mode) do
     private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     _garrisonMap setVariable ["outpostIconData", _outpostIconData];
 
-    // Draw EH for outpost icons
-    _garrisonMap ctrlAddEventHandler ["Draw","call A3A_fnc_outpostMarkersEH"];
+    // Map drawing EHs
+    // Select marker
+    _garrisonMap ctrlAddEventHandler ["Draw", "_this call A3A_fnc_mapDrawSelectEH"];
+    // Outposts
+    _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
 
     Debug("HqDialog onLoad complete.");
   };
@@ -336,11 +339,12 @@ switch (_mode) do
     private _selectedMarker = _garrisonMap getVariable ["selectedMarker", ""];
 
     // If no marker is selected (as in you just opened the garrison tab),
-    // simulate a map click event to select the garrison closest to the player
+    // simulate a map click event to select HQ
     if (_selectedMarker isEqualTo "") exitWith
     {
-      Trace("No marker selected, selecting the closest one to the player");
-      ["garrisonMapClicked", [[getPos player select 0, getPos player select 1]]] spawn A3A_fnc_hqDialog;
+      Trace("No marker selected, selecting HQ");
+      _hqMapPos = _garrisonMap ctrlMapWorldToScreen (getMarkerPos "marker_HQ");
+      ["garrisonMapClicked", [_hqMapPos]] call A3A_fnc_hqDialog;
     };
 
     // Get the data from the marker
@@ -501,26 +505,6 @@ switch (_mode) do
       _dismissGarrisonButton ctrlSetTooltip "Can't manage garrisons when outpost is under attack.";
     };
 
-    // Draw selection marker
-    private _radius = 64;
-    private _dir = 0;
-
-    // We need to save the position and animation state of the
-    // selection marker between frames, so we do this in the map control itself
-    _garrisonMap setVariable["data", [_position, _radius, _dir]];
-
-    // Delete any old selection marker if it exists
-    private _selectEH = _garrisonMap getVariable "selectEH";
-    if !(isNil "_selectEH") then {
-      _garrisonMap ctrlRemoveEventHandler ["Draw", _selectEH];
-    };
-
-    // Draw EH for the selection marker
-    _selectEH = _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_outpostSelectEH"];
-
-    // Save the selection Draw EH to the map control
-    _garrisonMap setVariable ["selectEH", _selectEH];
-
     // Pan to location
     _garrisonMap ctrlMapAnimAdd [0.2, ctrlMapScale _garrisonMap, _position];
     ctrlMapAnimCommit _garrisonMap;
@@ -596,16 +580,16 @@ switch (_mode) do
     Debug_1("Selected marker: %1", _selectedMarker);
 
     _markerMapPosition = _garrisonMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
-    private _maxDistance = 6 * GRID_W; // TODO: Move somewhere else?
+    private _maxDistance = 8 * GRID_W; // TODO: Move somewhere else?
     private _distance = _clickedPosition distance _markerMapPosition;
     if (_distance > _maxDistance) exitWith
     {
       Debug("Distance too large, no selection change.");
-      // _garrisonMap setVariable ["selectedMarker", ""];
-      // _garrisonMap setVariable ["selectMarkerData", []];
     };
 
     _garrisonMap setVariable ["selectedMarker", _selectedMarker];
+    private _position = getMarkerPos _selectedMarker;
+    _garrisonMap setVariable ["selectMarkerData", [_position, 48, 0]];
 
     ["updateGarrisonTab"] call A3A_fnc_hqDialog;
   };
