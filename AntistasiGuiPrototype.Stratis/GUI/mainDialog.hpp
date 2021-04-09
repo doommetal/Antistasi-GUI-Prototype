@@ -502,6 +502,9 @@ class A3A_MainDialog : A3A_TabbedDialog
       w = 84 * GRID_W;
       h = 84 * GRID_H;
 
+      // Hide map markers
+      showMarkers = false;
+
       // Fade satellite texture a bit
       maxSatelliteAlpha = 0.75;
       alphaFadeStartScale = 3.0;

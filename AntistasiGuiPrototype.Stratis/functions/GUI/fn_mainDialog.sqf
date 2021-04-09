@@ -97,6 +97,9 @@ switch (_mode) do
     // High command groups
     private _commanderHcGroupsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawHcGroupsEH"];
     Debug_1("Adding HC group marker Draw EH to commander map: %1", _commanderHcGroupsEH);
+    // Outposts
+    private _commanderOutpostsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
+    Debug_1("Adding outposts Draw EH to commander map: %1", _commanderOutpostsEH);
 
 
 
