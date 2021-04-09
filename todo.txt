@@ -5,3 +5,4 @@ TODO-LIST:
 - get tooltip text for disabled buttons: undercover, construct, move hq
 - add garrison under attack check for garrison management
 - merge: change garrisons type from numbers to array of loadouts
+- merge: remove any unneeded commented out code, usually marked as TODO: Remove if not needed

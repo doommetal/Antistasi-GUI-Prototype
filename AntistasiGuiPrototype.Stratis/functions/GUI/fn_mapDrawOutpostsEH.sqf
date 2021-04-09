@@ -33,31 +33,31 @@ private _outpostIconData = [];
 
   private _icon = switch (_type) do {
     case ("hq"): {
-      "\A3\ui_f\data\Map\Markers\Military\flag_CA.paa";
+      MISSION_ROOT + A3A_Tex_Icon_Map_HQ;
     };
 
     case ("city"): {
-      MISSION_ROOT + A3A_Tex_Icon_Town;
+      MISSION_ROOT + A3A_Tex_Icon_Map_City;
     };
 
     case ("factory"): {
-      MISSION_ROOT + A3A_Tex_Icon_Factory;
+      MISSION_ROOT + A3A_Tex_Icon_Map_Factory;
     };
 
     case ("resource"): {
-      MISSION_ROOT + A3A_Tex_Icon_Resource;
+      MISSION_ROOT + A3A_Tex_Icon_Map_Resource;
     };
 
     case ("seaport"): {
-      MISSION_ROOT + A3A_Tex_Icon_Seaport;
+      MISSION_ROOT + A3A_Tex_Icon_Map_Seaport;
     };
 
     case ("airport"): {
-      MISSION_ROOT + A3A_Tex_Icon_Airbase;
+      MISSION_ROOT + A3A_Tex_Icon_Map_Airport;
     };
 
     case ("outpost"): {
-      MISSION_ROOT + A3A_Tex_Icon_Outpost;
+      MISSION_ROOT + A3A_Tex_Icon_Map_Outpost;
     };
 
     default {
@@ -69,11 +69,24 @@ private _outpostIconData = [];
 } forEach markersX;
 
 {
+  // Draw icon
   _x params ["_name", "_pos", "_icon", "_color"];
   _map drawIcon [
     _icon, // texture
     _color,
     _pos,
+    32, // width
+    32, // height
+    0, // angle
+    "", // text
+    0 // shadow (outline if 2)
+  ];
+
+  // Draw text
+  _map drawIcon [
+    "#(rgb,1,1,1)color(0,0,0,0)", // transparent
+    _color, // colour
+    _pos, // position
     32, // width
     32, // height
     0, // angle

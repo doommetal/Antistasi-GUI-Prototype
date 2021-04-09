@@ -1,4 +1,5 @@
 // Needed to get custom textures on map icons
+// Use MISSON_ROOT + path/to/texture.paa
 MISSION_ROOT = call {
     private "_arr";
     _arr = toArray __FILE__;
@@ -6,6 +7,7 @@ MISSION_ROOT = call {
     toString _arr
 };
 
+// TODO: Remove if not needed
 // Stupid hack to force group icons to load
 /* [] spawn {
   setGroupIconsVisible [true, true];

@@ -71,6 +71,15 @@
 #define A3A_Tex_Icon_Clear_Trees "GUI\textures\icon_clear_trees.paa"
 #define A3A_Tex_Icon_Support "GUI\textures\icon_support.paa"
 
+// New map icons
+#define A3A_Tex_Icon_Map_City "GUI\textures\icon_map_city.paa"
+#define A3A_Tex_Icon_Map_Factory "GUI\textures\icon_map_factory.paa"
+#define A3A_Tex_Icon_Map_Resource "GUI\textures\icon_map_resource.paa"
+#define A3A_Tex_Icon_Map_Airport "GUI\textures\icon_map_airport.paa"
+#define A3A_Tex_Icon_Map_Seaport "GUI\textures\icon_map_seaport.paa"
+#define A3A_Tex_Icon_Map_Outpost "GUI\textures\icon_map_outpost.paa"
+#define A3A_Tex_Icon_Map_HQ "GUI\textures\icon_map_hq.paa"
+
 
 // From Arma
 #define A3A_Tex_Icon_Construct "\a3\ui_f\data\igui\cfg\cursors\iconRepairVehicle_ca.paa"
