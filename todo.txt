@@ -1,4 +1,5 @@
 TODO-LIST:
+- check if A3A_fnc_configColorToArray can be replaced with BIS_fnc_colorConfigToRGBA
 - localize strings
 - remove borders on ai management list
 - update routines for prices in recruit dialogs

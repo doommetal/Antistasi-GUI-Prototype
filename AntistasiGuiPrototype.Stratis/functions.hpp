@@ -22,6 +22,7 @@ class A3A
     class mapDrawOutpostsEH {};
     class mapDrawHcGroupsEH {};
     class mapDrawSelectEH {};
+    class mapDrawUserMarkersEH {};
 
     // Utility functions
     class configColorToArray {};

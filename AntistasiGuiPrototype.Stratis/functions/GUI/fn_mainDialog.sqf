@@ -100,6 +100,10 @@ switch (_mode) do
     // Outposts
     private _commanderOutpostsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
     Debug_1("Adding outposts Draw EH to commander map: %1", _commanderOutpostsEH);
+    // User Markers
+    private _commanderUserMarkersEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawUserMarkersEH"];
+    Debug_1("Adding user markers Draw EH to commander map: %1", _commanderUserMarkersEH);
+
 
 
 
