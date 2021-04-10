@@ -1,22 +1,22 @@
 /*
-Maintainer: doomMetal
-Draws user markers to map controls
-Used for cases where we want only user created markers, not editor placed ones
+    Maintainer: doomMetal
+      Draws user markers to map controls
+      Used for cases where we want only user created markers, not editor placed ones
 
-Arguments:
-None
+    Arguments:
+      None
 
-Return Value:
-None
+    Return Value:
+      None
 
-Scope: internal
-Environment: Unscheduled
-Public: No
-Dependencies:
-None
+    Scope: internal
+    Environment: Unscheduled
+    Public: No
+    Dependencies:
+    None
 
-Example:
-_commanderMap ctrlAddEventHandler ["Draw", "_this call A3A_fnc_mapDrawUserMarkersEH"];
+    Example:
+      _commanderMap ctrlAddEventHandler ["Draw", "_this call A3A_fnc_mapDrawUserMarkersEH"];
 */
 
 #include "..\..\GUI\textures.inc"
@@ -39,20 +39,18 @@ private _markersPath = "\A3\Ui_f\data\Map\Markers\Military\";
   private _channel = markerChannel _x;
   if !(_channel in [0,1,2]) then {continue};
 
+  // Get marker color and covert to RGBA array
+  _markerColor = (configFile >> "CfgmarkerColors" >> getmarkerColor _x >> "color") call BIS_fnc_colorConfigToRGBA;
+
   // Check for line markers
-  if ((markerPolyline _x) isEqualto []) then {
+  private _markerPolyline = markerPolyline _x;
+  if (_markerPolyline isEqualto []) then {
     // not a line marker
     // Get marker data
     // todo: Fix paths, flag things are wrong
-    Debug_1("Drawing user marker: %1", _x);
     _markertype = _markersPath + ((getmarkertype _x) select [3, (count getmarkertype _x) - 3]) + "_CA.paa";
-    Debug_1("Marker type: %1", _markertype);
-    _markerColor = (configFile >> "CfgmarkerColors" >> getmarkerColor _x >> "color") call BIS_fnc_colorConfigtorGBA;
-    Debug_1("Marker color: %1", _markerColor);
     _markerPos = getmarkerPos _x;
-    Debug_1("Marker pos: %1", _markerPos);
     _markertext = markertext _x;
-    Debug_1("Marker text: %1", _markertext);
 
     // Draw marker
     _map drawIcon [
@@ -67,7 +65,19 @@ private _markersPath = "\A3\Ui_f\data\Map\Markers\Military\";
     ];
   } else {
     // Marker is a line marker
-    // do some special shits here
     Debug("Line marker");
+
+    // Convert polyLine array to coordinates
+    _lineCoords = [];
+    for [{ _i = 0 }, { _i < ((count _markerPolyline) - 1)}, { _i = _i + 2 }] do
+    {
+      _lineCoords pushBack [_markerPolyline # _i, _markerPolyline # (_i + 1)];
+    };
+
+    // Draw line Segments
+    for [{ _i = 0 }, { _i < ((count _lineCoords) - 2)}, { _i = _i + 1 }] do
+    {
+      _map drawLine [_lineCoords # _i, _lineCoords # (_i + 1), _markerColor];
+    };
   };
 } forEach allMapMarkers;
