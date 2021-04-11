@@ -43,6 +43,7 @@ class A3A
   {
     class getGroupInfo {};
     class getGroupVehicle {};
+    class mountDismountGroup {};
     class typeOfSoldier {}; // Already in antistasi, don't merge
     class canFight {}; // Already in antistasi, don't merge
     class hasRadio {}; // Already in antistasi, don't merge
