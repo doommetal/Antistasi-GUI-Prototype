@@ -42,6 +42,7 @@ class A3A
   class AI
   {
     class getGroupInfo {};
+    class getGroupVehicle {};
     class typeOfSoldier {}; // Already in antistasi, don't merge
     class canFight {}; // Already in antistasi, don't merge
     class hasRadio {}; // Already in antistasi, don't merge

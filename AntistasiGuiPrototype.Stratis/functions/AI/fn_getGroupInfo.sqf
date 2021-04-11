@@ -37,7 +37,7 @@
 // TODO: Replace with logging macro
 params[["_group", grpNull]];
 if (_group isEqualTo grpNull) exitWith {
-  diag_log ["fn_getGroupInfo: No group specified"];
+  Error("No group specified");
 };
 
 private _groupID = groupID _group;
@@ -74,7 +74,7 @@ if (!(isNull(_group getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_type
 };
 
 // TODO: Get group vehicle
-private _groupVehicle = false;
+private _groupVehicle = [_group] call A3A_fnc_getGroupVehicle;
 
 
 // Get group icon
