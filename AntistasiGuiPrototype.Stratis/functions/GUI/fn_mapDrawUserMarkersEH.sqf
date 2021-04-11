@@ -28,8 +28,6 @@
 
 params ["_map"];
 
-private _markersPath = "\A3\Ui_f\data\Map\Markers\Military\";
-
 // Loop through all map markers
 {
   // Check for user markers
@@ -47,21 +45,20 @@ private _markersPath = "\A3\Ui_f\data\Map\Markers\Military\";
   if (_markerPolyline isEqualto []) then {
     // not a line marker
     // Get marker data
-    // todo: Fix paths, flag things are wrong
-    _markertype = _markersPath + ((getmarkertype _x) select [3, (count getmarkertype _x) - 3]) + "_CA.paa";
+    _markerTexture = (getmarkertype _x) call BIS_fnc_textureMarker;
     _markerPos = getmarkerPos _x;
     _markertext = markertext _x;
 
     // Draw marker
     _map drawIcon [
-      _markertype, // texture
+      _markerTexture, // texture
       _markerColor,
       _markerPos,
       32, // width
       32, // height
       0, // angle
       _markertext, // text
-      0 // shadow (outline if 2)
+      1 // shadow (outline if 2)
     ];
   } else {
     // Marker is a line marker
