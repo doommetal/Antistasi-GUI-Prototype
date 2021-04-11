@@ -177,41 +177,43 @@ switch (_mode) do
         private _iconXpos = (30 * GRID_W) - ((count _statusIcons) * 5 * GRID_W) + (_forEachIndex * 5 * GRID_W);
         private _iconPath = "";
         private _toolTipText = "";
+        private _iconFade = 1;
         switch (_x) do {
-          // TODO: fade undeployed weapon icons a bit
           case ("medic"): {
-            _iconPath = "\A3\ui_f\data\igui\cfg\actions\heal_ca.paa";
+            _iconPath = A3A_Tex_Icon_Heal;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_medic";
           };
 
           case ("at"): {
-            _iconPath = "GUI\textures\icon_has_at.paa";
+            _iconPath = A3A_Tex_Icon_Has_AT;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_at";
           };
 
           case ("aa"): {
-            _iconPath = "GUI\textures\icon_has_aa.paa";
+            _iconPath = A3A_Tex_Icon_Has_AA;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_aa";
           };
 
           case ("mortarDeployed"): {
-            _iconPath = "GUI\textures\icon_has_mortar.paa";
+            _iconPath = A3A_Tex_Icon_Has_Mortar;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_mortar_deployed";
           };
 
           case ("mortar"): {
-            _iconPath = "GUI\textures\icon_has_mortar.paa";
+            _iconPath = A3A_Tex_Icon_Has_Mortar;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_mortar_not_deployed";
+            _iconFade = 0.75;
           };
 
           case ("staticDeployed"): {
-            _iconPath = "GUI\textures\icon_has_static.paa";
+            _iconPath = A3A_Tex_Icon_Has_Static;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_static_weapon_deployed";
           };
 
           case ("static"): {
-            _iconPath = "GUI\textures\icon_has_static.paa";
+            _iconPath = A3A_Tex_Icon_Has_Static;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed";
+            _iconFade = 0.75;
           };
         };
 
@@ -219,6 +221,7 @@ switch (_mode) do
         _icon ctrlSetPosition [_iconXpos, 0, 4 * GRID_W, 4 * GRID_H];
         _icon ctrlSetText _iconPath;
         _icon ctrlSetTooltip _toolTipText;
+        _icon ctrlSetFade _iconFade;
         _icon ctrlCommit 0;
       } forEach _statusIcons;
 

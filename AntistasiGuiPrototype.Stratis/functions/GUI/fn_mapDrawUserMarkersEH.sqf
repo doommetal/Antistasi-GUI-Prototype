@@ -62,8 +62,7 @@ params ["_map"];
     ];
   } else {
     // Marker is a line marker
-    Debug("Line marker");
-
+    
     // Convert polyLine array to coordinates
     _lineCoords = [];
     for [{ _i = 0 }, { _i < ((count _markerPolyline) - 1)}, { _i = _i + 2 }] do
