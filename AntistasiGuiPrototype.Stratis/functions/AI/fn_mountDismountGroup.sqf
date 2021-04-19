@@ -1,6 +1,24 @@
-// TODO: Update header
-// Mounts / Dismounts a group
-// Split from A3A_fnc_vehStats
+/*
+Maintainer: DoomMetal
+    Mounts / Dismounts high command groups
+
+Arguments:
+    <GROUP> A high command group
+
+Return Value:
+    None
+
+Scope: Any, Local Arguments, Global Effect
+Environment: Any
+Public: Yes
+Dependencies:
+    None
+
+Example:
+    [_someGroup] call A3A_fnc_mountdismountGroup;
+*/
+
+// This function was part of A3A_fnc_vehStats
 
 // Logging
 #define Log_Debug true
@@ -12,12 +30,10 @@ params [["_groupX",grpNull]];
 
 if !((typeName _groupX) isEqualTo "GROUP") exitWith {
   Error_1("%1 is not a group", _groupX);
-  objNull;
 };
 
 if (isNull _groupX) exitWith {
   Error("Group is null");
-  objNull;
 };
 
 _textX = "";
@@ -29,7 +45,7 @@ _veh = objNull;
 } forEach vehicles;
 
 if !(isNull _veh) then {
-  // If the vehicle has more than 1 non-FFV turret then it's not a transport
+  // If the vehicle has 1 or more non-FFV turrets then it's not a transport
   _isTransport = true;
   if (count allTurrets [_veh, false] > 0) then {_isTransport = false};
 

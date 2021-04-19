@@ -1,6 +1,24 @@
-// TODO: Update header
-// Gets a groups vehicle
-// Split from A3A_fnc_vehStats
+/*
+Maintainer: DoomMetal
+    Gets a high command groups assigned vehicle
+
+Arguments:
+    <GROUP> A high command group
+
+Return Value:
+    <OBJECT> The high command groups vehicle or objNull if it has none
+
+Scope: Any, Global Arguments
+Environment: Any
+Public: Yes
+Dependencies:
+    None
+
+Example:
+    [_someGroup] call A3A_fnc_getGroupVehicle; // Returns the group vehicle if it has one, objNull if not
+*/
+
+// This function was part of A3A_fnc_vehStats
 
 // Logging
 #define Log_Debug true
