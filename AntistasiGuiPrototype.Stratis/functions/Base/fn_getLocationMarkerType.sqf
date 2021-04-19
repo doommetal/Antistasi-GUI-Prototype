@@ -1,4 +1,29 @@
-// TODO: Update header
+/*
+Maintainer: DoomMetal
+    Gets the location type of a marker.
+
+Arguments:
+    <GROUP> A high command group
+
+Return Value:
+    None
+
+Scope: Any, Global Arguments
+Environment: Any
+Public: Yes
+Dependencies:
+    <ARRAY> citiesX
+    <ARRAY> outposts
+    <ARRAY> airportsX
+    <ARRAY> factories
+    <ARRAY> resourcesX
+    <ARRAY> seaports
+
+Example:
+    ["factory_1"] call A3A_fnc_getLocationMarkerType; // "factory"
+    ["Synd_HQ"] call A3A_fnc_getLocationMarkerType; // "hq"
+*/
+
 params ["_marker"];
 
 private _markerType = "";
