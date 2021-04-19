@@ -464,7 +464,11 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_set">
         <Original>SET</Original>
-        <English>Set</English>
+        <English>SET</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_start_label">
+        <Original>Start</Original>
+        <English>Start</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_end_label">
         <Original>End</Original>
@@ -536,11 +540,11 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_click_map">
         <Original>CLICK MAP</Original>
-        <English>Click Map</English>
+        <English>CLICK MAP</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_set">
         <Original>NOT SET</Original>
-        <English>Not Set</English>
+        <English>NOT SET</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_not_set_tooltip">
         <Original>Strike position not set</Original>

@@ -499,7 +499,7 @@ switch (_mode) do
       _barrageButton ctrlEnable true;
 
       // Change text on start position label
-      _startPosLabel ctrlSetText "Position:";
+      _startPosLabel ctrlSetText localize "STR_antistasi_dialogs_main_hc_fire_mission_position_label";
 
       // Hide endPos controlsGroup
       _endPosControlsGroup ctrlShow false;
@@ -522,7 +522,7 @@ switch (_mode) do
       _endPosControlsGroup ctrlShow true;
 
       // Change text on start position label
-      _startPosLabel ctrlSetText localize "STR_antistasi_dialogs_main_hc_no_groups";
+      _startPosLabel ctrlSetText localize "STR_antistasi_dialogs_main_hc_fire_mission_position_start_label";
 
       // Disable rounds buttons and editBox, show tooltip
       _tooltipText = localize "STR_antistasi_dialogs_main_hc_fire_mission_rounds_barrage_tooltip";
