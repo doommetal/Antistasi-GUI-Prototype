@@ -132,8 +132,8 @@ switch (_mode) do
       private _controlsGroup = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
       private _groupNameText = _display displayCtrl A3A_IDC_HCGROUPNAME;
       private _groupCountText = _display displayCtrl A3A_IDC_HCGROUPCOUNT;
-      private _groupTaskText = _display displayCtrl A3A_IDC_HCGROUPTASK;
       private _groupCombatModeText = _display displayCtrl A3A_IDC_HCGROUPCOMBATMODE;
+      private _groupVehicleText = _display displayCtrl A3A_IDC_HCGROUPVEHICLE;
 
       _groupNameText ctrlSetText _groupID;
       _groupCountText ctrlSetText format ["%1 / %2", _ableToCombat, _aliveUnits];
@@ -225,8 +225,9 @@ switch (_mode) do
         _icon ctrlCommit 0;
       } forEach _statusIcons;
 
-      _groupTaskText ctrlSetText _task;
       _groupCombatModeText ctrlSetText _combatMode;
+
+      _groupVehicleText ctrlSetStructuredText parseText "<t align='right'>Super long vehicle name bla bla</t>"; // TODO: Update with actual vehicle name
 
       // Pan to group location
       private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;

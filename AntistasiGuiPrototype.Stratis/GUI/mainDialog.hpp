@@ -642,7 +642,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupUnitCountIcon : A3A_Picture
             {
               idc = -1;
-              text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
+              text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa"; // TODO: move to textures.inc
               tooltip = $STR_antistasi_dialogs_main_hc_unit_count_tooltip;
               x = 2 * GRID_W;
               y = 8 * GRID_H;
@@ -661,7 +661,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               h = 4 * GRID_H;
             };
 
-            class GroupTaskLabel : A3A_Text
+            /* class GroupTaskLabel : A3A_Text
             {
               idc = -1;
               text = "Current task:"; // TODO: localize later, not final yet
@@ -680,14 +680,14 @@ class A3A_MainDialog : A3A_TabbedDialog
               y = 15 * GRID_H;
               w = 24 * GRID_W;
               h = 4 * GRID_H;
-            };
+            }; */
 
             class GroupCombatModeLabel : A3A_Text
             {
               idc = -1;
               text = $STR_antistasi_dialogs_main_hc_combat_mode;
               x = 0;
-              y = 20 * GRID_H;
+              y = 15 * GRID_H;
               w = 24 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -698,7 +698,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               style = ST_RIGHT;
               text = "";
               x = 28 * GRID_W;
-              y = 20 * GRID_H;
+              y = 15 * GRID_H;
               w = 24 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -708,20 +708,19 @@ class A3A_MainDialog : A3A_TabbedDialog
               idc = -1;
               text = "Vehicle"; // TODO: localize
               x = 0;
-              y = 25 * GRID_H;
+              y = 20 * GRID_H;
               w = 24 * GRID_W;
               h = 4 * GRID_H;
             };
 
-            class GroupVehicleText : A3A_TextMulti
+            class GroupVehicleText : A3A_StructuredText
             {
               idc = A3A_IDC_HCGROUPVEHICLE;
               style = ST_RIGHT + ST_MULTI;
-              text = "Super duper ultralong vehicle name";
               x = 28 * GRID_W;
-              y = 25 * GRID_H;
+              y = 20 * GRID_H;
               w = 24 * GRID_W;
-              h = 4 * GRID_H;
+              h = 8 * GRID_H;
             };
 
 
@@ -732,7 +731,7 @@ class A3A_MainDialog : A3A_TabbedDialog
               onButtonClick = "[""updateFireMissionView""] call A3A_fnc_commanderTab;";
               // onButtonClick = "findDisplay 7000 displayCtrl 7203 ctrlShow false; findDisplay 7000 displayCtrl 7210 ctrlShow true;";
               x = 28 * GRID_W;
-              y = 28 * GRID_H;
+              y = 30 * GRID_H;
               w = 24 * GRID_W;
               h = 8 * GRID_H;
             };
