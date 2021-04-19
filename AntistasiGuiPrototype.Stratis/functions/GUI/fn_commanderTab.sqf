@@ -177,7 +177,7 @@ switch (_mode) do
         private _iconXpos = (30 * GRID_W) - ((count _statusIcons) * 5 * GRID_W) + (_forEachIndex * 5 * GRID_W);
         private _iconPath = "";
         private _toolTipText = "";
-        private _iconFade = 1;
+        private _iconFade = 0;
         switch (_x) do {
           case ("medic"): {
             _iconPath = A3A_Tex_Icon_Heal;
@@ -202,7 +202,7 @@ switch (_mode) do
           case ("mortar"): {
             _iconPath = A3A_Tex_Icon_Has_Mortar;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_mortar_not_deployed";
-            _iconFade = 0.75;
+            _iconFade = 0.25;
           };
 
           case ("staticDeployed"): {
@@ -213,7 +213,7 @@ switch (_mode) do
           case ("static"): {
             _iconPath = A3A_Tex_Icon_Has_Static;
             _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed";
-            _iconFade = 0.75;
+            _iconFade = 0.25;
           };
         };
 

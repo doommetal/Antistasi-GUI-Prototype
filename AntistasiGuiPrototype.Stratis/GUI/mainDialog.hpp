@@ -665,9 +665,8 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               text = "Current task:"; // TODO: localize later, not final yet
-              sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 0;
-              y = 14 * GRID_H;
+              y = 15 * GRID_H;
               w = 24 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -677,9 +676,8 @@ class A3A_MainDialog : A3A_TabbedDialog
               idc = A3A_IDC_HCGROUPTASK;
               style = ST_RIGHT;
               text = "";
-              sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 28 * GRID_W;
-              y = 14 * GRID_H;
+              y = 15 * GRID_H;
               w = 24 * GRID_W;
               h = 4 * GRID_H;
             };
@@ -688,7 +686,6 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               text = $STR_antistasi_dialogs_main_hc_combat_mode;
-              sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 0;
               y = 20 * GRID_H;
               w = 24 * GRID_W;
@@ -700,12 +697,33 @@ class A3A_MainDialog : A3A_TabbedDialog
               idc = A3A_IDC_HCGROUPCOMBATMODE;
               style = ST_RIGHT;
               text = "";
-              sizeEx = GUI_TEXT_SIZE_MEDIUM;
               x = 28 * GRID_W;
               y = 20 * GRID_H;
               w = 24 * GRID_W;
               h = 4 * GRID_H;
             };
+
+            class GroupVehicleLabel : A3A_Text
+            {
+              idc = -1;
+              text = "Vehicle"; // TODO: localize
+              x = 0;
+              y = 25 * GRID_H;
+              w = 24 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
+            class GroupVehicleText : A3A_TextMulti
+            {
+              idc = A3A_IDC_HCGROUPVEHICLE;
+              style = ST_RIGHT + ST_MULTI;
+              text = "Super duper ultralong vehicle name";
+              x = 28 * GRID_W;
+              y = 25 * GRID_H;
+              w = 24 * GRID_W;
+              h = 4 * GRID_H;
+            };
+
 
             class FireMissionButton : A3A_ShortcutButton
             {
