@@ -29,10 +29,8 @@
   ]
 */
 
-// Logging
-#define Log_Debug true
-#define Log_Error true
-#include "..\..\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 // TODO: Replace with logging macro
 params[["_group", grpNull]];

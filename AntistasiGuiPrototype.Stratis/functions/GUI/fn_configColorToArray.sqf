@@ -6,6 +6,8 @@ Maintainer: DoomMetal
     To this:
       [1,0,0,1]
 
+    No, this doesn't do the same thing as BIS_fnc_colorConfigToRGBA.
+
 Arguments:
     <CODE> The color from the config. Usually the referencing the define itself.
 

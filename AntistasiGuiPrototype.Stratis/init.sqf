@@ -7,6 +7,9 @@ MISSION_ROOT = call {
     toString _arr
 };
 
+// Set log level
+logLevel = 4;
+
 // TODO: Remove if not needed
 // Stupid hack to force group icons to load
 /* [] spawn {

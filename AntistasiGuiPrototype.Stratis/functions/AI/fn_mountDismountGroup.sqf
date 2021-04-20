@@ -20,10 +20,8 @@ Example:
 
 // This function was part of A3A_fnc_vehStats
 
-// Logging
-#define Log_Debug true
-#define Log_Error true
-#include "..\..\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params [["_groupX",grpNull]];
 

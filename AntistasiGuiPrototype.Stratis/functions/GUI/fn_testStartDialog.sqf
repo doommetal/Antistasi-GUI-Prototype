@@ -2,12 +2,8 @@
 
 #include "..\..\GUI\ids.inc"
 #include "..\..\GUI\defines.hpp"
-
-// Logging
-#define Log_Debug true
-#define Log_Error true
-#define Log_Trace true
-#include "..\..\LogMacros.inc"
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 
 params[["_mode","onLoad"], ["_params",[]]];
 

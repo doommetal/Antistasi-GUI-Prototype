@@ -63,5 +63,6 @@ class A3A
   class Utility
   {
     class formatTime {};
+    class systemTime_format_S {}; // Already in antistasi, don't merge
   };
 };

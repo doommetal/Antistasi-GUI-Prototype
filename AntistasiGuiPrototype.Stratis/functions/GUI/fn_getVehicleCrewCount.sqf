@@ -14,6 +14,8 @@
       5 - FFV seats
 */
 
+// TODO: Update header
+
 params ["_class"];
 
 private _cfg = configFile >> "CfgVehicles" >> _class;
