@@ -441,29 +441,31 @@ switch (_mode) do
     // Disable add buttons if faction is lacking the resources to recruit them (1HR + money)
     _hr = server getVariable ["hr", 0];
     _factionMoney = server getVariable ["resourcesFIA", 0];
-    if (_factionMoney < _riflemanPrice || _hr < 1) then {_riflemanAddButton ctrlEnable false; _riflemanAddButton ctrlSetTooltip "Not enough money/HR"}; // TODO: localize
-    if (_factionMoney < _squadLeaderPrice || _hr < 1) then {_squadleaderAddButton ctrlEnable false; _squadleaderAddButton ctrlSetTooltip "Not enough money/HR"};
-    if (_factionMoney < _autoriflemanPrice || _hr < 1) then {_autoriflemanAddButton ctrlEnable false; _autoriflemanAddButton ctrlSetTooltip "Not enough money/HR"};
-    if (_factionMoney < _grenadierPrice || _hr < 1) then {_grenadierAddButton ctrlEnable false; _grenadierAddButton ctrlSetTooltip "Not enough money/HR"};
-    if (_factionMoney < _medicPrice || _hr < 1) then {_medicAddButton ctrlEnable false; _medicAddButton ctrlSetTooltip "Not enough money/HR"};
-    if (_factionMoney < _mortarPrice || _hr < 1) then {_mortarAddButton ctrlEnable false; _mortarAddButton ctrlSetTooltip "Not enough money/HR"};
-    if (_factionMoney < _marksmanPrice || _hr < 1) then {_marksmanAddButton ctrlEnable false; _marksmanAddButton ctrlSetTooltip "Not enough money/HR"};
-    if (_factionMoney < _atPrice || _hr < 1) then {_atAddButton ctrlEnable false; _atAddButton ctrlSetTooltip "Not enough money/HR"};
+    _noResourcesText = localize "STR_antistasi_dialogs_hq_garrisons_insufficient_resources";
+    if (_factionMoney < _riflemanPrice || _hr < 1) then {_riflemanAddButton ctrlEnable false; _riflemanAddButton ctrlSetTooltip _noResourcesText};
+    if (_factionMoney < _squadLeaderPrice || _hr < 1) then {_squadleaderAddButton ctrlEnable false; _squadleaderAddButton ctrlSetTooltip _noResourcesText};
+    if (_factionMoney < _autoriflemanPrice || _hr < 1) then {_autoriflemanAddButton ctrlEnable false; _autoriflemanAddButton ctrlSetTooltip _noResourcesText};
+    if (_factionMoney < _grenadierPrice || _hr < 1) then {_grenadierAddButton ctrlEnable false; _grenadierAddButton ctrlSetTooltip _noResourcesText};
+    if (_factionMoney < _medicPrice || _hr < 1) then {_medicAddButton ctrlEnable false; _medicAddButton ctrlSetTooltip _noResourcesText};
+    if (_factionMoney < _mortarPrice || _hr < 1) then {_mortarAddButton ctrlEnable false; _mortarAddButton ctrlSetTooltip _noResourcesText};
+    if (_factionMoney < _marksmanPrice || _hr < 1) then {_marksmanAddButton ctrlEnable false; _marksmanAddButton ctrlSetTooltip _noResourcesText};
+    if (_factionMoney < _atPrice || _hr < 1) then {_atAddButton ctrlEnable false; _atAddButton ctrlSetTooltip _noResourcesText};
 
     // Disable any management buttons if garrison is under attack
     // TODO: This is very placeholdery atm, replace with A3A_fnc_enemyNearCheck on merge
     private _garrisonUnderAttack = false;
     if (_selectedMarker isEqualTo "outpost_1") then {_garrisonUnderAttack = true};
     if (_garrisonUnderAttack) then {
+      _garrisonAttackText = localize "STR_antistasi_dialogs_hq_garrisons_under_attack";
       {
         _x ctrlEnable false;
-        _x ctrlSetTooltip "Can't manage garrisons when outpost is under attack."; // TODO: localize
+        _x ctrlSetTooltip _garrisonAttackText;
       } forEach _addSubButtons;
 
       _rebuildGarrisonButton ctrlEnable false;
-      _rebuildGarrisonButton ctrlSetTooltip "Can't manage garrisons when outpost is under attack.";
+      _rebuildGarrisonButton ctrlSetTooltip _garrisonAttackText;
       _dismissGarrisonButton ctrlEnable false;
-      _dismissGarrisonButton ctrlSetTooltip "Can't manage garrisons when outpost is under attack.";
+      _dismissGarrisonButton ctrlSetTooltip _garrisonAttackText;
     };
 
     // Pan to location

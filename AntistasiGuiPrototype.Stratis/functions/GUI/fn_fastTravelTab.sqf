@@ -64,17 +64,18 @@ switch (_mode) do
     if (_hcMode) then {
       private _hcGroup = _fastTravelMap getVariable "hcGroup";
       private _groupName = groupId _hcGroup;
-      _infoText = _infoText + _groupName + " will travel to:<br/>" + _markerName + "<br/><br/>"; // TODO: localize
+      _infoText = _infoText + _groupName + " " + localize "STR_antistasi_dialogs_main_fast_travel_group_will_travel_to" + ":<br/>" + _markerName + "<br/><br/>";
     } else {
-      _infoText = _infoText + "You will travel to:<br/>" + _markerName + "<br/><br/>"; // TODO: localize
+      _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_you_will_travel_to" + ":<br/>" + _markerName + "<br/><br/>";
     };
 
     // Time
-    _infoText = _infoText + "This will take 1m 5s.<br/><br/>"; // TODO: localize
+    _timeString = "1m 5s"; // TODO: Get actual time
+    _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_time" + " " + _timeString + ".<br/><br/>";
 
     // Vehicle
     if (!_hcMode && vehicle player != player) then {
-      _infoText = _infoText + "You will bring your vehicle along as well as any cargo and passengers along with you."; // TODO: localize
+      _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_vehicle";
     };
 
 
@@ -107,9 +108,9 @@ switch (_mode) do
       if (_hcMode) then {
         private _hcGroup = _fastTravelMap getVariable "hcGroup";
         private _groupName = groupId _hcGroup;
-        _selectText = format ["Click the map to select the location you want %1 to fast travel to.", _groupName]; // TODO: localize
+        _selectText = format [(localize "STR_antistasi_dialogs_main_fast_travel_group_select_location"), _groupName];
       } else {
-        _selectText = "Click the map to select the location you want to fast travel to."; // TODO: localize
+        _selectText = localize "STR_antistasi_dialogs_main_fast_travel_select_location";
       };
       _fastTravelSelectText ctrlSetText _selectText;
       // Hide info text

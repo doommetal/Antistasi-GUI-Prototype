@@ -390,6 +390,10 @@
         <Original>Combat mode</Original>
         <English>Combat mode</English>
       </Key>
+      <Key ID="STR_antistasi_dialogs_main_hc_vehicle">
+        <Original>Vehicle</Original>
+        <English>Vehicle</English>
+      </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_button">
         <Original>Fire Mission</Original>
         <English>Fire Mission</English>
@@ -589,6 +593,32 @@
         <English>You have no air support points</English>
       </Key>
     </Container>
+    <Container name="dialog_main_fast_travel">
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_select_location">
+        <Original>Click the map to select the location you want to fast travel to.</Original>
+        <English>Click the map to select the location you want to fast travel to.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_group_select_location">
+        <Original>Click the map to select the location you want %1 to fast travel to.</Original>
+        <English>Click the map to select the location you want %1 to fast travel to.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_group_will_travel_to">
+        <Original>will travel to</Original>
+        <English>will travel to</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_you_will_travel_to">
+        <Original>You will travel to</Original>
+        <English>You will travel to</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_time">
+        <Original>This will take</Original>
+        <English>This will take</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_fast_travel_vehicle">
+        <Original>You will bring your vehicle along as well as any cargo and passengers along with you.</Original>
+        <English>You will bring your vehicle along as well as any cargo and passengers along with you.</English>
+      </Key>
+    </Container>
     <Container name="dialog_mission_request">
       <Key ID="STR_antistasi_dialogs_mission_request_conquest">
         <Original>Conquest</Original>
@@ -773,6 +803,14 @@
       <Key ID="STR_antistasi_dialogs_hq_garrisons_at">
         <Original>AT</Original>
         <English>AT</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_insufficient_resources">
+        <Original>Not enough money/HR</Original>
+        <English>Not enough money/HR</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_garrisons_under_attack">
+        <Original>Can't manage garrisons when outpost is under attack.</Original>
+        <English>Can't manage garrisons when outpost is under attack.</English>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_rebuild_assets_button">
         <Original>Rebuild Assets</Original>

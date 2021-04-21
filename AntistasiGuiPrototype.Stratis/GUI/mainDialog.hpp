@@ -179,7 +179,6 @@ class A3A_MainDialog : A3A_TabbedDialog
         // Right side content
 
         // Player info area
-        // TODO: localize later, hold off on localizing this section until all the parts are final
         class PlayerNameText : A3A_Text
         {
           idc = A3A_IDC_PLAYERNAMETEXT;
@@ -219,7 +218,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AliveLabel : A3A_Text
         {
           idc = -1;
-          text = "Time alive:"; // TODO: localize
+          text = "Time alive:"; // TODO: localize later, not final yet
           x = 98 * GRID_W;
           y = 17 * GRID_H;
           w = 30 * GRID_W;
@@ -240,7 +239,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class MissionsLabel : A3A_Text
         {
           idc = -1;
-          text = "Missions:"; // TODO: localize
+          text = "Missions:"; // TODO: localize later, not final yet
           x = 98 * GRID_W;
           y = 22 * GRID_H;
           w = 30 * GRID_W;
@@ -261,7 +260,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class KillsLabel : A3A_Text
         {
           idc = -1;
-          text = "Kills:"; // TODO: localize
+          text = "Kills:"; // TODO: localize later, not final yet
           x = 98 * GRID_W;
           y = 27 * GRID_H;
           w = 30 * GRID_W;
@@ -303,7 +302,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class CommanderText : A3A_Text
         {
-          text = "Commander"; // TODO: localize
+          text = "Commander"; // TODO: localize later, not final yet
           idc = A3A_IDC_COMMANDERTEXT;
           style = ST_CENTER;
           colorText[] = {1,0.9,0.5,1};
@@ -318,7 +317,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CommanderButton : A3A_Button
         {
           idc = A3A_IDC_COMMANDERBUTTON;
-          text = "Resign"; // TODO: localize
+          text = "Resign"; // TODO: localize later, not final yet
           onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_theBossToggleEligibility (or something similar) when merged"""; // TODO: Replace placeholder when merging
           x = 74 * GRID_W;
           y = 34 * GRID_H;
@@ -583,7 +582,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               textureNoShortcut = A3A_Tex_Icon_FastTravel;
-              tooltip = "Fast Travel"; // TODO: Localize
+              tooltip = $STR_antistasi_dialogs_main_fast_travel;
               onButtonClick = "[""groupFastTravelButtonClicked""] call A3A_fnc_commanderTab";
               x = 42 * GRID_W;
               y = 0 * GRID_H;
@@ -685,7 +684,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupVehicleLabel : A3A_Text
             {
               idc = -1;
-              text = "Vehicle"; // TODO: localize
+              text = $STR_antistasi_dialogs_main_hc_vehicle;
               x = 0;
               y = 20 * GRID_H;
               w = 24 * GRID_W;
@@ -695,7 +694,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupVehicleText : A3A_StructuredText
             {
               idc = A3A_IDC_HCGROUPVEHICLE;
-              style = ST_RIGHT + ST_MULTI;
+              // style = ST_RIGHT + ST_MULTI;
               x = 28 * GRID_W;
               y = 20 * GRID_H;
               w = 24 * GRID_W;
