@@ -21,7 +21,6 @@ Example:
     ["switchTab", ["player"]] call A3A_fnc_mainDialog; // switching to the player tab
 */
 
-// disableSerialization; // TODO: Remove when merging
 #include "..\..\GUI\ids.inc"
 #include "..\..\GUI\defines.hpp"
 #include "..\..\GUI\textures.inc"

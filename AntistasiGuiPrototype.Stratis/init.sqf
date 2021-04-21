@@ -10,14 +10,6 @@ MISSION_ROOT = call {
 // Set log level
 logLevel = 4;
 
-// TODO: Remove if not needed
-// Stupid hack to force group icons to load
-/* [] spawn {
-  setGroupIconsVisible [true, true];
-  sleep 1;
-  setGroupIconsVisible [false, false];
-}; */
-
 ///////////////////////////////////////////////////////////////////////////////
 // EVERYTHING BELOW THIS POINT IS "FAKE" ANTISTASI FUNCTIONS TO TEST THE GUI //
 ///////////////////////////////////////////////////////////////////////////////

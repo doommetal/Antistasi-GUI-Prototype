@@ -20,7 +20,6 @@ Example:
     ["onLoad"] spawn A3A_fnc_mainDialog; // initialization
 */
 
-// disableSerialization; // TODO: Remove when merging
 #include "..\..\GUI\ids.inc"
 #include "..\..\GUI\defines.hpp"
 #include "..\..\GUI\textures.inc"

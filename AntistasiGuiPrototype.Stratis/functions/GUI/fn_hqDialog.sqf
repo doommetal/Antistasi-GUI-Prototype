@@ -21,7 +21,6 @@ Example:
     ["switchTab", ["garrison"]] call A3A_fnc_hqDialog; // switching to the garrison tab
 */
 
-// disableSerialization; // TODO: Remove when merging
 #include "..\..\GUI\ids.inc"
 #include "..\..\GUI\defines.hpp"
 #include "..\..\Includes\common.inc"

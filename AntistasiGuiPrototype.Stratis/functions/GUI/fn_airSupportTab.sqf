@@ -19,7 +19,6 @@ Example:
     ["update"] call A3A_fnc_airSupportTab;
 */
 
-// disableSerialization; // TODO: Remove when merging
 #include "..\..\GUI\ids.inc"
 #include "..\..\GUI\defines.hpp"
 #include "..\..\GUI\textures.inc"

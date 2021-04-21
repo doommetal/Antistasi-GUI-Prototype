@@ -20,8 +20,6 @@ Example:
     ["missionButtonClicked"] call A3A_fnc_requestMissionDialog;
 */
 
-// disableSerialization; // TODO: Remove when merging
-
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 
