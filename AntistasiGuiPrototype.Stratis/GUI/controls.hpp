@@ -515,7 +515,7 @@ class A3A_Slider : A3A_CtrlDefault
 {
 	type = CT_XSLIDER;
 	style = SL_HORZ;
-	color[] = {1,1,1,0.6};
+	color[] = {1,1,1,1};
 	colorActive[] = {1,1,1,1};
 	colorDisabled[] = {1,1,1,0.25};
 	sliderRange[] = {0,1};

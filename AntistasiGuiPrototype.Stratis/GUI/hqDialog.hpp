@@ -646,17 +646,8 @@ class A3A_HqDialog : A3A_DefaultDialog
               y = 7 * GRID_H;
               w = 57 * GRID_W;
               h = 10 * GRID_H;
-              // colorBackground[] = A3A_COLOR_BACKGROUND; // {0,0,0,0.5};
+              colorBackground[] = A3A_COLOR_BACKGROUND;
             };
-
-            /* class RestBackground : A3A_Background
-            {
-              idc = -1;
-              x = 0 * GRID_W;
-              y = 17 * GRID_H;
-              w = 57 * GRID_W;
-              h = 9 * GRID_H;
-            }; */
 
             class RestSlider : A3A_Slider
             {
