@@ -118,7 +118,6 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 
 
 // Colors
-// TODO: Maybe the split RGBA values into one line, dunno if they work with sqf yet or if it's only configs
 
 // Background, usually a semitransparent dark grey that works well with layering
 // #define A3A_COLOR_BACKGROUND {0.2,0.2,0.2,0.6}
@@ -132,6 +131,9 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 
 // Default text
 #define A3A_COLOR_TEXT {1,1,1,1}
+
+// Darker text
+#define A3A_COLOR_TEXT_DARKER {0.7,0.7,0.7,1}
 
 // Active elements ("selection color")
 #define A3A_COLOR_ACTIVE {0.95,0.95,0.95,1}

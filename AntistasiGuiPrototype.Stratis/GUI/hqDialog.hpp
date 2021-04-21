@@ -374,7 +374,8 @@ class A3A_HqDialog : A3A_DefaultDialog
                 class PopStatusBarBackground : A3A_Background
                 {
                   idc = -1;
-                  colorBackground[] = {0.3,0.3,0.3,1}; // TODO: Hardcoded color
+                  // Intentionally using hardcoded colors here since this isn't intended to be customizeable
+                  colorBackground[] = {0.3,0.3,0.3,1};
                   x = 0 * GRID_W;
                   y = 0 * GRID_H;
                   w = 50 * GRID_W;
@@ -417,6 +418,7 @@ class A3A_HqDialog : A3A_DefaultDialog
                 	h = 6 * GRID_H;
                 };
 
+                // Line for lose condition
                 class LoseLine : A3A_Text
                 {
                   idc = -1;

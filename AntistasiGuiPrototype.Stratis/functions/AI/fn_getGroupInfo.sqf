@@ -32,7 +32,6 @@
 #include "..\..\Includes\common.inc"
 FIX_LINE_NUMBERS()
 
-// TODO: Replace with logging macro
 params[["_group", grpNull]];
 if (_group isEqualTo grpNull) exitWith {
   Error("No group specified");
@@ -71,9 +70,8 @@ if (!(isNull(_group getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_type
 	};
 };
 
-// TODO: Get group vehicle
+// Get group vehicle
 private _groupVehicle = [_group] call A3A_fnc_getGroupVehicle;
-
 
 // Get group icon
 private _groupIconId = _group getVariable "BIS_MARTA_ICON_TYPE";

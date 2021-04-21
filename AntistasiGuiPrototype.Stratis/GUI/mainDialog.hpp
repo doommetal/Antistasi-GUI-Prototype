@@ -120,8 +120,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_FASTTRAVELBUTTON;
           text = $STR_antistasi_dialogs_main_fast_travel;
           tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip;
-          // TODO: Get rid of hardcoded IDCs here
-          onButtonClick = "findDisplay 7000 displayCtrl 7461 setVariable [""hcMode"", false]; [""switchTab"", [""fasttravel""]] call A3A_fnc_mainDialog";
+          onButtonClick = "[""setHcMode"", [false]] call A3A_fnc_fastTravelTab; [""switchTab"", [""fasttravel""]] call A3A_fnc_mainDialog";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 20 * GRID_W;
           y = 32 * GRID_H;
@@ -184,7 +183,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_PLAYERNAMETEXT;
           text = "";
           sizeEx = GUI_TEXT_SIZE_LARGE;
-          colorBackground[] = {0,0,0,1};
+          colorBackground[] = A3A_COLOR_BLACK;
           x = 70 * GRID_W;
           y = 7 * GRID_H;
           w = 90 * GRID_W;
@@ -194,8 +193,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class PlayerRankText : A3A_Text
         {
           idc = A3A_IDC_PLAYERRANKTEXT;
-          text = "";
-          colorText[] = {0.7,0.7,0.7}; // TODO: Use colors from defines.hpp
+          colorText[] = A3A_COLOR_TEXT_DARKER;
           style = ST_RIGHT;
           x = 117 * GRID_W;
           y = 8 * GRID_H;
@@ -206,9 +204,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class PlayerRankPicture : A3A_Picture
         {
           idc = A3A_IDC_PLAYERRANKPICTURE;
-          colorBackground[] = {0,0,0,0};
-          colorText[] = {0.7,0.7,0.7}; // TODO: Use colors from defines.hpp
-          text = "";
+          colorText[] = A3A_COLOR_TEXT_DARKER;
           x = 147 * GRID_W;
           y = 8 * GRID_H;
           w = 4 * GRID_W;
@@ -767,8 +763,6 @@ class A3A_MainDialog : A3A_TabbedDialog
 
           class controls
           {
-            // TODO: Replace placeholder values
-
             // Label also works as a back button
             class FireMissionLabel : A3A_Button_Left
             {
@@ -957,7 +951,6 @@ class A3A_MainDialog : A3A_TabbedDialog
               };
             };
 
-
             class RoundsControlsGroup : A3A_ControlsGroupNoScrollbars
             {
               idc = A3A_IDC_ROUNDSCONTROLSGROUP;
@@ -983,8 +976,10 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                   idc = A3A_IDC_ROUNDSEDITBOX;
                   text = "0";
+                  sizeEx = GUI_TEXT_SIZE_SMALL;
                   style = ST_RIGHT + ST_NO_RECT;
                   onLoad = "_this#0 ctrlEnable false";
+                  colorDisabled[] = A3A_COLOR_TEXT;
                   colorBackground[] = A3A_COLOR_BLACK;
                   x = 20 * GRID_W;
                   y = 0 * GRID_H;
@@ -996,7 +991,6 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                   idc = A3A_IDC_ADDROUNDSBUTTON;
                   text = "+";
-                  // sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""addround""]] call A3A_fnc_commanderTab;";
                   x = 42 * GRID_W;
                   y = 0 * GRID_H;
@@ -1008,7 +1002,6 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                   idc = A3A_IDC_SUBROUNDSBUTTON;
                   text = "-";
-                  // sizeEx = GUI_TEXT_SIZE_SMALL;
                   onButtonClick = "[""fireMissionSelectionChanged"",[""subround""]] call A3A_fnc_commanderTab;";
                   x = 46 * GRID_W;
                   y = 0 * GRID_H;
@@ -1017,7 +1010,6 @@ class A3A_MainDialog : A3A_TabbedDialog
                 };
               };
             };
-
 
             class StartPositionControlsGroup : A3A_ControlsGroupNoScrollbars
             {
@@ -1047,6 +1039,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   style = ST_RIGHT + ST_NO_RECT;
                   onLoad = "_this#0 ctrlEnable false";
+                  colorDisabled[] = A3A_COLOR_TEXT;
                   colorBackground[] = A3A_COLOR_BLACK;
                   x = 20 * GRID_W;
                   y = 0 * GRID_H;
@@ -1067,7 +1060,6 @@ class A3A_MainDialog : A3A_TabbedDialog
                 };
               };
             };
-
 
             class EndPositionControlsGroup : A3A_ControlsGroupNoScrollbars
             {
@@ -1097,6 +1089,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                   sizeEx = GUI_TEXT_SIZE_SMALL;
                   style = ST_RIGHT + ST_NO_RECT;
                   onLoad = "_this#0 ctrlEnable false";
+                  colorDisabled[] = A3A_COLOR_TEXT;
                   colorBackground[] = A3A_COLOR_BLACK;
                   x = 20 * GRID_W;
                   y = 0 * GRID_H;
@@ -1118,7 +1111,6 @@ class A3A_MainDialog : A3A_TabbedDialog
               };
             };
 
-
             class FireButton : A3A_Button
             {
               idc = A3A_IDC_FIREBUTTON;
@@ -1128,7 +1120,6 @@ class A3A_MainDialog : A3A_TabbedDialog
               w = 20 * GRID_W;
               h = 8 * GRID_H;
             };
-
 
           };
         };
