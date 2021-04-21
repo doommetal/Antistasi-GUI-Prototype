@@ -313,7 +313,7 @@ switch (_mode) do
         // Group count, able to combat / alive
         private _groupCountIcon = _display ctrlCreate ["A3A_Picture", -1, _itemControlsGroup];
         _groupCountIcon ctrlSetPosition [2 * GRID_W, 8 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-        _groupCountIcon ctrlSetText "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa";
+        _groupCountIcon ctrlSetText A3A_Tex_Icon_GroupUnitCount;
         _groupCountIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_hc_unit_count_tooltip";
         _groupCountIcon ctrlCommit 0;
 

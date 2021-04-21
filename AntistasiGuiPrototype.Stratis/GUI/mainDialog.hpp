@@ -642,7 +642,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupUnitCountIcon : A3A_Picture
             {
               idc = -1;
-              text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa"; // TODO: move to textures.inc
+              text = A3A_Tex_Icon_GroupUnitCount;
               tooltip = $STR_antistasi_dialogs_main_hc_unit_count_tooltip;
               x = 2 * GRID_W;
               y = 8 * GRID_H;
@@ -660,27 +660,6 @@ class A3A_MainDialog : A3A_TabbedDialog
               w = 16 * GRID_W;
               h = 4 * GRID_H;
             };
-
-            /* class GroupTaskLabel : A3A_Text
-            {
-              idc = -1;
-              text = "Current task:"; // TODO: localize later, not final yet
-              x = 0;
-              y = 15 * GRID_H;
-              w = 24 * GRID_W;
-              h = 4 * GRID_H;
-            };
-
-            class GroupTaskText : A3A_Text
-            {
-              idc = A3A_IDC_HCGROUPTASK;
-              style = ST_RIGHT;
-              text = "";
-              x = 28 * GRID_W;
-              y = 15 * GRID_H;
-              w = 24 * GRID_W;
-              h = 4 * GRID_H;
-            }; */
 
             class GroupCombatModeLabel : A3A_Text
             {
@@ -729,7 +708,6 @@ class A3A_MainDialog : A3A_TabbedDialog
               idc = A3A_IDC_HCFIREMISSIONBUTTON;
               text = $STR_antistasi_dialogs_main_hc_fire_mission_button;
               onButtonClick = "[""updateFireMissionView""] call A3A_fnc_commanderTab;";
-              // onButtonClick = "findDisplay 7000 displayCtrl 7203 ctrlShow false; findDisplay 7000 displayCtrl 7210 ctrlShow true;";
               x = 28 * GRID_W;
               y = 30 * GRID_H;
               w = 24 * GRID_W;
