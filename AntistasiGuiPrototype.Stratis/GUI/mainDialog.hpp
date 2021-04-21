@@ -2009,7 +2009,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_AIRSUPPORTPOINTSTEXT;
           style = ST_RIGHT;
-          text = "0"; // TODO: Update in updateAirSupportTab
+          text = "0";
           sizeEx = GUI_TEXT_SIZE_LARGE;
           x = 100 * GRID_W;
           y = 10 * GRID_H;
@@ -2044,7 +2044,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_main_air_support_info;
-          colorText[] = {0.7,0.7,0.7,1}; // TODO: Use colors from defines
+          colorText[] = A3A_COLOR_TEXT_DARKER;
           x = 44 * GRID_W;
           y = 28 * GRID_H;
           w = 72 * GRID_W;
@@ -2054,7 +2054,6 @@ class A3A_MainDialog : A3A_TabbedDialog
         class HeBombsIcon : A3A_Picture
         {
           idc = A3A_IDC_AIRSUPPORTHEICON;
-          colorBackground[] = {0,0,0,0};
           text = "GUI\textures\icon_he_bombs.paa";
           x = 24 * GRID_W;
           y = 54 * GRID_H;
@@ -2067,7 +2066,6 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_AIRSUPPORTHEBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_he_bombs;
           onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO: Replace placeholder when merging
-          size = GUI_TEXT_SIZE_MEDIUM;
           x = 16 * GRID_W;
           y = 74 * GRID_H;
           w = 32 * GRID_W;
@@ -2077,7 +2075,6 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CarpetBombingIcon : A3A_Picture
         {
           idc = A3A_IDC_AIRSUPPORTCARPETICON;
-          colorBackground[] = {0,0,0,0};
           text = "GUI\textures\icon_carpet_bombing.paa";
           x = 72 * GRID_W;
           y = 54 * GRID_H;
@@ -2090,7 +2087,6 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_AIRSUPPORTCARPETBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_carpet_bombing;
           onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO: Replace placeholder when merging
-          size = GUI_TEXT_SIZE_MEDIUM;
           x = 64 * GRID_W;
           y = 74 * GRID_H;
           w = 32 * GRID_W;
@@ -2100,7 +2096,6 @@ class A3A_MainDialog : A3A_TabbedDialog
         class NapalmBombIcon : A3A_Picture
         {
           idc = A3A_IDC_AIRSUPPORTNAPALMICON;
-          colorBackground[] = {0,0,0,0};
           text = "GUI\textures\icon_napalm_bomb.paa";
           x = 120 * GRID_W;
           y = 54 * GRID_H;
@@ -2113,7 +2108,6 @@ class A3A_MainDialog : A3A_TabbedDialog
           idc = A3A_IDC_AIRSUPPORTNAPALMBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_napalm;
           onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO: Replace placeholder when merging
-          size = GUI_TEXT_SIZE_MEDIUM;
           x = 112 * GRID_W;
           y = 74 * GRID_H;
           w = 32 * GRID_W;

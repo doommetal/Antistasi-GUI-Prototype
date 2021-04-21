@@ -80,7 +80,7 @@ aggressionOccupants = 4;
 aggressionInvaders = 2;
 
 // Air Support Points
-bombRuns = 0; // Same as in antistasi now, should probably publicVariable this thing on merge
+bombRuns = 3;
 
 // TODO: Replace this with A3A_fnc_HQGameOptions
 //civLimit = 40; // missionNamespace getVariable ["civPerc",0];
