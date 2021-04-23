@@ -167,6 +167,9 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 #define A3A_COLOR_BUTTON_ACTIVE A3A_COLOR_TITLEBAR_BACKGROUND
 #define A3A_COLOR_BUTTON_FOCUSED A3A_COLOR_TITLEBAR_BACKGROUND
 
+// Map select marker
+#define A3A_COLOR_SELECT_MARKER {1,1,1,0.75}
+
 
 // Fonts
 #define A3A_DEFAULT_FONT "RobotoCondensed"

@@ -2,8 +2,12 @@
 Maintainer: DoomMetal
     Event Handler for drawing select markers to maps.
 
+    Draws a pulsing selection marker on the position specified in
+    the "selectMarkerData" array saved to the map control.
+    To stop drawing the marker overwrite it with an empty array.
+
 Arguments:
-    None
+    <CONTROL> Map control for drawing
 
 Return Value:
     None
@@ -18,18 +22,30 @@ Example:
     _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawSelectEH"];
 */
 
+#include "..\..\GUI\defines.hpp"
+#include "..\..\GUI\textures.inc"
+
 params ["_map"];
+
+// Pulsing settings
+private _minRadius = 48;
+private _maxRadius = 64;
+private _pulseSpeed = 0.5;
 
 // Get select marker data
 private _data = _map getVariable ["selectMarkerData", []];
-// Exit if no data
-if (count _data != 3) exitWith {nil}; // TODO: Might need to be changed?
+
+// If only position is specified, initialize radius and pulse direction
+if (count _data == 1) then {
+  _data pushBack _minRadius;
+  _data pushBack 0;
+};
+
+// Exit if no/wrong data
+if (count _data != 3) exitWith {nil};
 _data params ["_position", "_radius", "_dir"];
 
-// Update "pulsing"
-private _minRadius = 48; // TODO: add optional parameters for these
-private _maxRadius = 64;
-private _pulseSpeed = 0.5;
+// Update pulsing
 if (_dir == 0) then {
   _radius = _radius - _pulseSpeed;
   if (_radius < _minRadius) then {
@@ -43,9 +59,11 @@ if (_dir == 0) then {
 };
 _map setVariable ["selectMarkerData", [_position, _radius, _dir]];
 
+private _color = [A3A_COLOR_SELECT_MARKER] call A3A_fnc_configColorToArray;
+
 _map drawIcon [
-  "\A3\ui_f\data\IGUI\Cfg\Cursors\selectOver_ca.paa", // TODO: Replace hardcoded texture
-  [1,1,1,0.75], // TODO: Replace hardcoded color
+  A3A_Tex_Select_Marker,
+  _color,
   _position,
   _radius,
   _radius,

@@ -141,7 +141,7 @@ switch (_mode) do
 
     _fastTravelMap setVariable ["selectedMarker", _selectedMarker];
     private _position = getMarkerPos _selectedMarker;
-    _fastTravelMap setVariable ["selectMarkerData", [_position, 48, 0]];
+    _fastTravelMap setVariable ["selectMarkerData", [_position]];
 
     ["update"] call A3A_fnc_fastTravelTab;
   };

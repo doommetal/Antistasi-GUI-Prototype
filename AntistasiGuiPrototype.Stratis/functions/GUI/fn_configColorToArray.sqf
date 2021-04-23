@@ -21,8 +21,8 @@ Dependencies:
     None
 
 Example:
-    [A3A_COLOR_BLACK] call A3A_fnc_configColorToString; // [0,0,0,1]
-    [{0,0,0,1}] call A3A_fnc_configColorToString; // [0,0,0,1] - Same as above but with
+    [A3A_COLOR_BLACK] call A3A_fnc_configColorToArray; // [0,0,0,1]
+    [{0,0,0,1}] call A3A_fnc_configColorToArray; // [0,0,0,1]
 */
 
 private _configColor = _this select 0;

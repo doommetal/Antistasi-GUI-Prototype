@@ -547,7 +547,7 @@ switch (_mode) do
 
     _garrisonMap setVariable ["selectedMarker", _selectedMarker];
     private _position = getMarkerPos _selectedMarker;
-    _garrisonMap setVariable ["selectMarkerData", [_position, 48, 0]];
+    _garrisonMap setVariable ["selectMarkerData", [_position]];
 
     ["updateGarrisonTab"] call A3A_fnc_hqDialog;
   };

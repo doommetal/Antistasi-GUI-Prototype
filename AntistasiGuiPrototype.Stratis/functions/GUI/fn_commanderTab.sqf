@@ -121,7 +121,7 @@ switch (_mode) do
       private _position = getPos leader _group;
 
       // Update select marker
-      _commanderMap setVariable ["selectMarkerData", [_position, 48, 0]];
+      _commanderMap setVariable ["selectMarkerData", [_position]];
 
       // Update controls
       private _controlsGroup = _display displayCtrl A3A_IDC_HCSINGLEGROUPVIEW;
