@@ -184,11 +184,19 @@ switch (_mode) do
     // Update campaign status section
     // Uupdate war level & aggro
     private _warLevelText = _display displayCtrl A3A_IDC_WARLEVELTEXT;
+    private _occupantsFlag = _display displayCtrl A3A_IDC_OCCFLAGPICTURE;
     private _occupantsAggroText = _display displayCtrl A3A_IDC_OCCAGGROTEXT;
+    private _invadersFlag = _display displayCtrl A3A_IDC_INVFLAGPICTURE;
     private _invadersAggroText = _display displayCtrl A3A_IDC_INVAGGROTEXT;
     _warLevelText ctrlSetText str tierWar;
+    _occupantsFlag ctrlSetText NATOFlagTexture;
     _occupantsAggroText ctrlSetText ([aggressionOccupants] call A3A_fnc_getAggroLevelString);
+    _occupantsFlag ctrlSetToolTip format ["%1 aggression", nameOccupants]; // TODO: localize
+    _occupantsAggroText ctrlSetTooltip format ["%1 aggression", nameOccupants]; // TODO: localize
+    _invadersFlag ctrlSetText CSATFlagTexture;
     _invadersAggroText ctrlSetText ([aggressionInvaders] call A3A_fnc_getAggroLevelString);
+    _invadersFlag ctrlSetToolTip format ["%1 aggression", nameInvaders]; // TODO: localize
+    _invadersAggroText ctrlSetTooltip format ["%1 aggression", nameInvaders]; // TODO: localize
 
     // TODO: Get actual values here, placeholder totals from Altis
     private _controlledCities = 5;

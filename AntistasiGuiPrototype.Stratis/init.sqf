@@ -190,6 +190,15 @@ markersX apply {
   garrisons setVariable [_x, [0,0,0,0,0,0,0,0]];
 };
 
+// Faction names
+nameTeamPlayer = "FIA";
+nameOccupants = "NATO";
+nameInvaders = "CSAT";
+
+// Flags
+SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
+NATOFlagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
+CSATFlagTexture= "A3\Data_F\Flags\Flag_CSAT_CO.paa";
 
 // Init addActions for HQ assets
 petros addAction["HQ Management","createDialog ""A3A_HqDialog"""];

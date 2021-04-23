@@ -166,8 +166,6 @@ class A3A_HqDialog : A3A_DefaultDialog
             class OccFlagPicture : A3A_Picture
             {
               idc = A3A_IDC_OCCFLAGPICTURE;
-              text = "\A3\Data_F\Flags\flag_nato_co.paa"; // TODO: Replace with actual faction flag
-              tooltip = $STR_antistasi_dialogs_hq_occupants_aggression; // TODO: Update with faction name
               x = 1 * GRID_W;
               y = 16 * GRID_H;
               w = 12 * GRID_W;
@@ -178,8 +176,6 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_OCCAGGROTEXT;
               style = ST_CENTER;
-              text = "";
-              tooltip = $STR_antistasi_dialogs_hq_occupants_aggression; // TODO: Update with faction name
               colorBackground[] = A3A_COLOR_BACKGROUND;
               shadow = 2;
               x = 1 * GRID_W;
@@ -191,8 +187,6 @@ class A3A_HqDialog : A3A_DefaultDialog
             class InvFlagPicture : A3A_Picture
             {
               idc = A3A_IDC_INVFLAGPICTURE;
-              text = "\A3\Data_F\Flags\flag_CSAT_co.paa"; // TODO: Replace with actual faction flag
-              tooltip = $STR_antistasi_dialogs_hq_invader_aggression; // TODO: Update with faction name
               x = 16 * GRID_W;
               y = 16 * GRID_H;
               w = 12 * GRID_W;
@@ -203,8 +197,6 @@ class A3A_HqDialog : A3A_DefaultDialog
             {
               idc = A3A_IDC_INVAGGROTEXT;
               style = ST_CENTER;
-              text = "";
-              tooltip = $STR_antistasi_dialogs_hq_invader_aggression; // TODO: Update with faction name
               colorBackground[] = A3A_COLOR_BACKGROUND;
               shadow = 2;
               x = 16 * GRID_W;
@@ -214,7 +206,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             };
 
 
-            // Controlled sites
+            // Controlled locations
 
             class ControlledCitiesIcon : A3A_Picture
             {
