@@ -92,6 +92,11 @@
 #define A3A_Tex_Icon_GroupUnitCount "\A3\ui_f\data\igui\cfg\simpleTasks\types\meet_ca.paa"
 #define A3A_Tex_Select_Marker "\A3\ui_f\data\IGUI\Cfg\Cursors\selectOver_ca.paa"
 
+// Commander picture
+#define A3A_Tex_Icon_PlayerCommander "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa"
+#define A3A_Tex_Icon_PlayerEligible "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa"
+#define A3A_Tex_Icon_PlayerIneligible "GUI\textures\icon_ineligible.paa"
+
 // Debug stuff
 // TODO: Remove when merging
 #define A3A_Tex_TestVehiclePicture "\a3\editorpreviews_f\Data\CfgVehicles\C_Hatchback_01_F.jpg"

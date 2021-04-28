@@ -152,13 +152,14 @@ fakePlayers = [p1, p2, p3, p4];
 {
   _x setVariable ["isMember", false];
   _x setVariable ["fakePlayerUID", str floor random [10000,50000,99999] + str floor random [10000,50000,99999] + str floor random [10000,50000,99999] + str floor random [10,50,99]];
-  _x setVariable ["kills", 0];
-  _x setVariable ["missionsCompleted", 0];
-  _x setVariable ["eligibleCommander", true];
-  _x setVariable ["moneyX", floor random 2000];
+  _x setVariable ["kills", 0]; // Placeholder stat, to be changed
+  _x setVariable ["missionsCompleted", 0]; // Placeholder stat, to be changed
+  _x setVariable ["eligible", false]; // Commander eligibility
+  _x setVariable ["moneyX", floor random 2000]; // Player money
 } forEach fakePlayers;
 p1 setVariable ["isMember", true]; // player starts as member
-
+p1 setVariable ["eligible", true]; // player starts as eligible
+theBoss = p1; // Player starts as commander
 
 // Fake map places
 outposts = [

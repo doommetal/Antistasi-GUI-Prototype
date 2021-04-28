@@ -298,6 +298,30 @@
         <Original>AI Management</Original>
         <English>AI Management</English>
       </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_text_commander">
+        <Original>Commander</Original>
+        <English>Commander</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_text_eligible">
+        <Original>Eligible</Original>
+        <English>Eligible</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_text_ineligible">
+        <Original>Ineligible</Original>
+        <English>Ineligible</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_button_resign">
+        <Original>Resign</Original>
+        <English>Resign</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_button_set_eligible">
+        <Original>Set Eligible</Original>
+        <English>Set Eligible</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_main_commander_button_set_ineligible">
+        <Original>Set Ineligible</Original>
+        <English>Set Ineligible</English>
+      </Key>
       <Key ID="STR_antistasi_dialogs_main_donate">
         <Original>Donate Money</Original>
         <English>Donate Money</English>

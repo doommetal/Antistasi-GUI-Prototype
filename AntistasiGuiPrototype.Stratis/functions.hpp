@@ -65,4 +65,10 @@ class A3A
     class formatTime {};
     class systemTime_format_S {}; // Already in antistasi, don't merge
   };
+
+  class OrgPlayers
+  {
+    class theBossToggleEligibility {}; // Already in antistasi, don't merge
+    class assignBossIfNone {}; // Already in antistasi, don't merge
+  };
 };

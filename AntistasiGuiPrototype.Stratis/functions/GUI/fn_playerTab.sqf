@@ -149,8 +149,43 @@ switch (_mode) do
     _killsText ctrlSetText str _kills;
 
     // TODO: Update commander icon/button
+    if (theBoss == player) then {
+      // Player is commander
+      // Update icon
+      _commanderPicture ctrlSetText A3A_Tex_Icon_PlayerCommander;
+      _commanderPicture ctrlSetTextColor ([A3A_COLOR_COMMANDER] call A3A_fnc_configColorToArray);
+      // Update text
+      _commanderText ctrlSetText localize "STR_antistasi_dialogs_main_commander_text_commander";
+      _commanderText ctrlSetTextColor ([A3A_COLOR_COMMANDER] call A3A_fnc_configColorToArray);
+      // Update button
+      _commanderButton ctrlSetText localize "STR_antistasi_dialogs_main_commander_button_resign";
+    } else {
+      if (player getVariable ["eligible", false]) then {
+        // Player is eligible for commander
+        // Update icon
+        _commanderPicture ctrlSetText A3A_Tex_Icon_PlayerEligible;
+        _commanderPicture ctrlSetTextColor ([A3A_COLOR_ELIGIBLE] call A3A_fnc_configColorToArray);
+        // Update text
+        _commanderText ctrlSetText localize "STR_antistasi_dialogs_main_commander_text_eligible";
+        _commanderText ctrlSetTextColor ([A3A_COLOR_ELIGIBLE] call A3A_fnc_configColorToArray);
+        // Update button
+        _commanderButton ctrlSetText localize "STR_antistasi_dialogs_main_commander_button_set_ineligible";
+      } else {
+        // Player is not eligible for commander
+        // Update icon
+        _commanderPicture ctrlSetText A3A_Tex_Icon_PlayerIneligible;
+        _commanderPicture ctrlSetTextColor ([A3A_COLOR_INELIGIBLE] call A3A_fnc_configColorToArray);
+        // Update text
+        _commanderText ctrlSetText localize "STR_antistasi_dialogs_main_commander_text_ineligible";
+        _commanderText ctrlSetTextColor ([A3A_COLOR_INELIGIBLE] call A3A_fnc_configColorToArray);
+        // Update button
+        _commanderButton ctrlSetText localize "STR_antistasi_dialogs_main_commander_button_set_eligible";
+      };
 
-    private _money = player getVariable "moneyX"; // player getVariable moneyX
+    };
+
+    // Update money
+    private _money = player getVariable "moneyX";
     _moneyText ctrlSetText format[localize "STR_antistasi_dialogs_main_player_money_text", _money];
 
     // Vehicle section

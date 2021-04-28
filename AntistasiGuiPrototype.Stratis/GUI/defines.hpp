@@ -170,6 +170,11 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 // Map select marker
 #define A3A_COLOR_SELECT_MARKER {1,1,1,0.75}
 
+// Commander display
+#define A3A_COLOR_COMMANDER {1,0.9,0.5,1}
+#define A3A_COLOR_ELIGIBLE {0.7,0.7,0.7,1}
+#define A3A_COLOR_INELIGIBLE {0.5,0.5,0.5,1}
+
 
 // Fonts
 #define A3A_DEFAULT_FONT "RobotoCondensed"

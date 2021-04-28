@@ -287,9 +287,9 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_COMMANDERPICTURE;
           colorText[] = {1,0.9,0.5,1};
-          colorShadow[] = {0,0,0,1};
+          colorShadow[] = A3A_COLOR_BLACK;
           shadow = 2;
-          text = "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa";
+          text = A3A_Tex_Icon_PlayerCommander;
           x = 79 * GRID_W;
           y = 16 * GRID_H;
           w = 12 * GRID_W;
@@ -298,11 +298,10 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class CommanderText : A3A_Text
         {
-          text = "Commander"; // TODO: localize later, not final yet
           idc = A3A_IDC_COMMANDERTEXT;
           style = ST_CENTER;
           colorText[] = {1,0.9,0.5,1};
-          colorShadow[] = {0,0,0,1};
+          colorShadow[] = A3A_COLOR_BLACK;
           shadow = 2;
           x = 74 * GRID_W;
           y = 25 * GRID_H;
@@ -313,8 +312,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class CommanderButton : A3A_Button
         {
           idc = A3A_IDC_COMMANDERBUTTON;
-          text = "Resign"; // TODO: localize later, not final yet
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_theBossToggleEligibility (or something similar) when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "[player, cursorTarget] call A3A_fnc_theBossToggleEligibility; [""update""] call A3A_fnc_playerTab;";
           x = 74 * GRID_W;
           y = 34 * GRID_H;
           w = 22 * GRID_W;
