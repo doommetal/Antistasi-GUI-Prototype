@@ -29,13 +29,14 @@ FIX_LINE_NUMBERS()
 
 params[["_mode","onLoad"], ["_params",[]]];
 
+// Get display
+private _display = findDisplay A3A_IDD_MainDialog;
+
 switch (_mode) do
 {
   case ("onLoad"):
   {
     Debug("MainDialog onLoad starting...");
-
-    private _display = findDisplay A3A_IDD_MainDialog;
 
     // Disable/hide unavailable tab buttons
     if (!playerIsCommander) then {
@@ -118,7 +119,6 @@ switch (_mode) do
   case ("onUnload"):
   {
     Debug("MainDialog onUnload starting...");
-    private _display = findDisplay A3A_IDD_MainDialog;
 
     // Remove map drawing EH
     _commanderMap ctrlRemoveAllEventHandlers "Draw";
@@ -133,6 +133,8 @@ switch (_mode) do
 
   case ("switchTab"):
   {
+    // Takes 1 parameter: <STRING> name of tab
+    
     // Get selected tab
     private _selectedTab = _params select 0;
 
@@ -195,11 +197,8 @@ switch (_mode) do
 
     // Log attempt at accessing tab without permission
     if (_selectedTabIDC == -1) exitWith {
-      Error("Attempted to acces tab without permission : %1", _selectedTab);
+      Error("Attempted to access tab without permission : %1", _selectedTab);
     };
-
-    // Get display
-    private _display = findDisplay A3A_IDD_MainDialog;
 
     // Array of IDCs for all the tabs, including subtabs (like AI & player management)
     // Commander and fast travel maps are also hidden here, and shown again in updateCommanderTab
