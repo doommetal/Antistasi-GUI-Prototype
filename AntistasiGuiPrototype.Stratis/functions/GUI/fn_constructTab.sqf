@@ -46,8 +46,8 @@ switch (_mode) do
 
     // Clear controlsgroup first
     {
-      if (ctrlParentControlsGroup _x isEqualTo _constructControlsGroup) then {ctrlDelete _x};
-    } forEach allControls _display;
+      ctrlDelete _x;
+    } forEach allControls _constructControlsGroup;
 
     private _added = 0;
     {

@@ -143,8 +143,8 @@ switch (_mode) do
     // Delete any previous status icons
     private _iconsControlsGroup = _display displayCtrl A3A_IDC_HCGROUPSTATUSICONS;
     {
-      if (ctrlParentControlsGroup _x isEqualTo _iconsControlsGroup) then {ctrlDelete _x};
-    } forEach allControls _display;
+      ctrlDelete _x;
+    } forEach allControls _iconsControlsGroup;
 
     // Get the status icons to display
     private _statusIcons = [];
@@ -252,8 +252,8 @@ switch (_mode) do
 
     // Clear controlsGroup first
     {
-      if (ctrlParentControlsGroup _x isEqualTo _multipleGroupsView) then {ctrlDelete _x};
-    } forEach allControls _display;
+      ctrlDelete _x;
+    } forEach allControls _multipleGroupsView;
 
     {
       // Get group info
