@@ -37,18 +37,20 @@ switch (_mode) do
     // Disable buttons for functions that are unavailable
 
     // Undercover
-    // TODO: Get actual reason for no undercover and display in tooltip
     private _undercoverButton = _display displayCtrl A3A_IDC_UNDERCOVERBUTTON;
     private _undercoverIcon = _display displayCtrl A3A_IDC_UNDERCOVERICON;
-    if (canGoUndercover) then
+    _canGoUndercover = [] call A3A_fnc_canGoUndercover;
+    if (_canGoUndercover # 0) then
     {
       _undercoverButton ctrlEnable true;
       _undercoverButton ctrlSetTooltip "";
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+      _undercoverIcon ctrlSetTooltip "";
     } else {
       _undercoverButton ctrlEnable false;
-      _undercoverButton ctrlSetTooltip "Can't go undercover\n\nIllegal items visible\nYou have been reported by the enemy"; // TODO: localize later, not final yet
+      _undercoverButton ctrlSetTooltip (_canGoUndercover # 1);
       _undercoverIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+      _undercoverIcon ctrlSetTooltip (_canGoUndercover # 1);
     };
 
     // Fasttravel
@@ -148,7 +150,8 @@ switch (_mode) do
     private _kills = player getVariable "kills";
     _killsText ctrlSetText str _kills;
 
-    // TODO: Update commander icon/button
+    // Update commander icon/text/button
+    // TODO: Add member check
     if (theBoss == player) then {
       // Player is commander
       // Update icon
