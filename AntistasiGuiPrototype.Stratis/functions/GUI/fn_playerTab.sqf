@@ -39,7 +39,7 @@ switch (_mode) do
     // Undercover
     private _undercoverButton = _display displayCtrl A3A_IDC_UNDERCOVERBUTTON;
     private _undercoverIcon = _display displayCtrl A3A_IDC_UNDERCOVERICON;
-    _canGoUndercover = [] call A3A_fnc_canGoUndercover;
+    private _canGoUndercover = [] call A3A_fnc_canGoUndercover;
     if (_canGoUndercover # 0) then
     {
       _undercoverButton ctrlEnable true;
@@ -72,21 +72,24 @@ switch (_mode) do
     };
 
     // Construct
-    // TODO: Get actual reason for no construction and display in tooltip
     private _constructButton = _display displayCtrl A3A_IDC_CONSTRUCTBUTTON;
     private _constructIcon = _display displayCtrl A3A_IDC_CONSTRUCTICON;
-    if (canConstruct) then
+    private _canBuild = [] call A3A_fnc_canBuild;
+    if (_canBuild # 0) then
     {
       _constructButton ctrlEnable true;
       _constructButton ctrlSetTooltip "";
       _constructIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+      _constructIcon ctrlSetTooltip "";
     } else {
       _constructButton ctrlEnable false;
-      _constructButton ctrlSetTooltip "Can't make constructions\n\nYou need an engineer in your squad"; // TODO: localize later, not final yet
+      _constructButton ctrlSetTooltip (_canBuild # 1);
       _constructIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+      _constructIcon ctrlSetTooltip (_canBuild # 1);
     };
 
     // AI Management
+    // TODO: split checks to A3A_fnc_canManageAI
     _aiManagementTooltipText = "";
     _canManageAi = false;
 

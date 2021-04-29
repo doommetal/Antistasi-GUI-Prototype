@@ -83,4 +83,9 @@ class A3A
     class canFastTravel {};
     class fastTravel {};
   };
+
+  class REINF
+  {
+    class canBuild {};
+  };
 };
