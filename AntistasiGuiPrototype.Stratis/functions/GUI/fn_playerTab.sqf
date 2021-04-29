@@ -53,19 +53,22 @@ switch (_mode) do
       _undercoverIcon ctrlSetTooltip (_canGoUndercover # 1);
     };
 
-    // Fasttravel
-    // TODO: Get actual reason for no fast travel and display in tooltip
+    // Fast travel
     private _fastTravelButton = _display displayCtrl A3A_IDC_FASTTRAVELBUTTON;
     private _fastTravelIcon = _display displayCtrl A3A_IDC_FASTTRAVELICON;
-    if (canFastTravel) then
+    private _canFastTravel = [] call A3A_fnc_canFastTravel;
+    if (_canFastTravel # 0) then
     {
       _fastTravelButton ctrlEnable true;
       _fastTravelButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_fast_travel_tooltip";
       _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+      _fastTravelIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_fast_travel_tooltip";
+
     } else {
       _fastTravelButton ctrlEnable false;
-      _fastTravelButton ctrlSetTooltip "Can't fast travel\n\nEnemies nearby\nPetros broke your legs"; // TODO localize
+      _fastTravelButton ctrlSetTooltip (_canFastTravel # 1);
       _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+      _fastTravelIcon ctrlSetTooltip (_canFastTravel # 1);
     };
 
     // Construct

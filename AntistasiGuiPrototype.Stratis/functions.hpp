@@ -77,4 +77,10 @@ class A3A
     class canGoUndercover {};
     class goUndercover {};
   };
+
+  class FastTravel
+  {
+    class canFastTravel {};
+    class fastTravel {};
+  };
 };
