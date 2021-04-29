@@ -202,7 +202,7 @@ switch (_mode) do
     private _noVehicleGroup = _display displayCtrl A3A_IDC_NOVEHICLEGROUP;
 
     // Vehicle section is only available to members
-    if (player getVariable "isMember") then {
+    if ([player] call A3A_fnc_isMember) then {
 
       // Attempt to get vehicle from cursortarget
       _vehicle = cursorTarget;

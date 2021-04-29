@@ -70,6 +70,7 @@ class A3A
   {
     class theBossToggleEligibility {}; // Already in antistasi, don't merge
     class assignBossIfNone {}; // Already in antistasi, don't merge
+    class isMember {}; // Already in antistasi, don't merge
   };
 
   class Undercover
