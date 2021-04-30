@@ -38,10 +38,11 @@ eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
 }]; */
 
 // State variables
-canGoUndercover = false; // TODO: Replace with A3A_fnc_canGoUndercover
+canGoUndercover = true; // TODO: Replace with A3A_fnc_canGoUndercover
 // isUndercover = (captive _player) and !(_player getVariable ["incapacitated",false]);
 canFastTravel = true; // TODO: Replace with A3A_fnc_canFastTravel
 canConstruct = true; // check for engineer in squad
+canMoveHQ = true;
 
 // Faction resources
 skillFia = 1; // AI skill level

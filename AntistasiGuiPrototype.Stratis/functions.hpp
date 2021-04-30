@@ -53,6 +53,8 @@ class A3A
   {
     class getLocationMarkerType {};
     class getAggroLevelString {}; // Already in antistasi, don't merge
+    class canMoveHQ {}; // Already in antsitasi, don't merge
+    class moveHQ {}; // Already in antistasi, don't merge
   };
 
   class Revive
