@@ -28,13 +28,15 @@ FIX_LINE_NUMBERS()
 
 params[["_mode","onLoad"], ["_params",[]]];
 
+// Get display and map control
+private _display = findDisplay A3A_IDD_HqDialog;
+private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
+
 switch (_mode) do
 {
   case ("onLoad"):
   {
     Debug("HQ Dialog onLoad starting...");
-
-    private _display = findDisplay A3A_IDD_HqDialog;
 
     // Hide HC group icons to stop them from interfering with map controls
     _display setVariable ["HCgroupIcons", groupIconsVisible];
@@ -45,6 +47,7 @@ switch (_mode) do
     ["switchTab", ["main"]] call A3A_fnc_hqDialog;
 
     // Move HQ button
+    // TODO: Move to updateMainTab?
     // TODO: merge in wurzels A3A_fnc_canMoveHQ
     private _moveHqIcon = _display displayCtrl A3A_IDC_MOVEHQICON;
     private _moveHqButton = _display displayCtrl A3A_IDC_MOVEHQBUTTON;
@@ -77,7 +80,6 @@ switch (_mode) do
     ["restSliderChanged"] spawn A3A_fnc_hqDialog;
 
     // Garrison tab map drawing EHs
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     // Select marker
     _garrisonMap ctrlAddEventHandler ["Draw", "_this call A3A_fnc_mapDrawSelectEH"];
     // Outposts
@@ -89,10 +91,8 @@ switch (_mode) do
   case ("onUnload"):
   {
     Debug("HqDialog onUnload starting...");
-    private _display = findDisplay A3A_IDD_HqDialog;
 
     // Remove map drawing EH
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     _garrisonMap ctrlRemoveAllEventHandlers "Draw";
 
     // Restore HC group icons state
@@ -135,9 +135,6 @@ switch (_mode) do
     if (_selectedTabIDC == -1) exitWith {
       Error("Attempted to access non-existant tab: %1", _selectedTab);
     };
-
-    // Get display
-    private _display = findDisplay A3A_IDD_HqDialog;
 
     // Array of IDCs for all the tabs, including subtabs (like AI & player management)
     // Garrison map is also hidden here, and shown again in updateCommanderTab
@@ -308,7 +305,6 @@ switch (_mode) do
     _backButton ctrlShow true;
 
     // Show map if not already visible
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     if (!ctrlShown _garrisonMap) then {_garrisonMap ctrlShow true;};
 
     // Get selected marker
@@ -340,8 +336,7 @@ switch (_mode) do
       "_at"
     ];
 
-    // Get the controls
-    private _display = findDisplay A3A_IDD_HqDialog;
+    // Get controls
     private _garrisonTitle = _display displayCtrl A3A_IDC_GARRISONTITLE;
     private _riflemanNumber = _display displayCtrl A3A_IDC_RIFLEMANNUMBER;
     private _squadleaderNumber = _display displayCtrl A3A_IDC_SQUADLEADERNUMBER;
@@ -351,7 +346,6 @@ switch (_mode) do
     private _mortarNumber = _display displayCtrl A3A_IDC_MORTARNUMBER;
     private _marksmanNumber = _display displayCtrl A3A_IDC_MARKSMANNUMBER;
     private _atNumber = _display displayCtrl A3A_IDC_ATNUMBER;
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
 
     // Add currently selected marker to map, we need it later for... stuff...
     _garrisonMap setVariable ["selectedMarker", _selectedMarker];
@@ -508,8 +502,6 @@ switch (_mode) do
 
   case ("restSliderChanged"):
   {
-    private _display = findDisplay A3A_IDD_HqDialog;
-
     private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
     private _restText = _display displayCtrl A3A_IDC_RESTTEXT;
     private _time = sliderPosition _restSlider;
@@ -523,7 +515,6 @@ switch (_mode) do
 
   case ("factionMoneySliderChanged"):
   {
-    private _display = findDisplay A3A_IDD_HqDialog;
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
     private _factionMoneyEditBox = _display displayCtrl A3A_IDC_FACTIONMONEYEDITBOX;
     private _sliderValue = sliderPosition _factionMoneySlider;
@@ -532,7 +523,6 @@ switch (_mode) do
 
   case ("factionMoneyEditBoxChanged"):
   {
-    private _display = findDisplay A3A_IDD_HqDialog;
     private _factionMoneyEditBox = _display displayCtrl A3A_IDC_FACTIONMONEYEDITBOX;
     private _factionMoneySlider = _display displayCtrl A3A_IDC_FACTIONMONEYSLIDER;
     private _factionMoneyEditBoxValue = floor parseNumber ctrlText _factionMoneyEditBox;
@@ -546,8 +536,6 @@ switch (_mode) do
   case ("garrisonMapClicked"):
   {
     Debug_1("Garrison map clicked: %1", _params);
-    private _display = findDisplay A3A_IDD_HqDialog;
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     // Find closest marker to the clicked position
     _params params ["_clickedPosition"];
     private _clickedWorldPosition = _garrisonMap ctrlMapScreenToWorld _clickedPosition;
@@ -576,7 +564,6 @@ switch (_mode) do
     private _type = _params select 0;
     private _num = _params select 1;
 
-    private _display = findDisplay A3A_IDD_HqDialog;
     private _text = "";
     private _typeIndex = -1;
     switch (_type) do
@@ -618,7 +605,6 @@ switch (_mode) do
     private _val = parseNumber (ctrlText _text);
     private _newVal = _val + _num;
     _newVal = 0 max _newVal;
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
 
     // Update garrison in outpost array
     private _selectedMarker = _garrisonMap getVariable "selectedMarker";
@@ -642,8 +628,6 @@ switch (_mode) do
   {
     // TODO: on merge replace this with actual antistasi function
     Trace("Dismissing garrison");
-    private _display = findDisplay A3A_IDD_HqDialog;
-    private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
     private _selectedMarker = _garrisonMap getVariable ["selectedMarker", ""];
     if (_selectedMarker isEqualTo "") exitWith {Error("Dismiss garrison: No marker selected")};
 
@@ -655,19 +639,19 @@ switch (_mode) do
     } forEach markersX;
 
     ["updateGarrisonTab"] call A3A_fnc_hqDialog;
-
   };
 
   // TODO: Remove placeholder mode
-  case ("debugChangeTime"): {
-    private _display = findDisplay A3A_IDD_HqDialog;
+  case ("debugChangeTime"):
+  {
     private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
     private _time = sliderPosition _restSlider;
     skipTime _time;
     closeDialog 1;
   };
 
-  default {
+  default
+  {
       // Log error if attempting to call a mode that doesn't exist
       Error_1("HQ Dialog mode does not exist: %1", _mode);
   };
