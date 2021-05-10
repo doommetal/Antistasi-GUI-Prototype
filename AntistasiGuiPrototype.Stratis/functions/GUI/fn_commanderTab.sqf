@@ -28,7 +28,7 @@ FIX_LINE_NUMBERS()
 params[["_mode","update"], ["_params",[]]];
 
 // Get display and common controls
-private _display = findDisplay A3A_IDD_MainDialog;
+private _display = findDisplay A3A_IDD_MAINDIALOG;
 private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
 private _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
 private _multipleGroupsBackground = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSBACKGROUND;
@@ -299,7 +299,7 @@ switch (_mode) do
       _groupNameLabel setVariable ["groupToSelect", _group];
       _groupNameLabel ctrlAddEventHandler ["ButtonClick", {
         params ["_control"];
-        private _display = findDisplay A3A_IDD_MainDialog;
+        private _display = findDisplay A3A_IDD_MAINDIALOG;
         private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
         _commanderMap setVariable ["selectedGroup", _control getVariable "groupToSelect"];
         ["update"] call A3A_fnc_commanderTab;
@@ -418,7 +418,7 @@ switch (_mode) do
   case ("updateFireMissionView"):
   {
     Trace("Updating Fire Mission View");
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
 
     // Hide group views
     private _multipleGroupsView = _display displayCtrl A3A_IDC_HCMULTIPLEGROUPSVIEW;
@@ -614,7 +614,7 @@ switch (_mode) do
   {
     Trace("Commander map clicked");
     // Get display and map control
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
     _params params ["_clickedPosition"];
     private _clickedWorldPosition = _commanderMap ctrlMapScreenToWorld _clickedPosition;
@@ -673,7 +673,7 @@ switch (_mode) do
   case ("groupNameLabelClicked"):
   {
     // This is here to prevent hardcoded IDCs in the configs
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
     _commanderMap setVariable ["selectedGroup", grpNull];
     ["update"] call A3A_fnc_commanderTab;
@@ -681,7 +681,7 @@ switch (_mode) do
 
   case ("groupFastTravelButtonClicked"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     private _selectedGroup = _commanderMap getVariable "selectedGroup";
@@ -694,7 +694,7 @@ switch (_mode) do
     private _selection = _params select 0;
     Trace_1("Fire Mission selection changed: %1", _selection);
 
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
 
 
@@ -799,7 +799,7 @@ switch (_mode) do
   case ("showGarbageCleanOptions"):
   {
     Trace("Showing garbage clean options");
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
 
     // Hide overlapping buttons
     private _airSupportButton = _display displayCtrl A3A_IDC_AIRSUPPORTBUTTON;

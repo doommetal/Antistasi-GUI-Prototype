@@ -6,7 +6,7 @@
 
 class A3A_MainDialog : A3A_TabbedDialog
 {
-  idd = A3A_IDD_MainDialog;
+  idd = A3A_IDD_MAINDIALOG;
   onLoad = "[""onLoad""] spawn A3A_fnc_mainDialog";
   onUnload = "[""onUnload""] call A3A_fnc_mainDialog";
 
@@ -14,7 +14,7 @@ class A3A_MainDialog : A3A_TabbedDialog
   {
     class TitlebarText : A3A_TitlebarText
     {
-      idc = A3A_IDC_MainDialogTitleBar;
+      idc = A3A_IDC_MAINDIALOGTITLEBAR;
       text = $STR_antistasi_dialogs_main_titlebar;
       x = DIALOG_X;
       y = DIALOG_Y - 10 * GRID_H;
@@ -24,7 +24,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class TabButtons : A3A_ControlsGroupNoScrollbars
     {
-      idc = A3A_IDC_MainDialogTabButtons;
+      idc = A3A_IDC_MAINDIALOGTABBUTTONS;
       x = DIALOG_X;
       y = DIALOG_Y - 5 * GRID_H;
       w = DIALOG_W * GRID_W;
@@ -34,7 +34,7 @@ class A3A_MainDialog : A3A_TabbedDialog
       {
         class PlayerTabButton : A3A_Button
         {
-          idc = A3A_IDC_PlayerTabButton;
+          idc = A3A_IDC_PLAYERTABBUTTON;
           text = $STR_antistasi_dialogs_main_player_tab_button;
           onButtonClick = "[""switchTab"", [""player""]] call A3A_fnc_mainDialog;";
           x = 0;
@@ -45,7 +45,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class CommanderTabButton : A3A_Button
         {
-          idc = A3A_IDC_CommanderTabButton;
+          idc = A3A_IDC_COMMANDERTABBUTTON;
           text = $STR_antistasi_dialogs_main_commander_tab_button;
           onButtonClick = "[""switchTab"", [""commander""]] call A3A_fnc_mainDialog;";
           x = 30 * GRID_W;
@@ -56,7 +56,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
         class AdminTabButton : A3A_Button
         {
-          idc = A3A_IDC_AdminTabButton;
+          idc = A3A_IDC_ADMINTABBUTTON;
           text = $STR_antistasi_dialogs_main_admin_tab_button;
           onButtonClick = "[""switchTab"", [""admin""]] call A3A_fnc_mainDialog;";
           x = 60 * GRID_W;
@@ -74,7 +74,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class PlayerTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_PlayerTab;
+      idc = A3A_IDC_PLAYERTAB;
       show = false;
 
       class Controls
@@ -511,7 +511,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class CommanderTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_CommanderTab;
+      idc = A3A_IDC_COMMANDERTAB;
       // Width set to smaller than usual to avoid an issue where
       // pressing anything other than the map would (invisibly) cover up the
       // map control, making it unclickable
@@ -1233,7 +1233,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class AdminTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_AdminTab;
+      idc = A3A_IDC_ADMINTAB;
       show = false;
 
       class Controls
@@ -1632,7 +1632,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class ConstructTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_ConstructTab;
+      idc = A3A_IDC_CONSTRUCTTAB;
       show = false;
 
       class controls {
@@ -1650,7 +1650,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class AIManagementTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_AIManagementTab;
+      idc = A3A_IDC_AIMANAGEMENTTAB;
       show = false;
 
       class controls {
@@ -1789,7 +1789,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class DonateTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_DonateTab;
+      idc = A3A_IDC_DONATETAB;
       show = false;
 
       class controls {
@@ -1979,7 +1979,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class AirSupportTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_AirSupportTab;
+      idc = A3A_IDC_AIRSUPPORTTAB;
       show = false;
 
       class controls {
@@ -2116,7 +2116,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
     class PlayerManagementTab : A3A_DefaultControlsGroup
     {
-      idc = A3A_IDC_PlayerManagementTab;
+      idc = A3A_IDC_PLAYERMANAGEMENTTAB;
       show = false;
 
       class controls {
@@ -2259,7 +2259,7 @@ class A3A_MainDialog : A3A_TabbedDialog
     // Close and Back buttons
     class BackButton : A3A_BackButton
     {
-      idc = A3A_IDC_MainDialogBackButton;
+      idc = A3A_IDC_MAINDIALOGBACKBUTTON;
       x = DIALOG_X + DIALOG_W * GRID_W - 12 * GRID_W;
       y = DIALOG_Y - 10 * GRID_H;
     };

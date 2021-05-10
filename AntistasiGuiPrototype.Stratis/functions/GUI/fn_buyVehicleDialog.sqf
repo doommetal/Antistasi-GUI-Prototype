@@ -34,7 +34,7 @@ switch (_mode) do
   {
     Debug("BuyVehicleDialog onLoad starting...");
 
-    private _display = findDisplay A3A_IDD_BuyVehicleDialog;
+    private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
 
     // Add the stuff to the construct list
     private _vehiclesControlsGroup = _display displayCtrl A3A_IDC_VEHICLESGROUP;

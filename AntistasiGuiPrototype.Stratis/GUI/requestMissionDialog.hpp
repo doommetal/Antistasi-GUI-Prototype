@@ -1,6 +1,6 @@
 class A3A_RequestMissionDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_RequestMissionDialog;
+  idd = A3A_IDD_REQUESTMISSIONDIALOG;
 
   class Controls
   {

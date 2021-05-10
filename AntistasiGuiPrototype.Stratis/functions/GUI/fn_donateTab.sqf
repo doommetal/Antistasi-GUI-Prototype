@@ -33,8 +33,8 @@ switch (_mode) do
   {
     Trace("Updating Donate tab");
     // Show back button
-    private _display = findDisplay A3A_IDD_MainDialog;
-    private _backButton = _display displayCtrl A3A_IDC_MainDialogBackButton;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
+    private _backButton = _display displayCtrl A3A_IDC_MAINDIALOGBACKBUTTON;
     _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
     _backButton ctrlAddEventHandler ["MouseButtonClick", {
       ["switchTab", ["player"]] call A3A_fnc_mainDialog;
@@ -71,7 +71,7 @@ switch (_mode) do
   // Donation Menu
   case ("moneySliderChanged"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     _sliderValue = sliderPosition _moneySlider;
@@ -81,7 +81,7 @@ switch (_mode) do
   case ("moneyEditBoxChanged"):
   {
     private _money = player getVariable "moneyX";
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     private _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
@@ -95,7 +95,7 @@ switch (_mode) do
   {
     private _moneyToAdd = _params select 0;
     private _money = player getVariable "moneyX";
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
     private _moneySlider = _display displayCtrl A3A_IDC_MONEYSLIDER;
     private _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;

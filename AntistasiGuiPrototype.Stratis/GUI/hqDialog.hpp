@@ -1,6 +1,6 @@
 class A3A_HqDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_HqDialog;
+  idd = A3A_IDD_HQDIALOG;
   onLoad = "[""onLoad""] spawn A3A_fnc_hqDialog";
 
   class Controls

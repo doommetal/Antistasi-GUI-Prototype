@@ -20,7 +20,7 @@ Example:
 
 #include "..\..\GUI\ids.inc"
 
-private _display = findDisplay A3A_IDD_MainDialog;
+private _display = findDisplay A3A_IDD_MAINDIALOG;
 private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
 private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
 

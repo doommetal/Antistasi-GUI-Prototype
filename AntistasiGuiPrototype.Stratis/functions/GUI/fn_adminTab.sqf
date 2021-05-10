@@ -32,7 +32,7 @@ switch (_mode) do
   case ("update"):
   {
     Trace("Updating admin tab");
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     // Update AI limit settings
     _civLimitSlider = _display displayCtrl A3A_IDC_CIVLIMITSLIDER;
     _civLimitSlider sliderSetRange [civLimitMin,civLimitMax];
@@ -108,7 +108,7 @@ switch (_mode) do
   // Admin Tab
   case ("civLimitSliderChanged"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _civLimitSlider = _display displayCtrl A3A_IDC_CIVLIMITSLIDER;
     private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
     private _sliderValue = sliderPosition _civLimitSlider;
@@ -117,7 +117,7 @@ switch (_mode) do
 
   case ("civLimitEditBoxChanged"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
     private _civLimitSlider = _display displayCtrl A3A_IDC_CIVLIMITSLIDER;
     private _civLimitEditBoxValue = floor parseNumber ctrlText _civLimitEditBox;
@@ -129,7 +129,7 @@ switch (_mode) do
 
   case ("spawnDistanceSliderChanged"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _spawnDistanceSlider = _display displayCtrl A3A_IDC_SPAWNDISTANCESLIDER;
     private _spawnDistanceEditBox = _display displayCtrl A3A_IDC_SPAWNDISTANCEEDITBOX;
     private _sliderValue = sliderPosition _spawnDistanceSlider;
@@ -138,7 +138,7 @@ switch (_mode) do
 
   case ("spawnDistanceEditBoxChanged"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _spawnDistanceEditBox = _display displayCtrl A3A_IDC_SPAWNDISTANCEEDITBOX;
     private _spawnDistanceSlider = _display displayCtrl A3A_IDC_SPAWNDISTANCESLIDER;
     private _spawnDistanceEditBoxValue = floor parseNumber ctrlText _spawnDistanceEditBox;
@@ -150,7 +150,7 @@ switch (_mode) do
 
   case ("aiLimiterSliderChanged"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _aiLimiterSlider = _display displayCtrl A3A_IDC_AILIMITERSLIDER;
     private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
     private _sliderValue = sliderPosition _aiLimiterSlider;
@@ -159,7 +159,7 @@ switch (_mode) do
 
   case ("aiLimiterEditBoxChanged"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
     private _aiLimiterSlider = _display displayCtrl A3A_IDC_AILIMITERSLIDER;
     private _aiLimiterEditBoxValue = floor parseNumber ctrlText _aiLimiterEditBox;
@@ -172,7 +172,7 @@ switch (_mode) do
   case ("confirmAILimit"):
   {
     Trace("Showing AI Settings confirm button");
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _commitAiButton = _display displayCtrl A3A_IDC_COMMITAIBUTTON;
     _commitAiButton ctrlRemoveAllEventHandlers "ButtonClick";
     _commitAiButton ctrlSetText localize "STR_antistasi_dialogs_main_admin_ai_confirm_button";
@@ -180,7 +180,7 @@ switch (_mode) do
       Trace("Confirmed AI Settings");
       hint "Oh no you broke the server :(";
 
-      private _display = findDisplay A3A_IDD_MainDialog;
+      private _display = findDisplay A3A_IDD_MAINDIALOG;
       private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
       private _civPerc = floor parseNumber ctrlText _civLimitEditBox;
       private _spawnDistanceEditBox = _display displayCtrl A3A_IDC_SPAWNDISTANCEEDITBOX;

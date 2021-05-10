@@ -33,8 +33,8 @@ switch (_mode) do
   {
     Trace("Updating Player Management tab");
     // Show back button
-    private _display = findDisplay A3A_IDD_MainDialog;
-    private _backButton = _display displayCtrl A3A_IDC_MainDialogBackButton;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
+    private _backButton = _display displayCtrl A3A_IDC_MAINDIALOGBACKBUTTON;
     _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
     _backButton ctrlAddEventHandler ["MouseButtonClick", {
       ["switchTab", ["admin"]] call A3A_fnc_mainDialog;
@@ -66,7 +66,7 @@ switch (_mode) do
   {
     // Needs scheduled environment
 
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _listBox = _display displayCtrl A3A_IDC_ADMINPLAYERLIST;
     private _index = lnbCurSelRow _listBox;
     private _addButton = _display displayCtrl A3A_IDC_ADDMEMBERBUTTON;
@@ -84,7 +84,7 @@ switch (_mode) do
   // Debug cases, to be removed/changed when merging
   case ("adminAddMember"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _listBox = _display displayCtrl A3A_IDC_ADMINPLAYERLIST;
     private _index = lbCurSel _listBox;
     _listBox lnbSetColor [[_index,0], [0.2,0.6,0.2,1]];
@@ -94,7 +94,7 @@ switch (_mode) do
 
   case ("adminRemoveMember"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _listBox = _display displayCtrl A3A_IDC_ADMINPLAYERLIST;
     private _index = lbCurSel _listBox;
     _listBox lnbSetColor [[_index,0], [0.7,0.7,0.7,1]];

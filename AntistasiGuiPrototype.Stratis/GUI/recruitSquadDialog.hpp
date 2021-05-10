@@ -1,6 +1,6 @@
 class A3A_RecruitSquadDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_RecruitSquadDialog;
+  idd = A3A_IDD_RECRUITSQUADDIALOG;
 
   class Controls
   {

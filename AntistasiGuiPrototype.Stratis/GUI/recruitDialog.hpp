@@ -1,6 +1,6 @@
 class A3A_RecruitDialog : A3A_DefaultDialog
 {
-  idd = A3A_IDD_RecruitDialog;
+  idd = A3A_IDD_RECRUITDIALOG;
   // onLoad = "[""onLoad""] spawn A3A_fnc_buyVehicleDialog";
 
   class Controls

@@ -33,8 +33,8 @@ switch (_mode) do
   {
     Trace("Updating AI Management Tab");
     // Show back button
-    private _display = findDisplay A3A_IDD_MainDialog;
-    private _backButton = _display displayCtrl A3A_IDC_MainDialogBackButton;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
+    private _backButton = _display displayCtrl A3A_IDC_MAINDIALOGBACKBUTTON;
     _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
     _backButton ctrlAddEventHandler ["MouseButtonClick", {
       ["switchTab", ["player"]] call A3A_fnc_mainDialog;
@@ -89,7 +89,7 @@ switch (_mode) do
 
   case ("clearAIListboxSelection"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _aiListBox = _display displayCtrl A3A_IDC_AILISTBOX;
     _lbSize = lbSize _aiListBox;
     for "_i" from 0 to _lbSize - 1 do
@@ -105,7 +105,7 @@ switch (_mode) do
   {
     // Needs scheduled environment
 
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _aiListBox = _display displayCtrl A3A_IDC_AILISTBOX;
 
     // Disable remote control button if more than 1 AI is selected

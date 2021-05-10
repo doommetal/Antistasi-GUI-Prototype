@@ -33,8 +33,8 @@ switch (_mode) do
   {
     Trace("Updating Fast Travel tab");
     // Show back button
-    private _display = findDisplay A3A_IDD_MainDialog;
-    private _backButton = _display displayCtrl A3A_IDC_MainDialogBackButton;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
+    private _backButton = _display displayCtrl A3A_IDC_MAINDIALOGBACKBUTTON;
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     private _hcMode = _fastTravelMap getVariable ["hcMode", false];
     _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
@@ -121,7 +121,7 @@ switch (_mode) do
   case ("mapClicked"):
   {
     Debug_1("Fast Travel map clicked: %1", _params);
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     // Find closest marker to the clicked position
     _params params ["_clickedPosition"];
@@ -148,7 +148,7 @@ switch (_mode) do
 
   case ("clearSelectedLocation"):
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     _fastTravelMap setVariable ["selectedMarker", ""];
     _fastTravelMap setVariable ["selectMarkerData", []];
@@ -157,7 +157,7 @@ switch (_mode) do
   case ("setHcMode"):
   {
     _params params [["_enableHcMode", false], ["_hcGroup", grpNull]];
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     Trace_2("Set high command mode: %1, group: %2", _enableHcMode, _hcGroup);
     _fastTravelMap setVariable ["hcMode", _enableHcMode];
@@ -166,7 +166,7 @@ switch (_mode) do
 
   case ("commitButtonClicked"): // TODO UI-update: Placeholder, replace with actual FT function on merge
   {
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
     private _marker = _fastTravelMap getVariable ["selectedMarker", ""];
     if !(_marker isEqualTo "") then {

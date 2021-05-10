@@ -29,7 +29,7 @@ FIX_LINE_NUMBERS()
 params[["_mode","onLoad"], ["_params",[]]];
 
 // Get display and map control
-private _display = findDisplay A3A_IDD_HqDialog;
+private _display = findDisplay A3A_IDD_HQDIALOG;
 private _garrisonMap = _display displayCtrl A3A_IDC_GARRISONMAP;
 
 switch (_mode) do
@@ -180,7 +180,7 @@ switch (_mode) do
 
   case ("updateMainTab"):
   {
-    _display = findDisplay A3A_IDD_HqDialog;
+    _display = findDisplay A3A_IDD_HQDIALOG;
 
     // Update titlebar
     _titleBar = _display displayCtrl A3A_IDC_HQDIALOGTITLEBAR;
@@ -290,7 +290,7 @@ switch (_mode) do
 
   case ("updateGarrisonTab"):
   {
-    _display = findDisplay A3A_IDD_HqDialog;
+    _display = findDisplay A3A_IDD_HQDIALOG;
 
     // Update titlebar
     _titleBar = _display displayCtrl A3A_IDC_HQDIALOGTITLEBAR;
@@ -485,7 +485,7 @@ switch (_mode) do
 
   case ("updateMinefieldsTab"):
   {
-    _display = findDisplay A3A_IDD_HqDialog;
+    _display = findDisplay A3A_IDD_HQDIALOG;
 
     // Update titlebar
     _titleBar = _display displayCtrl A3A_IDC_HQDIALOGTITLEBAR;

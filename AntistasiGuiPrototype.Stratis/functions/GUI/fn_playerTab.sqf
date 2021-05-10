@@ -32,7 +32,7 @@ switch (_mode) do
   case ("update"):
   {
     Trace("Updating Player tab");
-    private _display = findDisplay A3A_IDD_MainDialog;
+    private _display = findDisplay A3A_IDD_MAINDIALOG;
 
     // Disable buttons for functions that are unavailable
 

@@ -1,6 +1,6 @@
 class A3A_LoadDialog
 {
-  idd = A3A_IDC_LoadDialog;
+  idd = A3A_IDC_LOADDIALOG;
 
   #define DIALOG_W 65 // Width of dialog in pixelGrid units
   #define DIALOG_H 26 // Height of dialog in pixelGrid units

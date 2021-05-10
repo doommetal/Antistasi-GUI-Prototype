@@ -30,7 +30,7 @@ FIX_LINE_NUMBERS()
 params[["_mode","onLoad"], ["_params",[]]];
 
 // Get display
-private _display = findDisplay A3A_IDD_MainDialog;
+private _display = findDisplay A3A_IDD_MAINDIALOG;
 
 switch (_mode) do
 {
@@ -40,13 +40,13 @@ switch (_mode) do
 
     // Disable/hide unavailable tab buttons
     if (!playerIsCommander) then {
-      private _commanderTabButton = _display displayCtrl A3A_IDC_CommanderTabButton;
+      private _commanderTabButton = _display displayCtrl A3A_IDC_COMMANDERTABBUTTON;
       _commanderTabButton ctrlEnable false;
       _commanderTabButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_commander_tab_disabled_tooltip";
     };
 
     if (!playerIsAdmin) then {
-      private _adminTabButton = _display displayCtrl A3A_IDC_AdminTabButton;
+      private _adminTabButton = _display displayCtrl A3A_IDC_ADMINTABBUTTON;
       _adminTabButton ctrlEnable false;
       _adminTabButton ctrlshow false;
     };
@@ -134,7 +134,7 @@ switch (_mode) do
   case ("switchTab"):
   {
     // Takes 1 parameter: <STRING> name of tab
-    
+
     // Get selected tab
     private _selectedTab = _params select 0;
 
@@ -147,20 +147,20 @@ switch (_mode) do
       case ("player"):
       {
         // No permission check needed
-        _selectedTabIDC = A3A_IDC_PlayerTab;
+        _selectedTabIDC = A3A_IDC_PLAYERTAB;
       };
 
       case ("commander"):
       {
         if (playerIsCommander) then {
-          _selectedTabIDC = A3A_IDC_CommanderTab;
+          _selectedTabIDC = A3A_IDC_COMMANDERTAB;
         };
       };
 
       case ("admin"):
       {
         if (playerIsAdmin) then {
-          _selectedTabIDC = A3A_IDC_AdminTab;
+          _selectedTabIDC = A3A_IDC_ADMINTAB;
         };
       };
 
@@ -171,27 +171,27 @@ switch (_mode) do
 
       case ("construct"):
       {
-        _selectedTabIDC = A3A_IDC_ConstructTab;
+        _selectedTabIDC = A3A_IDC_CONSTRUCTTAB;
       };
 
       case ("aimanagement"):
       {
-        _selectedTabIDC = A3A_IDC_AIManagementTab;
+        _selectedTabIDC = A3A_IDC_AIMANAGEMENTTAB;
       };
 
       case ("donate"):
       {
-        _selectedTabIDC = A3A_IDC_DonateTab;
+        _selectedTabIDC = A3A_IDC_DONATETAB;
       };
 
       case ("airsupport"):
       {
-        _selectedTabIDC = A3A_IDC_AirSupportTab;
+        _selectedTabIDC = A3A_IDC_AIRSUPPORTTAB;
       };
 
       case ("playermanagement"):
       {
-        _selectedTabIDC = A3A_IDC_PlayerManagementTab;
+        _selectedTabIDC = A3A_IDC_PLAYERMANAGEMENTTAB;
       };
     };
 
@@ -203,17 +203,17 @@ switch (_mode) do
     // Array of IDCs for all the tabs, including subtabs (like AI & player management)
     // Commander and fast travel maps are also hidden here, and shown again in updateCommanderTab
     private _allTabs = [
-      A3A_IDC_PlayerTab,
-      A3A_IDC_CommanderTab,
+      A3A_IDC_PLAYERTAB,
+      A3A_IDC_COMMANDERTAB,
       A3A_IDC_COMMANDERMAP,
-      A3A_IDC_AdminTab,
+      A3A_IDC_ADMINTAB,
       A3A_IDC_FASTTRAVELTAB,
       A3A_IDC_FASTTRAVELMAP,
-      A3A_IDC_ConstructTab,
-      A3A_IDC_AIManagementTab,
-      A3A_IDC_DonateTab,
-      A3A_IDC_AirSupportTab,
-      A3A_IDC_PlayerManagementTab
+      A3A_IDC_CONSTRUCTTAB,
+      A3A_IDC_AIMANAGEMENTTAB,
+      A3A_IDC_DONATETAB,
+      A3A_IDC_AIRSUPPORTTAB,
+      A3A_IDC_PLAYERMANAGEMENTTAB
     ];
 
     // Hide all tabs
@@ -223,7 +223,7 @@ switch (_mode) do
     } forEach _allTabs;
 
     // Hide back button, enable in update tab mode when/if needed
-    private _backButton = _display displayCtrl A3A_IDC_MainDialogBackButton;
+    private _backButton = _display displayCtrl A3A_IDC_MAINDIALOGBACKBUTTON;
     _backButton ctrlShow false;
 
     // Show selected tab
