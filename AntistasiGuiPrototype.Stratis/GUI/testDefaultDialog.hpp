@@ -44,7 +44,7 @@ class A3A_TestDefaultDialog : A3A_DefaultDialog
         class TestPicture : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Napalm_Bomb;
+          text = A3A_Icon_Napalm_Bomb;
 					x = 16 * GRID_W;
 					y = 16 * GRID_H;
 					w = 48 * GRID_W;
@@ -63,7 +63,7 @@ class A3A_TestDefaultDialog : A3A_DefaultDialog
         class TestPicture2 : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Napalm_Bomb;
+          text = A3A_Icon_Napalm_Bomb;
 					x = 16 * GRID_W;
 					y = 64 * GRID_H;
 					w = 48 * GRID_W;

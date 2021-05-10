@@ -470,7 +470,7 @@ class A3A_ActivePicture : A3A_ActiveText
 
 class A3A_CloseButton : A3A_ActivePicture
 {
-  text = A3A_Tex_Icon_Close;
+  text = A3A_Icon_Close;
   // Uses onMouseButtonClick to not be accidentally triggered by keyboard
   onMouseButtonClick = "closeDialog 2;";
   w = 5 * GRID_W;
@@ -479,7 +479,7 @@ class A3A_CloseButton : A3A_ActivePicture
 
 class A3A_BackButton : A3A_CloseButton
 {
-  text = A3A_Tex_Icon_Back;
+  text = A3A_Icon_Back;
 };
 
 class A3A_ScrollBar

@@ -25,7 +25,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Inf_Squad;
+          text = A3A_Icon_Inf_Squad;
           x = 24 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -60,7 +60,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Inf_Team;
+          text = A3A_Icon_Inf_Team;
           x = 24 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -95,7 +95,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_MG_Team;
+          text = A3A_Icon_MG_Team;
           x = 24 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -130,7 +130,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_AT_Team;
+          text = A3A_Icon_AT_Team;
           x = 24 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -165,7 +165,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Mortar_Team;
+          text = A3A_Icon_Mortar_Team;
           x = 128 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -201,7 +201,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
           idc = -1;
           colorBackground[] = {0,0,0,0};
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Sniper_Team;
+          text = A3A_Icon_Sniper_Team;
           x = 128 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -236,7 +236,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_AT_Car;
+          text = A3A_Icon_AT_Car;
           x = 128 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -271,7 +271,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_AA_Truck;
+          text = A3A_Icon_AA_Truck;
           x = 128 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;

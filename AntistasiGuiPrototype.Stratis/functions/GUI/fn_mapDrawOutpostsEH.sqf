@@ -33,31 +33,31 @@ private _outpostIconData = [];
 
   private _icon = switch (_type) do {
     case ("hq"): {
-      MISSION_ROOT + A3A_Tex_Icon_Map_HQ;
+      MISSION_ROOT + A3A_Icon_Map_HQ;
     };
 
     case ("city"): {
-      MISSION_ROOT + A3A_Tex_Icon_Map_City;
+      MISSION_ROOT + A3A_Icon_Map_City;
     };
 
     case ("factory"): {
-      MISSION_ROOT + A3A_Tex_Icon_Map_Factory;
+      MISSION_ROOT + A3A_Icon_Map_Factory;
     };
 
     case ("resource"): {
-      MISSION_ROOT + A3A_Tex_Icon_Map_Resource;
+      MISSION_ROOT + A3A_Icon_Map_Resource;
     };
 
     case ("seaport"): {
-      MISSION_ROOT + A3A_Tex_Icon_Map_Seaport;
+      MISSION_ROOT + A3A_Icon_Map_Seaport;
     };
 
     case ("airport"): {
-      MISSION_ROOT + A3A_Tex_Icon_Map_Airport;
+      MISSION_ROOT + A3A_Icon_Map_Airport;
     };
 
     case ("outpost"): {
-      MISSION_ROOT + A3A_Tex_Icon_Map_Outpost;
+      MISSION_ROOT + A3A_Icon_Map_Outpost;
     };
 
     default {

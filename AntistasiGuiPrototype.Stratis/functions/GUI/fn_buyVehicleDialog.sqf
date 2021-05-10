@@ -87,7 +87,7 @@ switch (_mode) do
       if (_canGoUndercover) then {
         private _undercoverIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
         _undercoverIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-        _undercoverIcon ctrlSetText A3A_Tex_Icon_HideVic;
+        _undercoverIcon ctrlSetText A3A_Icon_HideVic;
         _underCoverIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_undercover_tooltip";
         _undercoverIcon ctrlCommit 0;
       };
@@ -109,7 +109,7 @@ switch (_mode) do
       {
         private _driverIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _driverIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-        _driverIcon ctrlSetText A3A_Tex_Icon_Driver;
+        _driverIcon ctrlSetText A3A_Icon_Driver;
         _driverIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_driver_tooltip";
         _driverIcon ctrlCommit 0;
 
@@ -117,7 +117,7 @@ switch (_mode) do
         {
           private _coPilotIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
           _coPilotIcon ctrlSetPosition [5 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-          _coPilotIcon ctrlSetText A3A_Tex_Icon_Driver;
+          _coPilotIcon ctrlSetText A3A_Icon_Driver;
           _coPilotIcon ctrlSetTextColor [0.8,0.8,0.8,1];
           _coPilotIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_copilot_tooltip";
           _coPilotIcon ctrlCommit 0;
@@ -129,7 +129,7 @@ switch (_mode) do
       {
         private _commanderIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _commanderIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-        _commanderIcon ctrlSetText A3A_Tex_Icon_Commander;
+        _commanderIcon ctrlSetText A3A_Icon_Commander;
         _commanderIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_commander_tooltip";
         _commanderIcon ctrlCommit 0;
 
@@ -140,7 +140,7 @@ switch (_mode) do
       {
         private _gunnerIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _gunnerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-        _gunnerIcon ctrlSetText A3A_Tex_Icon_Gunner;
+        _gunnerIcon ctrlSetText A3A_Icon_Gunner;
         _gunnerIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_gunner_tooltip";
         _gunnerIcon ctrlCommit 0;
 
@@ -158,7 +158,7 @@ switch (_mode) do
       {
         private _passengerIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
         _passengerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-        _passengerIcon ctrlSetText A3A_Tex_Icon_Cargo;
+        _passengerIcon ctrlSetText A3A_Icon_Cargo;
         _passengerIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_passenger_tooltip";
         _passengerIcon ctrlCommit 0;
 
@@ -174,7 +174,7 @@ switch (_mode) do
         {
           private _ffvIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
           _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-          _ffvIcon ctrlSetText A3A_Tex_Icon_FFV;
+          _ffvIcon ctrlSetText A3A_Icon_FFV;
           _ffvIcon ctrlSetTextColor [0.8,0.8,0.8,1];
           _ffvIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_ffv_tooltip";
           _ffvIcon ctrlCommit 0;

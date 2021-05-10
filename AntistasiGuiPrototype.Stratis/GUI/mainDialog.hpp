@@ -85,7 +85,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class UndercoverIcon : A3A_Picture
         {
           idc = A3A_IDC_UNDERCOVERICON;
-          text = A3A_Tex_Icon_Undercover;
+          text = A3A_Icon_Undercover;
           x = 8 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -108,7 +108,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class FastTravelIcon : A3A_Picture
         {
           idc = A3A_IDC_FASTTRAVELICON;
-          text = A3A_Tex_Icon_FastTravel;
+          text = A3A_Icon_FastTravel;
           x = 8 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -132,7 +132,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class ConstructIcon : A3A_Picture
         {
           idc = A3A_IDC_CONSTRUCTICON;
-          text = A3A_Tex_Icon_Construct;
+          text = A3A_Icon_Construct;
           x = 8 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -155,7 +155,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AIManagementIcon : A3A_Picture
         {
           idc = A3A_IDC_AIMANAGEMENTICON;
-          text = A3A_Tex_Icon_AI_Management;
+          text = A3A_Icon_AI_Management;
           x = 8 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -289,7 +289,7 @@ class A3A_MainDialog : A3A_TabbedDialog
           colorText[] = {1,0.9,0.5,1};
           colorShadow[] = A3A_COLOR_BLACK;
           shadow = 2;
-          text = A3A_Tex_Icon_PlayerCommander;
+          text = A3A_Icon_PlayerCommander;
           x = 79 * GRID_W;
           y = 16 * GRID_H;
           w = 12 * GRID_W;
@@ -575,7 +575,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class FastTravelHCButton : A3A_ShortcutButton
             {
               idc = -1;
-              textureNoShortcut = A3A_Tex_Icon_FastTravel;
+              textureNoShortcut = A3A_Icon_FastTravel;
               tooltip = $STR_antistasi_dialogs_main_fast_travel;
               onButtonClick = "[""groupFastTravelButtonClicked""] call A3A_fnc_commanderTab";
               x = 42 * GRID_W;
@@ -595,7 +595,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class RemoteControlHCButton : A3A_ShortcutButton
             {
               idc = -1;
-              textureNoShortcut = A3A_Tex_Icon_Remotecontrol;
+              textureNoShortcut = A3A_Icon_Remotecontrol;
               tooltip = $STR_antistasi_dialogs_main_remote_control_tooltip;
               onButtonClick = "hint ""Totally controlling this dude now""";
               x = 48 * GRID_W;
@@ -635,7 +635,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class GroupUnitCountIcon : A3A_Picture
             {
               idc = -1;
-              text = A3A_Tex_Icon_GroupUnitCount;
+              text = A3A_Icon_GroupUnitCount;
               tooltip = $STR_antistasi_dialogs_main_hc_unit_count_tooltip;
               x = 2 * GRID_W;
               y = 8 * GRID_H;
@@ -1145,7 +1145,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class NoRadioIcon : A3A_Picture
             {
               idc = -1;
-              text = A3A_Tex_Icon_AT_Minefield;
+              text = A3A_Icon_AT_Minefield;
               colorText[] = A3A_COLOR_BUTTON_BACKGROUND_DISABLED;
               x = 15 * GRID_W;
               y = 15 * GRID_H;
@@ -1422,7 +1422,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AiSectionWarningIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Warning;
+          text = A3A_Icon_Warning;
           colorText[] = A3A_COLOR_ERROR;
           x = 76 * GRID_W;
           y = 38 * GRID_H;
@@ -1712,7 +1712,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AiControlIcon : A3A_Picture
             {
               idc = A3A_IDC_AICONTROLICON;
-              text = A3A_Tex_Icon_Remotecontrol;
+              text = A3A_Icon_Remotecontrol;
               x = 36 * GRID_W;
               y = 2 * GRID_H;
               w = 8 * GRID_W;
@@ -1733,7 +1733,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class DismissIcon : A3A_Picture
             {
               idc = A3A_IDC_AIDISMISSICON;
-              text = A3A_Tex_Icon_Dismiss;
+              text = A3A_Icon_Dismiss;
               x = 36 * GRID_W;
               y = 22 * GRID_H;
               w = 8 * GRID_W;
@@ -1754,7 +1754,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AutoLootIcon : A3A_Picture
             {
               idc = A3A_IDC_AIAUTOLOOTICON;
-              text = A3A_Tex_Icon_Rearm;
+              text = A3A_Icon_Rearm;
               x = 36 * GRID_W;
               y = 42 * GRID_H;
               w = 8 * GRID_W;
@@ -1775,7 +1775,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class AutoHealIcon : A3A_Picture
             {
               idc = A3A_IDC_AIAUTOHEALICON;
-              text = A3A_Tex_Icon_Heal;
+              text = A3A_Icon_Heal;
               x = 36 * GRID_W;
               y = 62 * GRID_H;
               w = 8 * GRID_W;
@@ -1867,7 +1867,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class Sub1000Button : A3A_ShortcutButton
         {
           idc = -1;
-          textureNoShortcut = A3A_Tex_ArrowEmpty_3L;
+          textureNoShortcut = A3A_ArrowEmpty_3L;
           onButtonClick = "[""donationAdd"", [-1000]] spawn A3A_fnc_donateTab";
           x = 74 * GRID_W;
           y = 53 * GRID_H;
@@ -1886,7 +1886,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class Sub100Button : A3A_ShortcutButton
         {
           idc = -1;
-          textureNoShortcut = A3A_Tex_ArrowEmpty_2L;
+          textureNoShortcut = A3A_ArrowEmpty_2L;
           onButtonClick = "[""donationAdd"", [-100]] spawn A3A_fnc_donateTab";
           x = 81 * GRID_W;
           y = 53 * GRID_H;
@@ -1906,8 +1906,8 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_MONEYSLIDER;
           color[] = {1,1,1,1};
-          arrowEmpty = A3A_Tex_ArrowEmpty_1L;
-          arrowFull = A3A_Tex_ArrowFull_1L;
+          arrowEmpty = A3A_ArrowEmpty_1L;
+          arrowFull = A3A_ArrowFull_1L;
           x = 88 * GRID_W;
           y = 53 * GRID_H;
           w = 50 * GRID_W;
@@ -1918,7 +1918,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class Add100Button : A3A_ShortcutButton
         {
           idc = -1;
-          textureNoShortcut = A3A_Tex_ArrowEmpty_2R;
+          textureNoShortcut = A3A_ArrowEmpty_2R;
           onButtonClick = "[""donationAdd"", [100]] spawn A3A_fnc_donateTab";
           x = 139 * GRID_W;
           y = 53 * GRID_H;
@@ -1937,7 +1937,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class Add1000Button : A3A_ShortcutButton
         {
           idc = -1;
-          textureNoShortcut = A3A_Tex_ArrowEmpty_3R;
+          textureNoShortcut = A3A_ArrowEmpty_3R;
           onButtonClick = "[""donationAdd"", [1000]] spawn A3A_fnc_donateTab";
           x = 146 * GRID_W;
           y = 53 * GRID_H;

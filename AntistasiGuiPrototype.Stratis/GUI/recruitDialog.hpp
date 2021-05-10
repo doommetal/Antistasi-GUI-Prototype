@@ -26,7 +26,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Rifleman;
+          text = A3A_Icon_Rifleman;
           x = 24 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -60,7 +60,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Autorifleman;
+          text = A3A_Icon_Autorifleman;
           x = 24 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -94,7 +94,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Grenadier;
+          text = A3A_Icon_Grenadier;
           x = 24 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -128,7 +128,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_AT;
+          text = A3A_Icon_AT;
           x = 24 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -162,7 +162,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Heal;
+          text = A3A_Icon_Heal;
           x = 128 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -196,7 +196,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Sniper;
+          text = A3A_Icon_Sniper;
           x = 128 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -230,7 +230,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Construct;
+          text = A3A_Icon_Construct;
           x = 128 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -264,7 +264,7 @@ class A3A_RecruitDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorText[]= {0.7,0.7,0.7,1};
-          text = A3A_Tex_Icon_Bomb_Specialist;
+          text = A3A_Icon_Bomb_Specialist;
           x = 128 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;

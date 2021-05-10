@@ -62,7 +62,7 @@ _map setVariable ["selectMarkerData", [_position, _radius, _dir]];
 private _color = [A3A_COLOR_SELECT_MARKER] call A3A_fnc_configColorToArray;
 
 _map drawIcon [
-  A3A_Tex_Select_Marker,
+  A3A_Select_Marker,
   _color,
   _position,
   _radius,

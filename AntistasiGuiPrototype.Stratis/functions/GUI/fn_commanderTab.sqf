@@ -182,38 +182,38 @@ switch (_mode) do
       private _iconFade = 0;
       switch (_x) do {
         case ("medic"): {
-          _iconPath = A3A_Tex_Icon_Heal;
+          _iconPath = A3A_Icon_Heal;
           _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_medic";
         };
 
         case ("at"): {
-          _iconPath = A3A_Tex_Icon_Has_AT;
+          _iconPath = A3A_Icon_Has_AT;
           _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_at";
         };
 
         case ("aa"): {
-          _iconPath = A3A_Tex_Icon_Has_AA;
+          _iconPath = A3A_Icon_Has_AA;
           _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_aa";
         };
 
         case ("mortarDeployed"): {
-          _iconPath = A3A_Tex_Icon_Has_Mortar;
+          _iconPath = A3A_Icon_Has_Mortar;
           _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_mortar_deployed";
         };
 
         case ("mortar"): {
-          _iconPath = A3A_Tex_Icon_Has_Mortar;
+          _iconPath = A3A_Icon_Has_Mortar;
           _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_mortar_not_deployed";
           _iconFade = 0.25;
         };
 
         case ("staticDeployed"): {
-          _iconPath = A3A_Tex_Icon_Has_Static;
+          _iconPath = A3A_Icon_Has_Static;
           _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_static_weapon_deployed";
         };
 
         case ("static"): {
-          _iconPath = A3A_Tex_Icon_Has_Static;
+          _iconPath = A3A_Icon_Has_Static;
           _toolTipText = localize "STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed";
           _iconFade = 0.25;
         };
@@ -319,7 +319,7 @@ switch (_mode) do
       // Group count, able to combat / alive
       private _groupCountIcon = _display ctrlCreate ["A3A_Picture", -1, _itemControlsGroup];
       _groupCountIcon ctrlSetPosition [2 * GRID_W, 8 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-      _groupCountIcon ctrlSetText A3A_Tex_Icon_GroupUnitCount;
+      _groupCountIcon ctrlSetText A3A_Icon_GroupUnitCount;
       _groupCountIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_hc_unit_count_tooltip";
       _groupCountIcon ctrlCommit 0;
 

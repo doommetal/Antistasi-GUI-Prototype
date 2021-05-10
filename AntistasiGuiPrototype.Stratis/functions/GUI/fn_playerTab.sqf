@@ -161,7 +161,7 @@ switch (_mode) do
     if (theBoss == player) then {
       // Player is commander
       // Update icon
-      _commanderPicture ctrlSetText A3A_Tex_Icon_PlayerCommander;
+      _commanderPicture ctrlSetText A3A_Icon_PlayerCommander;
       _commanderPicture ctrlSetTextColor ([A3A_COLOR_COMMANDER] call A3A_fnc_configColorToArray);
       // Update text
       _commanderText ctrlSetText localize "STR_antistasi_dialogs_main_commander_text_commander";
@@ -172,7 +172,7 @@ switch (_mode) do
       if (player getVariable ["eligible", false]) then {
         // Player is eligible for commander
         // Update icon
-        _commanderPicture ctrlSetText A3A_Tex_Icon_PlayerEligible;
+        _commanderPicture ctrlSetText A3A_Icon_PlayerEligible;
         _commanderPicture ctrlSetTextColor ([A3A_COLOR_ELIGIBLE] call A3A_fnc_configColorToArray);
         // Update text
         _commanderText ctrlSetText localize "STR_antistasi_dialogs_main_commander_text_eligible";
@@ -182,7 +182,7 @@ switch (_mode) do
       } else {
         // Player is not eligible for commander
         // Update icon
-        _commanderPicture ctrlSetText A3A_Tex_Icon_PlayerIneligible;
+        _commanderPicture ctrlSetText A3A_Icon_PlayerIneligible;
         _commanderPicture ctrlSetTextColor ([A3A_COLOR_INELIGIBLE] call A3A_fnc_configColorToArray);
         // Update text
         _commanderText ctrlSetText localize "STR_antistasi_dialogs_main_commander_text_ineligible";

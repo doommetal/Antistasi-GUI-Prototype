@@ -26,7 +26,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = A3A_Tex_Icon_Conquest;
+          text = A3A_Icon_Conquest;
           x = 15 * GRID_W;
           y = 14 * GRID_H;
           w = 16 * GRID_W;
@@ -50,7 +50,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = A3A_Tex_Icon_Destroy;
+          text = A3A_Icon_Destroy;
           x = 53 * GRID_W;
           y = 14 * GRID_H;
           w = 16 * GRID_W;
@@ -73,7 +73,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         class AssassinationIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Assassination;
+          text = A3A_Icon_Assassination;
           x = 91 * GRID_W;
           y = 14 * GRID_H;
           w = 16 * GRID_W;
@@ -97,7 +97,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = A3A_Tex_Icon_Convoy_Ambush;
+          text = A3A_Icon_Convoy_Ambush;
           x = 129 * GRID_W;
           y = 14 * GRID_H;
           w = 16 * GRID_W;
@@ -121,7 +121,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = A3A_Tex_Icon_Rescue;
+          text = A3A_Icon_Rescue;
           x = 34 * GRID_W;
           y = 56 * GRID_H;
           w = 16 * GRID_W;
@@ -145,7 +145,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = A3A_Tex_Icon_Logistics;
+          text = A3A_Icon_Logistics;
           x = 72 * GRID_W;
           y = 56 * GRID_H;
           w = 16 * GRID_W;
@@ -169,7 +169,7 @@ class A3A_RequestMissionDialog : A3A_DefaultDialog
         {
           idc = -1;
           colorBackground[] = {0,0,0,0};
-          text = A3A_Tex_Icon_Support;
+          text = A3A_Icon_Support;
           x = 110 * GRID_W;
           y = 56 * GRID_H;
           w = 16 * GRID_W;

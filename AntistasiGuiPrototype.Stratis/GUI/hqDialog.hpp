@@ -27,7 +27,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class GarrisonsIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Garrison;
+          text = A3A_Icon_Garrison;
           x = 8 * GRID_W;
           y = 13 * GRID_H;
           w = 8 * GRID_W;
@@ -49,7 +49,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class MinefieldsIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Minefield;
+          text = A3A_Icon_Minefield;
           x = 8 * GRID_W;
           y = 34 * GRID_H;
           w = 8 * GRID_W;
@@ -71,7 +71,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class MoveHqIcon : A3A_Picture
         {
           idc = A3A_IDC_MOVEHQICON;
-          text = A3A_Tex_Icon_Move_HQ;
+          text = A3A_Icon_Move_HQ;
           x = 8 * GRID_W;
           y = 55 * GRID_H;
           w = 8 * GRID_W;
@@ -93,7 +93,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class ClearTreesIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Clear_Trees;
+          text = A3A_Icon_Clear_Trees;
           x = 8 * GRID_W;
           y = 76 * GRID_H;
           w = 8 * GRID_W;
@@ -212,7 +212,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledCitiesIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDCITIESICON;
-              text = A3A_Tex_Icon_Town;
+              text = A3A_Icon_Town;
               tooltip = $STR_antistasi_dialogs_hq_controlled_cities;
               x = 32 * GRID_W;
               y = 6 * GRID_H;
@@ -234,7 +234,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledOutpostsIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDOUTPOSTSICON;
-              text = A3A_Tex_Icon_Outpost;
+              text = A3A_Icon_Outpost;
               tooltip = $STR_antistasi_dialogs_hq_controlled_outposts;
               x = 49 * GRID_W;
               y = 6 * GRID_H;
@@ -256,7 +256,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledAirBasesIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDAIRBASESICON;
-              text = A3A_Tex_Icon_Airbase;
+              text = A3A_Icon_Airbase;
               tooltip = $STR_antistasi_dialogs_hq_controlled_airbases;
               x = 66 * GRID_W;
               y = 6 * GRID_H;
@@ -280,7 +280,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledResourcesIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDRESOURCESICON;
-              text = A3A_Tex_Icon_Resource;
+              text = A3A_Icon_Resource;
               tooltip = $STR_antistasi_dialogs_hq_controlled_resources;
               x = 32 * GRID_W;
               y = 11 * GRID_H;
@@ -302,7 +302,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledFactoriesIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDFACTORIESICON;
-              text = A3A_Tex_Icon_Factory;
+              text = A3A_Icon_Factory;
               tooltip = $STR_antistasi_dialogs_hq_controlled_factories;
               x = 49 * GRID_W;
               y = 11 * GRID_H;
@@ -324,7 +324,7 @@ class A3A_HqDialog : A3A_DefaultDialog
             class ControlledSeaPortsIcon : A3A_Picture
             {
               idc = A3A_IDC_CONTROLLEDSEAPORTSICON;
-              text = A3A_Tex_Icon_Seaport;
+              text = A3A_Icon_Seaport;
               tooltip = $STR_antistasi_dialogs_hq_controlled_seaports;
               x = 66 * GRID_W;
               y = 11 * GRID_H;
@@ -1392,7 +1392,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class ApersMinefieldIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_AP_Minefield;
+          text = A3A_Icon_AP_Minefield;
           x = 42 * GRID_W;
           y = 24 * GRID_H;
           w = 28 * GRID_W;
@@ -1414,7 +1414,7 @@ class A3A_HqDialog : A3A_DefaultDialog
         class AtMinefieldIcon : A3A_Picture
         {
           idc = -1;
-          text = A3A_Tex_Icon_AT_Minefield;
+          text = A3A_Icon_AT_Minefield;
           x = 90 * GRID_W;
           y = 24 * GRID_H;
           w = 28 * GRID_W;

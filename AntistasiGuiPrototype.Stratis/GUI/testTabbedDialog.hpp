@@ -253,7 +253,7 @@ class A3A_TestTabbedDialog : A3A_TabbedDialog
         class TestActivePicture : A3A_ActivePicture
         {
           idc = -1;
-          text = A3A_Tex_Icon_Destroy;
+          text = A3A_Icon_Destroy;
           x = 2 * GRID_W;
           y = 22 * GRID_H;
           w = 4 * GRID_W;
