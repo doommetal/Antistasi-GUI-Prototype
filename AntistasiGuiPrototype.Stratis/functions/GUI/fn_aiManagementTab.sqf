@@ -62,7 +62,7 @@ switch (_mode) do
       _aiListBox ctrlEnable true;
       {
         _index = _aiListBox lbAdd name _x;
-        _netId = _x call BIS_fnc_netId; // TODO: can be only netId command instead of function in MP-only
+        _netId = _x call BIS_fnc_netId; // TODO UI-update: can be only netId command instead of function in MP-only
         Trace_1("Adding unit: %1", _netId);
         _aiListBox lbSetData [_index, _netId];
       } forEach _aisInGroup;
@@ -70,7 +70,7 @@ switch (_mode) do
 
     // If any units are selected on the command bar select those in the list
     {
-      _netId = _x call BIS_fnc_netId; // TODO: can be only netId command instead of function in MP-only
+      _netId = _x call BIS_fnc_netId; // TODO UI-update: can be only netId command instead of function in MP-only
       Trace_1("Selecting unit: %1", _netId);
       _lbSize = lbSize _aiListBox;
       for "_i" from 0 to (_lbSize - 1) do

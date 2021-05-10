@@ -98,5 +98,5 @@
 #define A3A_Tex_Icon_PlayerIneligible "GUI\textures\icon_ineligible.paa"
 
 // Debug stuff
-// TODO: Remove when merging
+// TODO UI-update: Remove when merging
 #define A3A_Tex_TestVehiclePicture "\a3\editorpreviews_f\Data\CfgVehicles\C_Hatchback_01_F.jpg"

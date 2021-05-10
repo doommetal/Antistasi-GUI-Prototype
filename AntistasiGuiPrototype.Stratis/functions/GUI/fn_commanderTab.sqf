@@ -231,7 +231,7 @@ switch (_mode) do
     _groupCombatModeText ctrlSetText _combatMode;
 
     private _groupVehicleText = _display displayCtrl A3A_IDC_HCGROUPVEHICLE;
-    _groupVehicleText ctrlSetStructuredText parseText "<t align='right'>Super long vehicle name bla bla</t>"; // TODO: Update with actual vehicle name
+    _groupVehicleText ctrlSetStructuredText parseText "<t align='right'>Super long vehicle name bla bla</t>"; // TODO UI-update: Update with actual vehicle name
 
     // Pan to group location
     _commanderMap ctrlMapAnimAdd [0.2, ctrlMapScale _commanderMap, getPos _groupLeader];
@@ -434,7 +434,7 @@ switch (_mode) do
 
 
     // Update rounds count
-    // TODO: Actually get rounds count from squad
+    // TODO UI-update: Actually get rounds count from squad
     private _heRoundsCount = 40;
     private _smokeRoundsCount = 24;
     _fireMissionControlsGroup setVariable ["availableHeRounds", _heRoundsCount];
@@ -652,7 +652,7 @@ switch (_mode) do
     private _selectedGroup = [hcAllGroups player, _clickedWorldPosition] call BIS_fnc_nearestPosition;
     Trace_1("_selectedGroup: %1", groupId _selectedGroup);
     private _selectedGroupMapPos = _commanderMap ctrlMapWorldToScreen getPos leader _selectedGroup;
-    private _maxDistance = 6 * GRID_W; // TODO: Move somewhere else?
+    private _maxDistance = 6 * GRID_W; // TODO UI-update: Move somewhere else?
     private _distance = _selectedGroupMapPos distance _clickedPosition;
     Trace_4("_selectedGroupMapPos %1, _clickedPosition %2, _maxDistance %3, _distance %4", _selectedGroupMapPos, _clickedPosition, _maxDistance, _distance);
 

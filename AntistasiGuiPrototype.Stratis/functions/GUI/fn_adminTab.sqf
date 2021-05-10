@@ -56,7 +56,7 @@ switch (_mode) do
     ctrlSetText [A3A_IDC_AILIMITEREDITBOX, str _aiLimiter];
 
     // Get Debug info
-    // TODO, change this to get server values instead when merging
+    // TODO UI-update: change this to get server values instead when merging
     private _debugText = _display displayCtrl A3A_IDC_DEBUGINFO;
     private _missionTime = [time] call A3A_fnc_formatTime;
     private _serverFps = (round (diag_fps * 10)) / 10;
@@ -71,7 +71,7 @@ switch (_mode) do
     private _countCiv = 4096;
     private _destroyedVehicles = 2;
 
-    // TODO: localize later, not final yet
+    // TODO UI-update: localize later, not final yet
     private _formattedString = format [
 "<t font='EtelkaMonospacePro' size='0.8'>
 <t>Mission time:</t><t align='right'>%1</t><br />
@@ -188,10 +188,10 @@ switch (_mode) do
       private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
       private _maxUnits = floor parseNumber ctrlText _aiLimiterEditBox;
 
-      // TODO: Change when merging. Something like this but with "set" instead of "increase"?
+      // TODO UI-update: Change when merging. Something like this but with "set" instead of "increase"?
       // [player,"maxUnits","increase"] remoteExecCall ["A3A_fnc_HQGameOptions",2];
 
-      // TODO: Placeholder routine, don't merge! Has no security checks whatsoever
+      // TODO UI-update: Placeholder routine, don't merge! Has no security checks whatsoever
       Trace_3("Changing AI Settings - civPerc:%1, distanceSPWN:%2, maxUnits:%3", _civPerc, _distanceSPWN, _maxUnits);
       missionNamespace setVariable ["civPerc", _civPerc];
       missionNamespace setVariable ["distanceSPWN", _distanceSPWN];

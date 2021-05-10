@@ -1,7 +1,7 @@
 /*
 Maintainer: DoomMetal
     Handles controls on the Request Mission dialog.
-    // TODO: This might not need to be this complicated unless we're changing the dialog to be dynamic
+    // TODO UI-update: This might not need to be this complicated unless we're changing the dialog to be dynamic
 
 Arguments:
     <STRING> Mode
@@ -32,13 +32,13 @@ switch (_mode) do
     // Params: 1 : Mission type (AS, DES etc...)
     Trace("Request mission button clicked");
 
-    // TODO: Check for member / commander etc
+    // TODO UI-update: Check for member / commander etc
     // if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {};
 
     if (count _params != 1) exitWith {Error("Invalid parameter count for missionButtonClicked. Got %1, expected 1", count _params)};
     private _missionType = _params select 0;
 
-    // TODO: Replace with [""MISSIONTYPE"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]
+    // TODO UI-update: Replace with [""MISSIONTYPE"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]
     switch (_missionType) do
     {
       case ("AS"):

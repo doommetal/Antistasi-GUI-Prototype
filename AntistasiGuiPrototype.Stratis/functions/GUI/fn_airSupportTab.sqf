@@ -77,7 +77,7 @@ switch (_mode) do
       _napalmButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_air_support_no_points_tooltip";
     };
 
-    // TODO: Check for controlled airbases
+    // TODO UI-update: Check for controlled airbases
     // {sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0
   };
 

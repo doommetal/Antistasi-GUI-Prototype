@@ -47,8 +47,8 @@ switch (_mode) do
     ["switchTab", ["main"]] call A3A_fnc_hqDialog;
 
     // Move HQ button
-    // TODO: Move to updateMainTab?
-    // TODO: merge in wurzels A3A_fnc_canMoveHQ
+    // TODO UI-update: Move to updateMainTab?
+    // TODO UI-update: merge in wurzels A3A_fnc_canMoveHQ
     private _moveHqIcon = _display displayCtrl A3A_IDC_MOVEHQICON;
     private _moveHqButton = _display displayCtrl A3A_IDC_MOVEHQBUTTON;
 
@@ -204,7 +204,7 @@ switch (_mode) do
     _invadersFlag ctrlSetToolTip (nameInvaders + " " + _aggressionStr);
     _invadersAggroText ctrlSetTooltip (nameInvaders + " " + _aggressionStr);
 
-    // TODO: Get actual values here, placeholder totals from Altis
+    // TODO UI-update: Get actual values here, placeholder totals from Altis
     private _controlledCities = 5;
     private _totalCities = 48;
     private _controlledOutposts = 4;
@@ -218,11 +218,11 @@ switch (_mode) do
     private _controlledSeaPorts = 0;
     private _totalPorts = 5;
 
-    private _totalPopulation = totalPopulation; // TODO: replace with something like A3A_fnc_resourceCheck
+    private _totalPopulation = totalPopulation; // TODO UI-update: replace with something like A3A_fnc_resourceCheck
     private _rebelPopulation = rebelPopulation;
     private _deadPopulation = deadPopulation;
 
-    // TODO: Loop through map sites here (citiesX, airportsX, wtfAreOutpostsCalledAgain?, resourcesX, factories, seaports)
+    // TODO UI-update: Loop through map sites here (citiesX, airportsX, wtfAreOutpostsCalledAgain?, resourcesX, factories, seaports)
 
     // If we aren't changing tooltips runtime we don't need to get the icons here
     /* _controlledCitiesIcon = _display displayCtrl A3A_IDC_CONTROLLEDCITIESICON;
@@ -285,7 +285,7 @@ switch (_mode) do
     _factionMoneyText ctrlSetText format ["%1 €", _factionMoney];
 
 
-    // TODO: Update rest section with current ingame time
+    // TODO UI-update: Update rest section with current ingame time
   };
 
   case ("updateGarrisonTab"):
@@ -323,7 +323,7 @@ switch (_mode) do
     private _position = getMarkerPos _selectedMarker;
     private _garrisonName = markerText _selectedMarker;
     private _outpostData = [_selectedMarker] call A3A_fnc_getOutpostByMarkerName;
-    // private _type = _outpostData select 1; // TODO: Remove if not needed
+    // private _type = _outpostData select 1; // TODO UI-update: Remove if not needed
     private _garrison = garrisons getVariable [_selectedMarker, []];
     _garrison params [
       "_rifleman",
@@ -403,7 +403,7 @@ switch (_mode) do
 
     // Reset ctrlEnable for all management buttons
     {_x ctrlEnable true; _x ctrlSetTooltip ""} forEach _addSubButtons;
-    _rebuildGarrisonButton ctrlEnable true; // TODO: Check if rebuild is available under attacks, probably shouldn't be?
+    _rebuildGarrisonButton ctrlEnable true; // TODO UI-update: Check if rebuild is available under attacks, probably shouldn't be?
     _rebuildGarrisonButton ctrlSetTooltip "";
     _dismissGarrisonButton ctrlEnable true;
     _dismissGarrisonButton ctrlSetTooltip "";
@@ -419,7 +419,7 @@ switch (_mode) do
     if (_marksman < 1) then {_marksmanSubButton ctrlEnable false};
     if (_at < 1) then {_atSubButton ctrlEnable false};
 
-    // TODO: Placeholder prices, replace with server getVariable ["SDKx"] on merge
+    // TODO UI-update: Placeholder prices, replace with server getVariable ["SDKx"] on merge
     _riflemanPrice = 50;
     _squadLeaderPrice = 150;
     _autoriflemanPrice = 75;
@@ -462,7 +462,7 @@ switch (_mode) do
     if (_factionMoney < _atPrice || _hr < 1) then {_atAddButton ctrlEnable false; _atAddButton ctrlSetTooltip _noResourcesText};
 
     // Disable any management buttons if garrison is under attack
-    // TODO: This is very placeholdery atm, replace with A3A_fnc_enemyNearCheck on merge
+    // TODO UI-update: This is very placeholdery atm, replace with A3A_fnc_enemyNearCheck on merge
     private _garrisonUnderAttack = false;
     if (_selectedMarker isEqualTo "outpost_1") then {_garrisonUnderAttack = true};
     if (_garrisonUnderAttack) then {
@@ -543,7 +543,7 @@ switch (_mode) do
     Debug_1("Selected marker: %1", _selectedMarker);
 
     _markerMapPosition = _garrisonMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
-    private _maxDistance = 8 * GRID_W; // TODO: Move somewhere else?
+    private _maxDistance = 8 * GRID_W; // TODO UI-update: Move somewhere else?
     private _distance = _clickedPosition distance _markerMapPosition;
     if (_distance > _maxDistance) exitWith
     {
@@ -558,7 +558,6 @@ switch (_mode) do
   };
 
   // Updating the garrison numbers
-  // TODO: this needs to be generalized a bit for garrison update compatibility
   case ("garrisonAdd"):
   {
     private _type = _params select 0;
@@ -626,7 +625,7 @@ switch (_mode) do
 
   case ("dismissGarrison"):
   {
-    // TODO: on merge replace this with actual antistasi function
+    // TODO UI-update: on merge replace this with actual antistasi function
     Trace("Dismissing garrison");
     private _selectedMarker = _garrisonMap getVariable ["selectedMarker", ""];
     if (_selectedMarker isEqualTo "") exitWith {Error("Dismiss garrison: No marker selected")};
@@ -641,7 +640,7 @@ switch (_mode) do
     ["updateGarrisonTab"] call A3A_fnc_hqDialog;
   };
 
-  // TODO: Remove placeholder mode
+  // TODO UI-update: Replace with A3A_fnc_skipTime and A3A_fnc_resourceCheckSkipTime when merging
   case ("debugChangeTime"):
   {
     private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;

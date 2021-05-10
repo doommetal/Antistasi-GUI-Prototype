@@ -48,7 +48,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_inf_squad;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 11 * GRID_H;
@@ -83,7 +83,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_inf_team;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 32 * GRID_H;
@@ -118,7 +118,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_mg_team;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 53 * GRID_H;
@@ -153,7 +153,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_at_team;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 36 * GRID_W;
           y = 74 * GRID_H;
@@ -188,7 +188,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_mortar_team;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 11 * GRID_H;
@@ -224,7 +224,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_sniper_team;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 32 * GRID_H;
@@ -259,7 +259,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_at_car;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 53 * GRID_H;
@@ -294,7 +294,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_recruit_squad_aa_truck;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addFIAsquadHC when merged"""; // TODO UI-update: Replace placeholder when merging
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 74 * GRID_H;

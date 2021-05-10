@@ -14,7 +14,7 @@
       5 - FFV seats
 */
 
-// TODO: Update header
+// TODO UI-update: Update header
 
 params ["_class"];
 

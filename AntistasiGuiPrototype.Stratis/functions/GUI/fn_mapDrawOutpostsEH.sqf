@@ -12,7 +12,7 @@ Scope: Internal
 Environment: Unscheduled
 Public: No
 Dependencies:
-    <ARRAY> markersX // TODO: Probably needs update on merge
+    <ARRAY> markersX // TODO UI-update: Probably needs update on merge
 
 Example:
     _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];

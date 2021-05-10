@@ -38,9 +38,9 @@ eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
 }]; */
 
 // State variables
-canGoUndercover = true; // TODO: Replace with A3A_fnc_canGoUndercover
+canGoUndercover = true; // TODO UI-update: Replace with A3A_fnc_canGoUndercover
 // isUndercover = (captive _player) and !(_player getVariable ["incapacitated",false]);
-canFastTravel = true; // TODO: Replace with A3A_fnc_canFastTravel
+canFastTravel = true; // TODO UI-update: Replace with A3A_fnc_canFastTravel
 canConstruct = true; // check for engineer in squad
 canMoveHQ = true;
 
@@ -75,7 +75,7 @@ aggressionInvaders = 2;
 // Air Support Points
 bombRuns = 3;
 
-// TODO: Replace this with A3A_fnc_HQGameOptions
+// TODO UI-update: Replace this with A3A_fnc_HQGameOptions
 //civLimit = 40; // missionNamespace getVariable ["civPerc",0];
 missionNamespace setVariable ["civPerc", 40, true];
 civLimitMin = 0;
@@ -183,7 +183,7 @@ markersX apply {
   // Set side to GUER
   sidesX setVariable [_x, resistance];
 };
-// TODO: Set a few select ones to WEST or whatever
+// TODO UI-update: Set a few select ones to WEST or whatever
 
 // Set garrisons
 // Loop through all markers

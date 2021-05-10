@@ -1,9 +1,9 @@
-// TODO: update header
+// TODO UI-update: update header
 
 // Returns info about a group
 // Group name, position, alive/combat ready counts, vehicle status etc.
 // Mostly rewritten stuff from REINF/fn_vehStats.sqf
-// TODO: This might be a good idea to split up into multiple functions
+// TODO UI-update: This might be a good idea to split up into multiple functions
 
 /* Current return layout:
   [
@@ -42,7 +42,7 @@ private _groupLeader = leader _group;
 private _units = units _group;
 private _aliveUnits = {alive _x} count _units;
 private _ableToCombat = {[_x] call A3A_fnc_canFight} count _units;
-private _task = "N/A"; // TODO: Update when merging: _x getVariable ["taskX","Patrol"]
+private _task = "N/A"; // TODO UI-update: Update when merging: _x getVariable ["taskX","Patrol"]
 private _combatMode = behaviour _groupLeader;
 private _hasOperativeMedic = {[_x] call A3A_fnc_isMedic} count _units > 0;
 private _hasAt = {_x call A3A_fnc_typeOfSoldier == "ATMan"} count _units > 0;

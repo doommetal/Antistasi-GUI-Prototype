@@ -12,7 +12,7 @@ License: MIT License, Copyright (c) 2020 Barbolani & The Official AntiStasi Comm
 // TEST DIALOGS //
 //////////////////
 
-// TODO: Test stuff, remove when merging
+// TODO UI-update: Test stuff, remove when merging
 #include "testTabbedDialog.hpp"
 #include "testDefaultDialog.hpp"
 #include "testStartDialog.hpp"

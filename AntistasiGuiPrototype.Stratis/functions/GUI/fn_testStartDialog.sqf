@@ -1,4 +1,4 @@
-// disableSerialization; // TODO: Test without this to see if it's actually needed
+// disableSerialization; // TODO UI-update: Test without this to see if it's actually needed
 
 #include "..\..\GUI\ids.inc"
 #include "..\..\GUI\defines.hpp"

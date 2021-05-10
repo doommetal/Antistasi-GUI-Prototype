@@ -89,7 +89,7 @@ switch (_mode) do
     };
 
     // AI Management
-    // TODO: split checks to A3A_fnc_canManageAI
+    // TODO UI-update: split checks to A3A_fnc_canManageAI
     _aiManagementTooltipText = "";
     _canManageAi = false;
 
@@ -145,19 +145,19 @@ switch (_mode) do
     _playerRankText ctrlSetText ([player, "displayName"] call BIS_fnc_rankParams);
     _playerRankPicture ctrlSetText ([player, "texture"] call BIS_fnc_rankParams);
 
-    private _time = time; // TODO: get time at session start, not mission start, aka after you've loaded in, and on respawns etc...
+    private _time = time; // TODO UI-update: get time at session start, not mission start, aka after you've loaded in, and on respawns etc...
     _aliveText ctrlSetText format [[_time] call A3A_fnc_formatTime];
 
-    // TODO: Make function for getting num of completed missions
+    // TODO UI-update: Make function for getting num of completed missions
     private _missions = player getVariable "missionsCompleted";
     _missionsText ctrlSetText str _missions;
 
-    // TODO: Make function for getting number of kills
+    // TODO UI-update: Make function for getting number of kills
     private _kills = player getVariable "kills";
     _killsText ctrlSetText str _kills;
 
     // Update commander icon/text/button
-    // TODO: Add member check
+    // TODO UI-update: Add member check
     if (theBoss == player) then {
       // Player is commander
       // Update icon
@@ -206,8 +206,8 @@ switch (_mode) do
 
       // Attempt to get vehicle from cursortarget
       _vehicle = cursorTarget;
-      // TODO: Add fallback to select the closest eligible vehicle in sight
-      // TODO: Add check for distance
+      // TODO UI-update: Add fallback to select the closest eligible vehicle in sight
+      // TODO UI-update: Add check for distance
 
       if !(isNull _vehicle) then {
         // Check if vehicle is eligible for garage / sell, not a dude or house etc.
@@ -226,7 +226,7 @@ switch (_mode) do
           private _vehiclePicture = _display displayCtrl A3A_IDC_VEHICLEPICTURE;
           _vehiclePicture ctrlSetText _editorPreview;
 
-          // TODO: Disable garage, sell and add to air support buttons
+          // TODO UI-update: Disable garage, sell and add to air support buttons
           // if player is not in range of a friendly location
 
           if (playerIsCommander) then {

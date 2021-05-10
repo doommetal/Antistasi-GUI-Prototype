@@ -26,10 +26,10 @@ private _hcGroupData = [];
 {
   private _groupData = [_x] call A3A_fnc_getGroupInfo;
   _hcGroupData pushBack _groupData;
-} forEach hcallGroups player; // TODO: Replace with commander?
+} forEach hcallGroups player; // TODO UI-update: Replace with commander?
 _map setVariable ["hcGroupData", _hcGroupData];
 
-// TODO: Move to A3A_fnc_commanderTab
+// TODO UI-update: Move to A3A_fnc_commanderTab
 // Update commander tab when data changes
 /* if !(_oldHcGroupData isEqualTo _hcGroupData) then {
   ["update"] call A3A_fnc_commanderTab;

@@ -49,7 +49,7 @@ switch (_mode) do
     };
     _backButton ctrlShow true;
 
-    // TODO: Update title bar
+    // TODO UI-update: Update title bar
 
     // Show map
     _fastTravelMap ctrlShow true;
@@ -69,7 +69,7 @@ switch (_mode) do
     };
 
     // Time
-    _timeString = "1m 5s"; // TODO: Get actual time
+    _timeString = "1m 5s"; // TODO UI-update: Get actual time
     _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_time" + " " + _timeString + ".<br/><br/>";
 
     // Vehicle
@@ -130,7 +130,7 @@ switch (_mode) do
     Debug_1("Selected marker: %1", _selectedMarker);
 
     _markerMapPosition = _fastTravelMap ctrlMapWorldToScreen (getMarkerPos _selectedMarker);
-    private _maxDistance = 8 * GRID_W; // TODO: Move somewhere else?
+    private _maxDistance = 8 * GRID_W; // TODO UI-update: Move somewhere else?
     private _distance = _clickedPosition distance _markerMapPosition;
     if (_distance > _maxDistance) exitWith
     {
@@ -164,7 +164,7 @@ switch (_mode) do
     _fastTravelMap setVariable ["hcGroup", _hcGroup];
   };
 
-  case ("commitButtonClicked"): // TODO: Placeholder, replace with actual FT function on merge
+  case ("commitButtonClicked"): // TODO UI-update: Placeholder, replace with actual FT function on merge
   {
     private _display = findDisplay A3A_IDD_MainDialog;
     private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;

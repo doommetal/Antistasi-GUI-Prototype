@@ -214,7 +214,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class AliveLabel : A3A_Text
         {
           idc = -1;
-          text = "Time alive:"; // TODO: localize later, not final yet
+          text = "Time alive:"; // TODO UI-update: localize later, not final yet
           x = 98 * GRID_W;
           y = 17 * GRID_H;
           w = 30 * GRID_W;
@@ -235,7 +235,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class MissionsLabel : A3A_Text
         {
           idc = -1;
-          text = "Missions:"; // TODO: localize later, not final yet
+          text = "Missions:"; // TODO UI-update: localize later, not final yet
           x = 98 * GRID_W;
           y = 22 * GRID_H;
           w = 30 * GRID_W;
@@ -256,7 +256,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         class KillsLabel : A3A_Text
         {
           idc = -1;
-          text = "Kills:"; // TODO: localize later, not final yet
+          text = "Kills:"; // TODO UI-update: localize later, not final yet
           x = 98 * GRID_W;
           y = 27 * GRID_H;
           w = 30 * GRID_W;
@@ -439,7 +439,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_GARAGEVEHICLEBUTTON;
               text = $STR_antistasi_dialogs_main_garage_vehicle;
-              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_garageVehicle when merged"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_garageVehicle when merged"""; // TODO UI-update: Replace placeholder when merging
               x = 32 * GRID_W;
               y = 0 * GRID_H;
               w = 22 * GRID_W;
@@ -450,7 +450,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_UNLOCKVEHICLEBUTTON;
               text = $STR_antistasi_dialogs_main_unlock_vehicle; // Same exists for unlock
-              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_unlockVehicle when merged"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_unlockVehicle when merged"""; // TODO UI-update: Replace placeholder when merging
               x = 32 * GRID_W;
               y = 14 * GRID_H;
               w = 22 * GRID_W;
@@ -461,7 +461,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_SELLVEHICLEBUTTON;
               text = $STR_antistasi_dialogs_main_sell_vehicle;
-              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_sellVehicle when merged"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_sellVehicle when merged"""; // TODO UI-update: Replace placeholder when merging
               x = 56 * GRID_W;
               y = 0 * GRID_H;
               w = 22 * GRID_W;
@@ -472,7 +472,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_ADDTOAIRSUPPORTBUTTON;
               text = $STR_antistasi_dialogs_main_add_to_air_support;
-              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addBombRun when merged"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_addBombRun when merged"""; // TODO UI-update: Replace placeholder when merging
               x = 56 * GRID_W;
               y = 14 * GRID_H;
               w = 22 * GRID_W;
@@ -710,7 +710,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             class MountButton : A3A_Button
             {
               idc = -1;
-              text = $STR_antistasi_dialogs_main_hc_mount; // Todo: update on mount status
+              text = $STR_antistasi_dialogs_main_hc_mount; // TODO UI-update: update on mount status
               x = 2 * GRID_H;
               y = 40 * GRID_H;
               w = 24 * GRID_W;
@@ -1207,7 +1207,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               text = $STR_antistasi_dialogs_main_garbage_clean_all;
-              onButtonClick = "hint ""Garbage cleaning entire map""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
+              onButtonClick = "hint ""Garbage cleaning entire map""; closeDialog 2;"; // TODO UI-update: Use actual Garbage Clean HQ function
               x = 0 * GRID_W;
               y = 0 * GRID_H;
               w = 24 * GRID_W;
@@ -1218,7 +1218,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = -1;
               text = $STR_antistasi_dialogs_main_garbage_clean_hq;
-              onButtonClick = "hint ""Garbage cleaning HQ""; closeDialog 2;"; // TODO: Use actual Garbage Clean HQ function
+              onButtonClick = "hint ""Garbage cleaning HQ""; closeDialog 2;"; // TODO UI-update: Use actual Garbage Clean HQ function
               x = 26 * GRID_W;
               y = 0 * GRID_H;
               w = 24 * GRID_W;
@@ -1446,7 +1446,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_COMMITAIBUTTON;
           text = $STR_antistasi_dialogs_main_admin_ai_commit_button;
-          onButtonClick = "[""confirmAILimit""] call A3A_fnc_adminTab;"; // TODO: Placeholder
+          onButtonClick = "[""confirmAILimit""] call A3A_fnc_adminTab;"; // TODO UI-update: Placeholder
           x = 132 * GRID_W;
           y = 36 * GRID_H;
           w = 20 * GRID_W;
@@ -1702,7 +1702,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_AICONTROLBUTTON;
               text = $STR_antistasi_dialogs_main_ai_management_temp_ai_control_button;
-              onButtonClick = "hint ""Placeholder\nWill use REINF\controlunit.sqf when merged (and probably move that to functions)"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use REINF\controlunit.sqf when merged (and probably move that to functions)"""; // TODO UI-update: Replace placeholder when merging
               x = 0 * GRID_W;
               y = 0 * GRID_H;
               w = 32 * GRID_W;
@@ -1723,7 +1723,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_AIDISMISSBUTTON;
               text = $STR_antistasi_dialogs_main_ai_management_dismiss_button;
-              onButtonClick = "hint ""Placeholder\nWill use REINF\dismissPlayerGroup.sqf when merged (and probably move that to functions)"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use REINF\dismissPlayerGroup.sqf when merged (and probably move that to functions)"""; // TODO UI-update: Replace placeholder when merging
               x = 0 * GRID_W;
               y = 20 * GRID_H;
               w = 32 * GRID_W;
@@ -1744,7 +1744,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_AIAUTOLOOTBUTTON;
               text = $STR_antistasi_dialogs_main_ai_management_auto_rearm_button;
-              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_rearmCall when merged"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_rearmCall when merged"""; // TODO UI-update: Replace placeholder when merging
               x = 0 * GRID_W;
               y = 40 * GRID_H;
               w = 32 * GRID_W;
@@ -1765,7 +1765,7 @@ class A3A_MainDialog : A3A_TabbedDialog
             {
               idc = A3A_IDC_AIAUTOHEALBUTTON;
               text = $STR_antistasi_dialogs_main_ai_management_auto_heal_button;
-              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_autoHealFnc when merged"""; // TODO: Replace placeholder when merging
+              onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_autoHealFnc when merged"""; // TODO UI-update: Replace placeholder when merging
               x = 0 * GRID_W;
               y = 60 * GRID_H;
               w = 32 * GRID_W;
@@ -1957,7 +1957,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_DONATEPLAYERBUTTON;
           text = $STR_antistasi_dialogs_main_donate_player;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_donateMoney when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_donateMoney when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 74 * GRID_W;
           y = 63 * GRID_H;
           w = 36 * GRID_W;
@@ -1968,7 +1968,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_DONATEFACTIONBUTTON;
           text = $STR_antistasi_dialogs_main_donate_faction;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_donateMoney when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_donateMoney when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 116 * GRID_W;
           y = 63 * GRID_H;
           w = 36 * GRID_W;
@@ -2063,7 +2063,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_AIRSUPPORTHEBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_he_bombs;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 16 * GRID_W;
           y = 74 * GRID_H;
           w = 32 * GRID_W;
@@ -2084,7 +2084,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_AIRSUPPORTCARPETBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_carpet_bombing;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 64 * GRID_W;
           y = 74 * GRID_H;
           w = 32 * GRID_W;
@@ -2105,7 +2105,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = A3A_IDC_AIRSUPPORTNAPALMBUTTON;
           text = $STR_antistasi_dialogs_main_air_support_napalm;
-          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_NATObomb when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 112 * GRID_W;
           y = 74 * GRID_H;
           w = 32 * GRID_W;
@@ -2202,7 +2202,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_main_admin_tp_to_player_button;
-          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 120 * GRID_W;
           y = 22 * GRID_H;
           w = 32 * GRID_W;
@@ -2213,7 +2213,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_main_admin_tp_player_to_me_button;
-          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 120 * GRID_W;
           y = 37 * GRID_H;
           w = 32 * GRID_W;
@@ -2224,7 +2224,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_main_admin_kick_player_button;
-          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 120 * GRID_W;
           y = 52 * GRID_H;
           w = 32 * GRID_W;
@@ -2235,7 +2235,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_main_admin_ban_player_button;
-          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 120 * GRID_W;
           y = 67 * GRID_H;
           w = 32 * GRID_W;
@@ -2246,7 +2246,7 @@ class A3A_MainDialog : A3A_TabbedDialog
         {
           idc = -1;
           text = $STR_antistasi_dialogs_main_admin_copy_uid_button;
-          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO: Replace placeholder when merging
+          onButtonClick = "hint ""Placeholder\nWill use new function when merged"""; // TODO UI-update: Replace placeholder when merging
           x = 120 * GRID_W;
           y = 82 * GRID_H;
           w = 32 * GRID_W;
