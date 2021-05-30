@@ -32,42 +32,37 @@ class A3A_TestDefaultDialog : A3A_DefaultDialog
 					h = 4 * GRID_H;
         };
 
-        class TestBackground : A3A_Background
+        class FastTravelHCButton : A3A_ShortcutButton
         {
           idc = -1;
-					x = 16 * GRID_W;
-					y = 16 * GRID_H;
-					w = 64 * GRID_W;
-					h = 16 * GRID_H;
+          textureNoShortcut = A3A_Icon_FastTravel;
+          onLoad = "_this # 0 ctrlEnable false; _this # 0 ctrlSetFade 0.5; _this # 0 ctrlCommit 0";
+          onButtonClick = "hint ""FT button clicked"";";
+          x = 42 * GRID_W;
+          y = 16 * GRID_H;
+          w = 6 * GRID_W;
+          h = 6 * GRID_H;
+
+          class ShortcutPos
+            {
+                left = 0;
+                top = 0;
+                w = 6 * GRID_W;
+                h = 6 * GRID_H;
+            };
         };
 
-        class TestPicture : A3A_Picture
+        class TestShortcutButton : A3A_ShortcutButton
         {
           idc = -1;
-          text = A3A_Icon_Napalm_Bomb;
-					x = 16 * GRID_W;
-					y = 16 * GRID_H;
-					w = 48 * GRID_W;
-					h = 16 * GRID_H;
-        };
+          text = "Test";
+          onLoad = "_this # 0 ctrlEnable false;";
+          onButtonClick = "hint ""FT button clicked"";";
+          x = 64 * GRID_W;
+          y = 16 * GRID_H;
+          w = 10 * GRID_W;
+          h = 6 * GRID_H;
 
-        class TestBackground2 : A3A_Background
-        {
-          idc = -1;
-					x = 16 * GRID_W;
-					y = 64 * GRID_H;
-					w = 64 * GRID_W;
-					h = 16 * GRID_H;
-        };
-
-        class TestPicture2 : A3A_Picture
-        {
-          idc = -1;
-          text = A3A_Icon_Napalm_Bomb;
-					x = 16 * GRID_W;
-					y = 64 * GRID_H;
-					w = 48 * GRID_W;
-					h = 16 * GRID_H;
         };
 
       };

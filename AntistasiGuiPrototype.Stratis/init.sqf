@@ -28,7 +28,7 @@ eventHandlerY = findDisplay 46 displayAddEventHandler ["KeyDown",{
 // U
 eventHandlerU = findDisplay 46 displayAddEventHandler ["KeyDown", {
   if (_this select 1 == 22) then {
-    if (!dialog) then {createDialog "A3A_LoadDialog";};
+    if (!dialog) then {createDialog "A3A_TestDefaultDialog";};
   };
 }];
 
@@ -74,6 +74,10 @@ aggressionInvaders = 2;
 
 // Air Support Points
 bombRuns = 3;
+
+// Sides
+Occupants = west;
+Invaders = east;
 
 // TODO UI-update: Replace this with A3A_fnc_HQGameOptions
 //civLimit = 40; // missionNamespace getVariable ["civPerc",0];

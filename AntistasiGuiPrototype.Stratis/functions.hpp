@@ -90,5 +90,6 @@ class A3A
   class REINF
   {
     class canBuild {};
+    class enemyNearCheck {}; // Already in antistasi, don't merge
   };
 };

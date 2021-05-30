@@ -217,6 +217,7 @@ switch (_mode) do
     ];
 
     // Hide all tabs
+    Debug("Hiding all tabs");
     {
       private _ctrl = _display displayCtrl _x;
       _ctrl ctrlShow false;
@@ -227,9 +228,12 @@ switch (_mode) do
     _backButton ctrlShow false;
 
     // Show selected tab
+    Debug("Showing selected tab");
     private _selectedTabCtrl = _display displayCtrl _selectedTabIDC;
     _selectedTabCtrl ctrlShow true;
 
+    // Update tab
+    Debug("Updating selected tab");
     switch (_selectedTab) do
     {
       case ("player"):

@@ -574,7 +574,7 @@ class A3A_MainDialog : A3A_TabbedDialog
 
             class FastTravelHCButton : A3A_ShortcutButton
             {
-              idc = -1;
+              idc = A3A_IDC_HCFASTTRAVELBUTTON;
               textureNoShortcut = A3A_Icon_FastTravel;
               tooltip = $STR_antistasi_dialogs_main_fast_travel;
               onButtonClick = "[""groupFastTravelButtonClicked""] call A3A_fnc_commanderTab";

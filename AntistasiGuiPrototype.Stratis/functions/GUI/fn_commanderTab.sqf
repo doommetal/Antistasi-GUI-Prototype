@@ -137,6 +137,22 @@ switch (_mode) do
     private _groupNameText = _display displayCtrl A3A_IDC_HCGROUPNAME;
     _groupNameText ctrlSetText _groupID;
 
+    private _groupFastTravelButton = _display displayCtrl A3A_IDC_HCFASTTRAVELBUTTON;
+    private _canFastTravel = [_group] call A3A_fnc_canFastTravel;
+    if (_canFastTravel # 0) then {
+        _groupFastTravelButton ctrlEnable true;
+        // ShortcutButtons doesn't change texture color when disabled so we have to use fade
+        _groupFastTravelButton ctrlSetFade 0;
+        _groupFastTravelButton ctrlCommit 0;
+        _groupFastTravelButton ctrlSetTooltip ""; // TODO: descriptive tooltip?
+    } else {
+        _groupFastTravelButton ctrlEnable false;
+        // ShortcutButtons doesn't change texture color when disabled so we have to use fade
+        _groupFastTravelButton ctrlSetFade 0.5;
+        _groupFastTravelButton ctrlCommit 0;
+        _groupFastTravelButton ctrlSetTooltip (_canFastTravel # 1);
+    };
+
     private _groupCountText = _display displayCtrl A3A_IDC_HCGROUPCOUNT;
     _groupCountText ctrlSetText format ["%1 / %2", _ableToCombat, _aliveUnits];
 
